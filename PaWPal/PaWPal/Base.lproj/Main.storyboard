@@ -123,6 +123,55 @@
             </objects>
             <point key="canvasLocation" x="1526" y="1219"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="LHj-Vk-ZRP">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="29I-eR-bzb" customClass="LoginViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bRY-oa-iLB"/>
+                        <viewControllerLayoutGuide type="bottom" id="oJ1-j2-vNg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wOc-6T-DF3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOD-bd-s3H">
+                                <rect key="frame" x="276" y="234" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="enterCredentials:" destination="29I-eR-bzb" eventType="touchUpInside" id="r32-PE-x14"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Login Page" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCZ-YE-wMd">
+                                <rect key="frame" x="209" y="28" width="183" height="42"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jap-1p-8Bf">
+                                <rect key="frame" x="163" y="157" width="275" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-db-UJN">
+                                <rect key="frame" x="163" y="94" width="275" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XOD-bd-s3H" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="Jse-Ec-K7V"/>
+                            <constraint firstItem="jap-1p-8Bf" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="Q44-LC-e12"/>
+                            <constraint firstItem="NRl-db-UJN" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="SLp-i3-tnQ"/>
+                            <constraint firstItem="cCZ-YE-wMd" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="naN-vn-dn4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0va-jn-t4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-936" y="0.0"/>
+        </scene>
         <!--TabBar-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
