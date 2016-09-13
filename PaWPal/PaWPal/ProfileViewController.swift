@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ProfileViewController.swift
 //  PaWPal
 //
 //  Created by cs laptop on 9/9/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
