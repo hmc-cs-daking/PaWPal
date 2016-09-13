@@ -39,7 +39,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Survey" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Survey" image="Inspection Filled-30" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +48,7 @@
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="Profile" title="Profile" id="8rJ-Kc-sve" userLabel="Profile" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" title="Profile" id="8rJ-Kc-sve" userLabel="Profile" customClass="ProfileViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -79,7 +79,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Gender Neutral User Filled-30" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,7 +88,7 @@
         <!--Settings-->
         <scene sceneID="qns-we-G9q">
             <objects>
-                <viewController storyboardIdentifier="Settings" title="Settings" id="ocE-1k-TD4" userLabel="Settings" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings" title="Settings" id="ocE-1k-TD4" userLabel="Settings" customClass="SettingsViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdF-iJ-eR2"/>
                         <viewControllerLayoutGuide type="bottom" id="hkD-af-Yet"/>
@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="cju-RI-l9C"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings Filled-30" id="cju-RI-l9C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7e-Yc-gLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,7 +107,7 @@
         <!--Help-->
         <scene sceneID="wBf-5H-Tty">
             <objects>
-                <viewController storyboardIdentifier="Help" id="bhc-L1-sIQ" userLabel="Help" customClass="HelpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Help" id="bhc-L1-sIQ" userLabel="Help" customClass="HelpViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zvf-9Q-c0v"/>
                         <viewControllerLayoutGuide type="bottom" id="FKu-gG-bEj"/>
@@ -117,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Help" id="WIO-4x-xV5"/>
+                    <tabBarItem key="tabBarItem" title="Help" image="Help Filled-30" id="WIO-4x-xV5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-9z-CHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +126,7 @@
         <!--TabBar-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" title="TabBar" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" title="TabBar" id="49e-Tb-3d3" customClass="TabBarController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -146,7 +146,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Gender Neutral User Filled-30" width="30" height="30"/>
+        <image name="Help Filled-30" width="30" height="30"/>
+        <image name="Inspection Filled-30" width="30" height="30"/>
+        <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
 </document>
