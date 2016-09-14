@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SurveyViewController.swift
 //  PaWPal
 //
 //  Created by cs laptop on 9/9/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class SurveyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

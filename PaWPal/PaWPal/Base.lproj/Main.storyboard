@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Survey-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Survey" title="Survey" id="9pv-A4-QxB" userLabel="Survey" customClass="SurveyViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -39,16 +39,16 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Survey" image="Inspection Filled-30" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="-1116" y="1202"/>
         </scene>
-        <!--Second-->
+        <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" title="Profile" id="8rJ-Kc-sve" userLabel="Profile" customClass="ProfileViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -79,16 +79,103 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Gender Neutral User Filled-30" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="-350" y="1194"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Settings-->
+        <scene sceneID="qns-we-G9q">
+            <objects>
+                <viewController storyboardIdentifier="Settings" title="Settings" id="ocE-1k-TD4" userLabel="Settings" customClass="SettingsViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tdF-iJ-eR2"/>
+                        <viewControllerLayoutGuide type="bottom" id="hkD-af-Yet"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Deg-3n-fe9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings Filled-30" id="cju-RI-l9C"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f7e-Yc-gLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="586" y="1216"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="wBf-5H-Tty">
+            <objects>
+                <viewController storyboardIdentifier="Help" id="bhc-L1-sIQ" userLabel="Help" customClass="HelpViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zvf-9Q-c0v"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKu-gG-bEj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xAP-Pw-ypm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Help" image="Help Filled-30" id="WIO-4x-xV5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-9z-CHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="1219"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="LHj-Vk-ZRP">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="29I-eR-bzb" customClass="LoginViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bRY-oa-iLB"/>
+                        <viewControllerLayoutGuide type="bottom" id="oJ1-j2-vNg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wOc-6T-DF3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOD-bd-s3H">
+                                <rect key="frame" x="276" y="234" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="enterCredentials:" destination="29I-eR-bzb" eventType="touchUpInside" id="r32-PE-x14"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Login Page" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCZ-YE-wMd">
+                                <rect key="frame" x="209" y="28" width="183" height="42"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jap-1p-8Bf">
+                                <rect key="frame" x="163" y="157" width="275" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-db-UJN">
+                                <rect key="frame" x="163" y="94" width="275" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XOD-bd-s3H" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="Jse-Ec-K7V"/>
+                            <constraint firstItem="jap-1p-8Bf" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="Q44-LC-e12"/>
+                            <constraint firstItem="NRl-db-UJN" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="SLp-i3-tnQ"/>
+                            <constraint firstItem="cCZ-YE-wMd" firstAttribute="centerX" secondItem="wOc-6T-DF3" secondAttribute="centerX" id="naN-vn-dn4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0va-jn-t4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-936" y="0.0"/>
+        </scene>
+        <!--TabBar-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" title="TabBar" id="49e-Tb-3d3" customClass="TabBarController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -98,6 +185,8 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="bhc-L1-sIQ" kind="relationship" relationship="viewControllers" id="yl0-As-78q"/>
+                        <segue destination="ocE-1k-TD4" kind="relationship" relationship="viewControllers" id="qA6-Lu-ePi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -106,7 +195,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Gender Neutral User Filled-30" width="30" height="30"/>
+        <image name="Help Filled-30" width="30" height="30"/>
+        <image name="Inspection Filled-30" width="30" height="30"/>
+        <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
 </document>
