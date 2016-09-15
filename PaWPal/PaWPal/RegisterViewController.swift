@@ -25,9 +25,11 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Registers new users - unless fields are invalid
+    // Currently, a single device's login data is stored using NSUserDefaults
+    // Eventually, login data for multiple devices/users will be stored in a database
     @IBAction func createRegistration(sender: AnyObject) {
         
-        // Retrieve user's email and passwords
         let userEmail = userEmailTextField.text
         let userPassword = userPasswordTextField.text
         let userRepeatPassword = userRepeatPasswordTextField.text
@@ -36,6 +38,9 @@ class RegisterViewController: UIViewController {
         // TODO: check valid email address
         if (userEmail!.isEmpty || userPassword!.isEmpty || userRepeatPassword!.isEmpty) {
             displayAlert("All fields must be filled", handler: nil)
+        }
+        if (!userEmail!.isValidEmail()) {
+            displayAlert("Invalid email", handler: nil)
         }
         else if (userPassword != userRepeatPassword) {
             displayAlert("Passwords do not match", handler: nil)
