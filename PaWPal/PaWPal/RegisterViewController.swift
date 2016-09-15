@@ -35,7 +35,6 @@ class RegisterViewController: UIViewController {
         let userRepeatPassword = userRepeatPasswordTextField.text
         
         // Check validity
-        // TODO: check valid email address
         if (userEmail!.isEmpty || userPassword!.isEmpty || userRepeatPassword!.isEmpty) {
             displayAlert("All fields must be filled", handler: nil)
         }
