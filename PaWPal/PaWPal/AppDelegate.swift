@@ -15,11 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-       
-        // Show login page first
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
-        self.window?.rootViewController = loginVC
+        
+        let isUserLoggedIn = NSUserDefaults.standardUserDefaults().boolForKey("isUserLoggedIn")
+        
+        if (!isUserLoggedIn) {
+            // Show login page if user is not logged in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+            self.window?.rootViewController = loginVC
+        }
         
         return true
     }

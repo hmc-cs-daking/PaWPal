@@ -10,15 +10,35 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    
+    @IBOutlet weak var userEmailTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    
     @IBAction func enterCredentials(sender: AnyObject) {
-        // TODO: separate this from the login mechanism
-        // Transition to tab bar controller (main view)
+        
+        let userEmail = userEmailTextField.text
+        let userPassword = userPasswordTextField.text
+        
+        let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
+        let userPasswordStored = NSUserDefaults.standardUserDefaults().stringForKey("userPassword")
+
+        if (userEmail == userEmailStored && userPassword == userPasswordStored) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            removeLoginFromView()
+        }
+        else {
+            //TODO display error message
+        }
+    }
+    
+    // If login is successful, go to main view
+    func removeLoginFromView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = tabBarController
-        
-        
     }
     
     override func viewDidLoad() {
