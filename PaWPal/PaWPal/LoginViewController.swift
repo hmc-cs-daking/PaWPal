@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         
         let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
         let userPasswordStored = NSUserDefaults.standardUserDefaults().stringForKey("userPassword")
-
+        
         if (userEmail == userEmailStored && userPassword == userPasswordStored) {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
             NSUserDefaults.standardUserDefaults().synchronize()
