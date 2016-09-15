@@ -17,9 +17,13 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup time picker text fields with proper input
+        wakeTimePicker.datePickerMode = UIDatePickerMode.Time;
         let wakeToolBar = createToolBar(#selector(SettingsViewController.wakeDonePressed));
         wakeTextField.inputAccessoryView = wakeToolBar;
         wakeTextField.inputView = wakeTimePicker;
+        
+        sleepTimePicker.datePickerMode = UIDatePickerMode.Time;
         let sleepToolBar = createToolBar(#selector(SettingsViewController.sleepDonePressed));
         sleepTextField.inputAccessoryView = sleepToolBar;
         sleepTextField.inputView = sleepTimePicker;
@@ -31,13 +35,19 @@ class SettingsViewController: UIViewController {
     }
     
     func wakeDonePressed(sender: UIBarButtonItem) {
-        wakeTextField.text = wakeTimePicker.date.description;
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        let time = dateFormatter.stringFromDate(wakeTimePicker.date);
+        wakeTextField.text = time;
         wakeTextField.resignFirstResponder()
         
     }
     
     func sleepDonePressed(sender: UIBarButtonItem) {
-        sleepTextField.text = sleepTimePicker.date.description;
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        let time = dateFormatter.stringFromDate(wakeTimePicker.date);
+        sleepTextField.text = time;
         sleepTextField.resignFirstResponder();
     }
     
