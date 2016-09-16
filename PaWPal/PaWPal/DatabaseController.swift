@@ -11,7 +11,6 @@ import Foundation
 class DatabaseController {
     
     //list of functions to access user info
-    
     func getEmail() -> String{
         let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
         return userEmailStored!
@@ -30,6 +29,27 @@ class DatabaseController {
     func getSchool() -> String{
         let userSchoolStored = NSUserDefaults.standardUserDefaults().stringForKey("userSchool")
         return userSchoolStored!
+    }
+    
+    //list of functions to set user info
+    func setEmail(userEmail: String){
+        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func setPassword(userPassword: String){
+        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func setName(userName: String){
+        NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "userName")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func setSchool(userSchool: String){
+        NSUserDefaults.standardUserDefaults().setObject(userSchool, forKey: "userSchool")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
 }
