@@ -18,33 +18,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="221" y="279" width="158" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GSh-4c-ukV">
+                                <rect key="frame" x="154" y="72" width="293" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpR-us-4NT">
+                                <rect key="frame" x="12" y="145" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="203" y="329" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUj-oK-tyH">
+                                <rect key="frame" x="20" y="198" width="560" height="46"/>
+                                <color key="backgroundColor" red="0.0039215686274509803" green="0.99607843137254903" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Answer 1">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AnswerButton1Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="T1P-I6-OQe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bW-EQ-4Db">
+                                <rect key="frame" x="20" y="340" width="560" height="46"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Answer 3">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AnswerButton3Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="G5g-ui-ueb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-lk-7Wb">
+                                <rect key="frame" x="20" y="408" width="560" height="46"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Answer 4">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AnswerButton4Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4oq-aG-v34"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-mN-FRQ">
+                                <rect key="frame" x="20" y="269" width="560" height="46"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Answer 2">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AnswerButton2Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="QbF-ls-lyZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="GSh-4c-ukV" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6Tg-T9-56i"/>
+                            <constraint firstItem="X6O-lk-7Wb" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Cqo-VG-mz6"/>
+                            <constraint firstItem="1bW-EQ-4Db" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="K2I-Rb-uJ1"/>
+                            <constraint firstItem="LpR-us-4NT" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="KYa-yF-dRh"/>
+                            <constraint firstItem="OUj-oK-tyH" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="Km5-jp-rbP"/>
+                            <constraint firstItem="OUj-oK-tyH" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="MM8-c6-Ltc"/>
+                            <constraint firstItem="AZv-mN-FRQ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="UIY-lw-P8j"/>
+                            <constraint firstItem="1bW-EQ-4Db" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="f9u-no-G5t"/>
+                            <constraint firstItem="LpR-us-4NT" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="fa5-s1-CWQ"/>
+                            <constraint firstItem="X6O-lk-7Wb" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="rrI-qq-QTR"/>
+                            <constraint firstItem="AZv-mN-FRQ" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="ryj-g7-sXh"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Survey" image="Inspection Filled-30" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="AnswerButton1" destination="OUj-oK-tyH" id="wmY-zQ-JcC"/>
+                        <outlet property="AnswerButton2" destination="AZv-mN-FRQ" id="Gva-as-x4J"/>
+                        <outlet property="AnswerButton3" destination="1bW-EQ-4Db" id="sdW-Fc-NSp"/>
+                        <outlet property="AnswerButton4" destination="X6O-lk-7Wb" id="v5H-Ol-U6t"/>
+                        <outlet property="QuestionLabel" destination="LpR-us-4NT" id="gQf-1t-ByB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-784" y="1074"/>
+            <point key="canvasLocation" x="-806" y="1120"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
