@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var userRepeatPasswordTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,53 +26,45 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     // Registers new users - unless fields are invalid
     // Currently, a single device's login data is stored using NSUserDefaults
     // Eventually, login data for multiple devices/users will be stored in a database
     @IBAction func createRegistration(sender: AnyObject) {
         
-        let userEmail = userEmailTextField.text
-        let userPassword = userPasswordTextField.text
-        let userRepeatPassword = userRepeatPasswordTextField.text
-        
-        // Check validity
-        if (userEmail!.isEmpty || userPassword!.isEmpty || userRepeatPassword!.isEmpty) {
-            displayAlert("All fields must be filled", handler: nil)
-        }
-        if (!userEmail!.isValidEmail()) {
-            displayAlert("Invalid email", handler: nil)
-        }
-        else if (userPassword != userRepeatPassword) {
-            displayAlert("Passwords do not match", handler: nil)
-        }
-        else {
-            // Store data
-            // TODO: find a more secure way to store data
-            NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
-            NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            // Go back to login page
-            displayAlert("Registration successful. Thank you!", handler: { action in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-            
+        // Guards against invalid email
+        guard let userEmail = userEmailTextField.text
+            where userEmail.isValidEmail() else {
+                self.displayAlert("Error", message: "Invalid email", handler: nil)
+                return
         }
         
-    }
-    
-    // Customize message and exit handler method
-    // TODO potential: move this func to an extension of TabBarConroller
-    func displayAlert(message: String, handler: ((UIAlertAction) -> Void)?) {
-        let alertController = UIAlertController(title: "Alert", message:
-            message, preferredStyle: UIAlertControllerStyle.Alert)
+        // Guards against empty password
+        // TODO: in the future, maybe enforce at least 6 characters
+        guard let userPassword = userPasswordTextField.text
+            where !userPassword.isEmpty else {
+                self.displayAlert("Error", message: "Password not entered", handler: nil)
+                return
+        }
         
-        alertController.addAction(UIAlertAction(
-            title: "Ok",
-            style: UIAlertActionStyle.Default,
-            handler: handler))
+        // Guards against different passwords
+        guard let userRepeatPassword = userRepeatPasswordTextField.text
+            where userPassword == userRepeatPassword else {
+                self.displayAlert("Error", message: "Passwords do not match", handler: nil)
+                return
+        }
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        // Store data
+        // TODO: find a more secure way to store data
+        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
+        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        // Go back to login page
+        self.displayAlert("Success!", message: "Registration successful. Thank you!", handler: { action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
     }
     
     // Go back to login page

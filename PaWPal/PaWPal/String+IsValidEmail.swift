@@ -8,12 +8,20 @@
 
 import Foundation
 
-// Class extensions allow functions like isValidEmail to be used in multiple files within PaWPal
+// This extension allows all strings within PaWPal to use methods like isValidEmail
 
-// Usage: 
-// "someemail@email.com".isValidEmail() --> true
-// "notanemail".isValidEmail() --> false
 extension String {
+    
+    /* 
+     * isValidEmail
+     *
+     * Usage:
+     *     "valid@email.com".isValidEmail()
+     *     "invalid".isValidEmail()
+     *
+     * Output: 
+     *     Bool
+     */
     func isValidEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
