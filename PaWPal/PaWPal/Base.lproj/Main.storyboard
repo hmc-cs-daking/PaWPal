@@ -205,15 +205,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pap-nS-vox">
+                                <rect key="frame" x="253" y="249" width="94" height="30"/>
+                                <state key="normal" title="Save Settings"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvo-O8-w4O">
                                 <rect key="frame" x="235" y="28" width="131" height="42"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pap-nS-vox">
-                                <rect key="frame" x="253" y="249" width="94" height="30"/>
-                                <state key="normal" title="Save Settings"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKr-OE-km0">
+                                <rect key="frame" x="273" y="404" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOut:" destination="ocE-1k-TD4" eventType="touchUpInside" id="fND-Km-NNZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,7 +229,9 @@
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="height" secondItem="b6s-DV-WMD" secondAttribute="height" id="9b8-Af-h2o"/>
                             <constraint firstItem="b6s-DV-WMD" firstAttribute="top" secondItem="bdQ-Pj-HTo" secondAttribute="bottom" constant="10" id="Anv-Aq-Koi"/>
                             <constraint firstItem="bdQ-Pj-HTo" firstAttribute="top" secondItem="tdF-iJ-eR2" secondAttribute="bottom" constant="71" id="H6f-1M-Mnr"/>
+                            <constraint firstItem="uKr-OE-km0" firstAttribute="centerX" secondItem="Deg-3n-fe9" secondAttribute="centerX" id="LbJ-cO-FRo"/>
                             <constraint firstItem="bdQ-Pj-HTo" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="Mrw-n3-f8m"/>
+                            <constraint firstItem="uKr-OE-km0" firstAttribute="top" secondItem="pap-nS-vox" secondAttribute="bottom" constant="125" id="PEs-Sf-Ehl"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="QHj-NM-eEH"/>
                             <constraint firstItem="b6s-DV-WMD" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="VQI-5d-8Ue"/>
                             <constraint firstItem="pvo-O8-w4O" firstAttribute="top" secondItem="tdF-iJ-eR2" secondAttribute="bottom" constant="8" id="Xux-Kn-NGM"/>

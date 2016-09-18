@@ -82,6 +82,14 @@ class SettingsViewController: UIViewController {
         
         return toolBar;
     }
+    
+    // Log out
+    @IBAction func logOut(sender: UIButton) {
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
