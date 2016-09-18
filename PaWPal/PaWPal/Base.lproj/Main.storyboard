@@ -219,7 +219,7 @@
                                 <rect key="frame" x="273" y="404" width="55" height="30"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
-                                    <action selector="logOut:" destination="ocE-1k-TD4" eventType="touchUpInside" id="fND-Km-NNZ"/>
+                                    <action selector="displayLogOutAlert:" destination="ocE-1k-TD4" eventType="touchUpInside" id="gca-PP-SIc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,6 +246,7 @@
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="trailing" secondItem="Deg-3n-fe9" secondAttribute="trailingMargin" id="mvD-Nx-ZuZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fdX-Lh-4Nm" secondAttribute="trailing" id="ueH-Xa-Jsu"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="ukT-ts-G47"/>
+                            <constraint firstItem="I8h-pL-SYC" firstAttribute="height" secondItem="bdQ-Pj-HTo" secondAttribute="height" id="wCp-0C-4Q0"/>
                             <constraint firstItem="pvo-O8-w4O" firstAttribute="centerX" secondItem="Deg-3n-fe9" secondAttribute="centerX" id="xLI-nQ-PxR"/>
                         </constraints>
                     </view>
