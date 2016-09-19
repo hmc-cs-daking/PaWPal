@@ -22,6 +22,7 @@
 		866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */; };
 		86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */; };
 		86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC95A81D89026D007F84BB /* RegisterViewController.swift */; };
+		86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
 		86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DC95A81D89026D007F84BB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				412F761E1D87CC8F0081EB6B /* HelpViewController.swift */,
 				415E48871D88795B00089878 /* TabBarController.swift */,
 				866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */,
+				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
 				866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
+				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
 				412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */,
 				412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */,
 			);
