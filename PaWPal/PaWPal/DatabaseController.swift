@@ -31,6 +31,14 @@ class DatabaseController {
         return userSchoolStored!
     }
     
+    func getWakeTime() -> String {
+        return NSUserDefaults.standardUserDefaults().stringForKey("wakeTime")!
+    }
+    
+    func getSleepTime() -> String {
+        return NSUserDefaults.standardUserDefaults().stringForKey("sleepTime")!
+    }
+    
     //list of functions to set user info
     func setEmail(userEmail: String){
         NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
@@ -49,6 +57,16 @@ class DatabaseController {
     
     func setSchool(userSchool: String){
         NSUserDefaults.standardUserDefaults().setObject(userSchool, forKey: "userSchool")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func setWakeTime(wakeTime: String) {
+        NSUserDefaults.standardUserDefaults().setObject(wakeTime, forKey: "wakeTime")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func setSleepTime(sleepTime: String) {
+        NSUserDefaults.standardUserDefaults().setObject(sleepTime, forKey: "sleepTime")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
