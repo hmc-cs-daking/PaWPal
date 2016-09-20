@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
     func sleepDonePressed(sender: UIBarButtonItem) {
         let dateFormatter = NSDateFormatter();
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let time = dateFormatter.stringFromDate(wakeTimePicker.date);
+        let time = dateFormatter.stringFromDate(sleepTimePicker.date);
         DatabaseController.setSleepTime(time);
         sleepTextField.text = time;
         sleepTextField.resignFirstResponder();
