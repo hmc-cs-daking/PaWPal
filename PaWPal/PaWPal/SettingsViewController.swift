@@ -82,6 +82,32 @@ class SettingsViewController: UIViewController {
         
         return toolBar;
     }
+    
+    // Confirms that user wants to log out
+    @IBAction func displayLogOutAlert(sender: UIButton) {
+        let alertController = UIAlertController(title: "Alert", message: "Are you sure you want to log out?", preferredStyle: .Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: logOut))
+        
+        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func logOut(alert: UIAlertAction!) {
+        // DB
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isUserLoggedIn")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        // Go to login page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = loginVC
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

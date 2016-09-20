@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AF145F71D8B4F1B00000210 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF145F61D8B4F1B00000210 /* DatabaseController.swift */; };
 		412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F75EC1D83A6850081EB6B /* AppDelegate.swift */; };
 		412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F75EE1D83A6850081EB6B /* SurveyViewController.swift */; };
 		412F75F11D83A6850081EB6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F75F01D83A6850081EB6B /* ProfileViewController.swift */; };
@@ -18,8 +19,10 @@
 		412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F761C1D87CC700081EB6B /* SettingsViewController.swift */; };
 		412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F761E1D87CC8F0081EB6B /* HelpViewController.swift */; };
 		415E48881D88795B00089878 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E48871D88795B00089878 /* TabBarController.swift */; };
+		866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */; };
 		86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */; };
 		86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC95A81D89026D007F84BB /* RegisterViewController.swift */; };
+		86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AF145F61D8B4F1B00000210 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		412F75E91D83A6850081EB6B /* PaWPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaWPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412F75EC1D83A6850081EB6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		412F75EE1D83A6850081EB6B /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +61,10 @@
 		412F761C1D87CC700081EB6B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		412F761E1D87CC8F0081EB6B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		415E48871D88795B00089878 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
 		86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DC95A81D89026D007F84BB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				412F75EC1D83A6850081EB6B /* AppDelegate.swift */,
+				2AF145F61D8B4F1B00000210 /* DatabaseController.swift */,
 				86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */,
 				86DC95A81D89026D007F84BB /* RegisterViewController.swift */,
 				412F75EE1D83A6850081EB6B /* SurveyViewController.swift */,
@@ -121,6 +128,8 @@
 				412F761C1D87CC700081EB6B /* SettingsViewController.swift */,
 				412F761E1D87CC8F0081EB6B /* HelpViewController.swift */,
 				415E48871D88795B00089878 /* TabBarController.swift */,
+				866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */,
+				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -274,12 +283,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF145F71D8B4F1B00000210 /* DatabaseController.swift in Sources */,
 				86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */,
 				412F75F11D83A6850081EB6B /* ProfileViewController.swift in Sources */,
 				412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */,
 				86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */,
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
+				866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
+				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
 				412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */,
 				412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */,
 			);

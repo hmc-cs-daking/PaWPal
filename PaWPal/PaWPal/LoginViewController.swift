@@ -10,18 +10,42 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // Login attempt
     @IBAction func enterCredentials(sender: AnyObject) {
         
-        let userEmail = userEmailTextField.text
-        let userPassword = userPasswordTextField.text
+        // Guards against invalid email
+        guard let userEmail = userEmailTextField.text
+            where userEmail.isValidEmail() else {
+                self.displayAlert("Error", message: "Invalid email", handler: nil)
+                return
+        }
+        
+        // Guards against empty passwords
+        guard let userPassword = userPasswordTextField.text
+            where !userPassword.isEmpty else {
+                self.displayAlert("Error", message: "Password not entered", handler: nil)
+                return
+        }
         
         let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
         let userPasswordStored = NSUserDefaults.standardUserDefaults().stringForKey("userPassword")
-
+        
         if (userEmail == userEmailStored && userPassword == userPasswordStored) {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
             NSUserDefaults.standardUserDefaults().synchronize()
@@ -29,7 +53,7 @@ class LoginViewController: UIViewController {
             removeLoginFromView()
         }
         else {
-            //TODO display error message
+            self.displayAlert("Error", message: "Email/password do not match", handler: nil)
         }
     }
     
@@ -39,17 +63,6 @@ class LoginViewController: UIViewController {
         let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = tabBarController
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
