@@ -32,11 +32,13 @@ class DatabaseController {
     }
     
     static func getWakeTime() -> String {
-        return NSUserDefaults.standardUserDefaults().stringForKey("wakeTime")!
+        if let time = NSUserDefaults.standardUserDefaults().stringForKey("wakeTime") { return time }
+        else { return "" }
     }
     
     static func getSleepTime() -> String {
-        return NSUserDefaults.standardUserDefaults().stringForKey("sleepTime")!
+        if let time = NSUserDefaults.standardUserDefaults().stringForKey("sleepTime") { return time }
+        else { return "" }
     }
     
     //list of functions to set user info
