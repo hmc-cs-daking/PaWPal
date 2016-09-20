@@ -11,61 +11,61 @@ import Foundation
 class DatabaseController {
     
     //list of functions to access user info
-    func getEmail() -> String{
+    static func getEmail() -> String{
         let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
         return userEmailStored!
     }
     
-    func getPassword() -> String{
+    static func getPassword() -> String{
         let userPasswordStored = NSUserDefaults.standardUserDefaults().stringForKey("userPassword")
         return userPasswordStored!
     }
     
-    func getName() -> String{
+    static func getName() -> String{
         let userNameStored = NSUserDefaults.standardUserDefaults().stringForKey("userName")
         return userNameStored!
     }
     
-    func getSchool() -> String{
+    static func getSchool() -> String{
         let userSchoolStored = NSUserDefaults.standardUserDefaults().stringForKey("userSchool")
         return userSchoolStored!
     }
     
-    func getWakeTime() -> String {
+    static func getWakeTime() -> String {
         return NSUserDefaults.standardUserDefaults().stringForKey("wakeTime")!
     }
     
-    func getSleepTime() -> String {
+    static func getSleepTime() -> String {
         return NSUserDefaults.standardUserDefaults().stringForKey("sleepTime")!
     }
     
     //list of functions to set user info
-    func setEmail(userEmail: String){
+    static func setEmail(userEmail: String){
         NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    func setPassword(userPassword: String){
+    static func setPassword(userPassword: String){
         NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    func setName(userName: String){
+    static func setName(userName: String){
         NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "userName")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    func setSchool(userSchool: String){
+    static func setSchool(userSchool: String){
         NSUserDefaults.standardUserDefaults().setObject(userSchool, forKey: "userSchool")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    func setWakeTime(wakeTime: String) {
+    static func setWakeTime(wakeTime: String) {
         NSUserDefaults.standardUserDefaults().setObject(wakeTime, forKey: "wakeTime")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    func setSleepTime(sleepTime: String) {
+    static func setSleepTime(sleepTime: String) {
         NSUserDefaults.standardUserDefaults().setObject(sleepTime, forKey: "sleepTime")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
