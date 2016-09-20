@@ -10,6 +10,31 @@ import Foundation
 
 class DatabaseController {
     
+    struct ConnectionConstants {
+        private static let PORT = 7000;
+        private static let HOST = "heatlab.duckdns.org";
+        private static let BASE_URL = "http://\(HOST):\(PORT)/";
+        
+    }
+    
+    static func signup(userName: String, password: String) {
+        let request = NSMutableURLRequest(URL: NSURL(string: ConnectionConstants.BASE_URL+"signup")!)
+        let session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        
+        let params = ["username":userName, "password":password] as Dictionary<String, String>
+        
+        request.HTTPBody = try? NSJSONSerialization.dataWithJSONObject(params, options: [])
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            NSLog("Response: '%@'", response! as NSObject)})
+        
+        task.resume()
+    }
+    
     //list of functions to access user info
     static func getEmail() -> String{
         let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
