@@ -15,9 +15,9 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userEmailLabel.text = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
-        userNameTextField.text = NSUserDefaults.standardUserDefaults().stringForKey("userName")
-        userSchoolTextField.text = NSUserDefaults.standardUserDefaults().stringForKey("userSchool")
+        userEmailLabel.text = DatabaseController.getEmail()
+        userNameTextField.text = DatabaseController.getName()
+        userSchoolTextField.text = DatabaseController.getSchool()
         
         
     }
@@ -40,9 +40,8 @@ class ProfileViewController: UIViewController {
         let userSchool = userSchoolTextField.text
         
         // save the school and name of the user
-        NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "userName")
-        NSUserDefaults.standardUserDefaults().setObject(userSchool, forKey: "userSchool")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        DatabaseController.setName(userName)
+        DatabaseController.setSchool(userSchool!)
         self.displayAlert("Saved", message: "Your info is saved", handler: nil)
         return
     }
