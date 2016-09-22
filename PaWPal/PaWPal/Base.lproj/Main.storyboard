@@ -277,10 +277,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
-                                <rect key="frame" x="20" y="101" width="560" height="73"/>
+                                <rect key="frame" x="20" y="101" width="560" height="98"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">PaWPal is here to help you be more productive! Simply fill out the simply surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email boerkoel@g.hmc.edu</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email Professor Jim Boerkoel at boerkoel@g.hmc.edu</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
