@@ -56,9 +56,11 @@ class RegisterViewController: UIViewController {
         
         // Store data
         // TODO: find a more secure way to store data
-        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
-        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        //NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
+        //NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
+        //NSUserDefaults.standardUserDefaults().synchronize()
+        
+        DatabaseController.signup(userEmail, password: userPassword)
         
         // Go back to login page
         self.displayAlert("Success!", message: "Registration successful. Thank you!", handler: { action in
