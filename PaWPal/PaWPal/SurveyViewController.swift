@@ -26,3 +26,14 @@ class SurveyViewController: UIViewController {
     
 }
 
+class Survey{
+    var questions = [Question]()
+}
+
+class Question{
+    var questionType = ""
+    var questionPrompt = ""
+    //need to figure out how to represent answers
+    var answers = [Int]()
+}
+
