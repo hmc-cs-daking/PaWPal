@@ -9,16 +9,17 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userSchoolTextField: UITextField!
-    @IBOutlet weak var userOldPasswordTextField: UITextField!
-    @IBOutlet weak var userNewPasswordTextField: UITextField!
-    @IBOutlet weak var userRepeatNewPasswordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        userEmailLabel.text = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
+        userNameTextField.text = NSUserDefaults.standardUserDefaults().stringForKey("userName")
+        userSchoolTextField.text = NSUserDefaults.standardUserDefaults().stringForKey("userSchool")
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +28,24 @@ class ProfileViewController: UIViewController {
     }
     
     //store input from the user
-
-
+    @IBAction func saveProfile() {
+        
+        // guard against empty name
+        guard let userName = userNameTextField.text
+            where !userName.isEmpty else {
+                self.displayAlert("Error", message: "You need a name!", handler: nil)
+                return
+        }
+        
+        let userSchool = userSchoolTextField.text
+        
+        // save the school and name of the user
+        NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "userName")
+        NSUserDefaults.standardUserDefaults().setObject(userSchool, forKey: "userSchool")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        self.displayAlert("Saved", message: "Your info is saved", handler: nil)
+        return
+    }
+    
 }
 
