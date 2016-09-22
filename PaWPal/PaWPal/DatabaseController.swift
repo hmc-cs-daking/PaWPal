@@ -18,6 +18,7 @@ class DatabaseController {
     }
     
     static func signup(userName: String, password: String) {
+        //TODO This still gets a completionCode = -1 response from the database, need to debug, or change backend
         let request = NSMutableURLRequest(URL: NSURL(string: ConnectionConstants.BASE_URL+"signup")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
