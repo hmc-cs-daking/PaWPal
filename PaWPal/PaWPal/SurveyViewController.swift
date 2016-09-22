@@ -10,7 +10,7 @@ import UIKit
 
 
 class SurveyViewController: UIViewController {
-    @IBOutlet weak var StartSurveyButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,7 @@ class SurveyViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func StartSurveyButtonAction(sender: AnyObject) {
-        
-    }
+    
     
 }
 
