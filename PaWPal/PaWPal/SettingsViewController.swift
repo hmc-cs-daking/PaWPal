@@ -105,7 +105,7 @@ class SettingsViewController: UIViewController {
     }
     
     func logOut(alert: UIAlertAction!) {
-        // DB
+        // not part of DB
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isUserLoggedIn")
         NSUserDefaults.standardUserDefaults().synchronize()
         

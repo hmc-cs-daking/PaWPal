@@ -43,10 +43,11 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
-        let userPasswordStored = NSUserDefaults.standardUserDefaults().stringForKey("userPassword")
+        let userEmailStored = DatabaseController.getEmail()
+        let userPasswordStored = DatabaseController.getPassword()
         
         if (userEmail == userEmailStored && userPassword == userPasswordStored) {
+            // not part of DB. it's per device
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
             NSUserDefaults.standardUserDefaults().synchronize()
             
