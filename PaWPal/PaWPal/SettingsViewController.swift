@@ -20,11 +20,19 @@ class SettingsViewController: UIViewController {
         // Setup time picker text fields with proper input
         wakeTimePicker.datePickerMode = UIDatePickerMode.Time;
         let wakeToolBar = createToolBar(#selector(SettingsViewController.wakeDonePressed));
+        let wakeTime = DatabaseController.getWakeTime();
+        if (wakeTime != "") {
+            wakeTextField.text = wakeTime;
+        }
         wakeTextField.inputAccessoryView = wakeToolBar;
         wakeTextField.inputView = wakeTimePicker;
         
         sleepTimePicker.datePickerMode = UIDatePickerMode.Time;
         let sleepToolBar = createToolBar(#selector(SettingsViewController.sleepDonePressed));
+        let sleepTime = DatabaseController.getSleepTime();
+        if (sleepTime != "") {
+            sleepTextField.text = sleepTime;
+        }
         sleepTextField.inputAccessoryView = sleepToolBar;
         sleepTextField.inputView = sleepTimePicker;
     }
@@ -38,6 +46,7 @@ class SettingsViewController: UIViewController {
         let dateFormatter = NSDateFormatter();
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         let time = dateFormatter.stringFromDate(wakeTimePicker.date);
+        DatabaseController.setWakeTime(time);
         wakeTextField.text = time;
         wakeTextField.resignFirstResponder()
         
@@ -46,7 +55,8 @@ class SettingsViewController: UIViewController {
     func sleepDonePressed(sender: UIBarButtonItem) {
         let dateFormatter = NSDateFormatter();
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let time = dateFormatter.stringFromDate(wakeTimePicker.date);
+        let time = dateFormatter.stringFromDate(sleepTimePicker.date);
+        DatabaseController.setSleepTime(time);
         sleepTextField.text = time;
         sleepTextField.resignFirstResponder();
     }
@@ -82,6 +92,32 @@ class SettingsViewController: UIViewController {
         
         return toolBar;
     }
+    
+    // Confirms that user wants to log out
+    @IBAction func displayLogOutAlert(sender: UIButton) {
+        let alertController = UIAlertController(title: "Alert", message: "Are you sure you want to log out?", preferredStyle: .Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: logOut))
+        
+        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func logOut(alert: UIAlertAction!) {
+        // DB
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isUserLoggedIn")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        // Go to login page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = loginVC
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
