@@ -26,16 +26,4 @@ class SurveyViewController: UIViewController {
     
 }
 
-class Survey{
-    //make this into an array of question arrays (one per survey page)
-    var questions = [Question]()
-}
-
-class Question{
-    var questionType = ""
-    var questionPrompt = ""
-   
-    var answerType = ""
-    //ex. slider, text, check boxes, multiple sliders
-}
 
