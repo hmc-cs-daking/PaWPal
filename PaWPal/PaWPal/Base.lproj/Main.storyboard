@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,83 +18,237 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GSh-4c-ukV">
-                                <rect key="frame" x="154" y="72" width="293" height="2"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpR-us-4NT">
-                                <rect key="frame" x="12" y="145" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUj-oK-tyH">
-                                <rect key="frame" x="20" y="198" width="560" height="46"/>
-                                <color key="backgroundColor" red="0.0039215686274509803" green="0.99607843137254903" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Answer 1">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI4-vC-pVK" userLabel="StartSurveyButton">
+                                <rect key="frame" x="223" y="195" width="155" height="79"/>
+                                <color key="backgroundColor" red="0.14617279620000001" green="1" blue="0.75309939420000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Start Survey">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="AnswerButton1Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="T1P-I6-OQe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bW-EQ-4Db">
-                                <rect key="frame" x="20" y="340" width="560" height="46"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Answer 3">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="AnswerButton3Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="G5g-ui-ueb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-lk-7Wb">
-                                <rect key="frame" x="20" y="408" width="560" height="46"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Answer 4">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="AnswerButton4Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4oq-aG-v34"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-mN-FRQ">
-                                <rect key="frame" x="20" y="269" width="560" height="46"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Answer 2">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="AnswerButton2Action:" destination="9pv-A4-QxB" eventType="touchUpInside" id="QbF-ls-lyZ"/>
+                                    <segue destination="Ep9-XL-iCH" kind="popoverPresentation" popoverAnchorView="ZI4-vC-pVK" id="JIR-Xj-1DJ">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GSh-4c-ukV" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6Tg-T9-56i"/>
-                            <constraint firstItem="X6O-lk-7Wb" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Cqo-VG-mz6"/>
-                            <constraint firstItem="1bW-EQ-4Db" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="K2I-Rb-uJ1"/>
-                            <constraint firstItem="LpR-us-4NT" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="KYa-yF-dRh"/>
-                            <constraint firstItem="OUj-oK-tyH" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="Km5-jp-rbP"/>
-                            <constraint firstItem="OUj-oK-tyH" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="MM8-c6-Ltc"/>
-                            <constraint firstItem="AZv-mN-FRQ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="UIY-lw-P8j"/>
-                            <constraint firstItem="1bW-EQ-4Db" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="f9u-no-G5t"/>
-                            <constraint firstItem="LpR-us-4NT" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="fa5-s1-CWQ"/>
-                            <constraint firstItem="X6O-lk-7Wb" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="rrI-qq-QTR"/>
-                            <constraint firstItem="AZv-mN-FRQ" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="ryj-g7-sXh"/>
+                            <constraint firstItem="ZI4-vC-pVK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="WzL-qD-7HX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Survey" image="Inspection Filled-30" id="acW-dT-cKf"/>
-                    <connections>
-                        <outlet property="AnswerButton1" destination="OUj-oK-tyH" id="wmY-zQ-JcC"/>
-                        <outlet property="AnswerButton2" destination="AZv-mN-FRQ" id="Gva-as-x4J"/>
-                        <outlet property="AnswerButton3" destination="1bW-EQ-4Db" id="sdW-Fc-NSp"/>
-                        <outlet property="AnswerButton4" destination="X6O-lk-7Wb" id="v5H-Ol-U6t"/>
-                        <outlet property="QuestionLabel" destination="LpR-us-4NT" id="gQf-1t-ByB"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="xyu-I2-6bJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-806" y="1120"/>
+            <point key="canvasLocation" x="6" y="1120"/>
+        </scene>
+        <!--Survey Page 1-->
+        <scene sceneID="fiW-hc-geR">
+            <objects>
+                <viewController title="Survey Page 1" id="Ep9-XL-iCH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l4k-f0-Md8"/>
+                        <viewControllerLayoutGuide type="bottom" id="zjW-pb-jG7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1vt-9o-P7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob3-sJ-L73">
+                                <rect key="frame" x="219" y="474" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.14617279620000001" green="1" blue="0.75309939420000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Yx8-XE-5NT" kind="popoverPresentation" popoverAnchorView="ob3-sJ-L73" id="m1K-eU-W1t">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3t-4F-PCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-814" y="2161"/>
+        </scene>
+        <!--Survey Page 2-->
+        <scene sceneID="ifD-QQ-LGD">
+            <objects>
+                <viewController title="Survey Page 2" id="Yx8-XE-5NT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AMm-8n-7gF"/>
+                        <viewControllerLayoutGuide type="bottom" id="fjS-b3-D6Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NSe-y7-nt0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEX-ID-U08">
+                                <rect key="frame" x="242" y="481" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="w97-7V-FS4" kind="popoverPresentation" popoverAnchorView="bEX-ID-U08" id="7A8-8U-70x">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fku-Lm-cqd">
+                                <rect key="frame" x="89" y="481" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.99607843139999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ep9-XL-iCH" kind="popoverPresentation" popoverAnchorView="Fku-Lm-cqd" id="TVS-ZA-Mb0">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KVx-8s-J9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-70" y="2189"/>
+        </scene>
+        <!--Survey Page 3-->
+        <scene sceneID="pp2-6r-sRU">
+            <objects>
+                <viewController title="Survey Page 3" id="w97-7V-FS4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3NB-NK-hlu"/>
+                        <viewControllerLayoutGuide type="bottom" id="XP9-7w-nP4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iRn-AF-SAb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atM-6g-mRx">
+                                <rect key="frame" x="242" y="481" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.11580191049999999" green="0.78554482979999996" blue="0.75692610780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J5u-7U-0cg" kind="popoverPresentation" popoverAnchorView="atM-6g-mRx" id="tli-ey-gDc">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBK-Bx-FEt">
+                                <rect key="frame" x="103" y="481" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.11580191049999999" green="0.78554482979999996" blue="0.75692610780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Yx8-XE-5NT" kind="popoverPresentation" popoverAnchorView="mBK-Bx-FEt" id="GOH-BN-PCv">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQJ-KI-jke" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="2125"/>
+        </scene>
+        <!--Survey Page 4-->
+        <scene sceneID="pnN-uY-YFc">
+            <objects>
+                <viewController title="Survey Page 4" id="J5u-7U-0cg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K6K-fE-BdS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xva-vc-LM7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fql-lx-rPy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgN-rq-smd">
+                                <rect key="frame" x="242" y="472" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.3157166582" green="0.84211387429999995" blue="0.83586499410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lZL-cz-5iM" kind="popoverPresentation" popoverAnchorView="qgN-rq-smd" id="yKu-yu-dtI">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw9-gc-5SK">
+                                <rect key="frame" x="111" y="472" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.3157166582" green="0.84211387429999995" blue="0.83586499410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="w97-7V-FS4" kind="popoverPresentation" popoverAnchorView="Jw9-gc-5SK" id="pqR-iE-mPu">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOx-g6-AfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1450" y="2109"/>
+        </scene>
+        <!--Survey Page 5-->
+        <scene sceneID="Izw-SS-TBj">
+            <objects>
+                <viewController title="Survey Page 5" id="lZL-cz-5iM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6nD-au-1Yl"/>
+                        <viewControllerLayoutGuide type="bottom" id="oiw-cF-DvR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kR4-yF-3Ck">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOv-SF-Bco">
+                                <rect key="frame" x="242" y="454" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.66890251079999996" green="0.46785197589999999" blue="0.84211387429999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="popoverPresentation" popoverAnchorView="ZOv-SF-Bco" id="EMw-Yt-yCS">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXj-x1-DYj">
+                                <rect key="frame" x="109" y="454" width="116" height="58"/>
+                                <color key="backgroundColor" red="0.66890251079999996" green="0.46785197589999999" blue="0.84211387429999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J5u-7U-0cg" kind="popoverPresentation" popoverAnchorView="aXj-x1-DYj" id="GMy-Yi-ghB">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3In-YV-kTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2370" y="2017"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
@@ -117,7 +271,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sample@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ko-qn-8JR">
                                 <rect key="frame" x="20" y="252" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVc-aD-yCu">
@@ -173,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-38" y="1074"/>
+            <point key="canvasLocation" x="774" y="1074"/>
         </scene>
         <!--Settings-->
         <scene sceneID="qns-we-G9q">
@@ -187,23 +341,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
                                 <rect key="frame" x="20" y="201" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
                                 <rect key="frame" x="20" y="121" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
                                 <rect key="frame" x="20" y="91" width="85" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
                                 <rect key="frame" x="20" y="166" width="86" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,7 +369,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKr-OE-km0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKr-OE-km0">
                                 <rect key="frame" x="273" y="404" width="55" height="30"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
@@ -256,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7e-Yc-gLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="1074"/>
+            <point key="canvasLocation" x="1458" y="1074"/>
         </scene>
         <!--Help-->
         <scene sceneID="wBf-5H-Tty">
@@ -277,10 +431,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
-                                <rect key="frame" x="20" y="101" width="560" height="73"/>
+                                <rect key="frame" x="20" y="101" width="560" height="98"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">PaWPal is here to help you be more productive! Simply fill out the simply surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email boerkoel@g.hmc.edu</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email Professor Jim Boerkoel at boerkoel@g.hmc.edu</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -290,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-9z-CHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362" y="1074"/>
+            <point key="canvasLocation" x="2174" y="1074"/>
         </scene>
         <!--Register-->
         <scene sceneID="rkC-ZR-NfT">
@@ -500,7 +654,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="35k-gR-dMe" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="eJ6-dZ-Ur8"/>
                         <segue destination="bhc-L1-sIQ" kind="relationship" relationship="viewControllers" id="yl0-As-78q"/>
                         <segue destination="ocE-1k-TD4" kind="relationship" relationship="viewControllers" id="qA6-Lu-ePi"/>
@@ -510,6 +664,25 @@
             </objects>
             <point key="canvasLocation" x="-20" y="-66"/>
         </scene>
+        <!--Survey-->
+        <scene sceneID="eaF-dV-Pda">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="35k-gR-dMe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Survey" image="Inspection Filled-30" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YaL-Aj-Yzh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="Clp-Dg-ayN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fER-K4-R8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-806" y="1120"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Gender Neutral User Filled-30" width="30" height="30"/>
@@ -517,4 +690,10 @@
         <image name="Inspection Filled-30" width="30" height="30"/>
         <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GMy-Yi-ghB"/>
+        <segue reference="pqR-iE-mPu"/>
+        <segue reference="JIR-Xj-1DJ"/>
+        <segue reference="m1K-eU-W1t"/>
+    </inferredMetricsTieBreakers>
 </document>

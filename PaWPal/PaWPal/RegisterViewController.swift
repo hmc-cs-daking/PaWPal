@@ -28,8 +28,6 @@ class RegisterViewController: UIViewController {
     
     
     // Registers new users - unless fields are invalid
-    // Currently, a single device's login data is stored using NSUserDefaults
-    // Eventually, login data for multiple devices/users will be stored in a database
     @IBAction func createRegistration(sender: AnyObject) {
         
         // Guards against invalid email
