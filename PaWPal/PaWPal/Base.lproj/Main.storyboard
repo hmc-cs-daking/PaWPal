@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVx-8s-J9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-70" y="2189"/>
+            <point key="canvasLocation" x="-74" y="2161"/>
         </scene>
         <!--Survey Page 3-->
         <scene sceneID="pp2-6r-sRU">
@@ -692,8 +692,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GMy-Yi-ghB"/>
-        <segue reference="pqR-iE-mPu"/>
-        <segue reference="JIR-Xj-1DJ"/>
         <segue reference="m1K-eU-W1t"/>
+        <segue reference="TVS-ZA-Mb0"/>
+        <segue reference="7A8-8U-70x"/>
     </inferredMetricsTieBreakers>
 </document>
