@@ -1,0 +1,6 @@
+framework module Pods_PaWPalTests {
+  umbrella header "Pods-PaWPalTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
