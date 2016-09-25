@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="6" y="1120"/>
         </scene>
-        <!--Survey Page 1-->
+        <!--SurveyPage1-->
         <scene sceneID="fiW-hc-geR">
             <objects>
-                <viewController title="Survey Page 1" id="Ep9-XL-iCH" sceneMemberID="viewController">
+                <viewController title="SurveyPage1" id="Ep9-XL-iCH" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l4k-f0-Md8"/>
                         <viewControllerLayoutGuide type="bottom" id="zjW-pb-jG7"/>
@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="-814" y="2161"/>
         </scene>
-        <!--Survey Page 2-->
+        <!--SurveyPage2-->
         <scene sceneID="ifD-QQ-LGD">
             <objects>
-                <viewController title="Survey Page 2" id="Yx8-XE-5NT" sceneMemberID="viewController">
+                <viewController title="SurveyPage2" id="Yx8-XE-5NT" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AMm-8n-7gF"/>
                         <viewControllerLayoutGuide type="bottom" id="fjS-b3-D6Q"/>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="-74" y="2161"/>
         </scene>
-        <!--Survey Page 3-->
+        <!--SurveyPage3-->
         <scene sceneID="pp2-6r-sRU">
             <objects>
-                <viewController title="Survey Page 3" id="w97-7V-FS4" sceneMemberID="viewController">
+                <viewController title="SurveyPage3" id="w97-7V-FS4" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3NB-NK-hlu"/>
                         <viewControllerLayoutGuide type="bottom" id="XP9-7w-nP4"/>
@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="730" y="2125"/>
         </scene>
-        <!--Survey Page 4-->
+        <!--SurveyPage4-->
         <scene sceneID="pnN-uY-YFc">
             <objects>
-                <viewController title="Survey Page 4" id="J5u-7U-0cg" sceneMemberID="viewController">
+                <viewController title="SurveyPage4" id="J5u-7U-0cg" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K6K-fE-BdS"/>
                         <viewControllerLayoutGuide type="bottom" id="Xva-vc-LM7"/>
@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="1450" y="2109"/>
         </scene>
-        <!--Survey Page 5-->
+        <!--SurveyPage5-->
         <scene sceneID="Izw-SS-TBj">
             <objects>
-                <viewController title="Survey Page 5" id="lZL-cz-5iM" sceneMemberID="viewController">
+                <viewController title="SurveyPage5" id="lZL-cz-5iM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6nD-au-1Yl"/>
                         <viewControllerLayoutGuide type="bottom" id="oiw-cF-DvR"/>
@@ -442,7 +442,7 @@
         <!--Help-->
         <scene sceneID="wBf-5H-Tty">
             <objects>
-                <viewController storyboardIdentifier="Help" id="bhc-L1-sIQ" userLabel="Help" customClass="HelpViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Help" title="Help" id="bhc-L1-sIQ" userLabel="Help" customClass="HelpViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zvf-9Q-c0v"/>
                         <viewControllerLayoutGuide type="bottom" id="FKu-gG-bEj"/>
@@ -457,7 +457,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
                                 <rect key="frame" x="20" y="100" width="560" height="351"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email Professor Jim Boerkoel at boerkoel@g.hmc.edu</string>
@@ -726,9 +726,9 @@
         <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GMy-Yi-ghB"/>
         <segue reference="m1K-eU-W1t"/>
         <segue reference="TVS-ZA-Mb0"/>
         <segue reference="7A8-8U-70x"/>
+        <segue reference="GMy-Yi-ghB"/>
     </inferredMetricsTieBreakers>
 </document>

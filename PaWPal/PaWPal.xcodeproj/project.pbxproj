@@ -19,6 +19,11 @@
 		412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F761C1D87CC700081EB6B /* SettingsViewController.swift */; };
 		412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F761E1D87CC8F0081EB6B /* HelpViewController.swift */; };
 		415E48881D88795B00089878 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E48871D88795B00089878 /* TabBarController.swift */; };
+		866833D71D98727000293FB5 /* TextQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866833D61D98727000293FB5 /* TextQuestion.swift */; };
+		866833D91D9873C600293FB5 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866833D81D9873C600293FB5 /* Question.swift */; };
+		866833DB1D98746100293FB5 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866833DA1D98746100293FB5 /* Survey.swift */; };
+		866833DD1D98747300293FB5 /* SliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866833DC1D98747300293FB5 /* SliderQuestion.swift */; };
+		866833DF1D9874E800293FB5 /* CheckboxQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866833DE1D9874E800293FB5 /* CheckboxQuestion.swift */; };
 		866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */; };
 		86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */; };
 		86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC95A81D89026D007F84BB /* RegisterViewController.swift */; };
@@ -61,6 +66,11 @@
 		412F761C1D87CC700081EB6B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		412F761E1D87CC8F0081EB6B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		415E48871D88795B00089878 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		866833D61D98727000293FB5 /* TextQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextQuestion.swift; sourceTree = "<group>"; };
+		866833D81D9873C600293FB5 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		866833DA1D98746100293FB5 /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		866833DC1D98747300293FB5 /* SliderQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderQuestion.swift; sourceTree = "<group>"; };
+		866833DE1D9874E800293FB5 /* CheckboxQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxQuestion.swift; sourceTree = "<group>"; };
 		866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
 		86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DC95A81D89026D007F84BB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +138,13 @@
 				412F761C1D87CC700081EB6B /* SettingsViewController.swift */,
 				412F761E1D87CC8F0081EB6B /* HelpViewController.swift */,
 				415E48871D88795B00089878 /* TabBarController.swift */,
+				866833D81D9873C600293FB5 /* Question.swift */,
 				866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */,
 				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
+				866833D61D98727000293FB5 /* TextQuestion.swift */,
+				866833DE1D9874E800293FB5 /* CheckboxQuestion.swift */,
+				866833DC1D98747300293FB5 /* SliderQuestion.swift */,
+				866833DA1D98746100293FB5 /* Survey.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -283,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866833DF1D9874E800293FB5 /* CheckboxQuestion.swift in Sources */,
 				2AF145F71D8B4F1B00000210 /* DatabaseController.swift in Sources */,
 				86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */,
 				412F75F11D83A6850081EB6B /* ProfileViewController.swift in Sources */,
@@ -291,8 +307,12 @@
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
 				866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
+				866833D91D9873C600293FB5 /* Question.swift in Sources */,
+				866833DB1D98746100293FB5 /* Survey.swift in Sources */,
+				866833DD1D98747300293FB5 /* SliderQuestion.swift in Sources */,
 				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
 				412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */,
+				866833D71D98727000293FB5 /* TextQuestion.swift in Sources */,
 				412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
