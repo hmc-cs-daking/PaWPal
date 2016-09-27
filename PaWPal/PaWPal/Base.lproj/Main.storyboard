@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI4-vC-pVK" userLabel="StartSurveyButton">
-                                <rect key="frame" x="223" y="195" width="155" height="79"/>
+                                <rect key="frame" x="223" y="260" width="155" height="79"/>
                                 <color key="backgroundColor" red="0.14617279620000001" green="1" blue="0.75309939420000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start Survey">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -692,8 +692,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GMy-Yi-ghB"/>
+        <segue reference="JIR-Xj-1DJ"/>
         <segue reference="m1K-eU-W1t"/>
-        <segue reference="TVS-ZA-Mb0"/>
         <segue reference="7A8-8U-70x"/>
     </inferredMetricsTieBreakers>
 </document>
