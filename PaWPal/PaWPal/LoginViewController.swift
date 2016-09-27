@@ -43,19 +43,8 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        let userEmailStored = DatabaseController.getEmail()
-        let userPasswordStored = DatabaseController.getPassword()
-        
-        if (userEmail == userEmailStored && userPassword == userPasswordStored) {
-            // not part of DB. it's per device
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            removeLoginFromView()
-        }
-        else {
-            self.displayAlert("Error", message: "Email/password do not match", handler: nil)
-        }
+        DatabaseController.signIn(userEmail, userPassword: userPassword)
+        removeLoginFromView()
     }
     
     // If login is successful, go to main view
