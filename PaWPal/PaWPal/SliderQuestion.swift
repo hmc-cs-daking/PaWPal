@@ -2,18 +2,17 @@
 //  SliderQuestion.swift
 //  PaWPal
 //
-//  Created by Tiffany Fong on 9/25/16.
+//  Created by Tiffany Fong on 9/27/16.
 //  Copyright © 2016 HMC CS121 Group 5. All rights reserved.
 //
 
 import Foundation
+import UIKit
 
-// This is a subclass of Question. The answer is an int represented by a single slider
-
-// TODO: multiple sliders?
-
-class SliderQuestion : Question {
-    var answer = 1 // ranges from 1 to 6
-
+class SliderQuestion: UIView {
     
+    @IBOutlet weak var promptLabel: UILabel!
+    @IBOutlet weak var answerSlider: UISlider!
+    @IBOutlet weak var lowLabel: UILabel!
+    @IBOutlet weak var highLabel: UILabel!
 }

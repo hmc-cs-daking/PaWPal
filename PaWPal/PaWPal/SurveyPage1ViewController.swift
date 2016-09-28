@@ -13,7 +13,6 @@ class SurveyPage1ViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
-       // super.viewDidLoad()
         
         if let textQuestionView = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
             contentView.addSubview(textQuestionView)
@@ -24,11 +23,7 @@ class SurveyPage1ViewController: UIViewController {
         }
 
         // Do any additional setup after loading the view.
-        //super.viewDidLoad()
     }
-    
-  //  myAccessoryView = NSBundle.mainBundle().loadNibNamed("MyAccessoryView", owner: self, options: nil)[0] as! MyAccessoryView
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
