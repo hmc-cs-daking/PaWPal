@@ -38,11 +38,10 @@ class RegisterViewController: UIViewController {
                 return
         }
         
-        // Guards against empty password
-        // TODO: in the future, maybe enforce at least 6 characters
+        // Guards against short passwords
         guard let userPassword = userPasswordTextField.text
-            where !userPassword.isEmpty else {
-                self.displayAlert("Error", message: "Password not entered", handler: nil)
+            where userPassword.characters.count >= 6 else {
+                self.displayAlert("Error", message: "Password must be at least 6 characters", handler: nil)
                 return
         }
         

@@ -23,7 +23,13 @@
 		415E48881D88795B00089878 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E48871D88795B00089878 /* TabBarController.swift */; };
 		416B4FA31D9880B0000810D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA21D9880B0000810D8 /* AppState.swift */; };
 		66FC96E0D5C809247E25ED19 /* Pods_PaWPalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6D5A57361681D35C66413C /* Pods_PaWPalTests.framework */; };
+		860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F53641D9B8F5000090FB3 /* SliderQuestion.swift */; };
+		860F53671D9B8F7900090FB3 /* SliderQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860F53661D9B8F7900090FB3 /* SliderQuestion.xib */; };
+		860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */; };
 		866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */; };
+		868E5A771D9A4CC500B90BB8 /* TextQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */; };
+		868E5A791D9A4D2F00B90BB8 /* TextQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */; };
+		868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */; };
 		86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */; };
 		86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC95A81D89026D007F84BB /* RegisterViewController.swift */; };
 		86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */; };
@@ -74,7 +80,13 @@
 		4F6D5A57361681D35C66413C /* Pods_PaWPalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaWPalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACD51C384E9D0E4A4769F6 /* Pods-PaWPalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalUITests/Pods-PaWPalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D16B81D56A538AE39B31528 /* Pods_PaWPalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaWPalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		860F53641D9B8F5000090FB3 /* SliderQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderQuestion.swift; sourceTree = "<group>"; };
+		860F53661D9B8F7900090FB3 /* SliderQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderQuestion.xib; sourceTree = "<group>"; };
+		860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage2ViewController.swift; sourceTree = "<group>"; };
 		866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
+		868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextQuestion.swift; sourceTree = "<group>"; };
+		868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextQuestion.xib; sourceTree = "<group>"; };
+		868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage1ViewController.swift; sourceTree = "<group>"; };
 		86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DC95A81D89026D007F84BB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
@@ -153,6 +165,12 @@
 				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
 				411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */,
 				416B4FA21D9880B0000810D8 /* AppState.swift */,
+				868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */,
+				868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */,
+				868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */,
+				860F53641D9B8F5000090FB3 /* SliderQuestion.swift */,
+				860F53661D9B8F7900090FB3 /* SliderQuestion.xib */,
+				860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -312,7 +330,9 @@
 			files = (
 				412F75F91D83A6860081EB6B /* LaunchScreen.storyboard in Resources */,
 				411F52231D95D43D000A9DA8 /* GoogleService-Info.plist in Resources */,
+				868E5A791D9A4D2F00B90BB8 /* TextQuestion.xib in Resources */,
 				412F75F61D83A6860081EB6B /* Assets.xcassets in Resources */,
+				860F53671D9B8F7900090FB3 /* SliderQuestion.xib in Resources */,
 				412F75F41D83A6850081EB6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,9 +486,13 @@
 				412F75F11D83A6850081EB6B /* ProfileViewController.swift in Sources */,
 				416B4FA31D9880B0000810D8 /* AppState.swift in Sources */,
 				412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */,
+				868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */,
+				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,
 				86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */,
+				868E5A771D9A4CC500B90BB8 /* TextQuestion.swift in Sources */,
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
 				866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */,
+				860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
 				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
 				412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */,
