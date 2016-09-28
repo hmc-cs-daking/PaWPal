@@ -11,6 +11,7 @@ import UIKit
 class SurveyPage1ViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
        // super.viewDidLoad()
         
@@ -23,8 +24,11 @@ class SurveyPage1ViewController: UIViewController {
         }
 
         // Do any additional setup after loading the view.
-        super.viewDidLoad()
+        //super.viewDidLoad()
     }
+    
+  //  myAccessoryView = NSBundle.mainBundle().loadNibNamed("MyAccessoryView", owner: self, options: nil)[0] as! MyAccessoryView
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
