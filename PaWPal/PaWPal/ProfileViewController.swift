@@ -18,8 +18,6 @@ class ProfileViewController: UIViewController {
         userEmailLabel.text = DatabaseController.getEmail()
         userNameTextField.text = DatabaseController.getName()
         userSchoolTextField.text = DatabaseController.getSchool()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +39,7 @@ class ProfileViewController: UIViewController {
         
         // save the school and name of the user
         DatabaseController.setName(userName)
-        DatabaseController.setSchool(userSchool!)
+        DatabaseController.setSchool(userSchool ?? "")
         self.displayAlert("Saved", message: "Your info is saved", handler: nil)
         return
     }
