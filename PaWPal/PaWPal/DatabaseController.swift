@@ -14,6 +14,7 @@ import FirebaseAuth
 class DatabaseController {
     
     static func signUp(userEmail: String, userPassword: String) {
+        //TODO: check async stuff here
         FIRAuth.auth()?.createUserWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
