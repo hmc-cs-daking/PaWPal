@@ -391,9 +391,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-EW-9Kq">
+                                <rect key="frame" x="20" y="198" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7O-1v-I73">
-                                <rect key="frame" x="252" y="395" width="97" height="30"/>
+                                <rect key="frame" x="250" y="395" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="gdZ-Uu-T5n"/>
+                                    <constraint firstAttribute="height" constant="30" id="ncx-Ki-gSw"/>
+                                </constraints>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -401,31 +410,25 @@
                                     <action selector="saveProfile" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2hD-SC-Ss3"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School:" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-EW-9Kq">
-                                <rect key="frame" x="20" y="198" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="0fX-Wl-5e7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="X7O-1v-I73" secondAttribute="trailing" constant="231" id="3t3-TO-VLW"/>
                             <constraint firstItem="EVc-aD-yCu" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="6zx-qa-jnO"/>
+                            <constraint firstItem="X7O-1v-I73" firstAttribute="top" secondItem="2ko-qn-8JR" secondAttribute="bottom" constant="100" id="88e-a1-3L1"/>
                             <constraint firstItem="EVc-aD-yCu" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="71" id="8as-BF-aMT"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="9rT-0e-Qk2"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="top" secondItem="ZJA-Pr-ctV" secondAttribute="bottom" constant="10" id="Ev8-ob-LSn"/>
                             <constraint firstItem="OZr-gN-lEA" firstAttribute="top" secondItem="EVc-aD-yCu" secondAttribute="bottom" constant="10" id="GXb-E8-tNa"/>
                             <constraint firstItem="ZJA-Pr-ctV" firstAttribute="height" secondItem="EVc-aD-yCu" secondAttribute="height" id="Ijo-10-QKO"/>
                             <constraint firstItem="OZr-gN-lEA" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="K8Y-JU-FAR"/>
-                            <constraint firstItem="X7O-1v-I73" firstAttribute="top" secondItem="2ko-qn-8JR" secondAttribute="bottom" constant="100" id="LJY-GM-VKF"/>
                             <constraint firstItem="ZJA-Pr-ctV" firstAttribute="top" secondItem="bI9-EW-9Kq" secondAttribute="bottom" constant="15" id="NRu-4X-RiX"/>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="top" secondItem="RXy-sK-bd1" secondAttribute="bottom" constant="10" id="OeP-iZ-EOk"/>
                             <constraint firstItem="RXy-sK-bd1" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="PxB-ey-pQH"/>
                             <constraint firstItem="4RP-4x-naM" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="R70-bd-8fV"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="T0n-Bd-wXU"/>
-                            <constraint firstItem="X7O-1v-I73" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="232" id="THB-XG-4YP"/>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="height" secondItem="OZr-gN-lEA" secondAttribute="height" id="Vak-Nl-8aW"/>
+                            <constraint firstItem="X7O-1v-I73" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="XGz-pB-3N4"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="height" secondItem="ZJA-Pr-ctV" secondAttribute="height" id="Yu9-gi-HKE"/>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="cXa-yb-Uc6"/>
                             <constraint firstItem="ZJA-Pr-ctV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="dvl-N4-2kC"/>
