@@ -34,6 +34,7 @@
 		86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC95A81D89026D007F84BB /* RegisterViewController.swift */; };
 		86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */; };
 		A86C8DA73F47FD2766E5EA9C /* Pods_PaWPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97AD1356F68DB5D276EF013 /* Pods_PaWPal.framework */; };
+		E69136DA1D9CE29300588C7E /* SurveyPage3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69136D91D9CE29300588C7E /* SurveyPage3ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DC95A81D89026D007F84BB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
+		E69136D91D9CE29300588C7E /* SurveyPage3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage3ViewController.swift; sourceTree = "<group>"; };
 		E97AD1356F68DB5D276EF013 /* Pods_PaWPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaWPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46241F4309CF324F1FE9A34 /* Pods-PaWPalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalTests/Pods-PaWPalTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC3A0A538012B0CF9FB2DE1C /* Pods-PaWPalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalUITests/Pods-PaWPalUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,10 +169,11 @@
 				416B4FA21D9880B0000810D8 /* AppState.swift */,
 				868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */,
 				868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */,
-				868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */,
 				860F53641D9B8F5000090FB3 /* SliderQuestion.swift */,
 				860F53661D9B8F7900090FB3 /* SliderQuestion.xib */,
+				868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */,
 				860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */,
+				E69136D91D9CE29300588C7E /* SurveyPage3ViewController.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */,
 				412F75F11D83A6850081EB6B /* ProfileViewController.swift in Sources */,
 				416B4FA31D9880B0000810D8 /* AppState.swift in Sources */,
+				E69136DA1D9CE29300588C7E /* SurveyPage3ViewController.swift in Sources */,
 				412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */,
 				868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */,
 				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,

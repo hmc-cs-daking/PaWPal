@@ -17,6 +17,7 @@ class SurveyPage1ViewController: UIViewController {
         if let textQuestionView = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
             contentView.addSubview(textQuestionView)
             
+            textQuestionView.promptLabel.text = "hello"
             textQuestionView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":textQuestionView]))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":textQuestionView]))
