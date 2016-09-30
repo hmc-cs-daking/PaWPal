@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class DatabaseController {
     
@@ -17,23 +20,34 @@ class DatabaseController {
         
     }
     
-    static func signup(userName: String, password: String) {
-        //TODO This still gets a completionCode = -1 response from the database, need to debug, or change backend
-        let request = NSMutableURLRequest(URL: NSURL(string: ConnectionConstants.BASE_URL+"signup")!)
-        let session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
-        
-        let params = ["username":userName, "password":password] as Dictionary<String, String>
-        
-        request.HTTPBody = try? NSJSONSerialization.dataWithJSONObject(params, options: [])
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            NSLog("Response: '%@'", response! as NSObject)})
-        
-        task.resume()
+    static func signUp(userEmail: String, userPassword: String) {
+        FIRAuth.auth()?.createUserWithEmail(userEmail, password: userPassword) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let ref = FIRDatabase.database().reference()
+            let key = (user! as FIRUser).uid
+            let signUp = ["uid": (user! as FIRUser).uid,
+                        "userName": userEmail,
+                        "userEmail": userEmail]
+            let childUpdates = ["/users/\(key)": signUp]
+            ref.updateChildValues(childUpdates)
+        }
+    }
+    
+    static func signIn(userEmail: String, userPassword: String) {
+        FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            AppState.sharedInstance.email = userEmail
+            AppState.sharedInstance.uid = (user! as FIRUser).uid
+            AppState.sharedInstance.signedIn = true
+        }
     }
     
     //list of functions to access user info

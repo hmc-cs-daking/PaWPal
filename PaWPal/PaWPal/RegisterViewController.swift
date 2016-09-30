@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
 
@@ -37,11 +38,10 @@ class RegisterViewController: UIViewController {
                 return
         }
         
-        // Guards against empty password
-        // TODO: in the future, maybe enforce at least 6 characters
+        // Guards against short passwords
         guard let userPassword = userPasswordTextField.text
-            where !userPassword.isEmpty else {
-                self.displayAlert("Error", message: "Password not entered", handler: nil)
+            where userPassword.characters.count >= 6 else {
+                self.displayAlert("Error", message: "Password must be at least 6 characters", handler: nil)
                 return
         }
         
@@ -53,12 +53,9 @@ class RegisterViewController: UIViewController {
         }
         
         // Store data
-        // TODO: find a more secure way to store data
-        //NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
-        //NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
-        //NSUserDefaults.standardUserDefaults().synchronize()
+        DatabaseController.signUp(userEmail, userPassword: userPassword)
         
-        DatabaseController.signup(userEmail, password: userPassword)
+
         
         // Go back to login page
         self.displayAlert("Success!", message: "Registration successful. Thank you!", handler: { action in

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SliderQuestion" customModule="PaWPal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Prompt: Type in text below.  This can be a very long question." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdC-tA-Lwm">
+                    <rect key="frame" x="8" y="18" width="584" height="86"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-69-dtV">
+                    <rect key="frame" x="16" y="144" width="568" height="31"/>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 - low answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snH-6B-iuw">
+                    <rect key="frame" x="18" y="182" width="112" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 - high answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-99-4eR">
+                    <rect key="frame" x="462" y="182" width="120" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.54323814660000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="bdC-tA-Lwm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="10" id="45C-2u-AI6"/>
+                <constraint firstItem="5VO-69-dtV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="4xF-zk-CrR"/>
+                <constraint firstAttribute="trailingMargin" secondItem="5VO-69-dtV" secondAttribute="trailing" constant="10" id="SJh-3r-4Dq"/>
+                <constraint firstItem="snH-6B-iuw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="a7r-VH-Hgo"/>
+                <constraint firstItem="QBp-99-4eR" firstAttribute="top" secondItem="5VO-69-dtV" secondAttribute="bottom" constant="8" id="fWe-q9-eeP"/>
+                <constraint firstItem="snH-6B-iuw" firstAttribute="top" secondItem="5VO-69-dtV" secondAttribute="bottom" constant="8" id="pBv-3A-Qlf"/>
+                <constraint firstItem="bdC-tA-Lwm" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="qBh-VS-yOW"/>
+                <constraint firstItem="bdC-tA-Lwm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="spO-SP-5Ql"/>
+                <constraint firstAttribute="trailingMargin" secondItem="QBp-99-4eR" secondAttribute="trailing" constant="10" id="vfk-IW-LjY"/>
+                <constraint firstItem="5VO-69-dtV" firstAttribute="top" secondItem="bdC-tA-Lwm" secondAttribute="bottom" constant="40" id="vgt-sC-RrN"/>
+            </constraints>
+            <connections>
+                <outlet property="answerSlider" destination="5VO-69-dtV" id="MXa-Db-l1y"/>
+                <outlet property="highLabel" destination="QBp-99-4eR" id="b2h-aX-yIl"/>
+                <outlet property="lowLabel" destination="snH-6B-iuw" id="BxJ-ZT-h4E"/>
+                <outlet property="promptLabel" destination="bdC-tA-Lwm" id="glW-Zv-TSj"/>
+            </connections>
+        </view>
+    </objects>
+</document>
