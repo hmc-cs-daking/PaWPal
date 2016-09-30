@@ -43,8 +43,10 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        DatabaseController.signIn(userEmail, userPassword: userPassword)
-        removeLoginFromView()
+        DatabaseController.signIn(userEmail, userPassword: userPassword) { () in
+        if (AppState.sharedInstance.signedIn) {
+            self.removeLoginFromView()
+            } }
     }
     
     // If login is successful, go to main view
