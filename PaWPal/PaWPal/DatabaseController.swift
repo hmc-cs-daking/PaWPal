@@ -34,10 +34,13 @@ class DatabaseController {
         }
     }
     
-    static func signIn(userEmail: String, userPassword: String, completion: () -> Void) {
+    // NOTE: success and failure takes a second to run. firebase auth is slow
+    // If successful, run completion(). If failure, run failure()
+    static func signIn(userEmail: String, userPassword: String, completion: () -> Void, failure: () -> Void) {
         FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
+                failure()
                 return
             }
             
@@ -55,8 +58,8 @@ class DatabaseController {
                 if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
                 }
             )
+            completion()
         }
-        completion()
     }
     
     //list of functions to access user info

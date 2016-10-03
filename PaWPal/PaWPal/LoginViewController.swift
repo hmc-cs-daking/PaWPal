@@ -43,10 +43,14 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        DatabaseController.signIn(userEmail, userPassword: userPassword) { () in
-        if (AppState.sharedInstance.signedIn) {
-            self.removeLoginFromView()
-            } }
+        let errorMessage = "The password is invalid or the user does not have a password."
+        
+        DatabaseController.signIn(userEmail,
+                                  userPassword: userPassword,
+                                  completion: removeLoginFromView,
+                                  failure: {
+            self.displayAlert("Error", message: errorMessage, handler: nil)
+        })
     }
     
     // If login is successful, go to main view
