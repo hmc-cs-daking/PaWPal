@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -179,37 +179,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBK-Bx-FEt">
-                                <rect key="frame" x="32" y="522" width="253" height="58"/>
-                                <color key="backgroundColor" red="0.11580191049999999" green="0.78554482979999996" blue="0.75692610780000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71D-av-j7g">
+                                <rect key="frame" x="20" y="522" width="268" height="58"/>
+                                <color key="backgroundColor" red="0.3157166582" green="0.84211387429999995" blue="0.83586499410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="idh-hS-ZNt"/>
+                                </constraints>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Yx8-XE-5NT" kind="popoverPresentation" popoverAnchorView="mBK-Bx-FEt" id="GOH-BN-PCv">
+                                    <segue destination="Yx8-XE-5NT" kind="popoverPresentation" popoverAnchorView="71D-av-j7g" id="kt8-oG-Rpu">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yrf-NU-JVf" userLabel="Page 3 Scroll View">
-                                <rect key="frame" x="26" y="20" width="554" height="468"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aSb-KC-Rqi" userLabel="Page 3 Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="554" height="468"/>
-                                    </stackView>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVh-4B-1nK">
+                                <rect key="frame" x="312" y="522" width="268" height="58"/>
+                                <color key="backgroundColor" red="0.3157166582" green="0.84211387429999995" blue="0.83586499410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="aSb-KC-Rqi" secondAttribute="bottom" constant="34" id="IjW-gb-PB6"/>
+                                    <constraint firstAttribute="height" constant="58" id="dCR-e3-isW"/>
                                 </constraints>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atM-6g-mRx">
-                                <rect key="frame" x="293" y="522" width="267" height="58"/>
-                                <color key="backgroundColor" red="0.11580191049999999" green="0.78554482979999996" blue="0.75692610780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="J5u-7U-0cg" kind="popoverPresentation" popoverAnchorView="atM-6g-mRx" id="tli-ey-gDc">
+                                    <segue destination="J5u-7U-0cg" kind="popoverPresentation" popoverAnchorView="CVh-4B-1nK" id="tAb-P8-qrW">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -217,18 +212,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="atM-6g-mRx" firstAttribute="trailing" secondItem="iRn-AF-SAb" secondAttribute="trailingMargin" id="0ag-mN-Oy1"/>
-                            <constraint firstItem="XP9-7w-nP4" firstAttribute="top" secondItem="atM-6g-mRx" secondAttribute="bottom" constant="20" id="Qi3-qi-u7i"/>
-                            <constraint firstItem="XP9-7w-nP4" firstAttribute="top" secondItem="mBK-Bx-FEt" secondAttribute="bottom" constant="20" id="UAh-7g-4hv"/>
-                            <constraint firstItem="atM-6g-mRx" firstAttribute="leading" secondItem="mBK-Bx-FEt" secondAttribute="trailing" constant="30" id="XHB-lu-Ca2"/>
-                            <constraint firstItem="mBK-Bx-FEt" firstAttribute="leading" secondItem="iRn-AF-SAb" secondAttribute="leadingMargin" id="eiB-ZF-nl2"/>
-                            <constraint firstItem="atM-6g-mRx" firstAttribute="width" secondItem="mBK-Bx-FEt" secondAttribute="width" id="gYu-gd-HB4"/>
-                            <constraint firstItem="atM-6g-mRx" firstAttribute="leading" secondItem="mBK-Bx-FEt" secondAttribute="trailing" constant="30" id="mqI-iq-tVQ"/>
+                            <constraint firstItem="CVh-4B-1nK" firstAttribute="width" secondItem="71D-av-j7g" secondAttribute="width" id="5u9-Py-Jzw"/>
+                            <constraint firstItem="CVh-4B-1nK" firstAttribute="trailing" secondItem="iRn-AF-SAb" secondAttribute="trailingMargin" id="Afb-FV-Qfc"/>
+                            <constraint firstItem="71D-av-j7g" firstAttribute="leading" secondItem="iRn-AF-SAb" secondAttribute="leadingMargin" id="HWS-JZ-uJH"/>
+                            <constraint firstItem="CVh-4B-1nK" firstAttribute="leading" secondItem="71D-av-j7g" secondAttribute="trailing" constant="24" id="VTf-8D-BmC"/>
+                            <constraint firstItem="XP9-7w-nP4" firstAttribute="top" secondItem="71D-av-j7g" secondAttribute="bottom" constant="20" id="ep4-WN-Bbs"/>
+                            <constraint firstItem="XP9-7w-nP4" firstAttribute="top" secondItem="CVh-4B-1nK" secondAttribute="bottom" constant="20" id="mtL-y2-Zff"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="Page3StackView" destination="aSb-KC-Rqi" id="97N-ld-Weg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQJ-KI-jke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,7 +287,7 @@
         <!--SurveyPage5-->
         <scene sceneID="Izw-SS-TBj">
             <objects>
-                <viewController title="SurveyPage5" id="lZL-cz-5iM" sceneMemberID="viewController">
+                <viewController title="SurveyPage5" id="lZL-cz-5iM" customClass="SurveyPage5ViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6nD-au-1Yl"/>
                         <viewControllerLayoutGuide type="bottom" id="oiw-cF-DvR"/>
@@ -472,23 +463,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
                                 <rect key="frame" x="20" y="196" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
                                 <rect key="frame" x="20" y="121" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
                                 <rect key="frame" x="20" y="91" width="85" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
                                 <rect key="frame" x="20" y="166" width="86" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -830,9 +821,9 @@
         <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tli-ey-gDc"/>
         <segue reference="pqR-iE-mPu"/>
-        <segue reference="GOH-BN-PCv"/>
+        <segue reference="tAb-P8-qrW"/>
+        <segue reference="kt8-oG-Rpu"/>
         <segue reference="TVS-ZA-Mb0"/>
     </inferredMetricsTieBreakers>
 </document>

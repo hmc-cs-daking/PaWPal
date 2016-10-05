@@ -1,14 +1,14 @@
 //
-//  SurveyPage3ViewController.swift
+//  SurveyPage5ViewController.swift
 //  PaWPal
 //
-//  Created by Doren Lan on 10/4/16.
+//  Created by Doren Lan on 10/5/16.
 //  Copyright © 2016 HMC CS121 Group 5. All rights reserved.
 //
 
 import UIKit
 
-class SurveyPage3ViewController: UIViewController {
+class SurveyPage5ViewController: UIViewController {
     
     func displayQuestions(){
         
@@ -21,19 +21,16 @@ class SurveyPage3ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add questions to the stack view
-        if let sliderQ1 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ1)
-            sliderQ1.promptLabel.text = "Slide to the left"
+        if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            stackView.addArrangedSubview(textQ1)
+            textQ1.promptLabel.text = "(Optional) If you were feeling strong emotions, why?"
+            textQ1.answerTextField.placeholder = "Describe"
         }
         
-        if let sliderQ2 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ2)
-            sliderQ2.promptLabel.text = "Slide to the right"
-        }
-        
-        if let sliderQ3 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ3)
-            sliderQ3.promptLabel.text = "Cha Cha real smooth"
+        if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            stackView.addArrangedSubview(textQ2)
+            textQ2.promptLabel.text = "(Optional) Was there something else on your mind?"
+            textQ2.answerTextField.placeholder = "Describe"
         }
         
         view.addSubview(stackView)
