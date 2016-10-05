@@ -27,8 +27,8 @@ class DatabaseController {
                         "userName": userEmail,
                         "userEmail": userEmail,
                         "school": "",
-                        "wakeTime": "",
-                        "sleepTime": ""]
+                        "wakeTime": "9:00 AM",
+                        "sleepTime": "11:59 PM"]
             let childUpdates = ["/users/\(key)": signUp]
             ref.updateChildValues(childUpdates)
         }
