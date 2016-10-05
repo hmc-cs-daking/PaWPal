@@ -28,7 +28,9 @@ class DatabaseController {
                         "userEmail": userEmail,
                         "school": "",
                         "wakeTime": "9:00 AM",
-                        "sleepTime": "11:59 PM"]
+                        "sleepTime": "11:59 PM",
+                        "closestScheduledNotification": "",
+                        "furthestScheduledNotification": ""]
             let childUpdates = ["/users/\(key)": signUp]
             ref.updateChildValues(childUpdates)
         }
@@ -36,7 +38,7 @@ class DatabaseController {
     
     // NOTE: success and failure takes a second to run. firebase auth is slow
     // If successful, run completion(). If failure, run failure()
-    static func signIn(userEmail: String, userPassword: String, completion: () -> Void, failure: () -> Void) {
+    static func signIn(userEmail: String, userPassword: String, completion: () -> Void, failure: () -> Void){
         FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)

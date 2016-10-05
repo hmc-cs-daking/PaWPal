@@ -47,10 +47,30 @@ class LoginViewController: UIViewController {
         
         DatabaseController.signIn(userEmail,
                                   userPassword: userPassword,
-                                  completion: removeLoginFromView,
+                                  completion: {self.removeLoginFromView()
+                                                self.scheduleWeeklyNotifications()},
                                   failure: {
             self.displayAlert("Error", message: errorMessage, handler: nil)
         })
+    }
+    
+    // When fully implemented, will keep a wake up notification schedule for the coming week
+    func scheduleWeeklyNotifications() {
+        print("Scheduling notifications")
+        let notification = UILocalNotification()
+        notification.alertBody = "Take your damn survey"
+        notification.alertAction = "open"
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+        components.minute += 1
+        
+        notification.fireDate = calendar.dateFromComponents(components)
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        print("Scheduled notification")
+        
     }
     
     // If login is successful, go to main view
