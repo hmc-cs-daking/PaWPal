@@ -15,12 +15,13 @@ class SurveyPage2ViewController: UIViewController {
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         
-        if let sliderQuestionView = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            contentView.addSubview(sliderQuestionView)
+        // MULTI SLIDER
+        if let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as? MultiSliderQuestion {
+            contentView.addSubview(multiSliderQuestionView)
             
-            sliderQuestionView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":sliderQuestionView]))
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":sliderQuestionView]))
+            multiSliderQuestionView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":multiSliderQuestionView]))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":multiSliderQuestionView]))
         }
     }
 
