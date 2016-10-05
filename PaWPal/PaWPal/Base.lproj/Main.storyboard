@@ -237,7 +237,7 @@
         <!--SurveyPage4-->
         <scene sceneID="pnN-uY-YFc">
             <objects>
-                <viewController title="SurveyPage4" id="J5u-7U-0cg" sceneMemberID="viewController">
+                <viewController title="SurveyPage4" id="J5u-7U-0cg" customClass="SurveyPage4ViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K6K-fE-BdS"/>
                         <viewControllerLayoutGuide type="bottom" id="Xva-vc-LM7"/>
@@ -830,9 +830,9 @@
         <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GOH-BN-PCv"/>
-        <segue reference="7A8-8U-70x"/>
         <segue reference="tli-ey-gDc"/>
+        <segue reference="pqR-iE-mPu"/>
+        <segue reference="GOH-BN-PCv"/>
         <segue reference="TVS-ZA-Mb0"/>
     </inferredMetricsTieBreakers>
 </document>
