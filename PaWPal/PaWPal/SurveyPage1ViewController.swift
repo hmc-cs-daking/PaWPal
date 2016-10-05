@@ -14,14 +14,26 @@ class SurveyPage1ViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        if let textQuestionView = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            contentView.addSubview(textQuestionView)
+        // MULTI CHECKBOX VIEW
+        if let multiCheckQuestionView = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as? MultiCheckQuestion {
+            contentView.addSubview(multiCheckQuestionView)
             
-            textQuestionView.promptLabel.text = "hello"
-            textQuestionView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":textQuestionView]))
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":textQuestionView]))
+            multiCheckQuestionView.promptLabel.text = "hello"
+            multiCheckQuestionView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":multiCheckQuestionView]))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":multiCheckQuestionView]))
         }
+
+        
+        // TEXT QUESTION VIEW
+//        if let textQuestionView = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+//            contentView.addSubview(textQuestionView)
+//            
+//            textQuestionView.promptLabel.text = "hello"
+//            textQuestionView.translatesAutoresizingMaskIntoConstraints = false
+//            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":textQuestionView]))
+//            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":textQuestionView]))
+//        }
 
         // Do any additional setup after loading the view.
     }
