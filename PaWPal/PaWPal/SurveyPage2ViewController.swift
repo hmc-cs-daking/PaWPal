@@ -19,6 +19,7 @@ class SurveyPage2ViewController: UIViewController {
         if let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as? MultiSliderQuestion {
             contentView.addSubview(multiSliderQuestionView)
             
+            multiSliderQuestionView.promptLabel.text = "Multi sliders!"
             multiSliderQuestionView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":multiSliderQuestionView]))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":multiSliderQuestionView]))
