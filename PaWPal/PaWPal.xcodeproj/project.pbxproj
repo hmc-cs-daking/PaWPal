@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D8988947AFFC7199D5E8B6D /* Pods_PaWPalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D16B81D56A538AE39B31528 /* Pods_PaWPalUITests.framework */; };
 		2A8740231D9EEDEA00320648 /* SurveyPage4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */; };
+		2AB034DA1DA4E03400702563 /* SurveyPage5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */; };
 		2AF145F71D8B4F1B00000210 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF145F61D8B4F1B00000210 /* DatabaseController.swift */; };
 		411F52231D95D43D000A9DA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */; };
 		412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F75EC1D83A6850081EB6B /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		13D2930BB65466F3DBDC9F3F /* Pods-PaWPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPal/Pods-PaWPal.debug.xcconfig"; sourceTree = "<group>"; };
 		1C54D3CEE50DF1CB0F72BA74 /* Pods-PaWPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPal/Pods-PaWPal.release.xcconfig"; sourceTree = "<group>"; };
 		2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage4ViewController.swift; sourceTree = "<group>"; };
+		2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage5ViewController.swift; sourceTree = "<group>"; };
 		2AF145F61D8B4F1B00000210 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		3225EC9243F640C29D986910 /* Pods-PaWPalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalTests/Pods-PaWPalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -177,18 +179,19 @@
 				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
 				411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */,
 				416B4FA21D9880B0000810D8 /* AppState.swift */,
-				868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */,
 				868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */,
-				866DEE641DA4A52300E2DC45 /* MultiSliderQuestion.xib */,
+				860F53661D9B8F7900090FB3 /* SliderQuestion.xib */,
 				866DEE681DA4AF7800E2DC45 /* MultiCheckQuestion.xib */,
+				866DEE641DA4A52300E2DC45 /* MultiSliderQuestion.xib */,
+				868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */,
+				860F53641D9B8F5000090FB3 /* SliderQuestion.swift */,
 				866DEE6A1DA4BB6F00E2DC45 /* MultiCheckQuestion.swift */,
 				866DEE661DA4A8B100E2DC45 /* MultiSliderQuestion.swift */,
-				860F53641D9B8F5000090FB3 /* SliderQuestion.swift */,
-				860F53661D9B8F7900090FB3 /* SliderQuestion.xib */,
 				868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */,
 				860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */,
 				E69136D91D9CE29300588C7E /* SurveyPage3ViewController.swift */,
 				2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */,
+				2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				416B4FA31D9880B0000810D8 /* AppState.swift in Sources */,
 				E69136DA1D9CE29300588C7E /* SurveyPage3ViewController.swift in Sources */,
 				412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */,
+				2AB034DA1DA4E03400702563 /* SurveyPage5ViewController.swift in Sources */,
 				868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */,
 				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,
 				86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */,
