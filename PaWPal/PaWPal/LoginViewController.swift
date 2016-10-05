@@ -57,18 +57,25 @@ class LoginViewController: UIViewController {
     // When fully implemented, will keep a wake up notification schedule for the coming week
     func scheduleWeeklyNotifications() {
         print("Scheduling notifications")
-        let notification = UILocalNotification()
-        notification.alertBody = "Take your damn survey"
-        notification.alertAction = "open"
+        UIApplication.sharedApplication().scheduledLocalNotifications = []
+        for i in 1...7 {
+            let notification = UILocalNotification()
+            notification.alertBody = "Take your damn survey"
+            notification.alertAction = "open"
+            
+            let date = NSDate()
+            let calendar = NSCalendar.currentCalendar()
+            let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+            components.hour = 10
+            components.minute = 0
+            components.second = 0
+            components.day += i
+            
+            notification.fireDate = calendar.dateFromComponents(components)
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
         
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
-        components.minute += 1
-        
-        notification.fireDate = calendar.dateFromComponents(components)
-        
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        print(UIApplication.sharedApplication().scheduledLocalNotifications)
         print("Scheduled notification")
         
     }
