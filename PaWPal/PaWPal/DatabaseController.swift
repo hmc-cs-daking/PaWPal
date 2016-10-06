@@ -47,7 +47,6 @@ class DatabaseController {
             AppState.sharedInstance.email = userEmail
             AppState.sharedInstance.uid = (user! as FIRUser).uid
             AppState.sharedInstance.userName = userEmail
-            AppState.sharedInstance.signedIn = true
             
             let ref = FIRDatabase.database().reference()
             ref.child("users").child(getUid()).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
