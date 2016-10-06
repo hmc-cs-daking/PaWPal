@@ -21,7 +21,6 @@ class DatabaseController {
                 return
             }
             
-            let ref = FIRDatabase.database().reference()
             let key = (user! as FIRUser).uid
             let signUp = ["uid": (user! as FIRUser).uid,
                         "userName": userEmail,
@@ -30,9 +29,11 @@ class DatabaseController {
                         "wakeTime": "9:00 AM",
                         "sleepTime": "11:59 PM",
                         "closestScheduledNotification": "",
-                        "furthestScheduledNotification": ""]
+                        "furthestScheduledNotification": "",
+                        "dailySurveyCount": 0,
+                        "totalSurveyCount": 0]
             let childUpdates = ["/users/\(key)": signUp]
-            ref.updateChildValues(childUpdates)
+            AppState.sharedInstance.databaseRef.updateChildValues(childUpdates)
         }
     }
     
@@ -51,13 +52,14 @@ class DatabaseController {
             AppState.sharedInstance.userName = userEmail
             AppState.sharedInstance.signedIn = true
             
-            let ref = FIRDatabase.database().reference()
-            ref.child("users").child(getUid()).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
+            AppState.sharedInstance.databaseRef.child("users").child(getUid()).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 if let name = value?["name"] { AppState.sharedInstance.userName = name as? String }
                 if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
                 if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
                 if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
+                if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
+                if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                 }
             )
             completion()
@@ -115,21 +117,28 @@ class DatabaseController {
     }
     
     static func setSchool(userSchool: String){
-        let ref = FIRDatabase.database().reference()
-        ref.child("/users/\(getUid())/school").setValue(userSchool)
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/school").setValue(userSchool)
         AppState.sharedInstance.school = userSchool
     }
     
     static func setWakeTime(wakeTime: String) {
-        let ref = FIRDatabase.database().reference()
-        ref.child("/users/\(getUid())/wakeTime").setValue(wakeTime)
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/wakeTime").setValue(wakeTime)
         AppState.sharedInstance.wakeTime = wakeTime
     }
     
     static func setSleepTime(sleepTime: String) {
-        let ref = FIRDatabase.database().reference()
-        ref.child("/users/\(getUid())/sleepTime").setValue(sleepTime)
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/sleepTime").setValue(sleepTime)
         AppState.sharedInstance.sleepTime = sleepTime
+    }
+    
+    static func setClosestNotification(date: String) {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/closestScheduledNotification").setValue(date)
+        AppState.sharedInstance.closestScheduledNotification = date
+    }
+    
+    static func setFurthestNotification(date: String) {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/furthestScheduledNotification").setValue(date)
+        AppState.sharedInstance.furthestScheduledNotification = date
     }
     
 }

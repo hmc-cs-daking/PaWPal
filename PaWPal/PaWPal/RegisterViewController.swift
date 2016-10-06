@@ -54,7 +54,6 @@ class RegisterViewController: UIViewController {
         
         // Store data
         DatabaseController.signUp(userEmail, userPassword: userPassword)
-        
 
         
         // Go back to login page
