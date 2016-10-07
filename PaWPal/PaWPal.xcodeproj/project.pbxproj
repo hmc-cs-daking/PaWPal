@@ -28,6 +28,7 @@
 		860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F53641D9B8F5000090FB3 /* SliderQuestion.swift */; };
 		860F53671D9B8F7900090FB3 /* SliderQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860F53661D9B8F7900090FB3 /* SliderQuestion.xib */; };
 		860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */; };
+		8636D3741DA747F9002C8E70 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636D3731DA747F9002C8E70 /* Question.swift */; };
 		866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */; };
 		866DEE651DA4A52300E2DC45 /* MultiSliderQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866DEE641DA4A52300E2DC45 /* MultiSliderQuestion.xib */; };
 		866DEE671DA4A8B100E2DC45 /* MultiSliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866DEE661DA4A8B100E2DC45 /* MultiSliderQuestion.swift */; };
@@ -92,6 +93,7 @@
 		860F53641D9B8F5000090FB3 /* SliderQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderQuestion.swift; sourceTree = "<group>"; };
 		860F53661D9B8F7900090FB3 /* SliderQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderQuestion.xib; sourceTree = "<group>"; };
 		860F53681D9B92BC00090FB3 /* SurveyPage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage2ViewController.swift; sourceTree = "<group>"; };
+		8636D3731DA747F9002C8E70 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
 		866DEE641DA4A52300E2DC45 /* MultiSliderQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiSliderQuestion.xib; sourceTree = "<group>"; };
 		866DEE661DA4A8B100E2DC45 /* MultiSliderQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSliderQuestion.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				412F75FA1D83A6860081EB6B /* Info.plist */,
 				412F761C1D87CC700081EB6B /* SettingsViewController.swift */,
 				412F761E1D87CC8F0081EB6B /* HelpViewController.swift */,
+				8636D3731DA747F9002C8E70 /* Question.swift */,
 				415E48871D88795B00089878 /* TabBarController.swift */,
 				866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */,
 				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
@@ -513,6 +516,7 @@
 				2AB034DA1DA4E03400702563 /* SurveyPage5ViewController.swift in Sources */,
 				868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */,
 				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,
+				8636D3741DA747F9002C8E70 /* Question.swift in Sources */,
 				86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */,
 				868E5A771D9A4CC500B90BB8 /* TextQuestion.swift in Sources */,
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
