@@ -8,6 +8,7 @@
 
 
 import Foundation
+import FirebaseDatabase
 
 class AppState: NSObject {
     
@@ -20,4 +21,7 @@ class AppState: NSObject {
     var wakeTime: String?
     var sleepTime: String?
     var signedIn = false
+    var closestScheduledNotification: String?
+    var furthestScheduledNotification: String?
+    var databaseRef = FIRDatabase.database().reference()
 }
