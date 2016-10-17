@@ -282,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOx-g6-AfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1450" y="2109"/>
+            <point key="canvasLocation" x="1450" y="2161"/>
         </scene>
         <!--SurveyPage5-->
         <scene sceneID="Izw-SS-TBj">
@@ -306,9 +306,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="popoverPresentation" popoverAnchorView="ZOv-SF-Bco" id="EMw-Yt-yCS">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="displaySubmitAlert:" destination="lZL-cz-5iM" eventType="touchUpInside" id="ode-7N-LDJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXj-x1-DYj">
@@ -338,10 +336,15 @@
                             <constraint firstItem="ZOv-SF-Bco" firstAttribute="leading" secondItem="aXj-x1-DYj" secondAttribute="trailing" constant="24" id="yex-GM-wIu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="popoverPresentation" identifier="SurveyPage5ToSurvey" popoverAnchorView="ZOv-SF-Bco" id="th2-Fv-5nj">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3In-YV-kTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="2017"/>
+            <point key="canvasLocation" x="2250" y="2161"/>
         </scene>
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
@@ -821,9 +824,10 @@
         <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GMy-Yi-ghB"/>
+        <segue reference="th2-Fv-5nj"/>
         <segue reference="pqR-iE-mPu"/>
-        <segue reference="tAb-P8-qrW"/>
-        <segue reference="kt8-oG-Rpu"/>
+        <segue reference="m1K-eU-W1t"/>
         <segue reference="TVS-ZA-Mb0"/>
     </inferredMetricsTieBreakers>
 </document>
