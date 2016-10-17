@@ -12,6 +12,7 @@ import UIKit
 class NotificationScheduler {
     // Schedule daily 10 AM notifications for a week in advance
     static func scheduleNotificationsOnSignIn() {
+        clearScheduledNotifications()
         // Computes how many new notifications to schedule
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
@@ -21,7 +22,7 @@ class NotificationScheduler {
         let closestNotification = AppState.sharedInstance.closestScheduledNotification
         var furthestNotification = AppState.sharedInstance.furthestScheduledNotification
 
-        if (furthestNotification == nil) {
+        if (furthestNotification == nil || furthestNotification == "") {
             furthestNotification = dateFormatter.stringFromDate(nsDate)
         }
         
@@ -41,13 +42,14 @@ class NotificationScheduler {
             furthestComponents = currentComponents
         }
         
-        furthestComponents.hour = 10
-        furthestComponents.minute = 0
+        let wakeTime = DatabaseController.getWakeTime()
+        let wakeTimeComponents = wakeTime.componentsSeparatedByString(":")
+        furthestComponents.hour = Int(wakeTimeComponents[0])!
+        furthestComponents.minute = Int(wakeTimeComponents[1].componentsSeparatedByString(" ")[0])! + 30
         furthestComponents.second = 0
         
         // Schedules the new notifications
         for i in ((7-dayDifference)+1)..<8 {
-            print(i)
             let notification = UILocalNotification()
             notification.alertBody = "Start your day off on the right foot!"
             notification.alertAction = "open"
@@ -55,7 +57,7 @@ class NotificationScheduler {
             notification.fireDate = calendar.dateFromComponents(furthestComponents)
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
-            if (closestNotification == nil && i == 1) {
+            if ((closestNotification == nil || closestNotification == "") && i == 1) {
                 DatabaseController.setClosestNotification(dateFormatter.stringFromDate(notification.fireDate!))
             }
             
@@ -67,6 +69,10 @@ class NotificationScheduler {
     
     static func clearScheduledNotifications() {
         UIApplication.sharedApplication().scheduledLocalNotifications = []
+        DatabaseController.setFurthestNotification("")
+        DatabaseController.setClosestNotification("")
+        AppState.sharedInstance.closestScheduledNotification = ""
+        AppState.sharedInstance.furthestScheduledNotification = ""
     }
     
     static func printScheduledNotifications() {
