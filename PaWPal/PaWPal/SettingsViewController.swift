@@ -95,13 +95,7 @@ class SettingsViewController: UIViewController {
     
     // Confirms that user wants to log out
     @IBAction func displayLogOutAlert(sender: UIButton) {
-        let alertController = UIAlertController(title: "Alert", message: "Are you sure you want to log out?", preferredStyle: .Alert)
-        
-        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: logOut))
-        
-        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.displayYesNoAlert("Alert", message: "Are you sure you want to log out?", yesHandler: logOut)
     }
     
     func logOut(alert: UIAlertAction!) {

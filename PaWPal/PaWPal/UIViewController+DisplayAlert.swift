@@ -30,8 +30,7 @@ extension UIViewController {
      *      })
      */
     func displayAlert(title: String, message: String, handler: ((UIAlertAction) -> Void)?) {
-        let alertController = UIAlertController(title: title, message:
-            message, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         let OKAction = UIAlertAction(title: "Ok", style: .Default, handler: handler)
         
@@ -39,4 +38,30 @@ extension UIViewController {
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    /*
+     * displayYesNoAlert
+     *
+     * Params:
+     *    title - String - text at top of alert
+     *    message - String - main text of alert
+     *    handler - function - what happens after you click "Yes"
+     *
+     * Usage:
+     *    self.displayYesNoAlert("Alert", message: "Are you sure you want to submit?", yesHandler: submit)
+     *
+     * Note: Only "Yes" has a handler, "No" merely dismisses the alert
+     */
+    func displayYesNoAlert(title: String, message: String, yesHandler: ((UIAlertAction) -> Void)?) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: yesHandler))
+        
+        alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
 }
