@@ -47,7 +47,8 @@ class LoginViewController: UIViewController {
         
         DatabaseController.signIn(userEmail,
                                   userPassword: userPassword,
-                                  completion: removeLoginFromView,
+                                  completion: {self.removeLoginFromView()
+                                    NotificationScheduler.scheduleNotificationsOnSignIn()},
                                   failure: {
             self.displayAlert("Error", message: errorMessage, handler: nil)
         })

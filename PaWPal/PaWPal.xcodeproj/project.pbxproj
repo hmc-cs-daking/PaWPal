@@ -24,6 +24,7 @@
 		412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F761E1D87CC8F0081EB6B /* HelpViewController.swift */; };
 		415E48881D88795B00089878 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E48871D88795B00089878 /* TabBarController.swift */; };
 		416B4FA31D9880B0000810D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA21D9880B0000810D8 /* AppState.swift */; };
+		416B4FA71DA62689000810D8 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA61DA62689000810D8 /* NotificationScheduler.swift */; };
 		66FC96E0D5C809247E25ED19 /* Pods_PaWPalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6D5A57361681D35C66413C /* Pods_PaWPalTests.framework */; };
 		860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F53641D9B8F5000090FB3 /* SliderQuestion.swift */; };
 		860F53671D9B8F7900090FB3 /* SliderQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860F53661D9B8F7900090FB3 /* SliderQuestion.xib */; };
@@ -87,6 +88,7 @@
 		412F761E1D87CC8F0081EB6B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		415E48871D88795B00089878 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		416B4FA21D9880B0000810D8 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		416B4FA61DA62689000810D8 /* NotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		4F6D5A57361681D35C66413C /* Pods_PaWPalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaWPalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FACD51C384E9D0E4A4769F6 /* Pods-PaWPalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalUITests/Pods-PaWPalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D16B81D56A538AE39B31528 /* Pods_PaWPalUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaWPalUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				86DC95A81D89026D007F84BB /* RegisterViewController.swift */,
 				412F75EE1D83A6850081EB6B /* SurveyViewController.swift */,
 				412F75F01D83A6850081EB6B /* ProfileViewController.swift */,
+				416B4FA61DA62689000810D8 /* NotificationScheduler.swift */,
 				412F75F21D83A6850081EB6B /* Main.storyboard */,
 				412F75F51D83A6860081EB6B /* Assets.xcassets */,
 				412F75F71D83A6860081EB6B /* LaunchScreen.storyboard */,
@@ -518,6 +521,7 @@
 				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,
 				8636D3741DA747F9002C8E70 /* Question.swift in Sources */,
 				86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */,
+				416B4FA71DA62689000810D8 /* NotificationScheduler.swift in Sources */,
 				868E5A771D9A4CC500B90BB8 /* TextQuestion.swift in Sources */,
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
 				866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */,
