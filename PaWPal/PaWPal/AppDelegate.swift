@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 )
                 
+                NotificationScheduler.scheduleNotificationsOnSignIn()
+                
                 return true
             }
         }
