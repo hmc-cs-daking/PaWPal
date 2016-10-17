@@ -47,14 +47,14 @@ class DatabaseController {
                 return
             }
             
-            AppState.sharedInstance.email = userEmail
+            AppState.sharedInstance.userEmail = userEmail
             AppState.sharedInstance.uid = (user! as FIRUser).uid
             AppState.sharedInstance.userName = userEmail
-            AppState.sharedInstance.signedIn = true
             
+            // Retrieves user's info from firebase
             AppState.sharedInstance.databaseRef.child("users").child(getUid()).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 let value = snapshot.value as? NSDictionary
-                if let name = value?["name"] { AppState.sharedInstance.userName = name as? String }
+                if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
                 if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
                 if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
                 if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
@@ -62,13 +62,19 @@ class DatabaseController {
                 if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                 }
             )
+            
+            // Remembers the user id in a keychain
+            let MyKeychainWrapper = KeychainWrapper()
+            MyKeychainWrapper.mySetObject(AppState.sharedInstance.uid, forKey:kSecValueData)
+            MyKeychainWrapper.writeToKeychain()
+            
             completion()
         }
     }
     
     //list of functions to access user info
     static func getEmail() -> String{
-        if let email = AppState.sharedInstance.email { return email }
+        if let email = AppState.sharedInstance.userEmail { return email }
         else { return "" }
     }
     
@@ -111,9 +117,8 @@ class DatabaseController {
     }
     
     static func setName(userName: String){
-        //TODO
-        NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "userName")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/userName").setValue(userName)
+        AppState.sharedInstance.userName = userName
     }
     
     static func setSchool(userSchool: String){

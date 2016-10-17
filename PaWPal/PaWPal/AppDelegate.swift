@@ -16,19 +16,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     // Show login page if user is not logged in
+    // Or loads info if user is already logged in
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         FIRApp.configure()
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
-        let isUserLoggedIn = NSUserDefaults.standardUserDefaults().boolForKey("isUserLoggedIn")
+        let signedIn = NSUserDefaults.standardUserDefaults().boolForKey("signedIn")
         
-        if (!isUserLoggedIn) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
-            self.window?.rootViewController = loginVC
+        if (signedIn) {
+            
+            // retrieve user id from keychain
+            if let uid = KeychainWrapper().myObjectForKey("v_Data") as? String {
+                AppState.sharedInstance.uid = uid
+                
+                // @Daniel, copied from DatabaseController, added if let for userEmail
+                // retrieves user-specific info from firebase
+                AppState.sharedInstance.databaseRef.child("users").child(uid).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    if let userEmail = value?["userEmail"] {AppState.sharedInstance.userEmail = userEmail as? String }
+                    if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
+                    if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
+                    if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
+                    if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
+                    if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
+                    if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
+                    }
+                )
+                
+                return true
+            }
         }
         
+        // if user is not signed in
+        
+        LoginViewController.showLogin()
         return true
     }
 

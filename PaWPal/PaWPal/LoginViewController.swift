@@ -56,10 +56,21 @@ class LoginViewController: UIViewController {
     
     // If login is successful, go to main view
     func removeLoginFromView() {
+        // remember that user is signed into this specific device
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "signedIn")
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = tabBarController
+    }
+    
+    // accessible from other controllers/swift files
+    static func showLogin() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = loginVC
     }
     
 
