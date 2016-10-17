@@ -15,7 +15,7 @@ class AppState: NSObject {
     static let sharedInstance = AppState()
     
     var userName: String?
-    var email: String?
+    var userEmail: String?
     var uid: String?
     var school: String?
     var wakeTime: String?

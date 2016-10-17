@@ -105,15 +105,10 @@ class SettingsViewController: UIViewController {
     }
     
     func logOut(alert: UIAlertAction!) {
-        // not part of DB
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isUserLoggedIn")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "signedIn")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        // Go to login page
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window?.rootViewController = loginVC
+        LoginViewController.showLogin()
     }
     
     
