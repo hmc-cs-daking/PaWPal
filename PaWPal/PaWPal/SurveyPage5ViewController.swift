@@ -11,8 +11,6 @@ import UIKit
 class SurveyPage5ViewController: UIViewController {
     
     func displayQuestions(){
-        
-        // create the stack view
         let stackView = UIStackView()
         stackView.axis = .Vertical
         stackView.distribution = .FillEqually
@@ -20,17 +18,10 @@ class SurveyPage5ViewController: UIViewController {
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        // add questions to the stack view
-        if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            stackView.addArrangedSubview(textQ1)
-            textQ1.promptLabel.text = "(Optional) If you were feeling strong emotions, why?"
-            textQ1.answerTextField.placeholder = "Describe"
-        }
-        
-        if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            stackView.addArrangedSubview(textQ2)
-            textQ2.promptLabel.text = "(Optional) Was there something else on your mind?"
-            textQ2.answerTextField.placeholder = "Describe"
+        // MULTI SLIDER
+        if let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as? MultiSliderQuestion {
+            stackView.addArrangedSubview(multiSliderQuestionView)
+            multiSliderQuestionView.promptLabel.text = "Describe your mood as you were pinged"
         }
         
         view.addSubview(stackView)
@@ -46,6 +37,11 @@ class SurveyPage5ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 }
