@@ -60,6 +60,7 @@ class DatabaseController {
                 if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
                 if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
                 if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
+                if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = Int(dailyCount as! String)! }
                 }
             )
             
@@ -101,6 +102,10 @@ class DatabaseController {
     static func getUid() -> String {
         if let uid = AppState.sharedInstance.uid { return uid }
         else { return "" }
+    }
+    
+    static func getDailySurveyCount() -> Int {
+        return AppState.sharedInstance.dailySurveyCount
     }
     
     //list of functions to set user info
@@ -146,4 +151,13 @@ class DatabaseController {
         AppState.sharedInstance.furthestScheduledNotification = date
     }
     
+    static func incrementDailySurveyCount() {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/dailySurveyCount").setValue(getDailySurveyCount()+1)
+        AppState.sharedInstance.dailySurveyCount += 1
+    }
+    
+    static func resetDailySurveyCount() {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/dailySurveyCount").setValue(0)
+        AppState.sharedInstance.dailySurveyCount = 0
+    }
 }
