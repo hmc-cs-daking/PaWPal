@@ -23,17 +23,22 @@ class SurveyPage3ViewController: UIViewController {
         // add questions to the stack view
         if let sliderQ1 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
             stackView.addArrangedSubview(sliderQ1)
-            sliderQ1.promptLabel.text = "Slide to the left"
+            sliderQ1.promptLabel.text = "How challenging was this activity?"
         }
         
         if let sliderQ2 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
             stackView.addArrangedSubview(sliderQ2)
-            sliderQ2.promptLabel.text = "Slide to the right"
+            sliderQ2.promptLabel.text = "How skilled are you at this activity?"
         }
         
         if let sliderQ3 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
             stackView.addArrangedSubview(sliderQ3)
-            sliderQ3.promptLabel.text = "Cha Cha real smooth"
+            sliderQ3.promptLabel.text = "Were you succeeding at this activity?"
+        }
+        
+        if let sliderQ4 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
+            stackView.addArrangedSubview(sliderQ4)
+            sliderQ4.promptLabel.text = "Did you wish you had been doing something else?"
         }
         
         view.addSubview(stackView)

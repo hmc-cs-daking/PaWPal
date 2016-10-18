@@ -1,15 +1,27 @@
 //
-//  SurveyPage2ViewController.swift
+//  SurveyPage6ViewController.swift
 //  PaWPal
 //
-//  Created by Tiffany Fong on 9/27/16.
+//  Created by Doren Lan on 10/17/16.
 //  Copyright © 2016 HMC CS121 Group 5. All rights reserved.
 //
 
 import UIKit
 
-class SurveyPage2ViewController: UIViewController {
-
+class SurveyPage6ViewController: UIViewController {
+    var temp1: TextQuestion!
+    var temp2: TextQuestion!
+    
+    
+    @IBAction func next(sender: UIButton) {
+        // save data
+        DatabaseController.updateText("strongEmotionsOptional", question: temp1)
+        DatabaseController.updateText("elseMindOptional", question: temp2)
+        
+        //submit survey - TODO notification for do you want to submit?
+        
+        
+    }
     func displayQuestions(){
         
         // create the stack view
@@ -21,24 +33,18 @@ class SurveyPage2ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add questions to the stack view
-        if let sliderQ1 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ1)
-            sliderQ1.promptLabel.text = "Did you enjoy what you were doing?"
+        if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            temp1 = textQ1
+            stackView.addArrangedSubview(textQ1)
+            textQ1.promptLabel.text = "(Optional) If you were feeling strong emotions, why?"
+            textQ1.answerTextField.placeholder = "Describe"
         }
         
-        if let sliderQ2 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ2)
-            sliderQ2.promptLabel.text = "How well were you concentrating?"
-        }
-        
-        if let sliderQ3 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ3)
-            sliderQ3.promptLabel.text = "Were you getting better at something?"
-        }
-        
-        if let sliderQ4 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ4)
-            sliderQ4.promptLabel.text = "Did you have some choice in picking the activity?"
+        if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            temp2 = textQ2
+            stackView.addArrangedSubview(textQ2)
+            textQ2.promptLabel.text = "(Optional) Was there something else on your mind?"
+            textQ2.answerTextField.placeholder = "Describe"
         }
         
         view.addSubview(stackView)
@@ -55,4 +61,5 @@ class SurveyPage2ViewController: UIViewController {
         super.viewDidLoad()
         displayQuestions()
     }
+
 }

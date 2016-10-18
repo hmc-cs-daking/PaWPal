@@ -25,4 +25,28 @@ class AppState: NSObject {
     var furthestScheduledNotification: String?
     var dailySurveyCount = 0
     var databaseRef = FIRDatabase.database().reference()
+    var surveyList = ["where": "",
+                      "activity": "",
+                      "elseOptional": "",
+                      
+                      "enjoyment": 0,
+                      "concentration": 0,
+                      "gettingBetter": 0,
+                      "choice": 0,
+                      
+                      "challenge": 0,
+                      "skilled": 0,
+                      "succeedng": 0,
+                      "wishElse": 0,
+                      
+                      "interaction": [
+                        0,0,0,0,0],
+                      "howLong": "",
+                      
+                      "feeling": [
+                        0,0,0,0,0],
+                      
+                      "strongEmotionsOptional": "",
+                      "elseMindOptional": ""
+    ]
 }

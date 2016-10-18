@@ -25,4 +25,12 @@ class MultiSliderQuestion: UIView {
     @IBOutlet weak var lowLabel3: UILabel!
     @IBOutlet weak var highLabel3: UILabel!
     
+    @IBOutlet weak var answerSlider4: UISlider!
+    @IBOutlet weak var lowLabel4: UILabel!
+    @IBOutlet weak var highLabel4: UILabel!
+    
+    @IBOutlet weak var answerSlider5: UISlider!
+    @IBOutlet weak var lowLabel5: UILabel!
+    @IBOutlet weak var highLabel5: UILabel!
+    
 }

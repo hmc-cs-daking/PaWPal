@@ -73,6 +73,30 @@ class DatabaseController {
         }
     }
     
+    //methods to update different types of questions
+    static func updateSlider(key: String, question: SliderQuestion){
+        let answer = question.answerSlider.value
+        AppState.sharedInstance.surveyList[key] = answer
+
+    }
+    
+    static func updateText(key: String, question: TextQuestion){
+        let answer = question.answerTextField.text
+        AppState.sharedInstance.surveyList[key] = answer
+    }
+    
+    static func updateMultiSlider(key: String, question: MultiSliderQuestion){
+        // TODO: update the correct answers in dictionary
+    }
+    
+    static func updateMultiCheck(key: String, question: MultiCheckQuestion){
+        // TODO
+    }
+    
+    static func submitSurvey(){
+        //TODO
+    }
+    
     //list of functions to access user info
     static func getEmail() -> String{
         if let email = AppState.sharedInstance.userEmail { return email }
