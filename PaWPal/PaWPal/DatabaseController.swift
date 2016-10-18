@@ -139,9 +139,8 @@ class DatabaseController {
     
     //list of functions to set user info
     static func setEmail(userEmail: String){
-        //TODO
-        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/userEmail").setValue(userEmail)
+        AppState.sharedInstance.userName = userEmail
     }
     
     static func setPassword(userPassword: String){

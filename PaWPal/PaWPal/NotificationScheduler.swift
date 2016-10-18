@@ -144,7 +144,7 @@ class NotificationScheduler {
         }
         
         if (closestComponents.hour == wakeTimeComponents.hour && closestComponents.minute == wakeTimeComponents.minute+30) {
-            if (nsDate.compare(calendar.dateFromComponents(closestComponents))) {
+            if (nsDate.compare(calendar.dateFromComponents(closestComponents)!) == NSComparisonResult.OrderedDescending) {
                 DatabaseController.resetDailySurveyCount()
             }
         }
