@@ -74,7 +74,7 @@ class NotificationScheduler {
         
         let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         
-        let wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        var wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
         wakeTimeComponents.hour = Int(wakeTime[0])!
         let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
@@ -82,12 +82,14 @@ class NotificationScheduler {
         if (wakeTimeMinutesAndAmPm[1] == "PM") {
             wakeTimeComponents.hour += 12
         }
+        wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(wakeTimeComponents)!)
         
         let surveyCount = DatabaseController.getDailySurveyCount()
         // check if the user has already taken all of their surveys for the day
         if (surveyCount < 6) {
-            let plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+            var plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
             plusTwoHoursComponents.hour += 2
+            plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(plusTwoHoursComponents)!)
             
             // don't ever schedule notifications between 2 am and the morning notification
             if (plusTwoHoursComponents.hour < 2 || (plusTwoHoursComponents.hour >= (wakeTimeComponents.hour+2) && plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
@@ -134,16 +136,19 @@ class NotificationScheduler {
         let closestNotification = AppState.sharedInstance.closestScheduledNotification
         let closestComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: dateFormatter.dateFromString(closestNotification!)!)
         
-        let wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        var wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
         wakeTimeComponents.hour = Int(wakeTime[0])!
         let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
-        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])! + 30
+        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])!
+        wakeTimeComponents.minute += 30
         if (wakeTimeMinutesAndAmPm[1] == "PM") {
             wakeTimeComponents.hour += 12
         }
         
-        if (closestComponents.hour == wakeTimeComponents.hour && closestComponents.minute == wakeTimeComponents.minute+30) {
+        wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(wakeTimeComponents)!)
+
+        if (closestComponents.hour == wakeTimeComponents.hour && closestComponents.minute == wakeTimeComponents.minute) {
             if (nsDate.compare(calendar.dateFromComponents(closestComponents)!) == NSComparisonResult.OrderedDescending) {
                 DatabaseController.resetDailySurveyCount()
             }
@@ -166,7 +171,7 @@ class NotificationScheduler {
     
     static func getDateFormatter() -> NSDateFormatter {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
+        formatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss a +zzzz"
         return formatter
     }
 }
