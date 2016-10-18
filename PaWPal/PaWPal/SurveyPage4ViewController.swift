@@ -21,19 +21,15 @@ class SurveyPage4ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add questions to the stack view
+        if let checkQ1 = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as? MultiCheckQuestion {
+            
+            stackView.addArrangedSubview(checkQ1)
+            checkQ1.promptLabel.text = "Who were you with? (Check all that apply)"
+        }
+        
         if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
             stackView.addArrangedSubview(textQ1)
-            textQ1.promptLabel.text = "This is a Text Question (number 1)?"
-        }
-        
-        if let sliderQ1 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            stackView.addArrangedSubview(sliderQ1)
-            sliderQ1.promptLabel.text = "This is a Slider Question?"
-        }
-        
-        if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            stackView.addArrangedSubview(textQ2)
-            textQ2.promptLabel.text = "This is a Text Question (number 2)?"
+            textQ1.promptLabel.text = "How long had you been doing this activity for?"
         }
         
         view.addSubview(stackView)

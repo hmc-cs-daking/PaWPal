@@ -12,40 +12,43 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Prompt: Type in text below.  This can be a very long question." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdC-tA-Lwm">
-                    <rect key="frame" x="8" y="18" width="584" height="86"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-69-dtV">
-                    <rect key="frame" x="16" y="144" width="568" height="31"/>
+                    <rect key="frame" x="16" y="112" width="568" height="31"/>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 - low answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snH-6B-iuw">
-                    <rect key="frame" x="18" y="182" width="112" height="21"/>
+                    <rect key="frame" x="18" y="150" width="112" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 - high answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-99-4eR">
-                    <rect key="frame" x="462" y="182" width="120" height="21"/>
+                    <rect key="frame" x="462" y="150" width="120" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" layoutMarginsFollowReadableWidth="YES" text="Prompt: Type in text below.  This can be a very long question." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bdC-tA-Lwm">
+                    <rect key="frame" x="8" y="18" width="584" height="86"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="zAl-Gm-IqG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.54323814660000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="bdC-tA-Lwm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="10" id="45C-2u-AI6"/>
                 <constraint firstItem="5VO-69-dtV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="4xF-zk-CrR"/>
+                <constraint firstItem="5VO-69-dtV" firstAttribute="top" secondItem="bdC-tA-Lwm" secondAttribute="bottom" constant="8" id="FPl-Eo-3te"/>
                 <constraint firstAttribute="trailingMargin" secondItem="5VO-69-dtV" secondAttribute="trailing" constant="10" id="SJh-3r-4Dq"/>
                 <constraint firstItem="snH-6B-iuw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="a7r-VH-Hgo"/>
                 <constraint firstItem="QBp-99-4eR" firstAttribute="top" secondItem="5VO-69-dtV" secondAttribute="bottom" constant="8" id="fWe-q9-eeP"/>
+                <constraint firstItem="bdC-tA-Lwm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="huu-Xk-E22"/>
+                <constraint firstItem="bdC-tA-Lwm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="nDq-PO-4dX"/>
+                <constraint firstAttribute="trailing" secondItem="bdC-tA-Lwm" secondAttribute="trailing" constant="8" id="p1S-hH-hQt"/>
                 <constraint firstItem="snH-6B-iuw" firstAttribute="top" secondItem="5VO-69-dtV" secondAttribute="bottom" constant="8" id="pBv-3A-Qlf"/>
-                <constraint firstItem="bdC-tA-Lwm" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="qBh-VS-yOW"/>
-                <constraint firstItem="bdC-tA-Lwm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="spO-SP-5Ql"/>
                 <constraint firstAttribute="trailingMargin" secondItem="QBp-99-4eR" secondAttribute="trailing" constant="10" id="vfk-IW-LjY"/>
-                <constraint firstItem="5VO-69-dtV" firstAttribute="top" secondItem="bdC-tA-Lwm" secondAttribute="bottom" constant="40" id="vgt-sC-RrN"/>
             </constraints>
             <connections>
                 <outlet property="answerSlider" destination="5VO-69-dtV" id="MXa-Db-l1y"/>
