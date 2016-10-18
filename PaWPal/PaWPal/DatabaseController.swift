@@ -61,6 +61,7 @@ class DatabaseController {
                 if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
                 if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                 if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = Int(dailyCount as! String)! }
+                if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
                 }
             )
             
@@ -132,6 +133,10 @@ class DatabaseController {
         return AppState.sharedInstance.dailySurveyCount
     }
     
+    static func getTotalSurveyCount() -> Int {
+        return AppState.sharedInstance.totalSurveyCount
+    }
+    
     //list of functions to set user info
     static func setEmail(userEmail: String){
         //TODO
@@ -183,5 +188,10 @@ class DatabaseController {
     static func resetDailySurveyCount() {
         AppState.sharedInstance.databaseRef.child("/users/\(getUid())/dailySurveyCount").setValue(0)
         AppState.sharedInstance.dailySurveyCount = 0
+    }
+    
+    static func incrementTotalSurveyCount() {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/totalSurveyCount").setValue(getTotalSurveyCount()+1)
+        AppState.sharedInstance.totalSurveyCount += 1
     }
 }
