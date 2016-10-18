@@ -16,8 +16,7 @@ class NotificationScheduler {
         // Computes how many new notifications to schedule
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
+        let dateFormatter = getDateFormatter()
         
         let closestNotification = AppState.sharedInstance.closestScheduledNotification
         var furthestNotification = AppState.sharedInstance.furthestScheduledNotification
@@ -71,8 +70,7 @@ class NotificationScheduler {
         var scheduledNewNotification = false
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
+        let dateFormatter = getDateFormatter()
         
         let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         
@@ -128,6 +126,30 @@ class NotificationScheduler {
         }
     }
     
+    static func resetDailyCountIfNecessary() {
+        let dateFormatter = getDateFormatter()
+        let calendar = NSCalendar.currentCalendar()
+        let nsDate = NSDate()
+        
+        let closestNotification = AppState.sharedInstance.closestScheduledNotification
+        let closestComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: dateFormatter.dateFromString(closestNotification!)!)
+        
+        let wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
+        wakeTimeComponents.hour = Int(wakeTime[0])!
+        let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
+        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])! + 30
+        if (wakeTimeMinutesAndAmPm[1] == "PM") {
+            wakeTimeComponents.hour += 12
+        }
+        
+        if (closestComponents.hour == wakeTimeComponents.hour && closestComponents.minute == wakeTimeComponents.minute+30) {
+            if (nsDate.compare(calendar.dateFromComponents(closestComponents))) {
+                DatabaseController.resetDailySurveyCount()
+            }
+        }
+    }
+    
     static func clearScheduledNotifications() {
         UIApplication.sharedApplication().scheduledLocalNotifications = []
         DatabaseController.setFurthestNotification("")
@@ -140,5 +162,11 @@ class NotificationScheduler {
         for notification in UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification] {
             print(notification.fireDate)
         }
+    }
+    
+    static func getDateFormatter() -> NSDateFormatter {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
+        return formatter
     }
 }

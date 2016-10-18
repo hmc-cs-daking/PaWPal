@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                     if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
                     
+                    NotificationScheduler.resetDailyCountIfNecessary()
                     NotificationScheduler.scheduleNotificationsOnSignIn()
                     }
                 )
