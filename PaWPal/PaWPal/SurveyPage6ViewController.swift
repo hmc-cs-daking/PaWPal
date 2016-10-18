@@ -18,14 +18,21 @@ class SurveyPage6ViewController: UIViewController {
         DatabaseController.updateText("strongEmotionsOptional", question: temp1)
         DatabaseController.updateText("elseMindOptional", question: temp2)
         
-        //submit survey - TODO notification for do you want to submit?
+        self.displayYesNoAlert("Alert", message: "Are you sure you want to submit?", yesHandler: submit)
+    }
+    
+    func submit(alert: UIAlertAction!) {
+        // @Doren, do your submit stuff here
         
         // stuff that happens when you submit a survey
         DatabaseController.incrementDailySurveyCount()
         DatabaseController.incrementTotalSurveyCount()
         NotificationScheduler.scheduleNextNotificationOfTheDay()
         
+        // go back to main survey page
+        performSegueWithIdentifier("SurveyPage6ToSurvey", sender: nil)
     }
+    
     func displayQuestions(){
         
         // create the stack view
