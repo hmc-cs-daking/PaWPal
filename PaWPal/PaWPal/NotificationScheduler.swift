@@ -67,7 +67,6 @@ class NotificationScheduler {
     }
     
     static func scheduleNextNotificationOfTheDay() {
-        // TODO: call this in the right place
         var scheduledNewNotification = false
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()

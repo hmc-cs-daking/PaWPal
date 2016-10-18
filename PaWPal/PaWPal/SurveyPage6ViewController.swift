@@ -20,6 +20,10 @@ class SurveyPage6ViewController: UIViewController {
         
         //submit survey - TODO notification for do you want to submit?
         
+        // stuff that happens when you submit a survey
+        DatabaseController.incrementDailySurveyCount()
+        NotificationScheduler.scheduleNextNotificationOfTheDay()
+        
         
     }
     func displayQuestions(){
