@@ -12,6 +12,7 @@ import UIKit
 class NotificationScheduler {
     // Schedule daily 10 AM notifications for a week in advance
     static func scheduleNotificationsOnSignIn() {
+        //clearScheduledNotifications()
         // Computes how many new notifications to schedule
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
@@ -88,10 +89,10 @@ class NotificationScheduler {
         // check if the user has already taken all of their surveys for the day
         if (surveyCount < 6) {
             let plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+            plusTwoHoursComponents.hour += 2
             
             // don't ever schedule notifications between 2 am and the morning notification
-            if (plusTwoHoursComponents.hour <= 2 || (plusTwoHoursComponents.hour >= wakeTimeComponents.hour && plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
-                plusTwoHoursComponents.hour += 2
+            if (plusTwoHoursComponents.hour < 2 || (plusTwoHoursComponents.hour >= (wakeTimeComponents.hour+2) && plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
                 
                 let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
                 let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
@@ -136,6 +137,8 @@ class NotificationScheduler {
     }
     
     static func printScheduledNotifications() {
-        print(UIApplication.sharedApplication().scheduledLocalNotifications)
+        for notification in UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification] {
+            print(notification.fireDate)
+        }
     }
 }

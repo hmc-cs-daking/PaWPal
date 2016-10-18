@@ -24,7 +24,6 @@ class SurveyPage6ViewController: UIViewController {
         DatabaseController.incrementDailySurveyCount()
         NotificationScheduler.scheduleNextNotificationOfTheDay()
         
-        
     }
     func displayQuestions(){
         
