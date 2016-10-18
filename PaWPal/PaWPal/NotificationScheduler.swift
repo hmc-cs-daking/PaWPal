@@ -41,6 +41,7 @@ class NotificationScheduler {
             furthestComponents = currentComponents
         }
         
+        // set the time for the morning notifications based on the user's wake time
         let wakeTime = DatabaseController.getWakeTime()
         let wakeTimeComponents = wakeTime.componentsSeparatedByString(":")
         furthestComponents.hour = Int(wakeTimeComponents[0])!
@@ -107,6 +108,7 @@ class NotificationScheduler {
                 
                 // check if two hours later is before the user's bedtime
                 if ((calendar.dateFromComponents(sleepTimeComponents))?.compare(calendar.dateFromComponents(plusTwoHoursComponents)!) == NSComparisonResult.OrderedDescending) {
+                    // schedule a notification for two hours from current time
                     let notification = UILocalNotification()
                     notification.alertBody = "It's time to take a survey!"
                     notification.alertAction = "open"
@@ -114,6 +116,8 @@ class NotificationScheduler {
                     UIApplication.sharedApplication().scheduleLocalNotification(notification)
                     DatabaseController.setClosestNotification(dateFormatter.stringFromDate(notification.fireDate!))
                     scheduledNewNotification = true
+                    
+                    // leaving print here to help me debug as we continue to work
                     printScheduledNotifications()
                 }
             }
@@ -148,6 +152,7 @@ class NotificationScheduler {
         
         wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(wakeTimeComponents)!)
 
+        // will reset the dailySurveyCount if the closest notification is the morning notification and the current time is past the morning notification
         if (closestComponents.hour == wakeTimeComponents.hour && closestComponents.minute == wakeTimeComponents.minute) {
             if (nsDate.compare(calendar.dateFromComponents(closestComponents)!) == NSComparisonResult.OrderedDescending) {
                 DatabaseController.resetDailySurveyCount()
