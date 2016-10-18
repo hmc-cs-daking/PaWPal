@@ -34,6 +34,18 @@ class SurveyPage5ViewController: UIViewController {
         view.addConstraints(stackView_V)
     }
     
+    // Confirms that user wants to submit survey
+    @IBAction func displaySubmitAlert(sender: UIButton) {
+        self.displayYesNoAlert("Alert", message: "Are you sure you want to submit?", yesHandler: submit)
+    }
+    
+    func submit(alert: UIAlertAction!) {
+        // goes to main survey page
+        performSegueWithIdentifier("SurveyPage5ToSurvey", sender: nil)
+    }
+        
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
