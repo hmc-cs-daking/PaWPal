@@ -60,6 +60,8 @@ class DatabaseController {
                 if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
                 if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
                 if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
+                if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = Int(dailyCount as! String)! }
+                if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
                 }
             )
             
@@ -127,11 +129,18 @@ class DatabaseController {
         else { return "" }
     }
     
+    static func getDailySurveyCount() -> Int {
+        return AppState.sharedInstance.dailySurveyCount
+    }
+    
+    static func getTotalSurveyCount() -> Int {
+        return AppState.sharedInstance.totalSurveyCount
+    }
+    
     //list of functions to set user info
     static func setEmail(userEmail: String){
-        //TODO
-        NSUserDefaults.standardUserDefaults().setObject(userEmail, forKey: "userEmail")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/userEmail").setValue(userEmail)
+        AppState.sharedInstance.userName = userEmail
     }
     
     static func setPassword(userPassword: String){
@@ -170,4 +179,18 @@ class DatabaseController {
         AppState.sharedInstance.furthestScheduledNotification = date
     }
     
+    static func incrementDailySurveyCount() {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/dailySurveyCount").setValue(getDailySurveyCount()+1)
+        AppState.sharedInstance.dailySurveyCount += 1
+    }
+    
+    static func resetDailySurveyCount() {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/dailySurveyCount").setValue(0)
+        AppState.sharedInstance.dailySurveyCount = 0
+    }
+    
+    static func incrementTotalSurveyCount() {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/totalSurveyCount").setValue(getTotalSurveyCount()+1)
+        AppState.sharedInstance.totalSurveyCount += 1
+    }
 }
