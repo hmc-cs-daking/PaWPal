@@ -23,7 +23,8 @@ class SurveyPage6ViewController: UIViewController {
     
     func submit(alert: UIAlertAction!) {
         // @Doren, do your submit stuff here
-        
+        //DatabaseController.submitSurvey()
+        print(AppState.sharedInstance.surveyList)
         
         // go back to main survey page
         performSegueWithIdentifier("SurveyPage6ToSurvey", sender: nil)

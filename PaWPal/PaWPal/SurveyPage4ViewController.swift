@@ -9,6 +9,14 @@
 import UIKit
 
 class SurveyPage4ViewController: UIViewController {
+    var temp1: MultiCheckQuestion!
+    var temp2: TextQuestion!
+    
+    @IBAction func next(sender: UIButton) {
+        // save data TODO - make required vs optional
+        DatabaseController.updateMultiCheck("interaction", question: temp1)
+        DatabaseController.updateText("howLong", question: temp2)
+    }
     
     func displayQuestions(){
         
@@ -22,14 +30,16 @@ class SurveyPage4ViewController: UIViewController {
         
         // add questions to the stack view
         if let checkQ1 = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as? MultiCheckQuestion {
-            
+            temp1 = checkQ1
             stackView.addArrangedSubview(checkQ1)
             checkQ1.promptLabel.text = "Who were you with? (Check all that apply)"
         }
         
         if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            temp2 = textQ1
             stackView.addArrangedSubview(textQ1)
             textQ1.promptLabel.text = "How long had you been doing this activity for?"
+            textQ1.answerTextField.text = AppState.sharedInstance.surveyList["howLong"] as? String
         }
         
         view.addSubview(stackView)

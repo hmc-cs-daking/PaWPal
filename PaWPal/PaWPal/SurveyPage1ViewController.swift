@@ -17,10 +17,7 @@ class SurveyPage1ViewController: UIViewController {
         // save data TODO - make required vs optional
         DatabaseController.updateText("where", question: temp1)
         DatabaseController.updateText("activity", question: temp2)
-        DatabaseController.updateText("elseOptional", question: temp2)
-        
-        //submit survey - TODO notification for do you want to submit?
-        
+        DatabaseController.updateText("elseOptional", question: temp3)
     }
 
     func displayQuestions(){
@@ -38,18 +35,21 @@ class SurveyPage1ViewController: UIViewController {
             temp1 = textQ1
             stackView.addArrangedSubview(textQ1)
             textQ1.promptLabel.text = "Where were you?"
+            textQ1.answerTextField.text = AppState.sharedInstance.surveyList["where"] as? String
         }
         
         if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
             temp2 = textQ2
             stackView.addArrangedSubview(textQ2)
-            textQ2.promptLabel.text = "What was the main thing you were doing? "
+            textQ2.promptLabel.text = "What was the main thing you were doing?"
+            textQ2.answerTextField.text = AppState.sharedInstance.surveyList["activity"] as? String
         }
         
         if let textQ3 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
             temp3 = textQ3
             stackView.addArrangedSubview(textQ3)
             textQ3.promptLabel.text = "(Optional) What else were you doing?"
+            textQ3.answerTextField.text = AppState.sharedInstance.surveyList["elseOptional"] as? String
         }
         
         view.addSubview(stackView)

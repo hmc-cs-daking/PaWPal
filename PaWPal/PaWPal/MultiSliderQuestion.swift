@@ -33,4 +33,20 @@ class MultiSliderQuestion: UIView {
     @IBOutlet weak var lowLabel5: UILabel!
     @IBOutlet weak var highLabel5: UILabel!
     
+    @IBAction func slider1Moved(sender: UISlider) {
+        sender.setValue(Float(lroundf(answerSlider1.value)), animated: true)
+    }
+    @IBAction func slider2Moved(sender: UISlider) {
+        sender.setValue(Float(lroundf(answerSlider2.value)), animated: true)
+    }
+    @IBAction func slider3Moved(sender: UISlider) {
+        sender.setValue(Float(lroundf(answerSlider3.value)), animated: true)
+    }
+    @IBAction func slider4Moved(sender: UISlider) {
+        sender.setValue(Float(lroundf(answerSlider4.value)), animated: true)
+    }
+    @IBAction func slider5Moved(sender: UISlider) {
+        sender.setValue(Float(lroundf(answerSlider5.value)), animated: true)
+    }
+    
 }

@@ -85,15 +85,27 @@ class DatabaseController {
     }
     
     static func updateMultiSlider(key: String, question: MultiSliderQuestion){
-        // TODO: update the correct answers in dictionary
+        let answer = [question.answerSlider1.value,
+                      question.answerSlider2.value,
+                      question.answerSlider3.value,
+                      question.answerSlider4.value,
+                      question.answerSlider5.value,
+                      ]
+        AppState.sharedInstance.surveyList[key] = answer
     }
     
     static func updateMultiCheck(key: String, question: MultiCheckQuestion){
-        // TODO
+        let answer = [question.answerSwitch1.on,
+                      question.answerSwitch2.on,
+                      question.answerSwitch3.on,
+                      question.answerSwitch4.on,
+                      question.answerSwitch5.on,
+                      ]
+        AppState.sharedInstance.surveyList[key] = answer
     }
     
     static func submitSurvey(){
-        //TODO
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/surveyList/\(AppState.sharedInstance.totalSurveyCount))").setValue(AppState.sharedInstance.surveyList)
     }
     
     //list of functions to access user info

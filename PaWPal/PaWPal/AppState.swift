@@ -23,6 +23,8 @@ class AppState: NSObject {
     var signedIn = false
     var closestScheduledNotification: String?
     var furthestScheduledNotification: String?
+    var dailySurveyCount = 0
+    var totalSurveyCount = 0
     var databaseRef = FIRDatabase.database().reference()
     var surveyList = ["where": "",
                       "activity": "",
@@ -35,7 +37,7 @@ class AppState: NSObject {
                       
                       "challenge": 0,
                       "skilled": 0,
-                      "succeedng": 0,
+                      "succeeding": 0,
                       "wishElse": 0,
                       
                       "interaction": [
