@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +43,28 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        let errorMessage = "The password is invalid or the user does not have a password."
+        activityIndicator.startAnimating()
         
-        DatabaseController.signIn(userEmail,
-                                  userPassword: userPassword,
-                                  completion: {self.removeLoginFromView()},
-                                  failure: {
-            self.displayAlert("Error", message: errorMessage, handler: nil)
-        })
+        // sets up background thread to do time-intensive work
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            // time-intensive code
+            DatabaseController.signIn(userEmail,
+                userPassword: userPassword,
+                completion: { self.removeLoginFromView() },
+                currentVC: self)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.activityIndicator.stopAnimating()
+            })
+        });
+        
+
+    }
+    
+    func myPerformeCode(timer : NSTimer) {
+        
+        // here code to perform
     }
     
     // If login is successful, go to main view

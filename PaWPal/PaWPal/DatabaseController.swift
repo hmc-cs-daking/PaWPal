@@ -13,11 +13,11 @@ import FirebaseAuth
 
 class DatabaseController {
     
-    static func signUp(userEmail: String, userPassword: String) {
+    static func signUp(userEmail: String, userPassword: String, completion: () -> Void, currentVC: UIViewController) {
         //TODO: check async stuff here
         FIRAuth.auth()?.createUserWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
-                print(error.localizedDescription)
+                currentVC.displayAlert("Error", message: error.localizedDescription, handler: nil)
                 return
             }
             
@@ -34,16 +34,16 @@ class DatabaseController {
                         "totalSurveyCount": 0]
             let childUpdates = ["/users/\(key)": signUp]
             AppState.sharedInstance.databaseRef.updateChildValues(childUpdates)
+            
+            completion()
         }
     }
     
     // NOTE: success and failure takes a second to run. firebase auth is slow
-    // If successful, run completion(). If failure, run failure()
-    static func signIn(userEmail: String, userPassword: String, completion: () -> Void, failure: () -> Void){
+    static func signIn(userEmail: String, userPassword: String, completion: () -> Void, currentVC: UIViewController){
         FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
-                print(error.localizedDescription)
-                failure()
+                currentVC.displayAlert("Error", message: error.localizedDescription, handler: nil)
                 return
             }
             

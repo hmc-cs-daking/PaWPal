@@ -53,14 +53,15 @@ class RegisterViewController: UIViewController {
         }
         
         // Store data
-        DatabaseController.signUp(userEmail, userPassword: userPassword)
-
+        DatabaseController.signUp(userEmail, userPassword: userPassword,
+                                  completion: { self.successRegistration() },
+                                  currentVC: self)
         
-        // Go back to login page
-        self.displayAlert("Success!", message: "Registration successful. Thank you!", handler: { action in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-        
+    }
+    
+    func successRegistration() {
+        self.displayAlert("Success!", message: "Registration successful. Thank you!",
+                          handler: {action in self.dismissViewControllerAnimated(true, completion: nil)})
     }
     
     // Go back to login page
