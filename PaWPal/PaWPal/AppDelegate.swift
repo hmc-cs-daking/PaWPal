@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
         let signedIn = NSUserDefaults.standardUserDefaults().boolForKey("signedIn")
+        //let signedIn = false
         
         if (signedIn) {
             
