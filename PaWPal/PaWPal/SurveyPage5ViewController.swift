@@ -10,6 +10,13 @@ import UIKit
 
 class SurveyPage5ViewController: UIViewController {
     
+    var temp1: MultiSliderQuestion!
+    
+    @IBAction func next(sender: UIButton) {
+        // save data TODO - make required vs optional
+        DatabaseController.updateMultiSlider("feeling", question: temp1)
+    }
+    
     func displayQuestions(){
         let stackView = UIStackView()
         stackView.axis = .Vertical
@@ -20,6 +27,7 @@ class SurveyPage5ViewController: UIViewController {
         
         // MULTI SLIDER
         if let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as? MultiSliderQuestion {
+            temp1 = multiSliderQuestionView
             stackView.addArrangedSubview(multiSliderQuestionView)
             multiSliderQuestionView.promptLabel.text = "Describe your mood as you were pinged"
         }
@@ -33,17 +41,6 @@ class SurveyPage5ViewController: UIViewController {
         view.addConstraints(stackView_H)
         view.addConstraints(stackView_V)
     }
-    
-    // Confirms that user wants to submit survey
-    @IBAction func displaySubmitAlert(sender: UIButton) {
-        self.displayYesNoAlert("Alert", message: "Are you sure you want to submit?", yesHandler: submit)
-    }
-    
-    func submit(alert: UIAlertAction!) {
-        // goes to main survey page
-        performSegueWithIdentifier("SurveyPage5ToSurvey", sender: nil)
-    }
-        
     
     
     override func viewDidLoad() {

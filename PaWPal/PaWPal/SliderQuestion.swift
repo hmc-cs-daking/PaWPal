@@ -13,6 +13,8 @@ class SliderQuestion: UIView {
     
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var answerSlider: UISlider!
-    @IBOutlet weak var lowLabel: UILabel!
-    @IBOutlet weak var highLabel: UILabel!
+    
+    @IBAction func sliderMoved(sender: UISlider) {
+        sender.setValue(Float(lroundf(answerSlider.value)), animated: true)
+    }
 }

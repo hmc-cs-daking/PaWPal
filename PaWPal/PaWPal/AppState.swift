@@ -37,7 +37,7 @@ class AppState: NSObject {
                       
                       "challenge": 0,
                       "skilled": 0,
-                      "succeedng": 0,
+                      "succeeding": 0,
                       "wishElse": 0,
                       
                       "interaction": [
