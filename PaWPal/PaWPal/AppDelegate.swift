@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
         let signedIn = NSUserDefaults.standardUserDefaults().boolForKey("signedIn")
-        //let signedIn = false
         
         if (signedIn) {
             
@@ -32,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let uid = KeychainWrapper().myObjectForKey("v_Data") as? String {
                 AppState.sharedInstance.uid = uid
                 
-                // @Daniel, copied from DatabaseController, added if let for userEmail
                 // retrieves user-specific info from firebase
                 AppState.sharedInstance.databaseRef.child("users").child(uid).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                     let value = snapshot.value as? NSDictionary
