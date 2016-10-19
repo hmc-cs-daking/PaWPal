@@ -26,6 +26,11 @@ class SurveyPage6ViewController: UIViewController {
         //DatabaseController.submitSurvey()
         print(AppState.sharedInstance.surveyList)
         
+        // stuff that happens when you submit a survey
+        DatabaseController.incrementDailySurveyCount()
+        DatabaseController.incrementTotalSurveyCount()
+        NotificationScheduler.scheduleNextNotificationOfTheDay()
+        
         // go back to main survey page
         performSegueWithIdentifier("SurveyPage6ToSurvey", sender: nil)
     }

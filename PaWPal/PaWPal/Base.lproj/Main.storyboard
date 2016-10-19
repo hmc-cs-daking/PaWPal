@@ -879,10 +879,10 @@
         <image name="Settings Filled-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m1K-eU-W1t"/>
-        <segue reference="JIR-Xj-1DJ"/>
         <segue reference="l4z-eC-aWa"/>
         <segue reference="GMy-Yi-ghB"/>
-        <segue reference="pqR-iE-mPu"/>
+        <segue reference="u9f-Fx-YRb"/>
+        <segue reference="m1K-eU-W1t"/>
+        <segue reference="Cmd-Vw-1k0"/>
     </inferredMetricsTieBreakers>
 </document>
