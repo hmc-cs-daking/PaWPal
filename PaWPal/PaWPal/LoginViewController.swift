@@ -62,11 +62,6 @@ class LoginViewController: UIViewController {
 
     }
     
-    func myPerformeCode(timer : NSTimer) {
-        
-        // here code to perform
-    }
-    
     // If login is successful, go to main view
     func removeLoginFromView() {
         // remember that user is signed into this specific device
@@ -84,6 +79,11 @@ class LoginViewController: UIViewController {
         let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = loginVC
+    }
+    
+    
+    @IBAction func forgotPassword(sender: UIButton) {
+        self.displayAlert("Forgot password?", message: "Please email boerkoel@g.hmc.edu", handler: nil)
     }
     
 
