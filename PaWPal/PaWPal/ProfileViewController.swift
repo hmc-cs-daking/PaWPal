@@ -12,12 +12,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userSchoolTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userEmailLabel.text = DatabaseController.getEmail()
         userNameTextField.text = DatabaseController.getName()
         userSchoolTextField.text = DatabaseController.getSchool()
+        
+     /*   let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: "PaWPal Logo 120.png")
+        attachment.image.size.height = titleLabel.frame.height
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let myString = NSMutableAttributedString(string: "Profile")
+        myString.appendAttributedString(attachmentString)
+        titleLabel.attributedText = myString;*/
+        
     }
 
     override func didReceiveMemoryWarning() {
