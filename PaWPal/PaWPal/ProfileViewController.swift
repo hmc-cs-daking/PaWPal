@@ -21,14 +21,6 @@ class ProfileViewController: UIViewController {
         userNameTextField.text = DatabaseController.getName()
         userSchoolTextField.text = DatabaseController.getSchool()
         
-     /*   let attachment = NSTextAttachment()
-        attachment.image = UIImage(named: "PaWPal Logo 120.png")
-        attachment.image.size.height = titleLabel.frame.height
-        let attachmentString = NSAttributedString(attachment: attachment)
-        let myString = NSMutableAttributedString(string: "Profile")
-        myString.appendAttributedString(attachmentString)
-        titleLabel.attributedText = myString;*/
-        
     }
 
     override func didReceiveMemoryWarning() {
