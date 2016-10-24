@@ -92,7 +92,7 @@ class DatabaseController {
                       question.answerSlider2.value,
                       question.answerSlider3.value,
                       question.answerSlider4.value,
-                      question.answerSlider5.value,
+                      question.answerSlider5.value
                       ]
         AppState.sharedInstance.surveyList[key] = answer
     }
@@ -102,7 +102,7 @@ class DatabaseController {
                       question.answerSwitch2.on,
                       question.answerSwitch3.on,
                       question.answerSwitch4.on,
-                      question.answerSwitch5.on,
+                      question.answerSwitch5.on
                       ]
         AppState.sharedInstance.surveyList[key] = answer
     }
