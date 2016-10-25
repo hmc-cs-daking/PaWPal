@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -29,6 +29,11 @@
                                 <state key="normal" title="Start Survey">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="Ep9-XL-iCH" kind="popoverPresentation" popoverAnchorView="ZI4-vC-pVK" id="JIR-Xj-1DJ">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -70,6 +75,11 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="next:" destination="Ep9-XL-iCH" eventType="touchUpInside" id="IAK-0J-P6N"/>
                                     <segue destination="Yx8-XE-5NT" kind="popoverPresentation" popoverAnchorView="ob3-sJ-L73" id="m1K-eU-W1t">
@@ -112,7 +122,13 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="save:" destination="Yx8-XE-5NT" eventType="touchUpInside" id="2DX-Wd-jV7"/>
                                     <segue destination="Ep9-XL-iCH" kind="popoverPresentation" popoverAnchorView="dj5-Bb-8fg" id="u9f-Fx-YRb">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -128,8 +144,13 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="next:" destination="Yx8-XE-5NT" eventType="touchUpInside" id="rfc-Ed-5sY"/>
+                                    <action selector="save:" destination="Yx8-XE-5NT" eventType="touchUpInside" id="3vN-Xv-ob1"/>
                                     <segue destination="w97-7V-FS4" kind="popoverPresentation" popoverAnchorView="p7R-zC-1lu" id="Cmd-Vw-1k0">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -173,7 +194,13 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="save:" destination="w97-7V-FS4" eventType="touchUpInside" id="rL0-sw-0Ya"/>
                                     <segue destination="Yx8-XE-5NT" kind="popoverPresentation" popoverAnchorView="71D-av-j7g" id="kt8-oG-Rpu">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -189,16 +216,18 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="next:" destination="w97-7V-FS4" eventType="touchUpInside" id="Xlm-RD-S25"/>
+                                    <action selector="save:" destination="w97-7V-FS4" eventType="touchUpInside" id="uZc-Fc-Y5Z"/>
                                     <segue destination="J5u-7U-0cg" kind="popoverPresentation" popoverAnchorView="CVh-4B-1nK" id="tAb-P8-qrW">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eTy-dI-hcu">
-                                <rect key="frame" x="20" y="28" width="560" height="486"/>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -237,7 +266,13 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="save:" destination="J5u-7U-0cg" eventType="touchUpInside" id="NHH-1E-olU"/>
                                     <segue destination="w97-7V-FS4" kind="popoverPresentation" popoverAnchorView="Jw9-gc-5SK" id="pqR-iE-mPu">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -253,8 +288,13 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="next:" destination="J5u-7U-0cg" eventType="touchUpInside" id="Kxq-9y-1Uf"/>
+                                    <action selector="save:" destination="J5u-7U-0cg" eventType="touchUpInside" id="PMl-cY-VTy"/>
                                     <segue destination="lZL-cz-5iM" kind="popoverPresentation" identifier="SurveyPage4to5" popoverAnchorView="qgN-rq-smd" id="9eC-5v-GHL">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -299,8 +339,13 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="next:" destination="lZL-cz-5iM" eventType="touchUpInside" id="B3d-Xb-JFE"/>
+                                    <action selector="save:" destination="lZL-cz-5iM" eventType="touchUpInside" id="qPQ-yu-Ja1"/>
                                     <segue destination="No9-Lv-e1Y" kind="popoverPresentation" popoverAnchorView="ZOv-SF-Bco" id="vzN-DA-zMA">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -316,7 +361,13 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="save:" destination="lZL-cz-5iM" eventType="touchUpInside" id="vPc-GX-73R"/>
                                     <segue destination="J5u-7U-0cg" kind="popoverPresentation" popoverAnchorView="aXj-x1-DYj" id="GMy-Yi-ghB">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -361,8 +412,13 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="next:" destination="No9-Lv-e1Y" eventType="touchUpInside" id="819-aX-RNQ"/>
+                                    <action selector="save:" destination="No9-Lv-e1Y" eventType="touchUpInside" id="fHw-Rc-kvQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2J-V3-vuT">
@@ -375,7 +431,13 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="save:" destination="No9-Lv-e1Y" eventType="touchUpInside" id="zNR-pY-g67"/>
                                     <segue destination="lZL-cz-5iM" kind="popoverPresentation" popoverAnchorView="V2J-V3-vuT" id="l4z-eC-aWa">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -412,12 +474,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RP-4x-naM">
-                                <rect key="frame" x="249" y="28" width="103" height="42"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ko-qn-8JR">
                                 <rect key="frame" x="20" y="274" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -463,10 +519,29 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveProfile" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2hD-SC-Ss3"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYs-Ev-Zet">
+                                <rect key="frame" x="209" y="9" width="183" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="M6h-jV-g2E">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOW-vN-Aag">
+                                        <rect key="frame" x="80" y="0.0" width="103" height="80"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -476,23 +551,23 @@
                             <constraint firstItem="EVc-aD-yCu" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="71" id="8as-BF-aMT"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="9rT-0e-Qk2"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="top" secondItem="ZJA-Pr-ctV" secondAttribute="bottom" constant="10" id="Ev8-ob-LSn"/>
+                            <constraint firstItem="vYs-Ev-Zet" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" constant="9" id="GKm-ZK-6EA"/>
                             <constraint firstItem="OZr-gN-lEA" firstAttribute="top" secondItem="EVc-aD-yCu" secondAttribute="bottom" constant="10" id="GXb-E8-tNa"/>
                             <constraint firstItem="ZJA-Pr-ctV" firstAttribute="height" secondItem="EVc-aD-yCu" secondAttribute="height" id="Ijo-10-QKO"/>
                             <constraint firstItem="OZr-gN-lEA" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="K8Y-JU-FAR"/>
                             <constraint firstItem="ZJA-Pr-ctV" firstAttribute="top" secondItem="bI9-EW-9Kq" secondAttribute="bottom" constant="15" id="NRu-4X-RiX"/>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="top" secondItem="RXy-sK-bd1" secondAttribute="bottom" constant="10" id="OeP-iZ-EOk"/>
                             <constraint firstItem="RXy-sK-bd1" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="PxB-ey-pQH"/>
-                            <constraint firstItem="4RP-4x-naM" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="R70-bd-8fV"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="T0n-Bd-wXU"/>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="height" secondItem="OZr-gN-lEA" secondAttribute="height" id="Vak-Nl-8aW"/>
                             <constraint firstItem="X7O-1v-I73" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="XGz-pB-3N4"/>
                             <constraint firstItem="2ko-qn-8JR" firstAttribute="height" secondItem="ZJA-Pr-ctV" secondAttribute="height" id="Yu9-gi-HKE"/>
+                            <constraint firstItem="vYs-Ev-Zet" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Z3B-dM-tca"/>
                             <constraint firstItem="bI9-EW-9Kq" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="cXa-yb-Uc6"/>
                             <constraint firstItem="ZJA-Pr-ctV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="dvl-N4-2kC"/>
                             <constraint firstItem="RXy-sK-bd1" firstAttribute="height" secondItem="EVc-aD-yCu" secondAttribute="height" id="giD-7w-Bir"/>
                             <constraint firstItem="RXy-sK-bd1" firstAttribute="top" secondItem="OZr-gN-lEA" secondAttribute="bottom" constant="15" id="sdP-IM-b52"/>
                             <constraint firstItem="OZr-gN-lEA" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="x5J-75-cwU"/>
-                            <constraint firstItem="4RP-4x-naM" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="xHt-Y4-Vqi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="Gender Neutral User Filled-30" id="D6r-aK-sfv"/>
@@ -521,31 +596,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
                                 <rect key="frame" x="20" y="196" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
                                 <rect key="frame" x="20" y="121" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
                                 <rect key="frame" x="20" y="91" width="85" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
                                 <rect key="frame" x="20" y="166" width="86" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvo-O8-w4O">
-                                <rect key="frame" x="235" y="28" width="131" height="42"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -556,29 +625,44 @@
                                     <action selector="displayLogOutAlert:" destination="ocE-1k-TD4" eventType="touchUpInside" id="gca-PP-SIc"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjj-6J-F66">
+                                <rect key="frame" x="209" y="6" width="211" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="cGQ-8B-J6q">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QK-3i-kMN">
+                                        <rect key="frame" x="80" y="0.0" width="131" height="80"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="top" secondItem="I8h-pL-SYC" secondAttribute="bottom" constant="10" id="1yl-m4-37u"/>
+                            <constraint firstItem="Pjj-6J-F66" firstAttribute="top" secondItem="Deg-3n-fe9" secondAttribute="topMargin" constant="8" id="81S-Sl-mGh"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="height" secondItem="b6s-DV-WMD" secondAttribute="height" id="9b8-Af-h2o"/>
                             <constraint firstItem="b6s-DV-WMD" firstAttribute="top" secondItem="bdQ-Pj-HTo" secondAttribute="bottom" constant="10" id="Anv-Aq-Koi"/>
-                            <constraint firstItem="bdQ-Pj-HTo" firstAttribute="top" secondItem="tdF-iJ-eR2" secondAttribute="bottom" constant="71" id="H6f-1M-Mnr"/>
                             <constraint firstItem="uKr-OE-km0" firstAttribute="centerX" secondItem="Deg-3n-fe9" secondAttribute="centerX" id="LbJ-cO-FRo"/>
                             <constraint firstItem="bdQ-Pj-HTo" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="Mrw-n3-f8m"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="QHj-NM-eEH"/>
                             <constraint firstItem="b6s-DV-WMD" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="VQI-5d-8Ue"/>
-                            <constraint firstItem="pvo-O8-w4O" firstAttribute="top" secondItem="tdF-iJ-eR2" secondAttribute="bottom" constant="8" id="Xux-Kn-NGM"/>
                             <constraint firstItem="b6s-DV-WMD" firstAttribute="trailing" secondItem="Deg-3n-fe9" secondAttribute="trailingMargin" id="Yic-jo-86Z"/>
+                            <constraint firstItem="Pjj-6J-F66" firstAttribute="centerX" secondItem="Deg-3n-fe9" secondAttribute="centerX" id="ZJF-PP-Xr3"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="width" secondItem="b6s-DV-WMD" secondAttribute="width" id="aX7-oS-wYI"/>
                             <constraint firstItem="b6s-DV-WMD" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="dFl-h8-PiR"/>
                             <constraint firstItem="I8h-pL-SYC" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="hdm-tM-Nva"/>
+                            <constraint firstItem="b6s-DV-WMD" firstAttribute="top" secondItem="Pjj-6J-F66" secondAttribute="bottom" constant="51" id="j2O-H7-eeH"/>
+                            <constraint firstItem="bdQ-Pj-HTo" firstAttribute="top" secondItem="tdF-iJ-eR2" secondAttribute="bottom" constant="71" id="jdN-q6-kFD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b6s-DV-WMD" secondAttribute="trailing" id="lkj-fr-tZe"/>
                             <constraint firstItem="I8h-pL-SYC" firstAttribute="top" secondItem="b6s-DV-WMD" secondAttribute="bottom" constant="15" id="mgQ-nM-Sme"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="trailing" secondItem="Deg-3n-fe9" secondAttribute="trailingMargin" id="mvD-Nx-ZuZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fdX-Lh-4Nm" secondAttribute="trailing" id="ueH-Xa-Jsu"/>
                             <constraint firstItem="fdX-Lh-4Nm" firstAttribute="leading" secondItem="Deg-3n-fe9" secondAttribute="leadingMargin" id="ukT-ts-G47"/>
                             <constraint firstItem="I8h-pL-SYC" firstAttribute="height" secondItem="bdQ-Pj-HTo" secondAttribute="height" id="wCp-0C-4Q0"/>
-                            <constraint firstItem="pvo-O8-w4O" firstAttribute="centerX" secondItem="Deg-3n-fe9" secondAttribute="centerX" id="xLI-nQ-PxR"/>
                             <constraint firstItem="hkD-af-Yet" firstAttribute="top" secondItem="uKr-OE-km0" secondAttribute="bottom" constant="100" id="yLS-ls-P6V"/>
                         </constraints>
                     </view>
@@ -604,27 +688,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uV4-KD-fzJ">
-                                <rect key="frame" x="263" y="28" width="75" height="42"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
                                 <rect key="frame" x="20" y="100" width="560" height="351"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email Professor Jim Boerkoel at boerkoel@g.hmc.edu</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icL-ex-mb0">
+                                <rect key="frame" x="223" y="6" width="155" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="gHZ-Sd-3QF">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uV4-KD-fzJ">
+                                        <rect key="frame" x="80" y="0.0" width="75" height="80"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gev-wT-wmM" firstAttribute="top" secondItem="uV4-KD-fzJ" secondAttribute="bottom" constant="30" id="8Pp-j6-FBD"/>
                             <constraint firstItem="FKu-gG-bEj" firstAttribute="top" secondItem="gev-wT-wmM" secondAttribute="bottom" constant="100" id="98V-6P-veU"/>
-                            <constraint firstItem="uV4-KD-fzJ" firstAttribute="centerX" secondItem="xAP-Pw-ypm" secondAttribute="centerX" id="H0Q-ZG-Cc6"/>
                             <constraint firstItem="gev-wT-wmM" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="OWG-39-2vi"/>
-                            <constraint firstItem="uV4-KD-fzJ" firstAttribute="top" secondItem="Zvf-9Q-c0v" secondAttribute="bottom" constant="8" id="d9l-Kd-F0E"/>
                             <constraint firstItem="gev-wT-wmM" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="ijL-ji-aqH"/>
                         </constraints>
                     </view>
@@ -633,6 +722,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-9z-CHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2174" y="1074"/>
+        </scene>
+        <!--Data-->
+        <scene sceneID="bVB-uB-Vw3">
+            <objects>
+                <viewController storyboardIdentifier="Visualization" id="2Nl-cr-dY9" customClass="VisualizationViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lia-4y-7du"/>
+                        <viewControllerLayoutGuide type="bottom" id="rwi-JD-Rtc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Biz-Qg-pwn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-404" translatesAutoresizingMaskIntoConstraints="NO" id="mWA-0x-62L">
+                                <rect key="frame" x="20" y="135" width="560" height="330"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="301" id="OHY-hH-ZrC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mWA-0x-62L" firstAttribute="leading" secondItem="Biz-Qg-pwn" secondAttribute="leadingMargin" id="889-Rq-s7j"/>
+                            <constraint firstItem="mWA-0x-62L" firstAttribute="centerX" secondItem="Biz-Qg-pwn" secondAttribute="centerX" id="BAf-7D-dQU"/>
+                            <constraint firstItem="mWA-0x-62L" firstAttribute="trailing" secondItem="Biz-Qg-pwn" secondAttribute="trailingMargin" id="O4I-yT-bzW"/>
+                            <constraint firstItem="mWA-0x-62L" firstAttribute="centerY" secondItem="Biz-Qg-pwn" secondAttribute="centerY" id="Y3K-eS-zMe"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Data" image="Bar Chart Filled-30" id="NCe-AI-Hfg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O0u-Pm-epS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2842" y="1074"/>
         </scene>
         <!--Register-->
         <scene sceneID="rkC-ZR-NfT">
@@ -886,6 +1008,7 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="eJ6-dZ-Ur8"/>
                         <segue destination="bhc-L1-sIQ" kind="relationship" relationship="viewControllers" id="yl0-As-78q"/>
                         <segue destination="ocE-1k-TD4" kind="relationship" relationship="viewControllers" id="qA6-Lu-ePi"/>
+                        <segue destination="2Nl-cr-dY9" kind="relationship" relationship="viewControllers" id="Pg4-vB-VI1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -913,16 +1036,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bar Chart Filled-30" width="30" height="30"/>
         <image name="Gender Neutral User Filled-30" width="30" height="30"/>
         <image name="Help Filled-30" width="30" height="30"/>
         <image name="Inspection Filled-30" width="30" height="30"/>
+        <image name="PaWPal Logo 80.png" width="80" height="80"/>
         <image name="Settings Filled-30" width="30" height="30"/>
+        <image name="error-404" width="566" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JIR-Xj-1DJ"/>
-        <segue reference="9eC-5v-GHL"/>
+        <segue reference="l4z-eC-aWa"/>
         <segue reference="GMy-Yi-ghB"/>
         <segue reference="pqR-iE-mPu"/>
-        <segue reference="m1K-eU-W1t"/>
+        <segue reference="kt8-oG-Rpu"/>
+        <segue reference="u9f-Fx-YRb"/>
     </inferredMetricsTieBreakers>
 </document>

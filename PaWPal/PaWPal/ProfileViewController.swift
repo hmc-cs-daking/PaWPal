@@ -12,12 +12,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userSchoolTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userEmailLabel.text = DatabaseController.getEmail()
         userNameTextField.text = DatabaseController.getName()
         userSchoolTextField.text = DatabaseController.getSchool()
+        
     }
 
     override func didReceiveMemoryWarning() {
