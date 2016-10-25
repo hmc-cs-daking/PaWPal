@@ -16,6 +16,8 @@ class MultiCheckQuestion: UIView {
     @IBOutlet var switches: [UISwitch]!
     @IBOutlet var labels: [UILabel]!
     
+    // Stored switches in array. Revert back if it doesn't work out
+    
     //@IBOutlet weak var answerSwitch1: UISwitch!
     //@IBOutlet weak var label1: UILabel!
     
