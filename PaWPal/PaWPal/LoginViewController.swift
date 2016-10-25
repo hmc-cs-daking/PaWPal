@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
             // time-intensive code
             DatabaseController.signIn(userEmail,
                 userPassword: userPassword,
-                completion: { self.removeLoginFromView() },
+                completion: { LoginViewController.removeLoginFromView() },
                 currentVC: self)
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -62,11 +62,8 @@ class LoginViewController: UIViewController {
 
     }
     
-    // If login is successful, go to main view
-    func removeLoginFromView() {
-        // remember that user is signed into this specific device
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "signedIn")
-        
+    // If login is successful, go to main view.
+    static func removeLoginFromView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -21,20 +21,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         FIRApp.configure()
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
-        let signedIn = NSUserDefaults.standardUserDefaults().boolForKey("signedIn")
+        let storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         
-        if (signedIn) {
+        // default: show login screen
+        var rootVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+
+        // if user is signed in on firebase
+        if let currentUser = FIRAuth.auth()?.currentUser {
             
-            // retrieve user id from keychain
-            if let uid = KeychainWrapper().myObjectForKey("v_Data") as? String {
-                AppState.sharedInstance.uid = uid
+            print("THE CURRENT USER IS \(currentUser.uid)")
+            
+            AppState.sharedInstance.databaseRef.child("users").child(currentUser.uid).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 
-                // retrieves user-specific info from firebase
-                AppState.sharedInstance.databaseRef.child("users").child(uid).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
+                    // show survey screen
+                    rootVC = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+                    
+                    AppState.sharedInstance.uid = currentUser.uid
+                    
+                    // Retrieves user's info from firebase
                     let value = snapshot.value as? NSDictionary
-                    if let userEmail = value?["userEmail"] {AppState.sharedInstance.userEmail = userEmail as? String }
+                    if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
                     if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
                     if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
                     if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
@@ -43,21 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                     if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                     if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
-                    
-                    // will reset the daily survey count if we the closestNotification is the morning notification and the current time is past that
-                    NotificationScheduler.resetDailyCountIfNecessary()
-                    // will schedule the morning notifications for the coming week
                     NotificationScheduler.scheduleNotificationsOnSignIn()
-                    }
-                )
-                
-                return true
-            }
+
+                }
+            )
         }
         
-        // if user is not signed in
+        self.window?.rootViewController = rootVC
         
-        LoginViewController.showLogin()
         return true
     }
 
