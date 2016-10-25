@@ -23,40 +23,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         let storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        
-        // default: show login screen
-        var rootVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+        let loginVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
 
         // if user is signed in on firebase
         if let currentUser = FIRAuth.auth()?.currentUser {
             
-            print("THE CURRENT USER IS \(currentUser.uid)")
-            
-            AppState.sharedInstance.databaseRef.child("users").child(currentUser.uid).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
+            AppState.sharedInstance.databaseRef.child("users").observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 
-                    // show survey screen
-                    rootVC = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+                    if (snapshot.hasChild(currentUser.uid)) {
+                        // show survey screen
+                        self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
                     
-                    AppState.sharedInstance.uid = currentUser.uid
+                        AppState.sharedInstance.uid = currentUser.uid
                     
-                    // Retrieves user's info from firebase
-                    let value = snapshot.value as? NSDictionary
-                    if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
-                    if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
-                    if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
-                    if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
-                    if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
-                    if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
-                    if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
-                    if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
-                    if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
-                    NotificationScheduler.scheduleNotificationsOnSignIn()
-
+                        // Retrieves user's info from firebase
+                        let value = snapshot.childSnapshotForPath(currentUser.uid).value as? NSDictionary
+                        if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
+                        if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
+                        if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
+                        if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
+                        if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
+                        if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
+                        if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
+                        if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
+                        if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+                        NotificationScheduler.scheduleNotificationsOnSignIn()
+                    }
+                    else {
+                        // if user doesn't exist in firebase
+                        self.window?.rootViewController = loginVC
+                    }
                 }
             )
         }
-        
-        self.window?.rootViewController = rootVC
+        else {
+            self.window?.rootViewController = loginVC
+        }
         
         return true
     }
