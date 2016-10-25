@@ -26,7 +26,7 @@ class AppState: NSObject {
     var dailySurveyCount = 0
     var totalSurveyCount = 0
     var databaseRef = FIRDatabase.database().reference()
-    var surveyList = ["where": "",
+    var surveyList:[String:AnyObject] = ["where": "",
                       "activity": "",
                       "elseOptional": "",
                       
@@ -40,12 +40,10 @@ class AppState: NSObject {
                       "succeeding": 0,
                       "wishElse": 0,
                       
-                      "interaction": [
-                        0,0,0,0,0],
+                      "interaction": Array(count: 5, repeatedValue: false),
                       "howLong": "",
                       
-                      "feeling": [
-                        0,0,0,0,0],
+                      "feeling": Array(count: 5, repeatedValue: 4.0),
                       
                       "strongEmotionsOptional": "",
                       "elseMindOptional": ""

@@ -66,4 +66,9 @@ class SurveyPage1ViewController: UIViewController {
         super.viewDidLoad()
         displayQuestions()
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }

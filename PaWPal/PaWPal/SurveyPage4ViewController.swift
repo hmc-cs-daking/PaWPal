@@ -12,7 +12,7 @@ class SurveyPage4ViewController: UIViewController {
     var temp1: MultiCheckQuestion!
     var temp2: TextQuestion!
     
-    @IBAction func next(sender: UIButton) {
+    @IBAction func save(sender: UIButton) {
         // save data TODO - make required vs optional
         DatabaseController.updateMultiCheck("interaction", question: temp1)
         DatabaseController.updateText("howLong", question: temp2)
@@ -23,7 +23,7 @@ class SurveyPage4ViewController: UIViewController {
         // create the stack view
         let stackView = UIStackView()
         stackView.axis = .Vertical
-        stackView.distribution = .FillEqually
+        stackView.distribution = .FillProportionally
         stackView.alignment = .Fill
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +33,12 @@ class SurveyPage4ViewController: UIViewController {
             temp1 = checkQ1
             stackView.addArrangedSubview(checkQ1)
             checkQ1.promptLabel.text = "Who were you with? (Check all that apply)"
+            
+            // display the saved answers
+            let answerArray: [Bool]! = AppState.sharedInstance.surveyList["interaction"] as? [Bool]
+            for i in 0..<answerArray.count{
+                checkQ1.switches[i].on = answerArray[i]
+            }
         }
         
         if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
@@ -55,6 +61,10 @@ class SurveyPage4ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 }

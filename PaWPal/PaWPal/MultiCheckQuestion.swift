@@ -13,19 +13,24 @@ class MultiCheckQuestion: UIView {
     
     @IBOutlet weak var promptLabel: UILabel!
     
-    @IBOutlet weak var answerSwitch1: UISwitch!
-    @IBOutlet weak var label1: UILabel!
+    @IBOutlet var switches: [UISwitch]!
+    @IBOutlet var labels: [UILabel]!
     
-    @IBOutlet weak var answerSwitch2: UISwitch!
-    @IBOutlet weak var label2: UILabel!
+    // Stored switches in array. Revert back if it doesn't work out
     
-    @IBOutlet weak var answerSwitch3: UISwitch!
-    @IBOutlet weak var label3: UILabel!
+    //@IBOutlet weak var answerSwitch1: UISwitch!
+    //@IBOutlet weak var label1: UILabel!
     
-    @IBOutlet weak var answerSwitch4: UISwitch!
-    @IBOutlet weak var label4: UILabel!
+    //@IBOutlet weak var answerSwitch2: UISwitch!
+    //@IBOutlet weak var label2: UILabel!
     
-    @IBOutlet weak var answerSwitch5: UISwitch!
-    @IBOutlet weak var label5: UILabel!
+    //@IBOutlet weak var answerSwitch3: UISwitch!
+    //@IBOutlet weak var label3: UILabel!
+    
+    //@IBOutlet weak var answerSwitch4: UISwitch!
+    //@IBOutlet weak var label4: UILabel!
+    
+    //@IBOutlet weak var answerSwitch5: UISwitch!
+    //@IBOutlet weak var label5: UILabel!
     
 }

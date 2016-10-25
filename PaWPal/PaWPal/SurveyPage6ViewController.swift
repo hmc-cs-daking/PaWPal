@@ -13,7 +13,7 @@ class SurveyPage6ViewController: UIViewController {
     var temp2: TextQuestion!
     
     
-    @IBAction func next(sender: UIButton) {
+    @IBAction func save(sender: UIButton) {
         // save data
         DatabaseController.updateText("strongEmotionsOptional", question: temp1)
         DatabaseController.updateText("elseMindOptional", question: temp2)
@@ -51,6 +51,7 @@ class SurveyPage6ViewController: UIViewController {
             stackView.addArrangedSubview(textQ1)
             textQ1.promptLabel.text = "(Optional) If you were feeling strong emotions, why?"
             textQ1.answerTextField.placeholder = "Describe"
+            textQ1.answerTextField.text = AppState.sharedInstance.surveyList["strongEmotionsOptional"] as? String
         }
         
         if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
@@ -58,6 +59,7 @@ class SurveyPage6ViewController: UIViewController {
             stackView.addArrangedSubview(textQ2)
             textQ2.promptLabel.text = "(Optional) Was there something else on your mind?"
             textQ2.answerTextField.placeholder = "Describe"
+            textQ2.answerTextField.text = AppState.sharedInstance.surveyList["elseMindOptional"] as? String
         }
         
         view.addSubview(stackView)
@@ -73,6 +75,10 @@ class SurveyPage6ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 }

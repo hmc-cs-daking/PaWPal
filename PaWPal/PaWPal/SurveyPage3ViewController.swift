@@ -14,7 +14,7 @@ class SurveyPage3ViewController: UIViewController {
     var temp3: SliderQuestion!
     var temp4: SliderQuestion!
     
-    @IBAction func next(sender: UIButton) {
+    @IBAction func save(sender: UIButton) {
         // save data TODO - make required vs optional
         DatabaseController.updateSlider("challenge", question: temp1)
         DatabaseController.updateSlider("skilled", question: temp2)
@@ -74,6 +74,10 @@ class SurveyPage3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 }
