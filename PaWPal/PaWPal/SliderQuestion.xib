@@ -12,17 +12,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" layoutMarginsFollowReadableWidth="YES" text="Prompt: Type in text below.  This can be a very long question." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bdC-tA-Lwm">
-                    <rect key="frame" x="8" y="18" width="584" height="60"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" layoutMarginsFollowReadableWidth="YES" text="Prompt: Type in text below.  This can be a very long question." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bdC-tA-Lwm">
+                    <rect key="frame" x="8" y="18" width="584" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="750" constant="86" id="zAl-Gm-IqG"/>
+                        <constraint firstAttribute="height" priority="750" constant="60" id="PON-aI-av4"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="6" minimumValueImage="thumbsDown" maximumValueImage="thumbsUp" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-69-dtV">
-                    <rect key="frame" x="16" y="86" width="568" height="31"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="6" minimumValueImage="thumbsDown" maximumValueImage="thumbsUp" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-69-dtV">
+                    <rect key="frame" x="16" y="50" width="568" height="67"/>
                     <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="sliderMoved:" destination="iN0-l3-epB" eventType="touchUpInside" id="FAK-dY-Jpd"/>
