@@ -21,16 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         FIRApp.configure()
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
         let storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let loginVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
 
-        // if user is signed in on firebase
+        // retrieve user cached in firebase
         if let currentUser = FIRAuth.auth()?.currentUser {
             
             AppState.sharedInstance.databaseRef.child("users").observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 
+                    // ensure user exists in firebase
                     if (snapshot.hasChild(currentUser.uid)) {
+                        
                         // show survey screen
                         self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
                     
@@ -47,6 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                         if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                         if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+                        
+                        // will reset the daily survey count if we the closestNotification is the morning notification and the current time is past that
+                        NotificationScheduler.resetDailyCountIfNecessary()
+                        
+                        // will schedule the morning notifications for the coming week
                         NotificationScheduler.scheduleNotificationsOnSignIn()
                     }
                     else {
