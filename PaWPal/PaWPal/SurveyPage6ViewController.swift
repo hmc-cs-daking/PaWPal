@@ -23,8 +23,10 @@ class SurveyPage6ViewController: UIViewController {
     
     func submit(alert: UIAlertAction!) {
         // @Doren, do your submit stuff here
-        //DatabaseController.submitSurvey()
         print(AppState.sharedInstance.surveyList)
+        
+        DatabaseController.submitSurvey()
+
         
         // stuff that happens when you submit a survey
         DatabaseController.incrementDailySurveyCount()

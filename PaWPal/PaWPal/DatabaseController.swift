@@ -31,7 +31,8 @@ class DatabaseController {
                         "closestScheduledNotification": "",
                         "furthestScheduledNotification": "",
                         "dailySurveyCount": 0,
-                        "totalSurveyCount": 0]
+                        "totalSurveyCount": 0,
+                        "surveyList": []]
             let childUpdates = ["/users/\(key)": signUp]
             AppState.sharedInstance.databaseRef.updateChildValues(childUpdates)
             
@@ -104,8 +105,15 @@ class DatabaseController {
         AppState.sharedInstance.surveyList[key] = answer
     }
     
+    // HERE HERE HERE
     static func submitSurvey(){
-        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/surveyList/\(AppState.sharedInstance.totalSurveyCount))").setValue(AppState.sharedInstance.surveyList)
+        // append survey answers to surveyList
+        // creates a new automated child id (string of characters, but firebase keeps them in time order)
+            AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("surveyList").childByAutoId().setValue(AppState.sharedInstance.surveyList)
+        
+        // clear survey answers in AppState
+        // @Doren, this clears the survey text fields when you take the next survey
+        AppState.sharedInstance.surveyList = AppState.emptySurvey
     }
     
     //list of functions to access user info
