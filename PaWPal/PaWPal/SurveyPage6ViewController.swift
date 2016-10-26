@@ -22,7 +22,10 @@ class SurveyPage6ViewController: UIViewController {
     }
     
     func submit(alert: UIAlertAction!) {
-        // @Doren, do your submit stuff here
+        // record timestamp
+        let dateFormatter = NotificationScheduler.getDateFormatter()
+        AppState.sharedInstance.surveyList["timestamp"] = dateFormatter.stringFromDate(NSDate())
+        
         print(AppState.sharedInstance.surveyList)
         
         DatabaseController.submitSurvey()
