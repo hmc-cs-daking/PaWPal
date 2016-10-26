@@ -18,6 +18,16 @@ class SurveyPage4ViewController: UIViewController {
         DatabaseController.updateText("howLong", question: temp2)
     }
     
+    @IBAction func next(sender: UIButton) {
+        // require that text fields be complete
+        guard let textAnswer = temp2.answerTextField.text
+            where !textAnswer.isEmpty else {
+                self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
+                return
+        }
+        save(sender)
+    }
+    
     func displayQuestions(){
         
         // create the stack view

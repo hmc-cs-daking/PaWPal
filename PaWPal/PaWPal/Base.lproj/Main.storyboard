@@ -294,7 +294,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="save:" destination="J5u-7U-0cg" eventType="touchUpInside" id="PMl-cY-VTy"/>
+                                    <action selector="next:" destination="J5u-7U-0cg" eventType="touchUpInside" id="jDR-Lb-ocr"/>
                                     <segue destination="lZL-cz-5iM" kind="popoverPresentation" identifier="SurveyPage4to5" popoverAnchorView="qgN-rq-smd" id="9eC-5v-GHL">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -1045,7 +1045,7 @@
         <image name="error-404" width="566" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l4z-eC-aWa"/>
+        <segue reference="9eC-5v-GHL"/>
         <segue reference="GMy-Yi-ghB"/>
         <segue reference="pqR-iE-mPu"/>
         <segue reference="kt8-oG-Rpu"/>
