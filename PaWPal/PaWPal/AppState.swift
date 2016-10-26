@@ -12,6 +12,31 @@ import FirebaseDatabase
 
 class AppState: NSObject {
     
+    static let emptySurvey: [String: AnyObject] =
+        ["timestamp": "", // time when survey was submitted
+        "where": "",
+        "activity": "",
+        "elseOptional": "",
+        
+        "enjoyment": 0,
+        "concentration": 0,
+        "gettingBetter": 0,
+        "choice": 0,
+        
+        "challenge": 0,
+        "skilled": 0,
+        "succeeding": 0,
+        "wishElse": 0,
+        
+        "interaction": Array(count: 5, repeatedValue: false),
+        "howLong": "",
+        
+        "feeling": Array(count: 5, repeatedValue: 4.0),
+        
+        "strongEmotionsOptional": "",
+        "elseMindOptional": ""
+    ]
+    
     static let sharedInstance = AppState()
     
     var userName: String?
@@ -26,26 +51,5 @@ class AppState: NSObject {
     var dailySurveyCount = 0
     var totalSurveyCount = 0
     var databaseRef = FIRDatabase.database().reference()
-    var surveyList:[String:AnyObject] = ["where": "",
-                      "activity": "",
-                      "elseOptional": "",
-                      
-                      "enjoyment": 0,
-                      "concentration": 0,
-                      "gettingBetter": 0,
-                      "choice": 0,
-                      
-                      "challenge": 0,
-                      "skilled": 0,
-                      "succeeding": 0,
-                      "wishElse": 0,
-                      
-                      "interaction": Array(count: 5, repeatedValue: false),
-                      "howLong": "",
-                      
-                      "feeling": Array(count: 5, repeatedValue: 4.0),
-                      
-                      "strongEmotionsOptional": "",
-                      "elseMindOptional": ""
-    ]
+    var surveyList:[String:AnyObject] = emptySurvey
 }
