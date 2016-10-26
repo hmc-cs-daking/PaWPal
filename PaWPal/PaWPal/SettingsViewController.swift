@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var wakeTextField: UITextField!
@@ -98,11 +99,14 @@ class SettingsViewController: UIViewController {
         self.displayYesNoAlert("Alert", message: "Are you sure you want to log out?", yesHandler: logOut)
     }
     
+    // Logs out through Firebase
     func logOut(alert: UIAlertAction!) {
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "signedIn")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        LoginViewController.showLogin()
+        do {
+            try FIRAuth.auth()?.signOut()
+            LoginViewController.showLogin()
+        } catch let error as NSError {
+            self.displayAlert("Error", message: error.localizedDescription, handler: nil)
+        }
     }
     
     

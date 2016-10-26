@@ -23,41 +23,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
-        let signedIn = NSUserDefaults.standardUserDefaults().boolForKey("signedIn")
-        
-        if (signedIn) {
+        let storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let loginVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
+
+        // retrieve user cached in firebase
+        if let currentUser = FIRAuth.auth()?.currentUser {
             
-            // retrieve user id from keychain
-            if let uid = KeychainWrapper().myObjectForKey("v_Data") as? String {
-                AppState.sharedInstance.uid = uid
+            AppState.sharedInstance.databaseRef.child("users").observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 
-                // retrieves user-specific info from firebase
-                AppState.sharedInstance.databaseRef.child("users").child(uid).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
-                    let value = snapshot.value as? NSDictionary
-                    if let userEmail = value?["userEmail"] {AppState.sharedInstance.userEmail = userEmail as? String }
-                    if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
-                    if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
-                    if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
-                    if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
-                    if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
-                    if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
-                    if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
-                    if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+                    // ensure user exists in firebase
+                    if (snapshot.hasChild(currentUser.uid)) {
+                        
+                        // show survey screen
+                        self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
                     
-                    // will reset the daily survey count if we the closestNotification is the morning notification and the current time is past that
-                    NotificationScheduler.resetDailyCountIfNecessary()
-                    // will schedule the morning notifications for the coming week
-                    NotificationScheduler.scheduleNotificationsOnSignIn()
+                        AppState.sharedInstance.uid = currentUser.uid
+                    
+                        // Retrieves user's info from firebase
+                        let value = snapshot.childSnapshotForPath(currentUser.uid).value as? NSDictionary
+                        if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
+                        if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
+                        if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
+                        if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
+                        if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
+                        if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
+                        if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
+                        if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
+                        if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+                        
+                        // will reset the daily survey count if we the closestNotification is the morning notification and the current time is past that
+                        NotificationScheduler.resetDailyCountIfNecessary()
+                        
+                        // will schedule the morning notifications for the coming week
+                        NotificationScheduler.scheduleNotificationsOnSignIn()
                     }
-                )
-                
-                return true
-            }
+                    else {
+                        // if user doesn't exist in firebase
+                        self.window?.rootViewController = loginVC
+                    }
+                }
+            )
+        }
+        else {
+            self.window?.rootViewController = loginVC
         }
         
-        // if user is not signed in
-        
-        LoginViewController.showLogin()
         return true
     }
 

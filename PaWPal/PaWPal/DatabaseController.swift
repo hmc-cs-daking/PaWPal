@@ -39,7 +39,6 @@ class DatabaseController {
         }
     }
     
-    // NOTE: success and failure takes a second to run. firebase auth is slow
     static func signIn(userEmail: String, userPassword: String, completion: () -> Void, currentVC: UIViewController){
         FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
@@ -65,11 +64,6 @@ class DatabaseController {
                 NotificationScheduler.scheduleNotificationsOnSignIn()
                 }
             )
-            
-            // Remembers the user id in a keychain
-            let MyKeychainWrapper = KeychainWrapper()
-            MyKeychainWrapper.mySetObject(AppState.sharedInstance.uid, forKey:kSecValueData)
-            MyKeychainWrapper.writeToKeychain()
             
             completion()
         }
