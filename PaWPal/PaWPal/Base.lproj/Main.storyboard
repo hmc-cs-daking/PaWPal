@@ -87,12 +87,19 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lVE-h2-17y">
+                                <rect key="frame" x="20" y="512" width="560" height="2"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ob3-sJ-L73" firstAttribute="leading" secondItem="1vt-9o-P7Q" secondAttribute="leadingMargin" id="0Yl-Wf-fmG"/>
                             <constraint firstItem="zjW-pb-jG7" firstAttribute="top" secondItem="ob3-sJ-L73" secondAttribute="bottom" constant="20" id="DwM-y3-YbY"/>
+                            <constraint firstItem="lVE-h2-17y" firstAttribute="leading" secondItem="1vt-9o-P7Q" secondAttribute="leadingMargin" id="Ku0-SN-JUc"/>
                             <constraint firstItem="ob3-sJ-L73" firstAttribute="trailing" secondItem="1vt-9o-P7Q" secondAttribute="trailingMargin" id="S57-PG-0Qj"/>
+                            <constraint firstItem="ob3-sJ-L73" firstAttribute="top" secondItem="lVE-h2-17y" secondAttribute="bottom" constant="8" id="bXR-FI-gIy"/>
+                            <constraint firstItem="lVE-h2-17y" firstAttribute="trailing" secondItem="1vt-9o-P7Q" secondAttribute="trailingMargin" id="hSh-vq-f2A"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -156,15 +163,22 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="BvW-mP-nMv">
+                                <rect key="frame" x="20" y="512" width="560" height="2"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fjS-b3-D6Q" firstAttribute="top" secondItem="p7R-zC-1lu" secondAttribute="bottom" constant="20" id="9dk-lo-4uG"/>
+                            <constraint firstItem="p7R-zC-1lu" firstAttribute="top" secondItem="BvW-mP-nMv" secondAttribute="bottom" constant="8" id="DJZ-5O-sjr"/>
                             <constraint firstItem="p7R-zC-1lu" firstAttribute="leading" secondItem="dj5-Bb-8fg" secondAttribute="trailing" constant="24" id="K21-fX-M8c"/>
                             <constraint firstItem="fjS-b3-D6Q" firstAttribute="top" secondItem="dj5-Bb-8fg" secondAttribute="bottom" constant="20" id="Z5O-pc-mbC"/>
                             <constraint firstItem="p7R-zC-1lu" firstAttribute="trailing" secondItem="NSe-y7-nt0" secondAttribute="trailingMargin" id="ZC4-c3-TCY"/>
                             <constraint firstItem="p7R-zC-1lu" firstAttribute="width" secondItem="dj5-Bb-8fg" secondAttribute="width" id="h1m-ii-tMT"/>
                             <constraint firstItem="dj5-Bb-8fg" firstAttribute="leading" secondItem="NSe-y7-nt0" secondAttribute="leadingMargin" id="h2X-j9-w8q"/>
+                            <constraint firstItem="BvW-mP-nMv" firstAttribute="trailing" secondItem="NSe-y7-nt0" secondAttribute="trailingMargin" id="j9X-zR-YWx"/>
+                            <constraint firstItem="BvW-mP-nMv" firstAttribute="leading" secondItem="NSe-y7-nt0" secondAttribute="leadingMargin" id="sJR-e1-zni"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -228,15 +242,22 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="28m-AJ-ATJ">
+                                <rect key="frame" x="20" y="512" width="560" height="2"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CVh-4B-1nK" firstAttribute="width" secondItem="71D-av-j7g" secondAttribute="width" id="5u9-Py-Jzw"/>
                             <constraint firstItem="CVh-4B-1nK" firstAttribute="trailing" secondItem="iRn-AF-SAb" secondAttribute="trailingMargin" id="Afb-FV-Qfc"/>
                             <constraint firstItem="71D-av-j7g" firstAttribute="leading" secondItem="iRn-AF-SAb" secondAttribute="leadingMargin" id="HWS-JZ-uJH"/>
+                            <constraint firstItem="28m-AJ-ATJ" firstAttribute="trailing" secondItem="iRn-AF-SAb" secondAttribute="trailingMargin" id="Isd-wr-s1F"/>
+                            <constraint firstItem="28m-AJ-ATJ" firstAttribute="leading" secondItem="iRn-AF-SAb" secondAttribute="leadingMargin" id="Ndx-im-jBC"/>
                             <constraint firstItem="CVh-4B-1nK" firstAttribute="leading" secondItem="71D-av-j7g" secondAttribute="trailing" constant="24" id="VTf-8D-BmC"/>
                             <constraint firstItem="XP9-7w-nP4" firstAttribute="top" secondItem="71D-av-j7g" secondAttribute="bottom" constant="20" id="ep4-WN-Bbs"/>
                             <constraint firstItem="XP9-7w-nP4" firstAttribute="top" secondItem="CVh-4B-1nK" secondAttribute="bottom" constant="20" id="mtL-y2-Zff"/>
+                            <constraint firstItem="CVh-4B-1nK" firstAttribute="top" secondItem="28m-AJ-ATJ" secondAttribute="bottom" constant="8" id="tLG-dj-R0S"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -300,6 +321,10 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="WCH-gZ-sQo">
+                                <rect key="frame" x="20" y="512" width="560" height="2"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -309,7 +334,10 @@
                             <constraint firstItem="qgN-rq-smd" firstAttribute="width" secondItem="Jw9-gc-5SK" secondAttribute="width" id="N6h-1l-1LW"/>
                             <constraint firstItem="Xva-vc-LM7" firstAttribute="top" secondItem="qgN-rq-smd" secondAttribute="bottom" constant="20" id="NRw-hA-eu1"/>
                             <constraint firstItem="qgN-rq-smd" firstAttribute="leading" secondItem="Jw9-gc-5SK" secondAttribute="trailing" constant="24" id="Rop-cP-bGt"/>
+                            <constraint firstItem="WCH-gZ-sQo" firstAttribute="leading" secondItem="Fql-lx-rPy" secondAttribute="leadingMargin" id="Ydt-Nx-dZu"/>
+                            <constraint firstItem="WCH-gZ-sQo" firstAttribute="trailing" secondItem="Fql-lx-rPy" secondAttribute="trailingMargin" id="liu-ss-qSN"/>
                             <constraint firstItem="Jw9-gc-5SK" firstAttribute="leading" secondItem="Fql-lx-rPy" secondAttribute="leadingMargin" id="mBw-13-1Bx"/>
+                            <constraint firstItem="qgN-rq-smd" firstAttribute="top" secondItem="WCH-gZ-sQo" secondAttribute="bottom" constant="8" id="xHm-CC-Ngd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -373,12 +401,19 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-Ni-tNm">
+                                <rect key="frame" x="20" y="512" width="560" height="2"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZOv-SF-Bco" firstAttribute="trailing" secondItem="kR4-yF-3Ck" secondAttribute="trailingMargin" id="4p3-YW-Z0d"/>
+                            <constraint firstItem="Cdr-Ni-tNm" firstAttribute="trailing" secondItem="kR4-yF-3Ck" secondAttribute="trailingMargin" id="6gJ-uC-rl4"/>
                             <constraint firstItem="oiw-cF-DvR" firstAttribute="top" secondItem="ZOv-SF-Bco" secondAttribute="bottom" constant="20" id="7Fr-Te-NTS"/>
+                            <constraint firstItem="Cdr-Ni-tNm" firstAttribute="leading" secondItem="kR4-yF-3Ck" secondAttribute="leadingMargin" id="Kg0-bA-1gO"/>
                             <constraint firstItem="ZOv-SF-Bco" firstAttribute="leading" secondItem="aXj-x1-DYj" secondAttribute="trailing" constant="24" id="S66-hH-Imk"/>
+                            <constraint firstItem="aXj-x1-DYj" firstAttribute="top" secondItem="Cdr-Ni-tNm" secondAttribute="bottom" constant="8" id="mNl-w9-PhU"/>
                             <constraint firstItem="ZOv-SF-Bco" firstAttribute="width" secondItem="aXj-x1-DYj" secondAttribute="width" id="naI-XE-SCd"/>
                             <constraint firstItem="aXj-x1-DYj" firstAttribute="leading" secondItem="kR4-yF-3Ck" secondAttribute="leadingMargin" id="od0-xY-OvH"/>
                             <constraint firstItem="oiw-cF-DvR" firstAttribute="top" secondItem="aXj-x1-DYj" secondAttribute="bottom" constant="20" id="omb-5M-1wm"/>
@@ -443,12 +478,19 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="8aw-P6-25F">
+                                <rect key="frame" x="20" y="512" width="560" height="2"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8aw-P6-25F" firstAttribute="leading" secondItem="AM8-fQ-lc6" secondAttribute="leadingMargin" id="0RF-n8-Edo"/>
                             <constraint firstItem="zR9-dA-tJk" firstAttribute="leading" secondItem="V2J-V3-vuT" secondAttribute="trailing" constant="24" id="2pT-Ge-mbg"/>
                             <constraint firstItem="zR9-dA-tJk" firstAttribute="trailing" secondItem="AM8-fQ-lc6" secondAttribute="trailingMargin" id="3tU-K3-THY"/>
+                            <constraint firstItem="V2J-V3-vuT" firstAttribute="top" secondItem="8aw-P6-25F" secondAttribute="bottom" constant="8" id="E1r-sb-i8z"/>
                             <constraint firstItem="0ut-Sg-Dym" firstAttribute="top" secondItem="V2J-V3-vuT" secondAttribute="bottom" constant="20" id="Gbc-6r-bOZ"/>
+                            <constraint firstItem="8aw-P6-25F" firstAttribute="trailing" secondItem="AM8-fQ-lc6" secondAttribute="trailingMargin" id="IEL-CT-xHf"/>
                             <constraint firstItem="V2J-V3-vuT" firstAttribute="leading" secondItem="AM8-fQ-lc6" secondAttribute="leadingMargin" id="Ttb-qM-DcC"/>
                             <constraint firstItem="zR9-dA-tJk" firstAttribute="width" secondItem="V2J-V3-vuT" secondAttribute="width" id="uoI-dM-BZu"/>
                             <constraint firstItem="0ut-Sg-Dym" firstAttribute="top" secondItem="zR9-dA-tJk" secondAttribute="bottom" constant="20" id="xYI-br-K8q"/>
@@ -1046,9 +1088,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9eC-5v-GHL"/>
-        <segue reference="GMy-Yi-ghB"/>
-        <segue reference="pqR-iE-mPu"/>
-        <segue reference="kt8-oG-Rpu"/>
+        <segue reference="tAb-P8-qrW"/>
+        <segue reference="Cmd-Vw-1k0"/>
+        <segue reference="m1K-eU-W1t"/>
         <segue reference="u9f-Fx-YRb"/>
     </inferredMetricsTieBreakers>
 </document>
