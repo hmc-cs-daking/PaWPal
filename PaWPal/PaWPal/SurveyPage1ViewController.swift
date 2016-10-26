@@ -14,7 +14,17 @@ class SurveyPage1ViewController: UIViewController {
     var temp3: TextQuestion!
     
     @IBAction func next(sender: UIButton) {
-        // save data TODO - make required vs optional
+        // require that text fields be complete
+        guard let textAnswer1 = temp1.answerTextField.text
+            where !textAnswer1.isEmpty else {
+                self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
+                return
+        }
+        guard let textAnswer2 = temp2.answerTextField.text
+            where !textAnswer2.isEmpty else {
+                self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
+                return
+        }
         DatabaseController.updateText("where", question: temp1)
         DatabaseController.updateText("activity", question: temp2)
         DatabaseController.updateText("elseOptional", question: temp3)
