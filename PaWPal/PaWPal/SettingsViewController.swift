@@ -12,30 +12,30 @@ import FirebaseAuth
 class SettingsViewController: UIViewController {
     @IBOutlet weak var wakeTextField: UITextField!
     @IBOutlet weak var sleepTextField: UITextField!
-    var wakeTimePicker = UIDatePicker();
-    var sleepTimePicker = UIDatePicker();
+    var wakeTimePicker = UIDatePicker()
+    var sleepTimePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Setup time picker text fields with proper input
-        wakeTimePicker.datePickerMode = UIDatePickerMode.Time;
-        let wakeToolBar = createToolBar(#selector(SettingsViewController.wakeDonePressed));
-        let wakeTime = DatabaseController.getWakeTime();
+        wakeTimePicker.datePickerMode = UIDatePickerMode.Time
+        let wakeToolBar = createToolBar(#selector(SettingsViewController.wakeDonePressed))
+        let wakeTime = DatabaseController.getWakeTime()
         if (wakeTime != "") {
-            wakeTextField.text = wakeTime;
+            wakeTextField.text = wakeTime
         }
-        wakeTextField.inputAccessoryView = wakeToolBar;
-        wakeTextField.inputView = wakeTimePicker;
+        wakeTextField.inputAccessoryView = wakeToolBar
+        wakeTextField.inputView = wakeTimePicker
         
-        sleepTimePicker.datePickerMode = UIDatePickerMode.Time;
-        let sleepToolBar = createToolBar(#selector(SettingsViewController.sleepDonePressed));
-        let sleepTime = DatabaseController.getSleepTime();
+        sleepTimePicker.datePickerMode = UIDatePickerMode.Time
+        let sleepToolBar = createToolBar(#selector(SettingsViewController.sleepDonePressed))
+        let sleepTime = DatabaseController.getSleepTime()
         if (sleepTime != "") {
-            sleepTextField.text = sleepTime;
+            sleepTextField.text = sleepTime
         }
-        sleepTextField.inputAccessoryView = sleepToolBar;
-        sleepTextField.inputView = sleepTimePicker;
+        sleepTextField.inputAccessoryView = sleepToolBar
+        sleepTextField.inputView = sleepTimePicker
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,21 +44,21 @@ class SettingsViewController: UIViewController {
     }
     
     func wakeDonePressed(sender: UIBarButtonItem) {
-        let dateFormatter = NSDateFormatter();
+        let dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let time = dateFormatter.stringFromDate(wakeTimePicker.date);
-        DatabaseController.setWakeTime(time);
-        wakeTextField.text = time;
+        let time = dateFormatter.stringFromDate(wakeTimePicker.date)
+        DatabaseController.setWakeTime(time)
+        wakeTextField.text = time
         wakeTextField.resignFirstResponder()
     }
     
     func sleepDonePressed(sender: UIBarButtonItem) {
-        let dateFormatter = NSDateFormatter();
+        let dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let time = dateFormatter.stringFromDate(sleepTimePicker.date);
-        DatabaseController.setSleepTime(time);
-        sleepTextField.text = time;
-        sleepTextField.resignFirstResponder();
+        let time = dateFormatter.stringFromDate(sleepTimePicker.date)
+        DatabaseController.setSleepTime(time)
+        sleepTextField.text = time
+        sleepTextField.resignFirstResponder()
     }
     
     func createToolBar(pressedFunc: Selector) -> UIToolbar {
@@ -90,7 +90,7 @@ class SettingsViewController: UIViewController {
     
         toolBar.setItems([flexSpace,textBtn,flexSpace,doneButton], animated: true)
         
-        return toolBar;
+        return toolBar
     }
     
     // Confirms that user wants to log out
