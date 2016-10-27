@@ -11,10 +11,17 @@ import UIKit
 
 class SurveyViewController: UIViewController {
 
+    @IBOutlet weak var startSurveyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if (NotificationScheduler.canTakeSurvey()) {
+            startSurveyButton.enabled = true
+        } else {
+            startSurveyButton.backgroundColor = UIColor.grayColor()
+            startSurveyButton.enabled = false
+        }
     }
 
     override func didReceiveMemoryWarning() {

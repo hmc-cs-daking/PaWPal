@@ -155,6 +155,14 @@ class DatabaseController {
         return AppState.sharedInstance.totalSurveyCount
     }
     
+    static func getClosestNotification() -> String {
+        return AppState.sharedInstance.closestScheduledNotification!
+    }
+    
+    static func getFurthestNotification() -> String {
+        return AppState.sharedInstance.furthestScheduledNotification!
+    }
+    
     //list of functions to set user info
     static func setEmail(userEmail: String){
         AppState.sharedInstance.databaseRef.child("/users/\(getUid())/userEmail").setValue(userEmail)

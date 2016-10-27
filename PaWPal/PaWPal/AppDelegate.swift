@@ -29,15 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // retrieve user cached in firebase
         if let currentUser = FIRAuth.auth()?.currentUser {
-            
             AppState.sharedInstance.databaseRef.child("users").observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 
                     // ensure user exists in firebase
                     if (snapshot.hasChild(currentUser.uid)) {
-                        
-                        // show survey screen
-                        self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-                    
                         AppState.sharedInstance.uid = currentUser.uid
                     
                         // Retrieves user's info from firebase
@@ -57,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                         // will schedule the morning notifications for the coming week
                         NotificationScheduler.scheduleNotificationsOnSignIn()
+                        
+                        // show survey screen
+                        self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
                     }
                     else {
                         // if user doesn't exist in firebase
