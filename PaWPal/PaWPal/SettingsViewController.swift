@@ -50,7 +50,6 @@ class SettingsViewController: UIViewController {
         DatabaseController.setWakeTime(time);
         wakeTextField.text = time;
         wakeTextField.resignFirstResponder()
-        
     }
     
     func sleepDonePressed(sender: UIBarButtonItem) {
