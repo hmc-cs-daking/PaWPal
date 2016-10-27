@@ -813,16 +813,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDy-p3-ZsE">
-                                <rect key="frame" x="165" y="210" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PaWPal Logo 120.png" translatesAutoresizingMaskIntoConstraints="NO" id="XDy-p3-ZsE">
+                                <rect key="frame" x="177" y="206" width="247" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="247" id="43G-wG-RPR"/>
+                                    <constraint firstAttribute="height" constant="187" id="Zlx-Sz-pgh"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XDy-p3-ZsE" firstAttribute="centerY" secondItem="jgS-8t-mTu" secondAttribute="centerY" id="5TN-Y9-OtK"/>
+                            <constraint firstItem="XDy-p3-ZsE" firstAttribute="centerX" secondItem="jgS-8t-mTu" secondAttribute="centerX" id="QS7-jE-4hb"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTJ-nR-Irl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2506" y="-75"/>
+            <point key="canvasLocation" x="-2560" y="-61"/>
         </scene>
         <!--Register-->
         <scene sceneID="rkC-ZR-NfT">
@@ -1108,6 +1116,7 @@
         <image name="Gender Neutral User Filled-30" width="30" height="30"/>
         <image name="Help Filled-30" width="30" height="30"/>
         <image name="Inspection Filled-30" width="30" height="30"/>
+        <image name="PaWPal Logo 120.png" width="120" height="120"/>
         <image name="PaWPal Logo 80.png" width="80" height="80"/>
         <image name="Settings Filled-30" width="30" height="30"/>
         <image name="error-404" width="566" height="330"/>
