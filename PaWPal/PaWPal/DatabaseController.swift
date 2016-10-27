@@ -70,6 +70,18 @@ class DatabaseController {
         }
     }
     
+    static func resetPassword(controller: UIViewController) {
+        let email = getEmail()
+        FIRAuth.auth()?.sendPasswordResetWithEmail(email) { (error) in
+            if let error = error {
+                controller.displayAlert("Error", message: error.localizedDescription, handler: nil)
+                return
+            }
+            
+            controller.displayAlert("Password reset", message: "An email has been sent to reset your password", handler: nil)
+        }
+    }
+    
     //methods to update different types of questions
     static func updateSlider(key: String, question: SliderQuestion){
         let answer = question.answerSlider.value
@@ -164,15 +176,29 @@ class DatabaseController {
     }
     
     //list of functions to set user info
-    static func setEmail(userEmail: String){
+    static func setEmail(userEmail: String, controller: UIViewController, completion: () -> Void){
+        FIRAuth.auth()?.currentUser?.updateEmail(userEmail) { (error) in
+            if let error = error {
+                controller.displayAlert("Error", message: error.localizedDescription, handler: nil)
+                return
+            }
+            
+            completion()
+        }
         AppState.sharedInstance.databaseRef.child("/users/\(getUid())/userEmail").setValue(userEmail)
         AppState.sharedInstance.userName = userEmail
     }
     
-    static func setPassword(userPassword: String){
-        //TODO
-        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
-        NSUserDefaults.standardUserDefaults().synchronize()
+    static func setPassword(userPassword: String, controller: UIViewController, completion: () -> Void){
+        FIRAuth.auth()?.currentUser?.updatePassword(userPassword) { (error) in
+            if let error = error {
+                controller.displayAlert("Error", message: error.localizedDescription, handler: {
+                    (action) in controller.dismissViewControllerAnimated(true, completion: nil)})
+                return
+            }
+            
+            completion()
+        }
     }
     
     static func setName(userName: String){
