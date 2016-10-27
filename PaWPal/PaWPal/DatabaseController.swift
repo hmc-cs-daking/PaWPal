@@ -176,7 +176,14 @@ class DatabaseController {
     }
     
     //list of functions to set user info
-    static func setEmail(userEmail: String){
+    static func setEmail(userEmail: String, controller: UIViewController, completion: () -> Void){
+        FIRAuth.auth()?.currentUser?.updateEmail(userEmail) { (error) in
+            if let error = error {
+                controller.displayAlert("Error", message: error.localizedDescription, handler: nil)
+            }
+            
+            completion()
+        }
         AppState.sharedInstance.databaseRef.child("/users/\(getUid())/userEmail").setValue(userEmail)
         AppState.sharedInstance.userName = userEmail
     }

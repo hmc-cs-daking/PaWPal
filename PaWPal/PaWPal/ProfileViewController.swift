@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userSchoolTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userEmailLabel.text = DatabaseController.getEmail()
+        userEmailTextField.text = DatabaseController.getEmail()
         userNameTextField.text = DatabaseController.getName()
         userSchoolTextField.text = DatabaseController.getSchool()
         
@@ -38,12 +38,19 @@ class ProfileViewController: UIViewController {
                 return
         }
         
+        // Guards against invalid email
+        guard let userEmail = userEmailTextField.text
+            where userEmail.isValidEmail() else {
+                self.displayAlert("Error", message: "Invalid email", handler: nil)
+                return
+        }
+        
         let userSchool = userSchoolTextField.text
         
         // save the school and name of the user
         DatabaseController.setName(userName)
         DatabaseController.setSchool(userSchool ?? "")
-        self.displayAlert("Saved", message: "Your info is saved", handler: nil)
+        DatabaseController.setEmail(userEmail, controller: self, completion: {self.displayAlert("Saved", message: "Your info is saved", handler: nil)})
         return
     }
     
