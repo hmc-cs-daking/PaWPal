@@ -90,6 +90,7 @@ class NotificationScheduler {
         if (surveyCount < 6) {
             var plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
             plusTwoHoursComponents.hour += 2
+            plusTwoHoursComponents.second = 0
             plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(plusTwoHoursComponents)!)
             
             // don't ever schedule notifications between 2 am and the morning notification
