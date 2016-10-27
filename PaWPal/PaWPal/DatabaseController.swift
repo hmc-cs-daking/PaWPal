@@ -180,6 +180,7 @@ class DatabaseController {
         FIRAuth.auth()?.currentUser?.updateEmail(userEmail) { (error) in
             if let error = error {
                 controller.displayAlert("Error", message: error.localizedDescription, handler: nil)
+                return
             }
             
             completion()
@@ -188,10 +189,16 @@ class DatabaseController {
         AppState.sharedInstance.userName = userEmail
     }
     
-    static func setPassword(userPassword: String){
-        //TODO
-        NSUserDefaults.standardUserDefaults().setObject(userPassword, forKey: "userPassword")
-        NSUserDefaults.standardUserDefaults().synchronize()
+    static func setPassword(userPassword: String, controller: UIViewController, completion: () -> Void){
+        FIRAuth.auth()?.currentUser?.updatePassword(userPassword) { (error) in
+            if let error = error {
+                controller.displayAlert("Error", message: error.localizedDescription, handler: {
+                    (action) in controller.dismissViewControllerAnimated(true, completion: nil)})
+                return
+            }
+            
+            completion()
+        }
     }
     
     static func setName(userName: String){
