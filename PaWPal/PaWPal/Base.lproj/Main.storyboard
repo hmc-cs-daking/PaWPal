@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="29I-eR-bzb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -48,6 +48,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xyu-I2-6bJ"/>
+                    <connections>
+                        <outlet property="startSurveyButton" destination="ZI4-vC-pVK" id="fV5-hS-Tl5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -1089,8 +1092,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="9eC-5v-GHL"/>
         <segue reference="GMy-Yi-ghB"/>
+        <segue reference="JIR-Xj-1DJ"/>
         <segue reference="m1K-eU-W1t"/>
-        <segue reference="u9f-Fx-YRb"/>
         <segue reference="Cmd-Vw-1k0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -180,4 +180,18 @@ class NotificationScheduler {
         formatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss a +zzzz"
         return formatter
     }
+    
+    static func canTakeSurvey() -> Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let nsDate = NSDate()
+        let formatter = getDateFormatter()
+        let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        let closestNotificationTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: formatter.dateFromString(DatabaseController.getClosestNotification())!)
+        
+        if (calendar.dateFromComponents(currentTimeComponents)!.compare(calendar.dateFromComponents(closestNotificationTimeComponents)!) == NSComparisonResult.OrderedDescending) {
+            return true
+        } else {
+            return false
+        }
+    }
 }
