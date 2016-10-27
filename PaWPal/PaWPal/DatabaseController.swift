@@ -70,6 +70,18 @@ class DatabaseController {
         }
     }
     
+    static func resetPassword(controller: UIViewController) {
+        let email = getEmail()
+        FIRAuth.auth()?.sendPasswordResetWithEmail(email) { (error) in
+            if let error = error {
+                controller.displayAlert("Error", message: error.localizedDescription, handler: nil)
+                return
+            }
+            
+            controller.displayAlert("Password reset", message: "An email has been sent to reset your password", handler: nil)
+        }
+    }
+    
     //methods to update different types of questions
     static func updateSlider(key: String, question: SliderQuestion){
         let answer = question.answerSlider.value

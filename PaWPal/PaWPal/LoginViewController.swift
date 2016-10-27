@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func forgotPassword(sender: UIButton) {
-        self.displayAlert("Forgot password?", message: "Please email boerkoel@g.hmc.edu", handler: nil)
+        DatabaseController.resetPassword(self)
     }
     
 
