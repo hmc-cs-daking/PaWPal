@@ -20,7 +20,7 @@ class SurveyViewController: UIViewController {
             startSurveyButton.enabled = true
         } else {
             startSurveyButton.backgroundColor = UIColor.grayColor()
-            startSurveyButton.enabled = false
+            startSurveyButton.enabled = true
         }
     }
 

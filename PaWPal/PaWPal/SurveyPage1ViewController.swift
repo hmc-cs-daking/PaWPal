@@ -12,6 +12,8 @@ class SurveyPage1ViewController: UIViewController {
     var temp1: TextQuestion!
     var temp2: TextQuestion!
     var temp3: TextQuestion!
+    var locations: [String] = ["Platt", "Place", "Shanahan", "Atwood"]
+    var activities: [String] = ["Working", "Class"]
     
     @IBAction func next(sender: UIButton) {
         // require that text fields be complete
@@ -45,13 +47,18 @@ class SurveyPage1ViewController: UIViewController {
             temp1 = textQ1
             stackView.addArrangedSubview(textQ1)
             textQ1.promptLabel.text = "Where were you?"
+            textQ1.answerTextField.attributedPlaceholder = NSAttributedString(string:"Platt, Shanahan, Atwood, etc. ")
             textQ1.answerTextField.text = AppState.sharedInstance.surveyList["where"] as? String
+            //allow tracking of text field changes
+            textQ1.answerTextField.addTarget(self, action: #selector(SurveyPage1ViewController.locationTextFieldChanged), forControlEvents: UIControlEvents.EditingChanged)
+            
         }
         
         if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
             temp2 = textQ2
             stackView.addArrangedSubview(textQ2)
             textQ2.promptLabel.text = "What was the main thing you were doing?"
+            textQ2.answerTextField.attributedPlaceholder = NSAttributedString(string:"Working, Class, etc. ")
             textQ2.answerTextField.text = AppState.sharedInstance.surveyList["activity"] as? String
         }
         
@@ -80,5 +87,25 @@ class SurveyPage1ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func locationTextFieldChanged(textField: UITextField) {
+        //go through list and compare to textfield
+        var list = locations
+        var textFieldLength: Int { return (textField.text?.characters.count)! }
+        if (textFieldLength > 0 && list.count > 0)
+        {
+            var startIndex = list[0].startIndex
+            var endIndex = list[0].startIndex.advancedBy(textFieldLength-1)
+            var subStrFromList = list[0][startIndex...endIndex]
+            for i in 0...(list.count-1){
+                startIndex = list[i].startIndex
+                endIndex = list[i].startIndex.advancedBy(textFieldLength-1)
+                subStrFromList = list[i][startIndex...endIndex]
+                if(textField.text?.lowercaseString == subStrFromList.lowercaseString){
+                    print(list[i])
+                }
+            }
+        }
     }
 }

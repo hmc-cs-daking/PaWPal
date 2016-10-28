@@ -12,5 +12,4 @@ import UIKit
 class TextQuestion: UIView {
     @IBOutlet weak var answerTextField: UITextField!
     @IBOutlet weak var promptLabel: UILabel!
-    
 }
