@@ -18,7 +18,7 @@ Coming soon
 Note: PaWPal for iOS is developed using Xcode 7 / Swift 2, which means it is 
 <b>unavailable for iOS 10 devices</b>.
 
-To get PaWPal on your own computer, fork and clone this repository. If you are new to git remote or forks, read [FORK.md]() for a short guide on how to sync your fork to the main repository.
+To get PaWPal on your own computer, fork and clone this repository. If you are new to git remote or forks, read [FORK.md](FORK.md) for a short guide on how to sync your fork to the main repository.
 
 When developing or testing PaWPal, use Xcode Workspace (not Xcode Project)  
 because PaWPal relies on Cocoapods. Also, make sure you are developing on the PaWPal scheme and not Pods.
