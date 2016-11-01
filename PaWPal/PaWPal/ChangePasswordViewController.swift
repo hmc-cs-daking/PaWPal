@@ -33,5 +33,10 @@ class ChangePasswordViewController: UIViewController {
                 (action) in self.dismissViewControllerAnimated(true, completion: nil)})
         })
     }
+    
+    
+    @IBAction func cancelChangePassword(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
