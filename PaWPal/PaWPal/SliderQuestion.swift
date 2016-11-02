@@ -15,7 +15,7 @@ class SliderQuestion: UIView {
     @IBOutlet weak var answerSlider: UISlider!
     
     @IBAction func sliderMoved(sender: UISlider) {
-        sender.setValue(Float(lroundf(answerSlider.value)), animated: true)
+        sender.setValue(Float(lroundf(sender.value)), animated: true)
     }
     
     static func addToSurvey(question: String, key: String, stackView: UIStackView) -> SliderQuestion {

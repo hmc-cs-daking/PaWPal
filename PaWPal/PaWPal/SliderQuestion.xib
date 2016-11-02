@@ -25,7 +25,7 @@
                     <rect key="frame" x="16" y="50" width="568" height="67"/>
                     <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <action selector="sliderMoved:" destination="iN0-l3-epB" eventType="touchUpInside" id="FAK-dY-Jpd"/>
+                        <action selector="sliderMoved:" destination="iN0-l3-epB" eventType="valueChanged" id="5LR-3k-m4W"/>
                     </connections>
                 </slider>
             </subviews>

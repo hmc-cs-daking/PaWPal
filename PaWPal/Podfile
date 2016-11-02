@@ -11,6 +11,7 @@ target 'PaWPal' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
+    pod 'Charts', '2.1.6'
   end
   
   pawpal_pods  
