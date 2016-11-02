@@ -10,11 +10,10 @@ import UIKit
 
 class SurveyPage5ViewController: UIViewController {
     
-    var temp1: MultiSliderQuestion!
+    var q1: MultiSliderQuestion!
     
     @IBAction func save(sender: UIButton) {
-        // save data TODO - make required vs optional
-        DatabaseController.updateMultiSlider("feeling", question: temp1)
+        DatabaseController.updateMultiSlider("feeling", question: q1)
     }
     
     func displayQuestions(){
@@ -25,20 +24,7 @@ class SurveyPage5ViewController: UIViewController {
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        // MULTI SLIDER
-        if let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as? MultiSliderQuestion {
-            temp1 = multiSliderQuestionView
-            stackView.addArrangedSubview(multiSliderQuestionView)
-            multiSliderQuestionView.promptLabel.text = "Describe your mood as you were pinged"
-            
-            //display all saved answers
-            let answerArray: [Float]! = AppState.sharedInstance.surveyList["feeling"] as? [Float]
-            multiSliderQuestionView.answerSlider1.value = answerArray[0]
-            multiSliderQuestionView.answerSlider2.value = answerArray[1]
-            multiSliderQuestionView.answerSlider3.value = answerArray[2]
-            multiSliderQuestionView.answerSlider4.value = answerArray[3]
-            multiSliderQuestionView.answerSlider5.value = answerArray[4]
-        }
+        q1 = MultiSliderQuestion.addToSurvey("Describe your mood as you were pinged", key: "feeling", stackView: stackView)
         
         view.addSubview(stackView)
         

@@ -9,14 +9,14 @@
 import UIKit
 
 class SurveyPage6ViewController: UIViewController {
-    var temp1: TextQuestion!
-    var temp2: TextQuestion!
+    var q1: TextQuestion!
+    var q2: TextQuestion!
     
     
     @IBAction func save(sender: UIButton) {
         // save data
-        DatabaseController.updateText("strongEmotionsOptional", question: temp1)
-        DatabaseController.updateText("elseMindOptional", question: temp2)
+        DatabaseController.updateText("strongEmotionsOptional", question: q1)
+        DatabaseController.updateText("elseMindOptional", question: q2)
         
         self.displayYesNoAlert("Alert", message: "Are you sure you want to submit?", yesHandler: submit)
     }
@@ -30,7 +30,6 @@ class SurveyPage6ViewController: UIViewController {
         
         DatabaseController.submitSurvey()
 
-        
         // stuff that happens when you submit a survey
         DatabaseController.incrementDailySurveyCount()
         DatabaseController.incrementTotalSurveyCount()
@@ -50,22 +49,9 @@ class SurveyPage6ViewController: UIViewController {
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        // add questions to the stack view
-        if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            temp1 = textQ1
-            stackView.addArrangedSubview(textQ1)
-            textQ1.promptLabel.text = "(Optional) If you were feeling strong emotions, why?"
-            textQ1.answerTextField.placeholder = "Describe"
-            textQ1.answerTextField.text = AppState.sharedInstance.surveyList["strongEmotionsOptional"] as? String
-        }
-        
-        if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            temp2 = textQ2
-            stackView.addArrangedSubview(textQ2)
-            textQ2.promptLabel.text = "(Optional) Was there something else on your mind?"
-            textQ2.answerTextField.placeholder = "Describe"
-            textQ2.answerTextField.text = AppState.sharedInstance.surveyList["elseMindOptional"] as? String
-        }
+        // add questions to view
+        q1 = TextQuestion.addToSurvey("(Optional) If you were feeling strong emotions, why?", key: "strongEmotionsOptional", stackView: stackView, placeHolder: "Describe")
+        q2 = TextQuestion.addToSurvey("(Optional) Was there something else on your mind?", key: "elseMindOptional", stackView: stackView, placeHolder: "Describe")
         
         view.addSubview(stackView)
         

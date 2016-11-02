@@ -17,4 +17,20 @@ class SliderQuestion: UIView {
     @IBAction func sliderMoved(sender: UISlider) {
         sender.setValue(Float(lroundf(answerSlider.value)), animated: true)
     }
+    
+    static func addToSurvey(question: String, key: String, stackView: UIStackView) -> SliderQuestion {
+        let sliderQuestion = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as! SliderQuestion //else {
+            // throw error
+          //  return nil
+      //  }
+        
+        // TODO
+        // use guard instead of force unwrapping 
+        
+        stackView.addArrangedSubview(sliderQuestion)
+        sliderQuestion.promptLabel.text = question
+        sliderQuestion.answerSlider.value = (AppState.sharedInstance.surveyList[key] as? Float)!
+        return sliderQuestion
+        
+    }
 }
