@@ -28,7 +28,7 @@
                             <rect key="frame" x="-2" y="0.0" width="568" height="31"/>
                             <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="slider1Moved:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fho-8M-Amu"/>
+                                <action selector="moved:" destination="iN0-l3-epB" eventType="valueChanged" id="jW0-5Z-Idy"/>
                             </connections>
                         </slider>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-9M-3cP">
@@ -52,7 +52,7 @@
                             <rect key="frame" x="-2" y="85" width="568" height="31"/>
                             <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="slider2Moved:" destination="iN0-l3-epB" eventType="touchUpInside" id="ir1-jQ-gMa"/>
+                                <action selector="moved:" destination="iN0-l3-epB" eventType="valueChanged" id="SIn-SF-AQK"/>
                             </connections>
                         </slider>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="P7Y-3w-c4Q">
@@ -76,7 +76,7 @@
                             <rect key="frame" x="-2" y="170" width="568" height="31"/>
                             <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="slider3Moved:" destination="iN0-l3-epB" eventType="touchUpInside" id="lhc-WK-SvL"/>
+                                <action selector="moved:" destination="iN0-l3-epB" eventType="valueChanged" id="9TW-7B-Wym"/>
                             </connections>
                         </slider>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="XS9-5a-6Cj">
@@ -100,7 +100,7 @@
                             <rect key="frame" x="-2" y="254" width="568" height="31"/>
                             <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="slider4Moved:" destination="iN0-l3-epB" eventType="touchUpInside" id="6YY-ls-V5k"/>
+                                <action selector="moved:" destination="iN0-l3-epB" eventType="valueChanged" id="mfJ-pB-Jhe"/>
                             </connections>
                         </slider>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ixR-o9-EHr">
@@ -124,7 +124,7 @@
                             <rect key="frame" x="-2" y="339" width="568" height="31"/>
                             <color key="minimumTrackTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="slider5Moved:" destination="iN0-l3-epB" eventType="touchUpInside" id="r06-vo-akj"/>
+                                <action selector="moved:" destination="iN0-l3-epB" eventType="valueChanged" id="YvA-rj-zfc"/>
                             </connections>
                         </slider>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="TaY-de-ooU">
@@ -159,22 +159,22 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="answerSlider1" destination="mmD-nM-gD3" id="Kr5-h9-6OQ"/>
-                <outlet property="answerSlider2" destination="nKE-2w-eha" id="B8o-lM-cEZ"/>
-                <outlet property="answerSlider3" destination="iAQ-n9-jEq" id="XmY-gZ-VEP"/>
-                <outlet property="answerSlider4" destination="897-eC-LWf" id="Tze-EF-ZKU"/>
-                <outlet property="answerSlider5" destination="NDy-gJ-dcJ" id="gfd-yc-a4R"/>
-                <outlet property="highLabel1" destination="mDr-gn-cIE" id="kft-mD-84D"/>
-                <outlet property="highLabel2" destination="sft-4O-1kB" id="9Ba-8K-LHp"/>
-                <outlet property="highLabel3" destination="xIz-5O-c1O" id="Jyd-Z5-l5f"/>
-                <outlet property="highLabel4" destination="vmj-sK-xuN" id="NbZ-ev-FPO"/>
-                <outlet property="highLabel5" destination="ZgZ-BU-bIU" id="hUh-xY-goB"/>
-                <outlet property="lowLabel1" destination="F0a-VE-pkD" id="nE5-kr-wd8"/>
-                <outlet property="lowLabel2" destination="yc3-23-6s5" id="hCJ-Qj-Vhv"/>
-                <outlet property="lowLabel3" destination="Wed-wB-vV3" id="Xi5-2t-tpi"/>
-                <outlet property="lowLabel4" destination="Ngw-CX-Bpe" id="eH0-49-X7b"/>
-                <outlet property="lowLabel5" destination="ECk-OO-tcR" id="gDJ-07-Hbb"/>
                 <outlet property="promptLabel" destination="k36-VN-Ja0" id="5hu-d5-Igx"/>
+                <outletCollection property="sliders" destination="mmD-nM-gD3" collectionClass="NSMutableArray" id="WwX-9N-NU3"/>
+                <outletCollection property="sliders" destination="nKE-2w-eha" collectionClass="NSMutableArray" id="5bO-Iz-JnV"/>
+                <outletCollection property="sliders" destination="iAQ-n9-jEq" collectionClass="NSMutableArray" id="PAb-4f-WEj"/>
+                <outletCollection property="sliders" destination="897-eC-LWf" collectionClass="NSMutableArray" id="Ddb-dE-lmA"/>
+                <outletCollection property="sliders" destination="NDy-gJ-dcJ" collectionClass="NSMutableArray" id="xPl-e8-sk7"/>
+                <outletCollection property="lowLabels" destination="F0a-VE-pkD" collectionClass="NSMutableArray" id="hP4-z8-XWI"/>
+                <outletCollection property="lowLabels" destination="yc3-23-6s5" collectionClass="NSMutableArray" id="nYE-xk-qqV"/>
+                <outletCollection property="lowLabels" destination="Wed-wB-vV3" collectionClass="NSMutableArray" id="HfK-6v-6f6"/>
+                <outletCollection property="lowLabels" destination="Ngw-CX-Bpe" collectionClass="NSMutableArray" id="J8a-Rn-ire"/>
+                <outletCollection property="lowLabels" destination="ECk-OO-tcR" collectionClass="NSMutableArray" id="eZL-g3-RsT"/>
+                <outletCollection property="highLabels" destination="mDr-gn-cIE" collectionClass="NSMutableArray" id="vTL-fk-etE"/>
+                <outletCollection property="highLabels" destination="sft-4O-1kB" collectionClass="NSMutableArray" id="v5s-Xi-5du"/>
+                <outletCollection property="highLabels" destination="xIz-5O-c1O" collectionClass="NSMutableArray" id="Dcl-UH-awl"/>
+                <outletCollection property="highLabels" destination="vmj-sK-xuN" collectionClass="NSMutableArray" id="nUa-Py-rVj"/>
+                <outletCollection property="highLabels" destination="ZgZ-BU-bIU" collectionClass="NSMutableArray" id="KAb-OP-7NP"/>
             </connections>
             <point key="canvasLocation" x="205" y="152.5"/>
         </view>

@@ -95,17 +95,17 @@ class DatabaseController {
     }
     
     static func updateMultiSlider(key: String, question: MultiSliderQuestion){
-//        var answer = Array(count: 5, repeatedValue: 0)
-//        for i in 0...answer.count{
-//            answer[i] = question.slider[i].value
-//        }
-        let answer: [Float] = [
-            question.answerSlider1.value,
-            question.answerSlider2.value,
-            question.answerSlider3.value,
-            question.answerSlider4.value,
-            question.answerSlider5.value
-        ]
+        var answer: [Float] = Array(count: 5, repeatedValue: 0)
+        for i in 0..<answer.count{
+            answer[i] = question.sliders[i].value
+        }
+//        let answer: [Float] = [
+//            question.answerSlider1.value,
+//            question.answerSlider2.value,
+//            question.answerSlider3.value,
+//            question.answerSlider4.value,
+//            question.answerSlider5.value
+//        ]
         AppState.sharedInstance.surveyList[key] = answer
     }
     

@@ -16,21 +16,17 @@ class MultiCheckQuestion: UIView {
     @IBOutlet var switches: [UISwitch]!
     @IBOutlet var labels: [UILabel]!
     
-    // Stored switches in array. Revert back if it doesn't work out
-    
-    //@IBOutlet weak var answerSwitch1: UISwitch!
-    //@IBOutlet weak var label1: UILabel!
-    
-    //@IBOutlet weak var answerSwitch2: UISwitch!
-    //@IBOutlet weak var label2: UILabel!
-    
-    //@IBOutlet weak var answerSwitch3: UISwitch!
-    //@IBOutlet weak var label3: UILabel!
-    
-    //@IBOutlet weak var answerSwitch4: UISwitch!
-    //@IBOutlet weak var label4: UILabel!
-    
-    //@IBOutlet weak var answerSwitch5: UISwitch!
-    //@IBOutlet weak var label5: UILabel!
+    static func addToSurvey(question: String, key: String, stackView: UIStackView) -> MultiCheckQuestion{
+        let checkQuestion = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as! MultiCheckQuestion
+        stackView.addArrangedSubview(checkQuestion)
+        checkQuestion.promptLabel.text = question
+            
+        // display the saved answers
+        let answerArray: [Bool]! = AppState.sharedInstance.surveyList[key] as? [Bool]
+        for i in 0..<answerArray.count{
+            checkQuestion.switches[i].on = answerArray[i]
+        }
+        return checkQuestion
+    }
     
 }

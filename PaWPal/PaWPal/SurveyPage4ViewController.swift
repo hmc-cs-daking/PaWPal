@@ -9,18 +9,17 @@
 import UIKit
 
 class SurveyPage4ViewController: UIViewController {
-    var temp1: MultiCheckQuestion!
-    var temp2: TextQuestion!
+    var q1: MultiCheckQuestion!
+    var q2: TextQuestion!
     
     @IBAction func save(sender: UIButton) {
-        // save data TODO - make required vs optional
-        DatabaseController.updateMultiCheck("interaction", question: temp1)
-        DatabaseController.updateText("howLong", question: temp2)
+        DatabaseController.updateMultiCheck("interaction", question: q1)
+        DatabaseController.updateText("howLong", question: q2)
     }
     
     @IBAction func next(sender: UIButton) {
         // require that text fields be complete
-        guard let textAnswer = temp2.answerTextField.text
+        guard let textAnswer = q2.answerTextField.text
             where !textAnswer.isEmpty else {
                 self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
                 return
@@ -38,25 +37,9 @@ class SurveyPage4ViewController: UIViewController {
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        // add questions to the stack view
-        if let checkQ1 = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as? MultiCheckQuestion {
-            temp1 = checkQ1
-            stackView.addArrangedSubview(checkQ1)
-            checkQ1.promptLabel.text = "Who were you with? (Check all that apply)"
-            
-            // display the saved answers
-            let answerArray: [Bool]! = AppState.sharedInstance.surveyList["interaction"] as? [Bool]
-            for i in 0..<answerArray.count{
-                checkQ1.switches[i].on = answerArray[i]
-            }
-        }
-        
-        if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
-            temp2 = textQ1
-            stackView.addArrangedSubview(textQ1)
-            textQ1.promptLabel.text = "How long had you been doing this activity for?"
-            textQ1.answerTextField.text = AppState.sharedInstance.surveyList["howLong"] as? String
-        }
+        // add questions to view
+        q1 = MultiCheckQuestion.addToSurvey("Who were you with? (Check all that apply)", key: "interaction", stackView: stackView)
+        q2 = TextQuestion.addToSurvey("How long had you been doing this activity for?", key: "howLong", stackView: stackView, placeHolder: "")
         
         view.addSubview(stackView)
         

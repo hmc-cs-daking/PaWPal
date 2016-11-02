@@ -9,17 +9,16 @@
 import UIKit
 
 class SurveyPage2ViewController: UIViewController {
-    var temp1: SliderQuestion!
-    var temp2: SliderQuestion!
-    var temp3: SliderQuestion!
-    var temp4: SliderQuestion!
+    var q1: SliderQuestion!
+    var q2: SliderQuestion!
+    var q3: SliderQuestion!
+    var q4: SliderQuestion!
     
     @IBAction func save(sender: UIButton) {
-        // save data TODO - make required vs optional
-        DatabaseController.updateSlider("enjoyment", question: temp1)
-        DatabaseController.updateSlider("concentration", question: temp2)
-        DatabaseController.updateSlider("gettingBetter", question: temp3)
-        DatabaseController.updateSlider("choice", question: temp4)
+        DatabaseController.updateSlider("enjoyment", question: q1)
+        DatabaseController.updateSlider("concentration", question: q2)
+        DatabaseController.updateSlider("gettingBetter", question: q3)
+        DatabaseController.updateSlider("choice", question: q4)
     }
 
     func displayQuestions(){
@@ -32,35 +31,16 @@ class SurveyPage2ViewController: UIViewController {
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        // add questions to the stack view
-        if let sliderQ1 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            temp1 = sliderQ1
-            stackView.addArrangedSubview(sliderQ1)
-            sliderQ1.promptLabel.text = "Did you enjoy what you were doing?"
-            sliderQ1.answerSlider.value = (AppState.sharedInstance.surveyList["enjoyment"] as? Float)!
-        }
-        
-        if let sliderQ2 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            temp2 = sliderQ2
-            stackView.addArrangedSubview(sliderQ2)
-            sliderQ2.promptLabel.text = "How well were you concentrating?"
-            sliderQ2.answerSlider.value = (AppState.sharedInstance.surveyList["concentration"] as? Float)!
-        }
-        
-        if let sliderQ3 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            temp3 = sliderQ3
-            stackView.addArrangedSubview(sliderQ3)
-            sliderQ3.promptLabel.text = "Were you getting better at something?"
-            sliderQ3.answerSlider.value = (AppState.sharedInstance.surveyList["gettingBetter"] as? Float)!
-        }
-        
-        if let sliderQ4 = NSBundle.mainBundle().loadNibNamed("SliderQuestion", owner: self, options: nil).first as? SliderQuestion {
-            temp4 = sliderQ4
-            stackView.addArrangedSubview(sliderQ4)
-            sliderQ4.promptLabel.text = "Did you have some choice in picking the activity?"
-            sliderQ4.answerSlider.value = (AppState.sharedInstance.surveyList["choice"] as? Float)!
-        }
-        
+        // add questions to stack view
+        q1 = SliderQuestion.addToSurvey("Did you enjoy what you were doing?",
+                                           key: "enjoyment", stackView: stackView)
+        q2 = SliderQuestion.addToSurvey("How well were you concentrating?",
+                                        key: "concentration", stackView: stackView)
+        q3 = SliderQuestion.addToSurvey("Were you getting better at something?",
+                                        key: "gettingBetter", stackView: stackView)
+        q4 = SliderQuestion.addToSurvey("Did you have some choice in picking the activity?",
+                                        key: "choice", stackView: stackView)
+         
         view.addSubview(stackView)
         
         //autolayout the stack view - pin 30 up 20 left 20 right 100 down
