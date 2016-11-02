@@ -9,15 +9,7 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
-## FirebaseAppIndexing
-
-Copyright 2016 Google
-
 ## FirebaseAuth
-
-Copyright 2016 Google
-
-## FirebaseCrash
 
 Copyright 2016 Google
 
@@ -25,45 +17,9 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
-## FirebaseDynamicLinks
-
-Copyright 2016 Google
-
 ## FirebaseInstanceID
 
 Copyright 2016 Google
-
-## FirebaseInvites
-
-Copyright 2016 Google
-
-## FirebaseMessaging
-
-Copyright 2016 Google
-
-## FirebaseRemoteConfig
-
-Copyright 2016 Google
-
-## FirebaseStorage
-
-Copyright 2016 Google
-
-## Google-Mobile-Ads-SDK
-
-Copyright 2011 Google Inc. All Rights Reserved.
-
-## GoogleAppUtilities
-
-Copyright 2015 Google Inc.
-
-## GoogleAuthUtilities
-
-Copyright 2015 Google Inc.
-
-## GoogleIPhoneUtilities
-
-Copyright 2015 Google Inc.
 
 ## GoogleInterchangeUtilities
 
@@ -72,18 +28,6 @@ Copyright 2015 Google Inc.
 ## GoogleNetworkingUtilities
 
 Copyright 2015 Google Inc.
-
-## GoogleParsingUtilities
-
-Copyright 2015 Google Inc.
-
-## GooglePlusUtilities
-
-Copyright 2015 Google Inc.
-
-## GoogleSignIn
-
-Copyright 2015 Google Inc. All Rights Reserved.
 
 ## GoogleSymbolUtilities
 
