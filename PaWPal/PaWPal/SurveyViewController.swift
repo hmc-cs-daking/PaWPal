@@ -23,6 +23,16 @@ class SurveyViewController: UIViewController {
             startSurveyButton.enabled = false
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated) // No need for semicolon
+        if (NotificationScheduler.canTakeSurvey()) {
+            startSurveyButton.enabled = true
+        } else {
+            startSurveyButton.backgroundColor = UIColor.grayColor()
+            startSurveyButton.enabled = false
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
