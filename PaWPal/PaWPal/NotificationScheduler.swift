@@ -100,8 +100,10 @@ class NotificationScheduler {
             
             // randomly add between -30 and 30 minutes to the 2 hours later time so that the user is not always getting
             // notifications at the exact same time
-            let randomizedTimeAddition = arc4random_uniform(61) - 30
+            let randomizedTimeAddition = Int(arc4random_uniform(61)) - 30
             plusTwoHoursComponents.minute += Int(randomizedTimeAddition)
+            print(randomizedTimeAddition)
+            print(plusTwoHoursComponents.minute)
             
             plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(plusTwoHoursComponents)!)
             

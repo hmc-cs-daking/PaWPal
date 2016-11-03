@@ -12,6 +12,8 @@ import UIKit
 class SurveyViewController: UIViewController {
 
     @IBOutlet weak var startSurveyButton: UIButton!
+    @IBOutlet weak var nextSurveyTimeLabel: UILabel!
+    @IBOutlet weak var nextSurveyPromptLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +23,21 @@ class SurveyViewController: UIViewController {
         super.viewWillAppear(animated)
         if (NotificationScheduler.canTakeSurvey()) {
             startSurveyButton.enabled = true
+            startSurveyButton.backgroundColor = UIColor.orangeColor()
+            nextSurveyTimeLabel.text = ""
+            nextSurveyPromptLabel.text = ""
         } else {
             startSurveyButton.backgroundColor = UIColor.grayColor()
             startSurveyButton.enabled = false
+            
+            let formatter = NotificationScheduler.getDateFormatter()
+            let nextSurveyDate = formatter.dateFromString(DatabaseController.getClosestNotification())
+            
+            let newFormatter = NSDateFormatter()
+            newFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            print(nextSurveyDate)
+            let nextSurveyTime = newFormatter.stringFromDate(nextSurveyDate!)
+            nextSurveyTimeLabel.text = nextSurveyTime
         }
     }
 
