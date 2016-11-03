@@ -9,22 +9,24 @@
 import Foundation
 import UIKit
 
+// This class handles the scheduling and clearing of local notifications for taking surveys
 class NotificationScheduler {
-    // Schedule daily 10 AM notifications for a week in advance
+    
+    // Schedule daily notifications for a week in advance at wakeTime + 30 minutes
     static func scheduleNotificationsOnSignIn() {
-        //clearScheduledNotifications()
-        // Computes how many new notifications to schedule
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
         let dateFormatter = getDateFormatter()
         
         let closestNotification = AppState.sharedInstance.closestScheduledNotification
         var furthestNotification = AppState.sharedInstance.furthestScheduledNotification
-
+        
+        // treat the current time as the furthest scheduled notification if there is no furthest scheduled notification
         if (furthestNotification == nil || furthestNotification == "") {
             furthestNotification = dateFormatter.stringFromDate(nsDate)
         }
         
+        // set the times to be compared to 12 PM to count the days accurately
         var furthestComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: dateFormatter.dateFromString(furthestNotification!)!)
         furthestComponents.hour = 12
         let currentComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
@@ -48,7 +50,7 @@ class NotificationScheduler {
         furthestComponents.minute = Int(wakeTimeComponents[1].componentsSeparatedByString(" ")[0])! + 30
         furthestComponents.second = 0
         
-        // Schedules the new notifications
+        // Schedules the appropriate amount of new notifications to have one each morning for the next 7 days
         for i in ((7-dayDifference)+1)..<8 {
             let notification = UILocalNotification()
             notification.alertBody = "Start your day off on the right foot!"
@@ -57,6 +59,7 @@ class NotificationScheduler {
             notification.fireDate = calendar.dateFromComponents(furthestComponents)
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
+            // handle initially setting the closest scheduled notification
             if ((closestNotification == nil || closestNotification == "") && i == 1) {
                 DatabaseController.setClosestNotification(dateFormatter.stringFromDate(notification.fireDate!))
             }
@@ -67,6 +70,7 @@ class NotificationScheduler {
         }
     }
     
+    // upon survey submission, conditionally schedule another notification for approximately 2 hours later
     static func scheduleNextNotificationOfTheDay() {
         var scheduledNewNotification = false
         let calendar = NSCalendar.currentCalendar()
@@ -75,6 +79,7 @@ class NotificationScheduler {
         
         let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         
+        // parse the wake time
         var wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
         wakeTimeComponents.hour = Int(wakeTime[0])!
@@ -88,14 +93,22 @@ class NotificationScheduler {
         let surveyCount = DatabaseController.getDailySurveyCount()
         // check if the user has already taken all of their surveys for the day
         if (surveyCount < 6) {
+            // create a date that is approximately two hours away
             var plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
             plusTwoHoursComponents.hour += 2
             plusTwoHoursComponents.second = 0
+            
+            // randomly add between -30 and 30 minutes to the 2 hours later time so that the user is not always getting
+            // notifications at the exact same time
+            let randomizedTimeAddition = arc4random_uniform(61) - 30
+            plusTwoHoursComponents.minute += Int(randomizedTimeAddition)
+            
             plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(plusTwoHoursComponents)!)
             
             // don't ever schedule notifications between 2 am and the morning notification
             if (plusTwoHoursComponents.hour < 2 || (plusTwoHoursComponents.hour >= (wakeTimeComponents.hour+2) && plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
                 
+                // parse sleep time
                 let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
                 let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
                 sleepTimeComponents.hour = Int(sleepTime[0])!
@@ -107,7 +120,7 @@ class NotificationScheduler {
                     sleepTimeComponents.hour += 12
                 }
                 
-                // check if two hours later is before the user's bedtime
+                // check if the two hours later time is before the user's bedtime
                 if ((calendar.dateFromComponents(sleepTimeComponents))?.compare(calendar.dateFromComponents(plusTwoHoursComponents)!) == NSComparisonResult.OrderedDescending) {
                     // schedule a notification for two hours from current time
                     let notification = UILocalNotification()
@@ -133,6 +146,7 @@ class NotificationScheduler {
         }
     }
     
+    // if we are determined to be on a new day, reset the daily survey count
     static func resetDailyCountIfNecessary() {
         let dateFormatter = getDateFormatter()
         let calendar = NSCalendar.currentCalendar()
@@ -141,6 +155,7 @@ class NotificationScheduler {
         let closestNotification = AppState.sharedInstance.closestScheduledNotification
         let closestComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: dateFormatter.dateFromString(closestNotification!)!)
         
+        // parse wake time
         var wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
         wakeTimeComponents.hour = Int(wakeTime[0])!
@@ -181,6 +196,8 @@ class NotificationScheduler {
         return formatter
     }
     
+    // determine if the user should be allowed to take a survey by checking if the current time is past the
+    // closest notification time
     static func canTakeSurvey() -> Bool {
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
