@@ -15,7 +15,11 @@ class SurveyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("viewWillAppear")
+        super.viewWillAppear(animated) // No need for semicolon
         if (NotificationScheduler.canTakeSurvey()) {
             startSurveyButton.enabled = true
         } else {
