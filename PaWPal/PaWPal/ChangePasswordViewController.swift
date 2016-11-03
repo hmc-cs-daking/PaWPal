@@ -21,7 +21,9 @@ class ChangePasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // change a user's password
     @IBAction func changePassword(sender: AnyObject) {
+        // ensure that the new password is not empty
         guard let userPassword = newPassword.text
             where !userPassword.isEmpty else {
                 self.displayAlert("Error", message: "Password not entered", handler: nil)

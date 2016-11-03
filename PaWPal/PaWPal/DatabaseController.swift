@@ -11,10 +11,11 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
+// this class contains methods for interacting with Firebase and storing and retrieving user data
 class DatabaseController {
     
+    // signs a user up in Firebase
     static func signUp(userEmail: String, userPassword: String, completion: () -> Void, currentVC: UIViewController) {
-        //TODO: check async stuff here
         FIRAuth.auth()?.createUserWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
                 currentVC.displayAlert("Error", message: error.localizedDescription, handler: nil)
@@ -40,6 +41,7 @@ class DatabaseController {
         }
     }
     
+    // signs a user in using Firebase
     static func signIn(userEmail: String, userPassword: String, completion: () -> Void, currentVC: UIViewController){
         FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword) { (user, error) in
             if let error = error {
@@ -70,6 +72,7 @@ class DatabaseController {
         }
     }
     
+    // resets a user's password using Firebase to send an email
     static func resetPassword(controller: UIViewController) {
         let email = getEmail()
         FIRAuth.auth()?.sendPasswordResetWithEmail(email) { (error) in
@@ -117,18 +120,17 @@ class DatabaseController {
         AppState.sharedInstance.surveyList[key] = answer
     }
     
-    // HERE HERE HERE
+    // submits the completed survey to Firebase
     static func submitSurvey(){
         // append survey answers to surveyList
         // creates a new automated child id (string of characters, but firebase keeps them in time order)
             AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("surveyList").childByAutoId().setValue(AppState.sharedInstance.surveyList)
         
         // clear survey answers in AppState
-        // @Doren, this clears the survey text fields when you take the next survey
         AppState.sharedInstance.surveyList = AppState.emptySurvey
     }
     
-    //list of functions to access user info
+    // functions to access user info
     static func getEmail() -> String{
         if let email = AppState.sharedInstance.userEmail { return email }
         else { return "" }
@@ -175,7 +177,7 @@ class DatabaseController {
         return AppState.sharedInstance.furthestScheduledNotification!
     }
     
-    //list of functions to set user info
+    // functions to set user info
     static func setEmail(userEmail: String, controller: UIViewController, completion: () -> Void){
         FIRAuth.auth()?.currentUser?.updateEmail(userEmail) { (error) in
             if let error = error {
