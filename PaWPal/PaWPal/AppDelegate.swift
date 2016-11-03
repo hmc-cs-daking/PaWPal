@@ -16,13 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     // Show login page if user is not logged in
     // Or loads info if user is already logged in
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         FIRApp.configure()
-
+        
+        // prompt the user to allow notifications from the PaWPal app
+        // TODO: what if the user says no?
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
         let storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
@@ -48,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                         if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
                         
-                        // will reset the daily survey count if we the closestNotification is the morning notification and the current time is past that
+                        // will reset the daily survey count if the closestNotification is the morning notification and the current time is past that
                         NotificationScheduler.resetDailyCountIfNecessary()
                         
                         // will schedule the morning notifications for the coming week

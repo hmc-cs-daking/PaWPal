@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ryg-jf-Mtv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ryg-jf-Mtv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -40,15 +40,37 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your next survey will be available at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSX-gj-MDo">
+                                <rect key="frame" x="163" y="366" width="274" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SK5-Zi-uFp">
+                                <rect key="frame" x="262" y="395" width="76" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="5Kh-aT-2PO"/>
+                                    <constraint firstAttribute="width" constant="76" id="ACt-Oy-8cJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZI4-vC-pVK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="2XZ-am-bDw"/>
+                            <constraint firstItem="SK5-Zi-uFp" firstAttribute="top" secondItem="pSX-gj-MDo" secondAttribute="bottom" constant="8" symbolic="YES" id="7jA-w3-q1S"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="SK5-Zi-uFp" secondAttribute="bottom" constant="168" id="TIo-fW-8G7"/>
                             <constraint firstItem="ZI4-vC-pVK" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="Ynq-v5-w2B"/>
+                            <constraint firstItem="SK5-Zi-uFp" firstAttribute="centerX" secondItem="pSX-gj-MDo" secondAttribute="centerX" id="abo-c4-SlQ"/>
+                            <constraint firstItem="SK5-Zi-uFp" firstAttribute="centerX" secondItem="ZI4-vC-pVK" secondAttribute="centerX" id="wDf-R8-8GV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xyu-I2-6bJ"/>
                     <connections>
+                        <outlet property="nextSurveyPromptLabel" destination="pSX-gj-MDo" id="paU-R3-0Kz"/>
+                        <outlet property="nextSurveyTimeLabel" destination="SK5-Zi-uFp" id="4Mk-kA-pMC"/>
                         <outlet property="startSurveyButton" destination="ZI4-vC-pVK" id="fV5-hS-Tl5"/>
                     </connections>
                 </viewController>
