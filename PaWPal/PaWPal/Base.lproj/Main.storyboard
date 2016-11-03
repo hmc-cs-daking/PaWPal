@@ -807,7 +807,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icL-ex-mb0">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icL-ex-mb0">
                                 <rect key="frame" x="223" y="6" width="155" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="gHZ-Sd-3QF">
@@ -826,6 +826,7 @@
                         <constraints>
                             <constraint firstItem="FKu-gG-bEj" firstAttribute="top" secondItem="gev-wT-wmM" secondAttribute="bottom" constant="100" id="98V-6P-veU"/>
                             <constraint firstItem="gev-wT-wmM" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="OWG-39-2vi"/>
+                            <constraint firstItem="icL-ex-mb0" firstAttribute="centerX" secondItem="xAP-Pw-ypm" secondAttribute="centerX" id="fyQ-3D-3qb"/>
                             <constraint firstItem="gev-wT-wmM" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="ijL-ji-aqH"/>
                         </constraints>
                     </view>
