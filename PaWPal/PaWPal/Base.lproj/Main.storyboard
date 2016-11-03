@@ -1190,10 +1190,10 @@
         <image name="error-404" width="566" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="m1K-eU-W1t"/>
+        <segue reference="u9f-Fx-YRb"/>
+        <segue reference="Cmd-Vw-1k0"/>
         <segue reference="9eC-5v-GHL"/>
         <segue reference="GMy-Yi-ghB"/>
-        <segue reference="JIR-Xj-1DJ"/>
-        <segue reference="m1K-eU-W1t"/>
-        <segue reference="Cmd-Vw-1k0"/>
     </inferredMetricsTieBreakers>
 </document>

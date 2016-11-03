@@ -41,7 +41,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="answerTextField" destination="IaY-4M-eOT" id="2zz-sB-ift"/>
+                <outlet property="answerTextField" destination="IaY-4M-eOT" id="9ZB-KG-ee5"/>
                 <outlet property="promptLabel" destination="2YC-mM-03j" id="e6C-ei-BcY"/>
             </connections>
             <point key="canvasLocation" x="205" y="23"/>
