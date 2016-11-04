@@ -1,41 +1,42 @@
 //
-//  VisualizationViewController.swift
+//  LineChartViewController.swift
 //  PaWPal
 //
-//  Created by Doren Lan on 10/24/16.
+//  Created by Doren Lan on 11/3/16.
 //  Copyright © 2016 HMC CS121 Group 5. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class VisualizationViewController: UIViewController, ChartViewDelegate {
+class LineChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var moodChart: LineChartView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.moodChart.delegate = self
         self.moodChart.descriptionText = "Tap node for details"
         
         //set color
         self.moodChart.descriptionTextColor = UIColor.orangeColor()
-        self.moodChart.gridBackgroundColor = UIColor.whiteColor()
-        
+        //self.moodChart.gridBackgroundColor = UIColor.whiteColor()
+        self.moodChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
         self.moodChart.noDataText = "No data provided"
-        
+        moodChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        let days = ["Sun", "Mon", "Tues", "Wed","Thus", "Friday", "Sat"]
+        let dummyData: [Double] = [3.0, 2.0, 3.0, 4.0, 4.0, 3.0, 6.0, 7.0]
         //time scale is days for right now
-        setChartData(days)
+        setChartData(days, data: dummyData)
     }
     
-    let days = ["Sun", "Mon", "Tues", "Wed","Thus", "Friday", "Sat"]
     
-    let dummyData = [3.0, 2.0, 3.0, 4.0, 4.0, 3.0, 6.0, 7.0]
     
-    func setChartData(days : [String]) {
+    func setChartData(days : [String], data: [Double]) {
         // creating an array of data entries
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         for i in 0..<days.count{
-            yVals1.append(ChartDataEntry(value: dummyData[i], xIndex: i))
+            yVals1.append(ChartDataEntry(value: data[i], xIndex: i))
         }
         
         // create a data set with our array

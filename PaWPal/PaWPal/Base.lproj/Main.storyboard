@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ryg-jf-Mtv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ryg-jf-Mtv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -589,14 +589,14 @@
                                     <action selector="saveProfile" destination="8rJ-Kc-sve" eventType="touchUpInside" id="2hD-SC-Ss3"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYs-Ev-Zet">
-                                <rect key="frame" x="209" y="9" width="133" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYs-Ev-Zet">
+                                <rect key="frame" x="209" y="9" width="183" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="M6h-jV-g2E">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOW-vN-Aag">
-                                        <rect key="frame" x="30" y="0.0" width="103" height="42"/>
+                                        <rect key="frame" x="80" y="0.0" width="103" height="80"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -683,7 +683,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change your password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qM-tl-dBs">
                                 <rect key="frame" x="20" y="28" width="176" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrp-D7-qj0">
@@ -792,14 +792,14 @@
                                     <action selector="displayLogOutAlert:" destination="ocE-1k-TD4" eventType="touchUpInside" id="gca-PP-SIc"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjj-6J-F66">
-                                <rect key="frame" x="194" y="9" width="161" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjj-6J-F66">
+                                <rect key="frame" x="194" y="9" width="211" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="cGQ-8B-J6q">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QK-3i-kMN">
-                                        <rect key="frame" x="30" y="0.0" width="131" height="42"/>
+                                        <rect key="frame" x="80" y="0.0" width="131" height="80"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -854,21 +854,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
                                 <rect key="frame" x="20" y="100" width="560" height="425"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email Professor Jim Boerkoel at boerkoel@g.hmc.edu</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icL-ex-mb0">
-                                <rect key="frame" x="223" y="9" width="105" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icL-ex-mb0">
+                                <rect key="frame" x="223" y="9" width="155" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PaWPal Logo 80.png" translatesAutoresizingMaskIntoConstraints="NO" id="gHZ-Sd-3QF">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uV4-KD-fzJ">
-                                        <rect key="frame" x="30" y="0.0" width="75" height="42"/>
+                                        <rect key="frame" x="80" y="0.0" width="75" height="80"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -892,41 +892,117 @@
             </objects>
             <point key="canvasLocation" x="2174" y="1074"/>
         </scene>
-        <!--Data-->
-        <scene sceneID="bVB-uB-Vw3">
+        <!--Item-->
+        <scene sceneID="tAc-Ru-vW7">
             <objects>
-                <viewController storyboardIdentifier="Visualization" id="2Nl-cr-dY9" customClass="VisualizationViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1gC-sd-JwB" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Lia-4y-7du"/>
-                        <viewControllerLayoutGuide type="bottom" id="rwi-JD-Rtc"/>
+                        <viewControllerLayoutGuide type="top" id="phC-tN-ILZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ou5-Ce-eFE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Biz-Qg-pwn">
+                    <view key="view" contentMode="scaleToFill" id="FLP-Uv-3N5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-P0-AIV" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="28" width="560" height="552"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kx-Yb-bj7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="ClY-h0-d6I" kind="embed" id="ApS-Sg-C1C"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8kx-Yb-bj7" secondAttribute="trailing" id="9hf-Lk-qr8"/>
+                            <constraint firstItem="8kx-Yb-bj7" firstAttribute="leading" secondItem="FLP-Uv-3N5" secondAttribute="leading" id="HnV-jc-T7V"/>
+                            <constraint firstItem="8kx-Yb-bj7" firstAttribute="top" secondItem="FLP-Uv-3N5" secondAttribute="top" id="Lwp-95-MjH"/>
+                            <constraint firstItem="8kx-Yb-bj7" firstAttribute="bottom" secondItem="ou5-Ce-eFE" secondAttribute="top" id="Oe7-YK-m5G"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="BcO-af-sbl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ula-Cy-2lN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="841" y="-61"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="zGk-s0-GtO">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ClY-h0-d6I" customClass="PageViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="vSq-Gk-YE7"/>
+                    <navigationItem key="navigationItem" id="X1s-hi-K87"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qht-7V-SeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1604" y="-56"/>
+        </scene>
+        <!--Line Chart View Controller-->
+        <scene sceneID="qbA-2q-tZS">
+            <objects>
+                <viewController storyboardIdentifier="LineChart" id="P6S-qE-OBL" customClass="LineChartViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nYj-nP-Jto"/>
+                        <viewControllerLayoutGuide type="bottom" id="4jG-qW-2O0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g2V-qz-A32">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-kv-s6A" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="84" width="560" height="402"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rwi-JD-Rtc" firstAttribute="top" secondItem="ftC-P0-AIV" secondAttribute="bottom" constant="20" id="70w-u8-OVv"/>
-                            <constraint firstItem="ftC-P0-AIV" firstAttribute="trailing" secondItem="Biz-Qg-pwn" secondAttribute="trailingMargin" id="MeI-fr-Oc0"/>
-                            <constraint firstItem="ftC-P0-AIV" firstAttribute="top" secondItem="Lia-4y-7du" secondAttribute="bottom" constant="8" id="e7y-ds-bah"/>
-                            <constraint firstItem="ftC-P0-AIV" firstAttribute="leading" secondItem="Biz-Qg-pwn" secondAttribute="leadingMargin" id="fdy-YP-eus"/>
+                            <constraint firstItem="fOg-kv-s6A" firstAttribute="trailing" secondItem="g2V-qz-A32" secondAttribute="trailingMargin" id="2M7-Pz-VCG"/>
+                            <constraint firstItem="4jG-qW-2O0" firstAttribute="top" secondItem="fOg-kv-s6A" secondAttribute="bottom" constant="114" id="Fku-mL-yaN"/>
+                            <constraint firstItem="fOg-kv-s6A" firstAttribute="top" secondItem="nYj-nP-Jto" secondAttribute="bottom" constant="64" id="d7O-P8-uHJ"/>
+                            <constraint firstItem="fOg-kv-s6A" firstAttribute="leading" secondItem="g2V-qz-A32" secondAttribute="leadingMargin" id="swT-oY-agW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Data" image="Bar Chart Filled-30" id="NCe-AI-Hfg"/>
                     <connections>
-                        <outlet property="moodChart" destination="ftC-P0-AIV" id="97l-WT-Sfu"/>
+                        <outlet property="moodChart" destination="fOg-kv-s6A" id="aJ5-sE-DOG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O0u-Pm-epS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vZj-Ae-1mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2842" y="1074"/>
+            <point key="canvasLocation" x="2258" y="-58"/>
         </scene>
-        <!--View Controller-->
+        <!--Pie Chart View Controller-->
+        <scene sceneID="P8M-Cs-isY">
+            <objects>
+                <viewController storyboardIdentifier="PieChart" id="QcQ-Dc-cWt" customClass="PieChartViewController" customModule="PaWPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iKY-2j-DQs"/>
+                        <viewControllerLayoutGuide type="bottom" id="RdF-de-lTl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oHH-m4-u0T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65D-UK-nZW" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="68" width="560" height="353"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="65D-UK-nZW" firstAttribute="top" secondItem="iKY-2j-DQs" secondAttribute="bottom" constant="48" id="9z0-kn-JQ5"/>
+                            <constraint firstItem="65D-UK-nZW" firstAttribute="trailing" secondItem="oHH-m4-u0T" secondAttribute="trailingMargin" id="JDn-hG-KBp"/>
+                            <constraint firstItem="RdF-de-lTl" firstAttribute="top" secondItem="65D-UK-nZW" secondAttribute="bottom" constant="179" id="OPQ-1r-pNi"/>
+                            <constraint firstItem="65D-UK-nZW" firstAttribute="leading" secondItem="oHH-m4-u0T" secondAttribute="leadingMargin" id="bjx-ZG-5tG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pieChartView" destination="65D-UK-nZW" id="msY-W2-lL3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bg1-lm-WkK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2912" y="-56"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="8r4-wi-sRh">
             <objects>
                 <viewController id="Ryg-jf-Mtv" sceneMemberID="viewController">
@@ -952,6 +1028,7 @@
                             <constraint firstItem="XDy-p3-ZsE" firstAttribute="centerX" secondItem="jgS-8t-mTu" secondAttribute="centerX" id="QS7-jE-4hb"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="F2J-zF-aG9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTJ-nR-Irl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1209,12 +1286,12 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="eJ6-dZ-Ur8"/>
                         <segue destination="bhc-L1-sIQ" kind="relationship" relationship="viewControllers" id="yl0-As-78q"/>
                         <segue destination="ocE-1k-TD4" kind="relationship" relationship="viewControllers" id="qA6-Lu-ePi"/>
-                        <segue destination="2Nl-cr-dY9" kind="relationship" relationship="viewControllers" id="Pg4-vB-VI1"/>
+                        <segue destination="1gC-sd-JwB" kind="relationship" relationship="viewControllers" id="z0C-od-Jn4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="-66"/>
+            <point key="canvasLocation" x="122" y="-61"/>
         </scene>
         <!--Survey-->
         <scene sceneID="eaF-dV-Pda">
@@ -1237,7 +1314,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bar Chart Filled-30" width="30" height="30"/>
         <image name="Gender Neutral User Filled-30" width="30" height="30"/>
         <image name="Help Filled-30" width="30" height="30"/>
         <image name="Inspection Filled-30" width="30" height="30"/>
