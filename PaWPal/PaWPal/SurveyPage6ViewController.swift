@@ -30,7 +30,6 @@ class SurveyPage6ViewController: UIViewController {
         
         DatabaseController.submitSurvey()
 
-        // stuff that happens when you submit a survey
         DatabaseController.incrementDailySurveyCount()
         DatabaseController.incrementTotalSurveyCount()
         NotificationScheduler.scheduleNextNotificationOfTheDay()
