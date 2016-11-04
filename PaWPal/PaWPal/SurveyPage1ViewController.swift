@@ -8,12 +8,14 @@
 
 import UIKit
 
+
 class SurveyPage1ViewController: UIViewController {
-    var q1: TextQuestion!
-    var q2: TextQuestion!
-    var q3: TextQuestion!
-    var locations: [String] = ["Platt", "Place", "Shanahan", "Atwood"]
+    var temp1: TextQuestion!
+    var temp2: TextQuestion!
+    var temp3: TextQuestion!
+    var locations: [String]? = ["Platt", "Place", "Shanahan", "Atwood"]
     var activities: [String] = ["Working", "Class"]
+ 
     
     @IBAction func next(sender: UIButton) {
         // require that text fields be complete
@@ -31,7 +33,7 @@ class SurveyPage1ViewController: UIViewController {
         DatabaseController.updateText("activity", question: q2)
         DatabaseController.updateText("elseOptional", question: q3)
     }
-
+    
     func displayQuestions(){
         
         // create the stack view
@@ -43,10 +45,29 @@ class SurveyPage1ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add questions to the stack view
-        q1 = TextQuestion.addToSurvey("Where were you?", key: "where", stackView: stackView, placeHolder: "Platt, Shanahan, Atwood, etc. ")
-        q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, etc. ")
-        q3 = TextQuestion.addToSurvey("(Optional) What else were you doing?", key: "elseOptional", stackView: stackView, placeHolder: "")
-                
+        if let textQ1 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            temp1 = textQ1
+            stackView.addArrangedSubview(textQ1)
+            textQ1.promptLabel.text = "Where were you?"
+            textQ1.answerTextField.attributedPlaceholder = NSAttributedString(string:"Platt, Shanahan, Atwood, etc. ")
+            textQ1.answerTextField.text = AppState.sharedInstance.surveyList["where"] as? String
+        }
+        
+        if let textQ2 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            temp2 = textQ2
+            stackView.addArrangedSubview(textQ2)
+            textQ2.promptLabel.text = "What was the main thing you were doing?"
+            textQ2.answerTextField.attributedPlaceholder = NSAttributedString(string:"Working, Class, etc. ")
+            textQ2.answerTextField.text = AppState.sharedInstance.surveyList["activity"] as? String
+        }
+        
+        if let textQ3 = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as? TextQuestion {
+            temp3 = textQ3
+            stackView.addArrangedSubview(textQ3)
+            textQ3.promptLabel.text = "(Optional) What else were you doing?"
+            textQ3.answerTextField.text = AppState.sharedInstance.surveyList["elseOptional"] as? String
+        }
+        
         view.addSubview(stackView)
         
         //autolayout the stack view - pin 30 up 20 left 20 right 100 down
@@ -65,25 +86,5 @@ class SurveyPage1ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func locationTextFieldChanged(textField: UITextField) {
-        //go through list and compare to textfield
-        var list = locations
-        var textFieldLength: Int { return (textField.text?.characters.count)! }
-        if (textFieldLength > 0 && list.count > 0)
-        {
-            var startIndex = list[0].startIndex
-            var endIndex = list[0].startIndex.advancedBy(textFieldLength-1)
-            var subStrFromList = list[0][startIndex...endIndex]
-            for i in 0...(list.count-1){
-                startIndex = list[i].startIndex
-                endIndex = list[i].startIndex.advancedBy(textFieldLength-1)
-                subStrFromList = list[i][startIndex...endIndex]
-                if(textField.text?.lowercaseString == subStrFromList.lowercaseString){
-                    print(list[i])
-                }
-            }
-        }
     }
 }
