@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		1D8988947AFFC7199D5E8B6D /* Pods_PaWPalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D16B81D56A538AE39B31528 /* Pods_PaWPalUITests.framework */; };
 		2A8740231D9EEDEA00320648 /* SurveyPage4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */; };
+		2AAAF8381DCBE6130019A168 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAF8371DCBE6130019A168 /* LineChartViewController.swift */; };
+		2AAAF83A1DCBE63C0019A168 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAF8391DCBE63C0019A168 /* PieChartViewController.swift */; };
 		2AAF934A1DBF103100AAFD86 /* VisualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF93491DBF103000AAFD86 /* VisualizationViewController.swift */; };
 		2AB034DA1DA4E03400702563 /* SurveyPage5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */; };
 		2ACBB0021DB5700600B2A313 /* SurveyPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACBB0011DB5700500B2A313 /* SurveyPage6ViewController.swift */; };
+		2AD1938C1DCB0C0B00851DA2 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1938B1DCB0C0B00851DA2 /* DataViewController.swift */; };
+		2AD1938E1DCB0DBE00851DA2 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1938D1DCB0DBE00851DA2 /* PageViewController.swift */; };
 		2AF145F71D8B4F1B00000210 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF145F61D8B4F1B00000210 /* DatabaseController.swift */; };
 		411F52231D95D43D000A9DA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */; };
 		412793501DC1F9E6006DEE6F /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4127934F1DC1F9E6006DEE6F /* ChangePasswordViewController.swift */; };
@@ -71,9 +75,13 @@
 		13D2930BB65466F3DBDC9F3F /* Pods-PaWPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPal/Pods-PaWPal.debug.xcconfig"; sourceTree = "<group>"; };
 		1C54D3CEE50DF1CB0F72BA74 /* Pods-PaWPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPal/Pods-PaWPal.release.xcconfig"; sourceTree = "<group>"; };
 		2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage4ViewController.swift; sourceTree = "<group>"; };
+		2AAAF8371DCBE6130019A168 /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
+		2AAAF8391DCBE63C0019A168 /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		2AAF93491DBF103000AAFD86 /* VisualizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizationViewController.swift; sourceTree = "<group>"; };
 		2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage5ViewController.swift; sourceTree = "<group>"; };
 		2ACBB0011DB5700500B2A313 /* SurveyPage6ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage6ViewController.swift; sourceTree = "<group>"; };
+		2AD1938B1DCB0C0B00851DA2 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		2AD1938D1DCB0DBE00851DA2 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2AF145F61D8B4F1B00000210 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		3225EC9243F640C29D986910 /* Pods-PaWPalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalTests/Pods-PaWPalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -186,6 +194,10 @@
 				412F75F01D83A6850081EB6B /* ProfileViewController.swift */,
 				416B4FA61DA62689000810D8 /* NotificationScheduler.swift */,
 				412F75F21D83A6850081EB6B /* Main.storyboard */,
+				2AAAF8391DCBE63C0019A168 /* PieChartViewController.swift */,
+				2AAAF8371DCBE6130019A168 /* LineChartViewController.swift */,
+				2AD1938D1DCB0DBE00851DA2 /* PageViewController.swift */,
+				2AD1938B1DCB0C0B00851DA2 /* DataViewController.swift */,
 				2AAF93491DBF103000AAFD86 /* VisualizationViewController.swift */,
 				412F75F51D83A6860081EB6B /* Assets.xcassets */,
 				412F75F71D83A6860081EB6B /* LaunchScreen.storyboard */,
@@ -549,6 +561,7 @@
 				416B4FA31D9880B0000810D8 /* AppState.swift in Sources */,
 				E69136DA1D9CE29300588C7E /* SurveyPage3ViewController.swift in Sources */,
 				412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */,
+				2AAAF83A1DCBE63C0019A168 /* PieChartViewController.swift in Sources */,
 				2AB034DA1DA4E03400702563 /* SurveyPage5ViewController.swift in Sources */,
 				868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */,
 				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,
@@ -558,15 +571,18 @@
 				86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */,
 				416B4FA71DA62689000810D8 /* NotificationScheduler.swift in Sources */,
 				868E5A771D9A4CC500B90BB8 /* TextQuestion.swift in Sources */,
+				2AD1938E1DCB0DBE00851DA2 /* PageViewController.swift in Sources */,
 				412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */,
 				866A631A1D8A4FCD00181427 /* String+IsValidEmail.swift in Sources */,
 				866DEE6B1DA4BB6F00E2DC45 /* MultiCheckQuestion.swift in Sources */,
 				866DEE671DA4A8B100E2DC45 /* MultiSliderQuestion.swift in Sources */,
+				2AD1938C1DCB0C0B00851DA2 /* DataViewController.swift in Sources */,
 				412793501DC1F9E6006DEE6F /* ChangePasswordViewController.swift in Sources */,
 				860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
 				2A8740231D9EEDEA00320648 /* SurveyPage4ViewController.swift in Sources */,
 				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
+				2AAAF8381DCBE6130019A168 /* LineChartViewController.swift in Sources */,
 				412F761D1D87CC700081EB6B /* SettingsViewController.swift in Sources */,
 				412F761F1D87CC8F0081EB6B /* HelpViewController.swift in Sources */,
 			);

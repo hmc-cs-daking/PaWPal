@@ -1,15 +1,15 @@
 //
-//  VisualizationViewController.swift
+//  LineChartViewController.swift
 //  PaWPal
 //
-//  Created by Doren Lan on 10/24/16.
+//  Created by Doren Lan on 11/3/16.
 //  Copyright © 2016 HMC CS121 Group 5. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class VisualizationViewController: UIViewController, ChartViewDelegate {
+class LineChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var moodChart: LineChartView!
     @IBOutlet weak var titleLabel: UILabel!
     
