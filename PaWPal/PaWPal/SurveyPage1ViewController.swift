@@ -31,7 +31,7 @@ class SurveyPage1ViewController: UIViewController {
         DatabaseController.updateText("activity", question: q2)
         DatabaseController.updateText("elseOptional", question: q3)
     }
-
+    
     func displayQuestions(){
         
         // create the stack view
@@ -46,7 +46,7 @@ class SurveyPage1ViewController: UIViewController {
         q1 = TextQuestion.addToSurvey("Where were you?", key: "where", stackView: stackView, placeHolder: "Platt, Shanahan, Atwood, etc. ")
         q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, etc. ")
         q3 = TextQuestion.addToSurvey("(Optional) What else were you doing?", key: "elseOptional", stackView: stackView, placeHolder: "")
-                
+        
         view.addSubview(stackView)
         
         //autolayout the stack view - pin 30 up 20 left 20 right 100 down
