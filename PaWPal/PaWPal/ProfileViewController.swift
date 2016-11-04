@@ -50,6 +50,7 @@ class ProfileViewController: UIViewController {
         // save the school and name of the user
         DatabaseController.setName(userName)
         DatabaseController.setSchool(userSchool ?? "")
+        // set the email if the user has changed their email
         if (userEmail != DatabaseController.getEmail()) {
             DatabaseController.setEmail(userEmail, controller: self, completion: {self.displayAlert("Email changed", message: "Your info is saved", handler: nil)})
         } else {

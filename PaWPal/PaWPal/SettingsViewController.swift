@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController {
     
     func createToolBar(pressedFunc: Selector) -> UIToolbar {
         let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
-    
+
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
     
         toolBar.barStyle = UIBarStyle.BlackTranslucent
