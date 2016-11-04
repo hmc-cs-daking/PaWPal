@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TextQuestion: UIView {
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answerTextField: AutoCompleteTextField!
     @IBOutlet weak var promptLabel: UILabel!
     
     // add question to survey
@@ -21,6 +21,8 @@ class TextQuestion: UIView {
         textQuestion.promptLabel.text = question
         textQuestion.answerTextField.text = (AppState.sharedInstance.surveyList[key] as? String)!
         textQuestion.answerTextField.attributedPlaceholder = NSAttributedString(string: placeHolder)
+        
+        textQuestion.answerTextField.autoCompleteStrings = ["Platt", "Place", "Shanahan", "Atwood"]
         return textQuestion
         
     }
