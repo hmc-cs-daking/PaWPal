@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D8988947AFFC7199D5E8B6D /* Pods_PaWPalUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D16B81D56A538AE39B31528 /* Pods_PaWPalUITests.framework */; };
+		2A7342831DD294AE0084735B /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7342821DD294AE0084735B /* AutoCompleteTextField.swift */; };
 		2A8740231D9EEDEA00320648 /* SurveyPage4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */; };
 		2AAAF8381DCBE6130019A168 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAF8371DCBE6130019A168 /* LineChartViewController.swift */; };
 		2AAAF83A1DCBE63C0019A168 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAF8391DCBE63C0019A168 /* PieChartViewController.swift */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		13D2930BB65466F3DBDC9F3F /* Pods-PaWPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPal/Pods-PaWPal.debug.xcconfig"; sourceTree = "<group>"; };
 		1C54D3CEE50DF1CB0F72BA74 /* Pods-PaWPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPal/Pods-PaWPal.release.xcconfig"; sourceTree = "<group>"; };
+		2A7342821DD294AE0084735B /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
 		2A8740221D9EEDE900320648 /* SurveyPage4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage4ViewController.swift; sourceTree = "<group>"; };
 		2AAAF8371DCBE6130019A168 /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
 		2AAAF8391DCBE63C0019A168 /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				E63D7BE81DB9B63500F25F67 /* PaWPal Logo 80.png */,
 				E63D7BE61DB99FC300F25F67 /* PaWPal Logo 120.png */,
 				412F75EC1D83A6850081EB6B /* AppDelegate.swift */,
+				2A7342821DD294AE0084735B /* AutoCompleteTextField.swift */,
 				2AF145F61D8B4F1B00000210 /* DatabaseController.swift */,
 				86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */,
 				86DC95A81D89026D007F84BB /* RegisterViewController.swift */,
@@ -556,6 +559,7 @@
 				E69136DA1D9CE29300588C7E /* SurveyPage3ViewController.swift in Sources */,
 				412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */,
 				2AAAF83A1DCBE63C0019A168 /* PieChartViewController.swift in Sources */,
+				2A7342831DD294AE0084735B /* AutoCompleteTextField.swift in Sources */,
 				2AB034DA1DA4E03400702563 /* SurveyPage5ViewController.swift in Sources */,
 				868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */,
 				860F53691D9B92BC00090FB3 /* SurveyPage2ViewController.swift in Sources */,

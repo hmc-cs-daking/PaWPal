@@ -52,11 +52,6 @@ class PieChartViewController: UIViewController {
         
         pieChartDataSet.colors = colors
         
-        
-//        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
-//        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
-//        lineChartView.data = lineChartData
-        
     }
     
 }
