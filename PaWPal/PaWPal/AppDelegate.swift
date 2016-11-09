@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
+        // naviagation bar
+//        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+//        UINavigationBar.appearance().barTintColor = UIColor.orangeColor()
+//        UINavigationBar.appearance().titleTextAttributes=[NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
         // prompt the user to allow notifications from the PaWPal app
         // TODO: what if the user says no?
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
