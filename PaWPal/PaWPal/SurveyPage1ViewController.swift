@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SurveyPage1ViewController: UIViewController {
+class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSource, AutoCompleteTextFieldDelegate {
     var q1: TextQuestion!
     var q2: TextQuestion!
     var q3: TextQuestion!
@@ -60,6 +60,8 @@ class SurveyPage1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
+        q1.answerTextField.autoCompleteTextFieldDataSource = self
+        q1.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,5 +87,10 @@ class SurveyPage1ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func autoCompleteTextFieldDataSource(autoCompleteTextField: AutoCompleteTextField) -> [String] {
+        
+        return ["example", "pawpal", "hello"]
     }
 }
