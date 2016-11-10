@@ -12,8 +12,12 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     var q1: TextQuestion!
     var q2: TextQuestion!
     var q3: TextQuestion!
+    
     var locations: [String] = ["Platt", "Place", "Shanahan", "Atwood"]
     var activities: [String] = ["Working", "Class"]
+    var other: [String] = ["Sleeping", "Netflix"]
+    
+    var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
     @IBAction func next(sender: UIButton) {
         // require that text fields be complete
@@ -55,6 +59,8 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
         view.addConstraints(stackView_H)
         view.addConstraints(stackView_V)
+        
+        autoCompleteDictionary = [q1.answerTextField:locations, q2.answerTextField:activities, q3.answerTextField:other]
     }
     
     override func viewDidLoad() {
@@ -62,6 +68,10 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         displayQuestions()
         q1.answerTextField.autoCompleteTextFieldDataSource = self
         q1.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
+        q2.answerTextField.autoCompleteTextFieldDataSource = self
+        q2.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
+        q3.answerTextField.autoCompleteTextFieldDataSource = self
+        q3.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,28 +79,8 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func locationTextFieldChanged(textField: UITextField) {
-        //go through list and compare to textfield
-        var list = locations
-        var textFieldLength: Int { return (textField.text?.characters.count)! }
-        if (textFieldLength > 0 && list.count > 0)
-        {
-            var startIndex = list[0].startIndex
-            var endIndex = list[0].startIndex.advancedBy(textFieldLength-1)
-            var subStrFromList = list[0][startIndex...endIndex]
-            for i in 0...(list.count-1){
-                startIndex = list[i].startIndex
-                endIndex = list[i].startIndex.advancedBy(textFieldLength-1)
-                subStrFromList = list[i][startIndex...endIndex]
-                if(textField.text?.lowercaseString == subStrFromList.lowercaseString){
-                    print(list[i])
-                }
-            }
-        }
-    }
-    
     func autoCompleteTextFieldDataSource(autoCompleteTextField: AutoCompleteTextField) -> [String] {
         
-        return ["example", "pawpal", "hello"]
+        return autoCompleteDictionary[autoCompleteTextField]!
     }
 }

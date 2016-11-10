@@ -94,6 +94,7 @@ public class AutoCompleteTextField: UITextField {
         setupTargetObserver()
     }
     
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -260,6 +261,7 @@ public class AutoCompleteTextField: UITextField {
         }
     }
     
+
     private func processAutoCompleteEvent() {
         if autoCompleteDisabled {
             return

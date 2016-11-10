@@ -8,9 +8,13 @@
 
 import UIKit
 
-class SurveyPage4ViewController: UIViewController {
+class SurveyPage4ViewController: UIViewController, AutoCompleteTextFieldDataSource, AutoCompleteTextFieldDelegate {
     var q1: MultiCheckQuestion!
     var q2: TextQuestion!
+    
+    var activityLength: [String] = ["1 hour", "20 minutes"]
+    
+    var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
     @IBAction func save(sender: UIButton) {
         DatabaseController.updateMultiCheck("interaction", question: q1)
@@ -49,15 +53,24 @@ class SurveyPage4ViewController: UIViewController {
         let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
         view.addConstraints(stackView_H)
         view.addConstraints(stackView_V)
+        
+        autoCompleteDictionary = [q2.answerTextField: activityLength]
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
+        
+        q2.answerTextField.autoCompleteTextFieldDataSource = self
+        q2.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func autoCompleteTextFieldDataSource(autoCompleteTextField: AutoCompleteTextField) -> [String] {
+        
+        return autoCompleteDictionary[autoCompleteTextField]!
+    }
 }
