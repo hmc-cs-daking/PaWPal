@@ -79,26 +79,6 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func locationTextFieldChanged(textField: UITextField) {
-        //go through list and compare to textfield
-        var list = locations
-        var textFieldLength: Int { return (textField.text?.characters.count)! }
-        if (textFieldLength > 0 && list.count > 0)
-        {
-            var startIndex = list[0].startIndex
-            var endIndex = list[0].startIndex.advancedBy(textFieldLength-1)
-            var subStrFromList = list[0][startIndex...endIndex]
-            for i in 0...(list.count-1){
-                startIndex = list[i].startIndex
-                endIndex = list[i].startIndex.advancedBy(textFieldLength-1)
-                subStrFromList = list[i][startIndex...endIndex]
-                if(textField.text?.lowercaseString == subStrFromList.lowercaseString){
-                    print(list[i])
-                }
-            }
-        }
-    }
-    
     func autoCompleteTextFieldDataSource(autoCompleteTextField: AutoCompleteTextField) -> [String] {
         
         return autoCompleteDictionary[autoCompleteTextField]!
