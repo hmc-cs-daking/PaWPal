@@ -12,8 +12,12 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     var q1: TextQuestion!
     var q2: TextQuestion!
     var q3: TextQuestion!
+    
     var locations: [String] = ["Platt", "Place", "Shanahan", "Atwood"]
     var activities: [String] = ["Working", "Class"]
+    var other: [String] = ["Sleeping", "Netflix"]
+    
+    var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
     @IBAction func next(sender: UIButton) {
         // require that text fields be complete
@@ -55,6 +59,8 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
         view.addConstraints(stackView_H)
         view.addConstraints(stackView_V)
+        
+        autoCompleteDictionary = [q1.answerTextField:locations, q2.answerTextField:activities, q3.answerTextField:other]
     }
     
     override func viewDidLoad() {
@@ -62,6 +68,10 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         displayQuestions()
         q1.answerTextField.autoCompleteTextFieldDataSource = self
         q1.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
+        q2.answerTextField.autoCompleteTextFieldDataSource = self
+        q2.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
+        q3.answerTextField.autoCompleteTextFieldDataSource = self
+        q3.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,6 +101,6 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     
     func autoCompleteTextFieldDataSource(autoCompleteTextField: AutoCompleteTextField) -> [String] {
         
-        return ["example", "pawpal", "hello"]
+        return autoCompleteDictionary[autoCompleteTextField]!
     }
 }

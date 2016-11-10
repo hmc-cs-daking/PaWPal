@@ -12,6 +12,7 @@ import UIKit
 class TextQuestion: UIView {
     @IBOutlet weak var answerTextField: AutoCompleteTextField!
     @IBOutlet weak var promptLabel: UILabel!
+    public var autoCompleteStrings: [String]!
     
     // add question to survey
     static func addToSurvey(question: String, key: String, stackView: UIStackView, placeHolder: String) -> TextQuestion {
