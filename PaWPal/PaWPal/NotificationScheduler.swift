@@ -154,27 +154,12 @@ class NotificationScheduler {
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
         
-        let closestNotification = AppState.sharedInstance.closestScheduledNotification
-        let closestComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: dateFormatter.dateFromString(closestNotification!)!)
+        let currentComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        currentComponents.hour = 2
+        let lastAction = dateFormatter.dateFromString(DatabaseController.getLastActionTakenAt())
         
-        // parse wake time
-        var wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
-        let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
-        wakeTimeComponents.hour = Int(wakeTime[0])!
-        let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
-        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])!
-        wakeTimeComponents.minute += 30
-        if (wakeTimeMinutesAndAmPm[1] == "PM") {
-            wakeTimeComponents.hour += 12
-        }
-        
-        wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(wakeTimeComponents)!)
-
-        // will reset the dailySurveyCount if the closest notification is the morning notification and the current time is past the morning notification
-        if (closestComponents.hour == wakeTimeComponents.hour && closestComponents.minute == wakeTimeComponents.minute) {
-            if (nsDate.compare(calendar.dateFromComponents(closestComponents)!) == NSComparisonResult.OrderedDescending) {
-                DatabaseController.resetDailySurveyCount()
-            }
+        if (calendar.dateFromComponents(currentComponents)!.compare(lastAction!) == NSComparisonResult.OrderedDescending) {
+            DatabaseController.resetDailySurveyCount()
         }
     }
     
@@ -199,7 +184,7 @@ class NotificationScheduler {
     }
     
     // determine if the user should be allowed to take a survey by checking if the current time is past the
-    // closest notification time
+    // closest notification time, and either past the wake time or before the sleep time
     static func canTakeSurvey() -> Bool {
         let calendar = NSCalendar.currentCalendar()
         let nsDate = NSDate()
@@ -207,7 +192,27 @@ class NotificationScheduler {
         let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         let closestNotificationTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: formatter.dateFromString(DatabaseController.getClosestNotification())!)
         
-        if (calendar.dateFromComponents(currentTimeComponents)!.compare(calendar.dateFromComponents(closestNotificationTimeComponents)!) == NSComparisonResult.OrderedDescending) {
+        let wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
+        wakeTimeComponents.hour = Int(wakeTime[0])!
+        let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
+        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])!
+        wakeTimeComponents.minute += 30
+        if (wakeTimeMinutesAndAmPm[1] == "PM") {
+            wakeTimeComponents.hour += 12
+        }
+        
+        let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
+        sleepTimeComponents.hour = Int(sleepTime[0])!
+        let sleepTimeMinutesAndAmPm = sleepTime[1].componentsSeparatedByString(" ")
+        sleepTimeComponents.minute = Int(sleepTimeMinutesAndAmPm[0])!
+        if (sleepTimeMinutesAndAmPm[1] == "PM") {
+            sleepTimeComponents.hour += 12
+        }
+        
+        
+        if ((calendar.dateFromComponents(currentTimeComponents)!.compare(calendar.dateFromComponents(closestNotificationTimeComponents)!) == NSComparisonResult.OrderedDescending) && ((calendar.dateFromComponents(currentTimeComponents)!.compare(calendar.dateFromComponents(wakeTimeComponents)!) == NSComparisonResult.OrderedDescending) || (calendar.dateFromComponents(sleepTimeComponents)!.compare(calendar.dateFromComponents(currentTimeComponents)!) == NSComparisonResult.OrderedDescending))) {
             return true
         } else {
             return false
