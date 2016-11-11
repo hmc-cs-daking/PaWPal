@@ -34,6 +34,9 @@ class SurveyPage6ViewController: UIViewController {
         DatabaseController.incrementTotalSurveyCount()
         NotificationScheduler.scheduleNextNotificationOfTheDay()
         
+        let formatter = NotificationScheduler.getDateFormatter()
+        DatabaseController.setLastActionTakenAt(formatter.stringFromDate(NSDate()))
+        
         // go back to main survey page
         performSegueWithIdentifier("SurveyPage6ToSurvey", sender: nil)
     }
