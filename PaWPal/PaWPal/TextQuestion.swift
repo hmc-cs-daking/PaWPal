@@ -12,12 +12,12 @@ import UIKit
 class TextQuestion: UIView {
     @IBOutlet weak var answerTextField: AutoCompleteTextField!
     @IBOutlet weak var promptLabel: UILabel!
-    public var autoCompleteStrings: [String]!
+    
+    internal var autoCompleteStrings: [String]!
+    internal var required: Bool!
     
     // add question to survey
-    static func addToSurvey(question: String, key: String, stackView: UIStackView, placeHolder: String) -> TextQuestion {
-        
-        
+    static func addToSurvey(question: String, key: String, stackView: UIStackView, placeHolder: String, required: Bool) -> TextQuestion {
         
         let textQuestion = NSBundle.mainBundle().loadNibNamed("TextQuestion", owner: self, options: nil).first as! TextQuestion
         
@@ -25,6 +25,8 @@ class TextQuestion: UIView {
         textQuestion.promptLabel.text = question
         textQuestion.answerTextField.text = (AppState.sharedInstance.surveyList[key] as? String)!
         textQuestion.answerTextField.attributedPlaceholder = NSAttributedString(string: placeHolder)
+        
+        textQuestion.required = required
 
         return textQuestion
         

@@ -39,7 +39,7 @@ class SurveyPage4ViewController: UIViewController {
         
         // add questions to view
         q1 = MultiCheckQuestion.addToSurvey("Who were you with? (Check all that apply)", key: "interaction", stackView: stackView)
-        q2 = TextQuestion.addToSurvey("How many hours have you been doing this activity?", key: "howLong", stackView: stackView, placeHolder: "")
+        q2 = TextQuestion.addToSurvey("How many hours have you been doing this activity?", key: "howLong", stackView: stackView, placeHolder: "", required: true)
         
         // for numerical answers
         q2.answerTextField.keyboardType = .NumberPad
