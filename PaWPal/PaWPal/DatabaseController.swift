@@ -106,13 +106,6 @@ class DatabaseController {
         for i in 0..<answer.count{
             answer[i] = question.sliders[i].value
         }
-//        let answer: [Float] = [
-//            question.answerSlider1.value,
-//            question.answerSlider2.value,
-//            question.answerSlider3.value,
-//            question.answerSlider4.value,
-//            question.answerSlider5.value
-//        ]
         AppState.sharedInstance.surveyList[key] = answer
     }
     
