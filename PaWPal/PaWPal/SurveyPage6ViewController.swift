@@ -52,8 +52,8 @@ class SurveyPage6ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add questions to view
-        q1 = TextQuestion.addToSurvey("(Optional) If you were feeling strong emotions, why?", key: "strongEmotionsOptional", stackView: stackView, placeHolder: "Describe")
-        q2 = TextQuestion.addToSurvey("(Optional) Was there something else on your mind?", key: "elseMindOptional", stackView: stackView, placeHolder: "Describe")
+        q1 = TextQuestion.addToSurvey("(Optional) If you were feeling strong emotions, why?", key: "strongEmotionsOptional", stackView: stackView, placeHolder: "Describe", required: false)
+        q2 = TextQuestion.addToSurvey("(Optional) Was there something else on your mind?", key: "elseMindOptional", stackView: stackView, placeHolder: "Describe", required: false)
         
         view.addSubview(stackView)
         

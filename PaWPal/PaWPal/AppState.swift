@@ -45,7 +45,6 @@ class AppState: NSObject {
     var school: String?
     var wakeTime: String?
     var sleepTime: String?
-    var signedIn = false
     var closestScheduledNotification: String?
     var furthestScheduledNotification: String?
     var dailySurveyCount = 0

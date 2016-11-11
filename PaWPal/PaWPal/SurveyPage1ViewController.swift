@@ -20,17 +20,15 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
     @IBAction func next(sender: UIButton) {
-        // require that text fields be complete
-        guard let textAnswer1 = q1.answerTextField.text
-            where !textAnswer1.isEmpty else {
-                self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
-                return
+        // check for filled text fields of mandatory questions
+        for q in [q1, q2, q3] where q.required == true {
+            guard let textAnswer = q.answerTextField.text
+                where !textAnswer.isEmpty else {
+                    self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
+                    return
+            }
         }
-        guard let textAnswer2 = q2.answerTextField.text
-            where !textAnswer2.isEmpty else {
-                self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
-                return
-        }
+        
         DatabaseController.updateText("where", question: q1)
         DatabaseController.updateText("activity", question: q2)
         DatabaseController.updateText("elseOptional", question: q3)
@@ -47,9 +45,9 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add questions to the stack view
-        q1 = TextQuestion.addToSurvey("Where were you?", key: "where", stackView: stackView, placeHolder: "Platt, Shanahan, Atwood, etc. ")
-        q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, etc. ")
-        q3 = TextQuestion.addToSurvey("(Optional) What else were you doing?", key: "elseOptional", stackView: stackView, placeHolder: "")
+        q1 = TextQuestion.addToSurvey("Where were you?", key: "where", stackView: stackView, placeHolder: "Platt, Shanahan, Atwood, etc. ", required: true)
+        q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, etc. ", required: true)
+        q3 = TextQuestion.addToSurvey("(Optional) What else were you doing?", key: "elseOptional", stackView: stackView, placeHolder: "", required: false)
         
         view.addSubview(stackView)
         

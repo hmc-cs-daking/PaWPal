@@ -8,13 +8,9 @@
 
 import UIKit
 
-class SurveyPage4ViewController: UIViewController, AutoCompleteTextFieldDataSource, AutoCompleteTextFieldDelegate {
+class SurveyPage4ViewController: UIViewController {
     var q1: MultiCheckQuestion!
     var q2: TextQuestion!
-    
-    var activityLength: [String] = ["1 hour", "20 minutes"]
-    
-    var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
     @IBAction func save(sender: UIButton) {
         DatabaseController.updateMultiCheck("interaction", question: q1)
@@ -22,10 +18,10 @@ class SurveyPage4ViewController: UIViewController, AutoCompleteTextFieldDataSour
     }
     
     @IBAction func next(sender: UIButton) {
-        // require that text fields be complete
+        // require numerical answer
         guard let textAnswer = q2.answerTextField.text
-            where !textAnswer.isEmpty else {
-                self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
+            where Float(textAnswer) != nil else {
+                self.displayAlert("Hello", message: "Please enter a number :)", handler: nil)
                 return
         }
         save(sender)
@@ -43,7 +39,10 @@ class SurveyPage4ViewController: UIViewController, AutoCompleteTextFieldDataSour
         
         // add questions to view
         q1 = MultiCheckQuestion.addToSurvey("Who were you with? (Check all that apply)", key: "interaction", stackView: stackView)
-        q2 = TextQuestion.addToSurvey("How long had you been doing this activity for?", key: "howLong", stackView: stackView, placeHolder: "")
+        q2 = TextQuestion.addToSurvey("How many hours have you been doing this activity?", key: "howLong", stackView: stackView, placeHolder: "", required: true)
+        
+        // for numerical answers
+        q2.answerTextField.keyboardType = .NumberPad
         
         view.addSubview(stackView)
         
@@ -53,24 +52,14 @@ class SurveyPage4ViewController: UIViewController, AutoCompleteTextFieldDataSour
         let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
         view.addConstraints(stackView_H)
         view.addConstraints(stackView_V)
-        
-        autoCompleteDictionary = [q2.answerTextField: activityLength]
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         displayQuestions()
-        
-        q2.answerTextField.autoCompleteTextFieldDataSource = self
-        q2.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func autoCompleteTextFieldDataSource(autoCompleteTextField: AutoCompleteTextField) -> [String] {
-        
-        return autoCompleteDictionary[autoCompleteTextField]!
     }
 }
