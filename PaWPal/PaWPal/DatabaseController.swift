@@ -22,6 +22,8 @@ class DatabaseController {
                 return
             }
             
+            let formatter = NotificationScheduler.getDateFormatter()
+            
             let key = (user! as FIRUser).uid
             let signUp = ["uid": (user! as FIRUser).uid,
                         "userName": userEmail,
@@ -33,7 +35,8 @@ class DatabaseController {
                         "furthestScheduledNotification": "",
                         "dailySurveyCount": 0,
                         "totalSurveyCount": 0,
-                        "surveyList": []]
+                        "surveyList": [],
+                        "lastActionTakenAt": formatter.stringFromDate(NSDate())]
             let childUpdates = ["/users/\(key)": signUp]
             AppState.sharedInstance.databaseRef.updateChildValues(childUpdates)
             
@@ -64,6 +67,7 @@ class DatabaseController {
                 if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                 if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                 if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+                if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
                 NotificationScheduler.scheduleNotificationsOnSignIn()
                 
                 completion()
@@ -177,6 +181,10 @@ class DatabaseController {
         return AppState.sharedInstance.furthestScheduledNotification!
     }
     
+    static func getLastActionTakenAt() -> String {
+        return AppState.sharedInstance.lastActionTakenAt!
+    }
+    
     // functions to set user info
     static func setEmail(userEmail: String, controller: UIViewController, completion: () -> Void){
         FIRAuth.auth()?.currentUser?.updateEmail(userEmail) { (error) in
@@ -231,6 +239,11 @@ class DatabaseController {
     static func setFurthestNotification(date: String) {
         AppState.sharedInstance.databaseRef.child("/users/\(getUid())/furthestScheduledNotification").setValue(date)
         AppState.sharedInstance.furthestScheduledNotification = date
+    }
+    
+    static func setLastActionTakenAt(date: String) {
+        AppState.sharedInstance.databaseRef.child("/users/\(getUid())/lastActionTakenAt").setValue(date)
+        AppState.sharedInstance.lastActionTakenAt = date
     }
     
     static func incrementDailySurveyCount() {

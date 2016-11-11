@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
                         if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                         if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+                        if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
                         
                         // will reset the daily survey count if the closestNotification is the morning notification and the current time is past that
                         NotificationScheduler.resetDailyCountIfNecessary()

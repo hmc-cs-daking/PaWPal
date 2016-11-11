@@ -49,6 +49,7 @@ class AppState: NSObject {
     var furthestScheduledNotification: String?
     var dailySurveyCount = 0
     var totalSurveyCount = 0
+    var lastActionTakenAt: String?
     var databaseRef = FIRDatabase.database().reference()
     var surveyList:[String:AnyObject] = emptySurvey
 }
