@@ -16,8 +16,8 @@ internal let defaultAutoCompleteButtonWidth: CGFloat = 30.0
 internal let defaultAutoCompleteButtonHeight: CGFloat = 30.0
 
 /// Supported domain names
-internal let SupportedDomainNames: [String] = {
-    ["gmail.com",
+internal let SupportedDomainNames: [String] = { []
+   /* ["gmail.com",
      "yahoo.com",
      "hotmail.com",
      "aol.com",
@@ -172,7 +172,7 @@ internal let SupportedDomainNames: [String] = {
      "vt.edu",
      "rambler.ru",
      "temple.edu",
-     "cinci.rr.com"]
+     "cinci.rr.com"]*/
 }()
 
 // MARK: - Public
