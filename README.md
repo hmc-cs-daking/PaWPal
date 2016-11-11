@@ -23,6 +23,10 @@ To get PaWPal on your own computer, fork and clone this repository. If you are n
 When developing or testing PaWPal, use Xcode Workspace (not Xcode Project)  
 because PaWPal relies on Cocoapods. Also, make sure you are developing on the PaWPal scheme and not Pods.
 
+![](Screenshots/xcworkspace.png)
+![](Screenshots/Schema1View.png)
+![](Screenshots/Schema1View.png)
+
 TODO: add screenshot of workspace + scheme
 
 ## Authors
