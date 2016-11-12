@@ -19,9 +19,9 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         self.moodChart.descriptionText = "Tap node for details"
         
         //set color
-        self.moodChart.descriptionTextColor = UIColor.orangeColor()
+        self.moodChart.descriptionTextColor = UIColor.tangerineColor()
         //self.moodChart.gridBackgroundColor = UIColor.whiteColor()
-        self.moodChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+        self.moodChart.backgroundColor = UIColor(red: 189, green: 195, blue: 199)
         self.moodChart.noDataText = "No data provided"
         moodChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         let days = ["Sun", "Mon", "Tues", "Wed","Thus", "Friday", "Sat"]
