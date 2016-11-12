@@ -23,8 +23,8 @@ class SurveyPage6ViewController: UIViewController {
     
     func submit(alert: UIAlertAction!) {
         // record timestamp
-        let dateFormatter = NotificationScheduler.getDateFormatter()
-        AppState.sharedInstance.surveyList["timestamp"] = dateFormatter.stringFromDate(NSDate())
+        let timestamp = DataProcessor.makeKeyTimeStamp(NSDate())
+        AppState.sharedInstance.surveyList["timestamp"] = timestamp
         
         print(AppState.sharedInstance.surveyList)
         

@@ -13,7 +13,7 @@ import FirebaseDatabase
 class AppState: NSObject {
     
     static let emptySurvey: [String: AnyObject] =
-        ["timestamp": "", // time when survey was submitted
+        ["timestamp": 0, // time when survey was submitted
         "where": "",
         "activity": "",
         "elseOptional": "",

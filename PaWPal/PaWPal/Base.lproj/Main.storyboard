@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ryg-jf-Mtv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ryg-jf-Mtv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -769,23 +769,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sleep" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-Lh-4Nm">
                                 <rect key="frame" x="20" y="196" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wake" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-DV-WMD">
                                 <rect key="frame" x="20" y="121" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wake Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-Pj-HTo">
                                 <rect key="frame" x="20" y="91" width="85" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sleep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-pL-SYC">
                                 <rect key="frame" x="20" y="166" width="86" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -971,10 +971,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-kv-s6A" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="108" width="560" height="472"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXg-P4-ZJH">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -989,16 +985,45 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Npy-wp-LnG">
+                                <rect key="frame" x="211" y="542" width="179" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="BCT-sg-98u"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LrC-Lt-lc6">
+                                <rect key="frame" x="20" y="83" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Happiness"/>
+                                    <segment title="Confidence"/>
+                                    <segment title="Calmness"/>
+                                    <segment title="Warmth"/>
+                                    <segment title="Awakeness"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-kv-s6A" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="135" width="560" height="399"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VXg-P4-ZJH" firstAttribute="top" secondItem="nYj-nP-Jto" secondAttribute="bottom" id="4DS-sR-ose"/>
-                            <constraint firstItem="VXg-P4-ZJH" firstAttribute="centerX" secondItem="fOg-kv-s6A" secondAttribute="centerX" id="Bq7-H4-UQv"/>
-                            <constraint firstItem="VXg-P4-ZJH" firstAttribute="leading" secondItem="g2V-qz-A32" secondAttribute="leading" id="Zkf-fE-dsQ"/>
-                            <constraint firstItem="fOg-kv-s6A" firstAttribute="top" secondItem="VXg-P4-ZJH" secondAttribute="bottom" constant="44" id="gTW-mc-poT"/>
-                            <constraint firstItem="fOg-kv-s6A" firstAttribute="leading" secondItem="g2V-qz-A32" secondAttribute="leadingMargin" id="in2-cJ-m9O"/>
-                            <constraint firstAttribute="trailing" secondItem="VXg-P4-ZJH" secondAttribute="trailing" id="sWr-cW-i4Z"/>
-                            <constraint firstAttribute="bottom" secondItem="fOg-kv-s6A" secondAttribute="bottom" constant="20" symbolic="YES" id="tKs-kW-zfw"/>
+                            <constraint firstItem="LrC-Lt-lc6" firstAttribute="trailing" secondItem="fOg-kv-s6A" secondAttribute="trailing" id="0d2-hn-iTQ"/>
+                            <constraint firstItem="VXg-P4-ZJH" firstAttribute="leading" secondItem="g2V-qz-A32" secondAttribute="leading" id="E4A-Zj-K92"/>
+                            <constraint firstItem="LrC-Lt-lc6" firstAttribute="leading" secondItem="fOg-kv-s6A" secondAttribute="leading" id="JzQ-7s-DSB"/>
+                            <constraint firstItem="4jG-qW-2O0" firstAttribute="top" secondItem="Npy-wp-LnG" secondAttribute="bottom" constant="30" id="Kjo-jJ-daa"/>
+                            <constraint firstItem="LrC-Lt-lc6" firstAttribute="leading" secondItem="g2V-qz-A32" secondAttribute="leadingMargin" id="Y76-GL-C45"/>
+                            <constraint firstItem="LrC-Lt-lc6" firstAttribute="top" secondItem="VXg-P4-ZJH" secondAttribute="bottom" constant="19" id="aKm-v1-ltH"/>
+                            <constraint firstItem="VXg-P4-ZJH" firstAttribute="centerX" secondItem="LrC-Lt-lc6" secondAttribute="centerX" id="aat-Hb-l52"/>
+                            <constraint firstItem="fOg-kv-s6A" firstAttribute="top" secondItem="LrC-Lt-lc6" secondAttribute="bottom" constant="24" id="bcZ-RA-prS"/>
+                            <constraint firstItem="VXg-P4-ZJH" firstAttribute="top" secondItem="nYj-nP-Jto" secondAttribute="bottom" id="mEy-ed-Wms"/>
+                            <constraint firstItem="fOg-kv-s6A" firstAttribute="centerX" secondItem="Npy-wp-LnG" secondAttribute="centerX" id="tdg-mY-Umg"/>
+                            <constraint firstItem="Npy-wp-LnG" firstAttribute="top" secondItem="fOg-kv-s6A" secondAttribute="bottom" constant="8" symbolic="YES" id="wui-6V-EAS"/>
+                            <constraint firstAttribute="trailing" secondItem="VXg-P4-ZJH" secondAttribute="trailing" id="zhk-IA-1na"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -1041,19 +1066,31 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65D-UK-nZW" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="95" width="560" height="485"/>
+                                <rect key="frame" x="20" y="117" width="560" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-Vi-ymg">
+                                <rect key="frame" x="211" y="539" width="179" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="ojQ-5E-9yY"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SBr-jX-V2j" firstAttribute="top" secondItem="iKY-2j-DQs" secondAttribute="bottom" id="GJF-XL-Qtw"/>
-                            <constraint firstItem="65D-UK-nZW" firstAttribute="leading" secondItem="oHH-m4-u0T" secondAttribute="leadingMargin" id="NP2-vO-hcj"/>
-                            <constraint firstAttribute="trailing" secondItem="SBr-jX-V2j" secondAttribute="trailing" id="Z25-Am-0Xe"/>
-                            <constraint firstItem="SBr-jX-V2j" firstAttribute="centerX" secondItem="65D-UK-nZW" secondAttribute="centerX" id="bfO-1w-dGo"/>
-                            <constraint firstItem="SBr-jX-V2j" firstAttribute="leading" secondItem="oHH-m4-u0T" secondAttribute="leading" id="iyn-hX-fbu"/>
-                            <constraint firstItem="65D-UK-nZW" firstAttribute="top" secondItem="SBr-jX-V2j" secondAttribute="bottom" constant="31" id="jOS-WC-s7J"/>
-                            <constraint firstAttribute="bottom" secondItem="65D-UK-nZW" secondAttribute="bottom" constant="20" symbolic="YES" id="v2a-GE-6c4"/>
+                            <constraint firstItem="65D-UK-nZW" firstAttribute="leading" secondItem="oHH-m4-u0T" secondAttribute="leadingMargin" id="3sU-w1-v45"/>
+                            <constraint firstItem="SBr-jX-V2j" firstAttribute="centerX" secondItem="65D-UK-nZW" secondAttribute="centerX" id="8JN-PJ-70m"/>
+                            <constraint firstItem="RdF-de-lTl" firstAttribute="top" secondItem="8iI-Vi-ymg" secondAttribute="bottom" constant="33" id="BVy-gt-GV3"/>
+                            <constraint firstItem="8iI-Vi-ymg" firstAttribute="top" secondItem="65D-UK-nZW" secondAttribute="bottom" constant="8" symbolic="YES" id="L4H-jH-M9d"/>
+                            <constraint firstItem="SBr-jX-V2j" firstAttribute="top" secondItem="iKY-2j-DQs" secondAttribute="bottom" id="Mpf-na-Ulw"/>
+                            <constraint firstItem="65D-UK-nZW" firstAttribute="centerX" secondItem="8iI-Vi-ymg" secondAttribute="centerX" id="deQ-hE-vKm"/>
+                            <constraint firstAttribute="trailing" secondItem="SBr-jX-V2j" secondAttribute="trailing" id="nBO-kc-9k8"/>
+                            <constraint firstItem="SBr-jX-V2j" firstAttribute="leading" secondItem="oHH-m4-u0T" secondAttribute="leading" id="pTw-WR-T1X"/>
+                            <constraint firstItem="65D-UK-nZW" firstAttribute="top" secondItem="SBr-jX-V2j" secondAttribute="bottom" constant="53" id="vrB-VD-WJd"/>
                         </constraints>
                     </view>
                     <connections>
