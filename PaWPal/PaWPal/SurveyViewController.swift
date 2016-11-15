@@ -23,7 +23,7 @@ class SurveyViewController: UIViewController {
         super.viewWillAppear(animated)
         if (NotificationScheduler.canTakeSurvey()) {
             startSurveyButton.enabled = true
-            startSurveyButton.backgroundColor = UIColor.orangeColor()
+            startSurveyButton.backgroundColor = UIColor.tangerineColor()
             nextSurveyTimeLabel.text = ""
             nextSurveyPromptLabel.text = ""
         } else {
