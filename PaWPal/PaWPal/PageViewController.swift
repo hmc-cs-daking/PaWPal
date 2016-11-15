@@ -21,7 +21,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate {
         dataSource = self
         delegate = self
         // this sets the background color of the built-in paging dots
-        view.backgroundColor = UIColor.orangeColor()
+        view.backgroundColor = UIColor.tangerineColor()
         setViewControllers([getLine()], direction: .Forward, animated: false, completion: nil)
     }
 }
@@ -58,7 +58,7 @@ extension PageViewController : UIPageViewControllerDataSource {
 //        
 //        pageControl.currentPageIndicatorTintColor = UIColor.blueColor()
 //        pageControl.pageIndicatorTintColor = UIColor.clearColor()
-//        pageControl.backgroundColor = UIColor.orangeColor()
+//        pageControl.backgroundColor = UIColor.tangerineColor()
 //    }
     
 }
