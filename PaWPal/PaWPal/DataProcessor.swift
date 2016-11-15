@@ -38,9 +38,11 @@ class DataProcessor {
         startOfDayComponents.second = 0
         let startOfDay = calendar.dateFromComponents(startOfDayComponents)
         
+        
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let dayQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(startOfDay!))
         dayQuery.observeEventType(FIRDataEventType.ChildAdded, withBlock: { snapshot in
+            print("FUCKKKK")
             print(snapshot.value)
         })
     }
@@ -58,7 +60,10 @@ class DataProcessor {
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(weekAgo!))
-        print(weekQuery)
+        weekQuery.observeEventType(FIRDataEventType.ChildAdded, withBlock: { snapshot in
+            print("FUCKKKK")
+            print(snapshot.value)
+        })
         
     }
     
