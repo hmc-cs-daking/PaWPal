@@ -40,8 +40,9 @@ class DataProcessor {
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let dayQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(startOfDay!))
-        print(dayQuery)
-        
+        dayQuery.observeEventType(FIRDataEventType.ChildAdded, withBlock: { snapshot in
+            print(snapshot.value)
+        })
     }
     
     static func getWeekData(date: NSDate){
