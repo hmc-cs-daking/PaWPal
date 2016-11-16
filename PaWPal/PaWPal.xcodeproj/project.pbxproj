@@ -31,6 +31,7 @@
 		413661431DD3E3DD00DCD7AA /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661401DD3E3DD00DCD7AA /* AutoCompleteTextField.swift */; };
 		413661441DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661411DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift */; };
 		413661451DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661421DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift */; };
+		413661471DDC390200DCD7AA /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661461DDC390200DCD7AA /* ForgotPasswordViewController.swift */; };
 		415E48881D88795B00089878 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E48871D88795B00089878 /* TabBarController.swift */; };
 		416B4FA31D9880B0000810D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA21D9880B0000810D8 /* AppState.swift */; };
 		416B4FA71DA62689000810D8 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA61DA62689000810D8 /* NotificationScheduler.swift */; };
@@ -107,6 +108,7 @@
 		413661401DD3E3DD00DCD7AA /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
 		413661411DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldConstants.swift; sourceTree = "<group>"; };
 		413661421DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldProtocols.swift; sourceTree = "<group>"; };
+		413661461DDC390200DCD7AA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		415E48871D88795B00089878 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		416B4FA21D9880B0000810D8 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		416B4FA61DA62689000810D8 /* NotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */,
 				2ACBB0011DB5700500B2A313 /* SurveyPage6ViewController.swift */,
 				4127934F1DC1F9E6006DEE6F /* ChangePasswordViewController.swift */,
+				413661461DDC390200DCD7AA /* ForgotPasswordViewController.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				412793501DC1F9E6006DEE6F /* ChangePasswordViewController.swift in Sources */,
 				860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
+				413661471DDC390200DCD7AA /* ForgotPasswordViewController.swift in Sources */,
 				2A8740231D9EEDEA00320648 /* SurveyPage4ViewController.swift in Sources */,
 				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
 				2AAAF8381DCBE6130019A168 /* LineChartViewController.swift in Sources */,

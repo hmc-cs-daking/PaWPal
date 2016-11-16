@@ -77,15 +77,14 @@ class DatabaseController {
     }
     
     // resets a user's password using Firebase to send an email
-    static func resetPassword(controller: UIViewController) {
-        let email = getEmail()
+    static func resetPassword(controller: UIViewController, email: String) {
         FIRAuth.auth()?.sendPasswordResetWithEmail(email) { (error) in
             if let error = error {
                 controller.displayAlert("Error", message: error.localizedDescription, handler: nil)
                 return
             }
             
-            controller.displayAlert("Password reset", message: "An email has been sent to reset your password", handler: nil)
+            controller.displayAlert("Password reset", message: "An email has been sent to reset your password", handler: { action in controller.dismissViewControllerAnimated(true, completion: nil)})
         }
     }
     
