@@ -35,7 +35,6 @@ class SurveyViewController: UIViewController {
             
             let newFormatter = NSDateFormatter()
             newFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            print(nextSurveyDate)
             let nextSurveyTime = newFormatter.stringFromDate(nextSurveyDate!)
             nextSurveyTimeLabel.text = nextSurveyTime
         }

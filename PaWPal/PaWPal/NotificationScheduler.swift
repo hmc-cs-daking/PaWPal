@@ -44,10 +44,9 @@ class NotificationScheduler {
         }
         
         // set the time for the morning notifications based on the user's wake time
-        let wakeTime = DatabaseController.getWakeTime()
-        let wakeTimeComponents = wakeTime.componentsSeparatedByString(":")
-        furthestComponents.hour = Int(wakeTimeComponents[0])!
-        furthestComponents.minute = Int(wakeTimeComponents[1].componentsSeparatedByString(" ")[0])! + 30
+        let wakeTimeComponents = parseWakeTime(true)
+        furthestComponents.hour = wakeTimeComponents.hour
+        furthestComponents.minute = wakeTimeComponents.minute
         furthestComponents.second = 0
         
         // Schedules the appropriate amount of new notifications to have one each morning for the next 7 days
@@ -79,21 +78,12 @@ class NotificationScheduler {
         
         let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         
-        // parse the wake time
-        var wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
-        let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
-        wakeTimeComponents.hour = Int(wakeTime[0])!
-        let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
-        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])! + 30
-        if (wakeTimeMinutesAndAmPm[1] == "PM") {
-            wakeTimeComponents.hour += 12
-        }
-        wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(wakeTimeComponents)!)
+        let wakeTimeComponents = parseWakeTime(true)
         
         let surveyCount = DatabaseController.getDailySurveyCount()
         // check if the user has already taken all of their surveys for the day
         if (surveyCount < 6) {
-            // create a date that is approximately two hours away
+            // create a date that is two hours away
             var plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
             plusTwoHoursComponents.hour += 2
             plusTwoHoursComponents.second = 0
@@ -102,8 +92,6 @@ class NotificationScheduler {
             // notifications at the exact same time
             let randomizedTimeAddition = Int(arc4random_uniform(61)) - 30
             plusTwoHoursComponents.minute += Int(randomizedTimeAddition)
-            print(randomizedTimeAddition)
-            print(plusTwoHoursComponents.minute)
             
             plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(plusTwoHoursComponents)!)
             
@@ -113,16 +101,7 @@ class NotificationScheduler {
                 if ((plusTwoHoursComponents.hour != wakeTimeComponents.hour+2) || (plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
                 
                     // parse sleep time
-                    let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
-                    let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
-                    sleepTimeComponents.hour = Int(sleepTime[0])!
-                    let sleepTimeMinutesAndAmPm = sleepTime[1].componentsSeparatedByString(" ")
-                    sleepTimeComponents.minute = Int(sleepTimeMinutesAndAmPm[0])!
-                    if (sleepTimeMinutesAndAmPm[1] == "AM") {
-                        sleepTimeComponents.day += 1
-                    } else {
-                        sleepTimeComponents.hour += 12
-                    }
+                    let sleepTimeComponents = parseSleepTime(true)
                 
                     // check if the two hours later time is before the user's bedtime
                     if ((calendar.dateFromComponents(sleepTimeComponents))?.compare(calendar.dateFromComponents(plusTwoHoursComponents)!) == NSComparisonResult.OrderedDescending) {
@@ -134,9 +113,6 @@ class NotificationScheduler {
                         UIApplication.sharedApplication().scheduleLocalNotification(notification)
                     DatabaseController.setClosestNotification(dateFormatter.stringFromDate(notification.fireDate!))
                         scheduledNewNotification = true
-                    
-                        // leaving print here to help me debug as we continue to work
-                        printScheduledNotifications()
                     }
                 }
             }
@@ -158,6 +134,11 @@ class NotificationScheduler {
         let nsDate = NSDate()
         
         let currentComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        
+        if (currentComponents.hour < 2) {
+            return
+        }
+        
         currentComponents.hour = 2
         let lastAction = dateFormatter.dateFromString(DatabaseController.getLastActionTakenAt())
         
@@ -195,30 +176,45 @@ class NotificationScheduler {
         let currentTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
         let closestNotificationTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: formatter.dateFromString(DatabaseController.getClosestNotification())!)
         
-        let wakeTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
-        let wakeTime = DatabaseController.getWakeTime().componentsSeparatedByString(":")
-        wakeTimeComponents.hour = Int(wakeTime[0])!
-        let wakeTimeMinutesAndAmPm = wakeTime[1].componentsSeparatedByString(" ")
-        wakeTimeComponents.minute = Int(wakeTimeMinutesAndAmPm[0])!
-        wakeTimeComponents.minute += 30
-        if (wakeTimeMinutesAndAmPm[1] == "PM") {
-            wakeTimeComponents.hour += 12
-        }
+        let wakeTimeComponents = parseWakeTime(true)
         
-        let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
-        let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
-        sleepTimeComponents.hour = Int(sleepTime[0])!
-        let sleepTimeMinutesAndAmPm = sleepTime[1].componentsSeparatedByString(" ")
-        sleepTimeComponents.minute = Int(sleepTimeMinutesAndAmPm[0])!
-        if (sleepTimeMinutesAndAmPm[1] == "PM") {
-            sleepTimeComponents.hour += 12
-        }
-        
+        let sleepTimeComponents = parseSleepTime(false)
         
         if ((calendar.dateFromComponents(currentTimeComponents)!.compare(calendar.dateFromComponents(closestNotificationTimeComponents)!) == NSComparisonResult.OrderedDescending) && ((calendar.dateFromComponents(currentTimeComponents)!.compare(calendar.dateFromComponents(wakeTimeComponents)!) == NSComparisonResult.OrderedDescending) || (calendar.dateFromComponents(sleepTimeComponents)!.compare(calendar.dateFromComponents(currentTimeComponents)!) == NSComparisonResult.OrderedDescending))) {
             return true
         } else {
             return false
         }
+    }
+    
+    // parse a string that looks like '9:00 AM' into NSDateComponents
+    static func parseTime(time: String, addThirtyMinutes: Bool, addDayIfAM: Bool) -> NSDateComponents {
+        let calendar = NSCalendar.currentCalendar()
+        let nsDate = NSDate()
+        var timeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+        let timePieces = time.componentsSeparatedByString(":")
+        timeComponents.hour = Int(timePieces[0])!
+        let timeMinutesAndAmPm = timePieces[1].componentsSeparatedByString(" ")
+        timeComponents.minute = Int(timeMinutesAndAmPm[0])!
+        if (addDayIfAM && timeMinutesAndAmPm[1] == "AM") {
+            timeComponents.day += 1
+        }
+        if (addThirtyMinutes) {
+            timeComponents.minute += 30
+        }
+        if (timeMinutesAndAmPm[1] == "PM") {
+            timeComponents.hour += 12
+        }
+        timeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(timeComponents)!)
+        
+        return timeComponents
+    }
+    
+    static func parseWakeTime(addThirtyMinutes: Bool) -> NSDateComponents {
+        return parseTime(DatabaseController.getWakeTime(), addThirtyMinutes: addThirtyMinutes, addDayIfAM: false)
+    }
+    
+    static func parseSleepTime(addDayIfAM: Bool) -> NSDateComponents {
+        return parseTime(DatabaseController.getSleepTime(), addThirtyMinutes: false, addDayIfAM: addDayIfAM)
     }
 }
