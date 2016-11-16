@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 class LineChartViewController: UIViewController, ChartViewDelegate {
-    @IBOutlet weak var moodChart: LineChartView!
+    @IBOutlet weak var moodChart: BarChartView!
     @IBOutlet weak var moodSegment: UISegmentedControl!
     @IBOutlet weak var timeSegment: UISegmentedControl!
     
@@ -67,31 +67,37 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         }
     }
     
-    func setChartData(days : [String], data: [Double], moodLabel: String) {
+    func setChartData(timeAxis : [String], data: [Double], moodLabel: String) {
         // creating an array of data entries
-        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        for i in 0..<days.count{
-            yVals1.append(ChartDataEntry(value: data[i], xIndex: i))
-        }
+//        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+//        for i in 0..<timeAxis.count{
+//            yVals1.append(ChartDataEntry(value: data[i], xIndex: i))
+//        }
+        var dataEntries: [BarChartDataEntry] = []
         
+        for i in 0..<timeAxis.count {
+            let dataEntry = BarChartDataEntry(value: data[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+//        
         // create a data set with our array
-        let set1: LineChartDataSet = LineChartDataSet(yVals: yVals1, label: moodLabel)
-        set1.axisDependency = .Left // Line will correlate with left axis values
-        set1.setColor(UIColor.cyanColor().colorWithAlphaComponent(0.6)) // our line's opacity is 50%
-        set1.setCircleColor(UIColor.cyanColor().colorWithAlphaComponent(0.6))
-        set1.lineWidth = 2.0
-        set1.circleRadius = 6.0 // the radius of the node circle
-        set1.fillAlpha = 65 / 255.0
-        set1.fillColor = UIColor.cyanColor()
+        let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)
+        chartDataSet.axisDependency = .Left // Line will correlate with left axis values
+        chartDataSet.setColor(UIColor.cyanColor().colorWithAlphaComponent(0.6)) // our line's opacity is 50%
+//        set1.setCircleColor(UIColor.cyanColor().colorWithAlphaComponent(0.6))
+//        set1.lineWidth = 2.0
+//        set1.circleRadius = 6.0 // the radius of the node circle
+//        set1.fillAlpha = 65 / 255.0
+//        set1.fillColor = UIColor.cyanColor()
         //set1.highlightColor = UIColor.whiteColor()
         //set1.drawCircleHoleEnabled = true
         
-        //create an array to store our LineChartDataSets
-        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-        dataSets.append(set1)
+        //create an array to store our BarChartDataSets
+//        var dataSets : [BarChartDataSet] = [BarChartDataSet]()
+//        dataSets.append(set1)
         
         //4 - pass our months in for our x-axis label value along with our dataSets
-        let data: LineChartData = LineChartData(xVals: days, dataSets: dataSets)
+        let data: BarChartData = BarChartData(xVals: timeAxis, dataSet: chartDataSet)
         data.setValueTextColor(UIColor.blackColor())
         
         //5 - finally set our data

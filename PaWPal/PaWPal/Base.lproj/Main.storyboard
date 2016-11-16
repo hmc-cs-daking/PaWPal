@@ -998,7 +998,7 @@
                                     <action selector="updateMoodAxis:" destination="P6S-qE-OBL" eventType="valueChanged" id="htp-TW-Uv0"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-kv-s6A" customClass="LineChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOg-kv-s6A" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="135" width="560" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1038,7 +1038,7 @@
                     </toolbarItems>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="moodChart" destination="fOg-kv-s6A" id="aJ5-sE-DOG"/>
+                        <outlet property="moodChart" destination="fOg-kv-s6A" id="tsR-y3-gQf"/>
                         <outlet property="moodSegment" destination="Npy-wp-LnG" id="4us-nm-tSO"/>
                         <outlet property="timeSegment" destination="Npy-wp-LnG" id="cXu-2Y-fpI"/>
                     </connections>
