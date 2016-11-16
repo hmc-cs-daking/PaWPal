@@ -37,11 +37,15 @@ class DataProcessor {
         startOfDayComponents.minute = 0
         startOfDayComponents.second = 0
         let startOfDay = calendar.dateFromComponents(startOfDayComponents)
+        var array: [NSDictionary] = []
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let dayQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(startOfDay!))
-        print(dayQuery)
-        
+        dayQuery.observeEventType(FIRDataEventType.ChildAdded, withBlock: { snapshot in
+            print(snapshot.value as! NSDictionary)
+            array.append(snapshot.value as! NSDictionary)
+        })
+        print(array)
     }
     
     static func getWeekData(date: NSDate){
@@ -54,10 +58,15 @@ class DataProcessor {
         weekAgoComponents.minute = 0
         weekAgoComponents.second = 0
         let weekAgo = calendar.dateFromComponents(weekAgoComponents)
+        var array: [NSDictionary] = []
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(weekAgo!))
-        print(weekQuery)
+        weekQuery.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
+            print(snapshot.value as! NSDictionary)
+            array.append(snapshot.value as! NSDictionary)
+        })
+        print(array)
         
     }
     

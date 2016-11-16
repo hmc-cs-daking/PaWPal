@@ -108,33 +108,36 @@ class NotificationScheduler {
             plusTwoHoursComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: calendar.dateFromComponents(plusTwoHoursComponents)!)
             
             // don't ever schedule notifications between 2 am and the morning notification
-            if (plusTwoHoursComponents.hour < 2 || (plusTwoHoursComponents.hour >= (wakeTimeComponents.hour+2) && plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
+            if (plusTwoHoursComponents.hour < 2 || (plusTwoHoursComponents.hour >= (wakeTimeComponents.hour+2))) {
                 
-                // parse sleep time
-                let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
-                let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
-                sleepTimeComponents.hour = Int(sleepTime[0])!
-                let sleepTimeMinutesAndAmPm = sleepTime[1].componentsSeparatedByString(" ")
-                sleepTimeComponents.minute = Int(sleepTimeMinutesAndAmPm[0])!
-                if (sleepTimeMinutesAndAmPm[1] == "AM") {
-                    sleepTimeComponents.day += 1
-                } else {
-                    sleepTimeComponents.hour += 12
-                }
+                if ((plusTwoHoursComponents.hour != wakeTimeComponents.hour+2) || (plusTwoHoursComponents.minute >= wakeTimeComponents.minute)) {
                 
-                // check if the two hours later time is before the user's bedtime
-                if ((calendar.dateFromComponents(sleepTimeComponents))?.compare(calendar.dateFromComponents(plusTwoHoursComponents)!) == NSComparisonResult.OrderedDescending) {
-                    // schedule a notification for two hours from current time
-                    let notification = UILocalNotification()
-                    notification.alertBody = "It's time to take a survey!"
-                    notification.alertAction = "open"
-                    notification.fireDate = calendar.dateFromComponents(plusTwoHoursComponents)
-                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                    // parse sleep time
+                    let sleepTimeComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: nsDate)
+                    let sleepTime = DatabaseController.getSleepTime().componentsSeparatedByString(":")
+                    sleepTimeComponents.hour = Int(sleepTime[0])!
+                    let sleepTimeMinutesAndAmPm = sleepTime[1].componentsSeparatedByString(" ")
+                    sleepTimeComponents.minute = Int(sleepTimeMinutesAndAmPm[0])!
+                    if (sleepTimeMinutesAndAmPm[1] == "AM") {
+                        sleepTimeComponents.day += 1
+                    } else {
+                        sleepTimeComponents.hour += 12
+                    }
+                
+                    // check if the two hours later time is before the user's bedtime
+                    if ((calendar.dateFromComponents(sleepTimeComponents))?.compare(calendar.dateFromComponents(plusTwoHoursComponents)!) == NSComparisonResult.OrderedDescending) {
+                        // schedule a notification for two hours from current time
+                        let notification = UILocalNotification()
+                        notification.alertBody = "It's time to take a survey!"
+                        notification.alertAction = "open"
+                        notification.fireDate = calendar.dateFromComponents(plusTwoHoursComponents)
+                        UIApplication.sharedApplication().scheduleLocalNotification(notification)
                     DatabaseController.setClosestNotification(dateFormatter.stringFromDate(notification.fireDate!))
-                    scheduledNewNotification = true
+                        scheduledNewNotification = true
                     
-                    // leaving print here to help me debug as we continue to work
-                    printScheduledNotifications()
+                        // leaving print here to help me debug as we continue to work
+                        printScheduledNotifications()
+                    }
                 }
             }
         }
