@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
             // time-intensive code
             DatabaseController.signIn(userEmail,
                 userPassword: userPassword,
-                completion: { self.removeLoginFromView() },
+                completion: { LoginViewController.showTabContoller() },
                 currentVC: self)
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -63,7 +63,7 @@ class LoginViewController: UIViewController {
     }
     
     // If login is successful, go to main view.
-    func removeLoginFromView() {
+    static func showTabContoller() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -76,10 +76,5 @@ class LoginViewController: UIViewController {
         let loginVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = loginVC
-    }
-    
-    
-    @IBAction func forgotPassword(sender: UIButton) {
-        DatabaseController.resetPassword(self)
     }
 }

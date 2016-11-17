@@ -16,7 +16,6 @@
 		2ACBB0021DB5700600B2A313 /* SurveyPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACBB0011DB5700500B2A313 /* SurveyPage6ViewController.swift */; };
 		2AD1938E1DCB0DBE00851DA2 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1938D1DCB0DBE00851DA2 /* PageViewController.swift */; };
 		2AF145F71D8B4F1B00000210 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF145F61D8B4F1B00000210 /* DatabaseController.swift */; };
-		411F52231D95D43D000A9DA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */; };
 		412793501DC1F9E6006DEE6F /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4127934F1DC1F9E6006DEE6F /* ChangePasswordViewController.swift */; };
 		412F75ED1D83A6850081EB6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F75EC1D83A6850081EB6B /* AppDelegate.swift */; };
 		412F75EF1D83A6850081EB6B /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412F75EE1D83A6850081EB6B /* SurveyViewController.swift */; };
@@ -31,6 +30,8 @@
 		413661431DD3E3DD00DCD7AA /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661401DD3E3DD00DCD7AA /* AutoCompleteTextField.swift */; };
 		413661441DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661411DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift */; };
 		413661451DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661421DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift */; };
+		413661471DDC390200DCD7AA /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413661461DDC390200DCD7AA /* ForgotPasswordViewController.swift */; };
+		4136614B1DDD81D600DCD7AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4136614A1DDD81D600DCD7AA /* GoogleService-Info.plist */; };
 		415E48881D88795B00089878 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E48871D88795B00089878 /* TabBarController.swift */; };
 		416B4FA31D9880B0000810D8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA21D9880B0000810D8 /* AppState.swift */; };
 		416B4FA71DA62689000810D8 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416B4FA61DA62689000810D8 /* NotificationScheduler.swift */; };
@@ -86,7 +87,6 @@
 		2AD1938D1DCB0DBE00851DA2 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2AF145F61D8B4F1B00000210 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		3225EC9243F640C29D986910 /* Pods-PaWPalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaWPalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaWPalTests/Pods-PaWPalTests.debug.xcconfig"; sourceTree = "<group>"; };
-		411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4127934F1DC1F9E6006DEE6F /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		412F75E91D83A6850081EB6B /* PaWPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaWPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412F75EC1D83A6850081EB6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +107,8 @@
 		413661401DD3E3DD00DCD7AA /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
 		413661411DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldConstants.swift; sourceTree = "<group>"; };
 		413661421DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextFieldProtocols.swift; sourceTree = "<group>"; };
+		413661461DDC390200DCD7AA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4136614A1DDD81D600DCD7AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		415E48871D88795B00089878 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		416B4FA21D9880B0000810D8 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		416B4FA61DA62689000810D8 /* NotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		412F75EB1D83A6850081EB6B /* PaWPal */ = {
 			isa = PBXGroup;
 			children = (
+				4136614A1DDD81D600DCD7AA /* GoogleService-Info.plist */,
 				413661401DD3E3DD00DCD7AA /* AutoCompleteTextField.swift */,
 				413661411DD3E3DD00DCD7AA /* AutoCompleteTextFieldConstants.swift */,
 				413661421DD3E3DD00DCD7AA /* AutoCompleteTextFieldProtocols.swift */,
@@ -217,7 +220,6 @@
 				866A63191D8A4FCD00181427 /* String+IsValidEmail.swift */,
 				8672D2311DD6FCC40055C7D5 /* UIColor+initWithHex.swift */,
 				86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */,
-				411F52221D95D43D000A9DA8 /* GoogleService-Info.plist */,
 				416B4FA21D9880B0000810D8 /* AppState.swift */,
 				868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */,
 				860F53661D9B8F7900090FB3 /* SliderQuestion.xib */,
@@ -234,6 +236,7 @@
 				2AB034D91DA4E03400702563 /* SurveyPage5ViewController.swift */,
 				2ACBB0011DB5700500B2A313 /* SurveyPage6ViewController.swift */,
 				4127934F1DC1F9E6006DEE6F /* ChangePasswordViewController.swift */,
+				413661461DDC390200DCD7AA /* ForgotPasswordViewController.swift */,
 			);
 			path = PaWPal;
 			sourceTree = "<group>";
@@ -395,11 +398,11 @@
 				866DEE691DA4AF7800E2DC45 /* MultiCheckQuestion.xib in Resources */,
 				412F75F91D83A6860081EB6B /* LaunchScreen.storyboard in Resources */,
 				866DEE651DA4A52300E2DC45 /* MultiSliderQuestion.xib in Resources */,
-				411F52231D95D43D000A9DA8 /* GoogleService-Info.plist in Resources */,
 				868E5A791D9A4D2F00B90BB8 /* TextQuestion.xib in Resources */,
 				412F75F61D83A6860081EB6B /* Assets.xcassets in Resources */,
 				E63D7BE71DB99FC300F25F67 /* PaWPal Logo 120.png in Resources */,
 				E63D7BE91DB9B63500F25F67 /* PaWPal Logo 80.png in Resources */,
+				4136614B1DDD81D600DCD7AA /* GoogleService-Info.plist in Resources */,
 				860F53671D9B8F7900090FB3 /* SliderQuestion.xib in Resources */,
 				412F75F41D83A6850081EB6B /* Main.storyboard in Resources */,
 			);
@@ -449,7 +452,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5A4153EA9F08D2778268A04E /* [CP] Copy Pods Resources */ = {
@@ -479,7 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		829847B29CD364190686F217 /* [CP] Copy Pods Resources */ = {
@@ -509,7 +512,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CB6C8BABA2F63913CB6042ED /* [CP] Embed Pods Frameworks */ = {
@@ -592,6 +595,7 @@
 				412793501DC1F9E6006DEE6F /* ChangePasswordViewController.swift in Sources */,
 				860F53651D9B8F5000090FB3 /* SliderQuestion.swift in Sources */,
 				415E48881D88795B00089878 /* TabBarController.swift in Sources */,
+				413661471DDC390200DCD7AA /* ForgotPasswordViewController.swift in Sources */,
 				2A8740231D9EEDEA00320648 /* SurveyPage4ViewController.swift in Sources */,
 				86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */,
 				2AAAF8381DCBE6130019A168 /* LineChartViewController.swift in Sources */,
