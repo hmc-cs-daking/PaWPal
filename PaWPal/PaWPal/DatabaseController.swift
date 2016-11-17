@@ -133,9 +133,9 @@ class DatabaseController {
         // update autocomplete lists
         updateAutocomplete()
         // updates firebase
-        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("activitySuggestions").childByAutoId().setValue(AppState.sharedInstance.activitySuggestions)
-        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("locationSuggestions").childByAutoId().setValue(AppState.sharedInstance.locationSuggestions)
-        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("otherSuggestions").childByAutoId().setValue(AppState.sharedInstance.otherSuggestions)
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("activitySuggestions").setValue(AppState.sharedInstance.activitySuggestions)
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("locationSuggestions").setValue(AppState.sharedInstance.locationSuggestions)
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("otherSuggestions").setValue(AppState.sharedInstance.otherSuggestions)
         
         // clear survey answers in AppState
         AppState.sharedInstance.surveyList = AppState.emptySurvey
@@ -159,6 +159,9 @@ class DatabaseController {
     }
     
     static func inList(list: [String], val: String) -> Bool{
+        if(val.isEmpty){
+            return true
+        }
         for i in 0...(list.count-1){
             if(list[i]==val){
                 return true
