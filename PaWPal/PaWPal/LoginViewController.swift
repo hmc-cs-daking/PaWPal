@@ -77,9 +77,4 @@ class LoginViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = loginVC
     }
-    
-    
-    @IBAction func forgotPassword(sender: UIButton) {
-        DatabaseController.resetPassword(self)
-    }
 }
