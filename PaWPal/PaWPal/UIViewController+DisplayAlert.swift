@@ -64,4 +64,40 @@ extension UIViewController {
         
     }
     
+    /**
+     * displayQuestions
+     *
+     * Params:
+     *    questions: [UIView] - array of question views
+     *    distribution: UIStackViewDistribution - describes how questions are spaced out
+     *
+     * Usage:
+     *    self.displayQuestions([q1, q2, q3], .FillEqually)
+     *    self.displayQuestions([q1], .FillProportionally)
+     */
+    
+    // TODO move elsewhere?
+    func displayQuestions(questions: [UIView], distribution: UIStackViewDistribution) {
+        let stack = UIStackView()
+        
+        stack.axis = .Vertical
+        stack.distribution = distribution
+        stack.alignment = .Fill
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        for q in questions {
+            stack.addArrangedSubview(q)
+        }
+        
+        self.view.addSubview(stack)
+        
+        //autolayout the stack view - pin 30 up 20 left 20 right 100 down
+        let viewsDictionary = ["stackView":stack]
+        let stackView_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[stackView]-20-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
+        self.view.addConstraints(stackView_H)
+        self.view.addConstraints(stackView_V)
+    }
+    
 }

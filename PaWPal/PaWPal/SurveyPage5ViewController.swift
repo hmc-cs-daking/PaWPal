@@ -15,31 +15,13 @@ class SurveyPage5ViewController: UIViewController {
     @IBAction func save(sender: UIButton) {
         DatabaseController.updateMultiSlider("feeling", question: q1)
     }
-    
-    func displayQuestions(){
-        let stackView = UIStackView()
-        stackView.axis = .Vertical
-        stackView.distribution = .FillEqually
-        stackView.alignment = .Fill
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        q1 = MultiSliderQuestion.addToSurvey("Describe your mood as you were pinged", key: "feeling", stackView: stackView)
-        
-        view.addSubview(stackView)
-        
-        //autolayout the stack view - pin 30 up 20 left 20 right 100 down
-        let viewsDictionary = ["stackView":stackView]
-        let stackView_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[stackView]-20-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
-        view.addConstraints(stackView_H)
-        view.addConstraints(stackView_V)
-    }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayQuestions()
+        
+        q1 = MultiSliderQuestion.create("Describe your mood as you were pinged", key: "feeling")
+        
+        self.displayQuestions([q1], distribution: .FillEqually)
     }
     
     override func didReceiveMemoryWarning() {

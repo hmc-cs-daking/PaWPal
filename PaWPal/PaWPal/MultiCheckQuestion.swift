@@ -16,9 +16,9 @@ class MultiCheckQuestion: UIView {
     @IBOutlet var switches: [UISwitch]!
     @IBOutlet var labels: [UILabel]!
     
-    static func addToSurvey(question: String, key: String, stackView: UIStackView) -> MultiCheckQuestion{
+    static func create(question: String, key: String) -> MultiCheckQuestion{
         let checkQuestion = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as! MultiCheckQuestion
-        stackView.addArrangedSubview(checkQuestion)
+        
         checkQuestion.promptLabel.text = question
             
         // display the saved answers
