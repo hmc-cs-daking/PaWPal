@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>579023396700-bn30q2ubfofla237ouh4e6untit8qj48.apps.googleusercontent.com</string>
+	<string>1078204551472-ctcdj73b9kmh22pq9k5664hfgcupg2s1.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.579023396700-bn30q2ubfofla237ouh4e6untit8qj48</string>
+	<string>com.googleusercontent.apps.1078204551472-ctcdj73b9kmh22pq9k5664hfgcupg2s1</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDJ8jKhR1eVb40Aj9bJbhn04l-d31-BH9k</string>
+	<string>AIzaSyBF9bhNUi-QAa5HHTBNnF6qCZ6mBNluapo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>579023396700</string>
+	<string>1078204551472</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>cs121-5.PaWPal</string>
 	<key>PROJECT_ID</key>
-	<string>pawpal-406ca</string>
+	<string>pawpal-4c134</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pawpal-406ca.appspot.com</string>
+	<string>pawpal-4c134.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:579023396700:ios:aee14c18e7f3baa2</string>
+	<string>1:1078204551472:ios:aee14c18e7f3baa2</string>
 	<key>DATABASE_URL</key>
-	<string>https://pawpal-406ca.firebaseio.com</string>
+	<string>https://pawpal-4c134.firebaseio.com</string>
 </dict>
 </plist>

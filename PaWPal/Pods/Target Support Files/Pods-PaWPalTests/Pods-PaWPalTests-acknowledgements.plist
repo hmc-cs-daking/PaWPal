@@ -217,8 +217,6 @@
    limitations under the License.
 
 </string>
-			<key>License</key>
-			<string>Apache License, Version 2.0</string>
 			<key>Title</key>
 			<string>Charts</string>
 			<key>Type</key>
@@ -227,8 +225,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2016 Google</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>Firebase</string>
 			<key>Type</key>
@@ -237,8 +233,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2016 Google</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>FirebaseAnalytics</string>
 			<key>Type</key>
@@ -247,8 +241,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2016 Google</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>FirebaseAuth</string>
 			<key>Type</key>
@@ -257,8 +249,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2016 Google</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>FirebaseDatabase</string>
 			<key>Type</key>
@@ -267,8 +257,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2016 Google</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>FirebaseInstanceID</string>
 			<key>Type</key>
@@ -277,8 +265,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2015 Google Inc.</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>GoogleInterchangeUtilities</string>
 			<key>Type</key>
@@ -287,8 +273,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2015 Google Inc.</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>GoogleNetworkingUtilities</string>
 			<key>Type</key>
@@ -297,8 +281,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2015 Google Inc.</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>GoogleSymbolUtilities</string>
 			<key>Type</key>
@@ -307,8 +289,6 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2015 Google Inc.</string>
-			<key>License</key>
-			<string>Copyright</string>
 			<key>Title</key>
 			<string>GoogleUtilities</string>
 			<key>Type</key>
