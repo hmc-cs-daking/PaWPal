@@ -36,6 +36,9 @@ class DatabaseController {
                         "dailySurveyCount": 0,
                         "totalSurveyCount": 0,
                         "surveyList": [],
+                        "locationSuggestions": AppState.defaultLocations,
+                        "activitySuggestions": AppState.defaultActivities,
+                        "otherSuggestions": AppState.defaultOther,
                         "lastActionTakenAt": formatter.stringFromDate(NSDate())]
             let childUpdates = ["/users/\(key)": signUp]
             AppState.sharedInstance.databaseRef.updateChildValues(childUpdates)
@@ -68,6 +71,9 @@ class DatabaseController {
                 if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                 if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
                 if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
+                if let locationSuggestions = value?["locationSuggestions"] { AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String] }
+                if let activitySuggestions = value?["activitySuggestions"] { AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String] }
+                if let otherSuggestions = value?["otherSuggestions"] { AppState.sharedInstance.otherSuggestions = otherSuggestions as! [String] }
                 NotificationScheduler.scheduleNotificationsOnSignIn()
                 
                 completion()
@@ -118,12 +124,49 @@ class DatabaseController {
     
     // submits the completed survey to Firebase
     static func submitSurvey(){
+        
         // append survey answers to surveyList
         // creates a new automated child id (string of characters, but firebase keeps them in time order)
-            AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("surveyList").childByAutoId().setValue(AppState.sharedInstance.surveyList)
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("surveyList").childByAutoId().setValue(AppState.sharedInstance.surveyList)
+        
+        // update autocomplete lists
+        updateAutocomplete()
+        // updates firebase
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("activitySuggestions").setValue(AppState.sharedInstance.activitySuggestions)
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("locationSuggestions").setValue(AppState.sharedInstance.locationSuggestions)
+        AppState.sharedInstance.databaseRef.child("users").child(getUid()).child("otherSuggestions").setValue(AppState.sharedInstance.otherSuggestions)
         
         // clear survey answers in AppState
         AppState.sharedInstance.surveyList = AppState.emptySurvey
+    }
+    
+    static func updateAutocomplete(){
+        //append user input to autocomplete lists
+        let activity:String = AppState.sharedInstance.surveyList["activity"] as! String
+        let location:String = AppState.sharedInstance.surveyList["where"] as! String
+        let elseOptional:String = AppState.sharedInstance.surveyList["elseOptional"] as! String
+        
+        if(inList(AppState.sharedInstance.activitySuggestions, val: activity) == false){
+            AppState.sharedInstance.activitySuggestions.append(activity)
+        }
+        if(inList(AppState.sharedInstance.locationSuggestions, val: location) == false){
+            AppState.sharedInstance.locationSuggestions.append(location)
+        }
+        if(inList(AppState.sharedInstance.otherSuggestions, val: elseOptional) == false){
+            AppState.sharedInstance.otherSuggestions.append(elseOptional)
+        }
+    }
+    
+    static func inList(list: [String], val: String) -> Bool{
+        if(val.isEmpty){
+            return true
+        }
+        for i in 0...(list.count-1){
+            if(list[i]==val){
+                return true
+            }
+        }
+        return false
     }
     
     // functions to access user info

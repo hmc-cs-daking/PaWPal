@@ -20,9 +20,9 @@ class MultiSliderQuestion: UIView {
         sender.setValue(Float(lroundf(sender.value)), animated: true)
     }
     
-    static func addToSurvey(question: String, key: String, stackView: UIStackView) -> MultiSliderQuestion{
+    static func create(question: String, key: String) -> MultiSliderQuestion{
         let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as! MultiSliderQuestion
-        stackView.addArrangedSubview(multiSliderQuestionView)
+
         multiSliderQuestionView.promptLabel.text = question
             
         //display all saved answers

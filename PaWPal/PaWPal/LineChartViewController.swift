@@ -108,6 +108,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         //self.moodChart.gridBackgroundColor = UIColor.whiteColor()
         self.moodChart.backgroundColor = UIColor(red: 189, green: 195, blue: 199)
         self.moodChart.noDataText = "No data provided"
+        
         generateWeekAxis(NSDate())
         updateMoodData(AppState.sharedInstance.moodDict["happy"]!, moodLabel: "Happiness")
         

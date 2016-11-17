@@ -44,21 +44,36 @@ class AppState: NSObject {
         "friendly": Array(count: 7, repeatedValue: 0.0),
         "awake": Array(count: 7, repeatedValue: 0.0)
     ]
+
+    // autocomplete variables
+    static let defaultLocations:[String] = ["Platt", "Place", "Shanahan", "Atwood"]
+    static let defaultActivities:[String] = ["Working", "Class"]
+    static let defaultOther:[String] = ["Sleeping", "Netflix"]
     
     static let sharedInstance = AppState()
     
+    //user attributes
     var userName: String?
     var userEmail: String?
     var uid: String?
     var school: String?
     var wakeTime: String?
     var sleepTime: String?
+    
+    // notification instances
     var closestScheduledNotification: String?
     var furthestScheduledNotification: String?
     var dailySurveyCount = 0
     var totalSurveyCount = 0
     var lastActionTakenAt: String?
+    
+    // survey query dictionaries
     var databaseRef = FIRDatabase.database().reference()
     var surveyList:[String:AnyObject] = emptySurvey
     var moodDict: [String:[Double]] = emptyMoodDict
+    
+    // autocomplete instances
+    var locationSuggestions: [String] = defaultLocations
+    var activitySuggestions: [String] = defaultActivities
+    var otherSuggestions: [String] = defaultOther
 }
