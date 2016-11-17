@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // retrieve user cached in firebase
         if let currentUser = FIRAuth.auth()?.currentUser {
-            print(currentUser.uid)
             AppState.sharedInstance.databaseRef.child("users").observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
                 
                     // ensure user exists in firebase
