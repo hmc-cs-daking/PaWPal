@@ -44,33 +44,14 @@ class SurveyPage6ViewController: UIViewController {
         performSegueWithIdentifier("SurveyPage6ToSurvey", sender: nil)
     }
     
-    func displayQuestions(){
-        
-        // create the stack view
-        let stackView = UIStackView()
-        stackView.axis = .Vertical
-        stackView.distribution = .FillEqually
-        stackView.alignment = .Fill
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // add questions to view
-        q1 = TextQuestion.addToSurvey("(Optional) If you were feeling strong emotions, why?", key: "strongEmotionsOptional", stackView: stackView, placeHolder: "Describe", required: false)
-        q2 = TextQuestion.addToSurvey("(Optional) Was there something else on your mind?", key: "elseMindOptional", stackView: stackView, placeHolder: "Describe", required: false)
-        
-        view.addSubview(stackView)
-        
-        //autolayout the stack view - pin 30 up 20 left 20 right 100 down
-        let viewsDictionary = ["stackView":stackView]
-        let stackView_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[stackView]-20-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
-        view.addConstraints(stackView_H)
-        view.addConstraints(stackView_V)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayQuestions()
+        
+        // create questions
+        q1 = TextQuestion.create("(Optional) If you were feeling strong emotions, why?", key: "strongEmotionsOptional", placeHolder: "Describe", required: false)
+        q2 = TextQuestion.create("(Optional) Was there something else on your mind?", key: "elseMindOptional", placeHolder: "Describe", required: false)
+        
+        self.displayQuestions([q1, q2], distribution: .FillEqually)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
