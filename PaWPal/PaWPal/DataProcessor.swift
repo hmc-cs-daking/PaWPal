@@ -12,16 +12,8 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class DataProcessor {
-//    let date = NSDate()
-//    let calendar = NSCalendar.currentCalendar()
-//    let components = calendar.components([.Day , .Month , .Year], fromDate: date)
-//    
-//    let year =  components.year
-//    let month = components.month
-//    let day = components.day
     
     static func makeKeyTimeStamp(date: NSDate) -> Int{
-        //let calendar = NSCalendar.currentCalendar()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyyMMddHHmmss"
         
@@ -29,23 +21,47 @@ class DataProcessor {
         return keyTimeStamp!
     }
     
+    static func timeStampToDate(timestamp: Int) -> NSDate{
+        let stringDate: String = String(timestamp)
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmmss"
+        
+        let date: NSDate = formatter.dateFromString(stringDate)!
+        return date
+    }
+    
+    static func daysDifference(startDate: NSDate, endDate: NSDate) -> Int{
+        let calendar = NSCalendar.currentCalendar()
+        let beginStartDate = calendar.startOfDayForDate(startDate)
+        let beginEndDate = calendar.startOfDayForDate(endDate)
+        let components = calendar.components([.Day], fromDate: beginStartDate, toDate: beginEndDate, options: [])
+        return components.day
+    }
+    
+    static func hoursDifference(startDate: NSDate, endDate: NSDate) -> Int{
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Hour], fromDate: startDate, toDate: endDate, options: [])
+        return components.hour
+    }
+    
     static func getDayData(date: NSDate){
         // get the start of day as NSDate
         let calendar = NSCalendar.currentCalendar()
-        let startOfDayComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
-        startOfDayComponents.hour = 0
-        startOfDayComponents.minute = 0
-        startOfDayComponents.second = 0
-        let startOfDay = calendar.dateFromComponents(startOfDayComponents)
+        let startOfDay = calendar.startOfDayForDate(date)
+        
         var array: [NSDictionary] = []
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
-        let dayQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(startOfDay!))
+        let dayQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(startOfDay))
         dayQuery.observeEventType(FIRDataEventType.ChildAdded, withBlock: { snapshot in
-            print(snapshot.value as! NSDictionary)
-            array.append(snapshot.value as! NSDictionary)
+            print(snapshot.childrenCount)
+            
+            for child in snapshot.children {
+                let childSnapshot = snapshot.childSnapshotForPath(child.key)
+                array.append(childSnapshot.value as! NSDictionary)
+                print(array.count)
+            }
         })
-        print(array)
     }
     
     static func getWeekData(date: NSDate){
@@ -58,7 +74,7 @@ class DataProcessor {
         weekAgoComponents.minute = 0
         weekAgoComponents.second = 0
         let weekAgo = calendar.dateFromComponents(weekAgoComponents)
-        var array: [NSDictionary] = []
+        var counterArray: [Int] = Array(count: 7, repeatedValue: 0)
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(weekAgo!))
@@ -67,26 +83,47 @@ class DataProcessor {
         weekQuery.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { snapshot in
             print(snapshot.childrenCount)
             
+            var timestamp = 0
+            var dayDiff = 0
             for child in snapshot.children {
                 let childSnapshot = snapshot.childSnapshotForPath(child.key)
-                array.append(childSnapshot.value as! NSDictionary)
-                print(array.count)
+                let value = childSnapshot.value as! NSDictionary
+                
+                if let childTime = value["timestamp"] { timestamp = (childTime as? Int)! }
+                dayDiff = self.daysDifference(weekAgo!, endDate: self.timeStampToDate(timestamp))
+                
+                // update moods in mood dictionary
+                if let happy = value["feeling"]![0]{
+                    updateMoodDict("happy", dayDiff: dayDiff, value: (happy as? Double)!, count: counterArray[dayDiff])
+                }
+                if let confident = value["feeling"]![1]{
+                    updateMoodDict("confident", dayDiff: dayDiff, value: (confident as? Double)!, count: counterArray[dayDiff])
+                }
+                if let calm = value["feeling"]![2]{
+                    updateMoodDict("calm", dayDiff: dayDiff, value: (calm as? Double)!, count: counterArray[dayDiff])
+                }
+                if let friendly = value["feeling"]![3]{
+                    updateMoodDict("friendly", dayDiff: dayDiff, value: (friendly as? Double)!, count: counterArray[dayDiff])
+                }
+                if let awake = value["feeling"]![4]{
+                    updateMoodDict("awake", dayDiff: dayDiff, value: (awake as? Double)!, count: counterArray[dayDiff])
+                }
+                
+                counterArray[dayDiff] += 1
             }
-            
-            print(array)
-            
-            // @DOREN, can you do the rest of your processing here?
         })
         
     }
     
-    // possible function to process data into an array of doubles
-    static func dayAggregate() -> [Double]{
-        return [1, 0, 0]
+    // helper function to update the mood dictionary in AppState
+    static func updateMoodDict(feeling: String, dayDiff: Int, value: Double, count: Int){
+        let currentValue = AppState.sharedInstance.moodDict[feeling]![dayDiff]
+        
+        AppState.sharedInstance.moodDict[feeling]![dayDiff] = runningAverage(currentValue, newValue: value, count: count)
     }
     
     // possible function to combine mood data
-    static func dayAverage(dayData: [Double]) -> Double{
-        return dayData.reduce(0, combine: +) / Double(dayData.count)
+    static func runningAverage(currentAverage: Double, newValue: Double, count: Int) -> Double{
+        return (currentAverage*Double(count) + newValue)/(Double(count)+1)
     }
 }
