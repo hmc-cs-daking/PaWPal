@@ -13,9 +13,9 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     var q2: TextQuestion!
     var q3: TextQuestion!
     
-    var locations: [String] = ["Platt", "Place", "Shanahan", "Atwood"]
-    var activities: [String] = ["Working", "Class"]
-    var other: [String] = ["Sleeping", "Netflix"]
+    var locations: [String] = []
+    var activities: [String] = []
+    var other: [String] = []
     
     var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
@@ -35,7 +35,6 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     }
     
     func displayQuestions(){
-        
         // create the stack view
         let stackView = UIStackView()
         stackView.axis = .Vertical
@@ -46,7 +45,7 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         
         // add questions to the stack view
         q1 = TextQuestion.addToSurvey("Where were you?", key: "where", stackView: stackView, placeHolder: "Platt, Shanahan, Atwood, etc. ", required: true)
-        q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, etc. ", required: true)
+        q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, Socializing, etc. ", required: true)
         q3 = TextQuestion.addToSurvey("(Optional) What else were you doing?", key: "elseOptional", stackView: stackView, placeHolder: "", required: false)
         
         view.addSubview(stackView)
@@ -57,6 +56,11 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
         view.addConstraints(stackView_H)
         view.addConstraints(stackView_V)
+        
+        //set autocomplete strings
+        locations = AppState.sharedInstance.locationSuggestions
+        activities = AppState.sharedInstance.activitySuggestions
+        other = AppState.sharedInstance.otherSuggestions
         
         autoCompleteDictionary = [q1.answerTextField:locations, q2.answerTextField:activities, q3.answerTextField:other]
     }

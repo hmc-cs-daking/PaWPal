@@ -37,6 +37,10 @@ class AppState: NSObject {
         "elseMindOptional": ""
     ]
     
+    static let defaultLocations:[String] = ["Platt", "Place", "Shanahan", "Atwood"]
+    static let defaultActivities:[String] = ["Working", "Class"]
+    static let defaultOther:[String] = ["Sleeping", "Netflix"]
+    
     static let sharedInstance = AppState()
     
     var userName: String?
@@ -52,4 +56,7 @@ class AppState: NSObject {
     var lastActionTakenAt: String?
     var databaseRef = FIRDatabase.database().reference()
     var surveyList:[String:AnyObject] = emptySurvey
+    var locationSuggestions: [String] = defaultLocations
+    var activitySuggestions: [String] = defaultActivities
+    var otherSuggestions: [String] = defaultOther
 }

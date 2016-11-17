@@ -28,11 +28,14 @@ class SurveyPage6ViewController: UIViewController {
         
         print(AppState.sharedInstance.surveyList)
         
+        //submit survey and update autocomplete
         DatabaseController.submitSurvey()
+        
 
         DatabaseController.incrementDailySurveyCount()
         DatabaseController.incrementTotalSurveyCount()
         NotificationScheduler.scheduleNextNotificationOfTheDay()
+        
         
         let formatter = NotificationScheduler.getDateFormatter()
         DatabaseController.setLastActionTakenAt(formatter.stringFromDate(NSDate()))
