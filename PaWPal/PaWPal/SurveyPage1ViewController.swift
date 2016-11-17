@@ -13,9 +13,9 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     var q2: TextQuestion!
     var q3: TextQuestion!
     
-    var locations: [String] = ["Platt", "Place", "Shanahan", "Atwood"]
-    var activities: [String] = ["Working", "Class"]
-    var other: [String] = ["Sleeping", "Netflix"]
+    var locations: [String] = []
+    var activities: [String] = []
+    var other: [String] = []
     
     var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
@@ -44,7 +44,7 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         
         // create questions
         q1 = TextQuestion.create("Where were you?", key: "where", placeHolder: "Platt, Shanahan, Atwood, etc. ", required: true)
-        q2 = TextQuestion.create("What was the main thing you were doing?", key: "activity", placeHolder: "Working, Class, etc. ", required: true)
+        q2 = TextQuestion.create("What was the main thing you were doing?", key: "activity", placeHolder: "Working, Class, Socializing etc. ", required: true)
         q3 = TextQuestion.create("(Optional) What else were you doing?", key: "elseOptional", placeHolder: "", required: false)
         
         self.displayQuestions([q1, q2, q3], distribution: .FillEqually)
@@ -54,6 +54,11 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
             q.answerTextField.autoCompleteTextFieldDataSource = self
             q.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
         }
+        
+        //set autocomplete strings
+        locations = AppState.sharedInstance.locationSuggestions
+        activities = AppState.sharedInstance.activitySuggestions
+        other = AppState.sharedInstance.otherSuggestions
         
         autoCompleteDictionary = [q1.answerTextField:locations, q2.answerTextField:activities, q3.answerTextField:other]
     }

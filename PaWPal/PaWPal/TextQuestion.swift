@@ -13,7 +13,6 @@ class TextQuestion: UIView {
     @IBOutlet weak var answerTextField: AutoCompleteTextField!
     @IBOutlet weak var promptLabel: UILabel!
     
-    internal var autoCompleteStrings: [String]!
     internal var required: Bool!
     
     // add question to survey
