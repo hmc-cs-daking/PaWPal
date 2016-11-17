@@ -28,7 +28,7 @@ class SurveyViewController: UIViewController {
             nextSurveyPromptLabel.text = ""
         } else {
             startSurveyButton.backgroundColor = UIColor.grayColor()
-            startSurveyButton.enabled = false
+            startSurveyButton.enabled = true
             
             let formatter = NotificationScheduler.getDateFormatter()
             let nextSurveyDate = formatter.dateFromString(DatabaseController.getClosestNotification())
