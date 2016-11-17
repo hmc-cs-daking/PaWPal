@@ -62,11 +62,21 @@ class DataProcessor {
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(weekAgo!))
-        weekQuery.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-            print(snapshot.value as! NSDictionary)
-            array.append(snapshot.value as! NSDictionary)
+
+        // EXPENSIVE OPERATIONS
+        weekQuery.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { snapshot in
+            print(snapshot.childrenCount)
+            
+            for child in snapshot.children {
+                let childSnapshot = snapshot.childSnapshotForPath(child.key)
+                array.append(childSnapshot.value as! NSDictionary)
+                print(array.count)
+            }
+            
+            print(array)
+            
+            // @DOREN, can you do the rest of your processing here?
         })
-        print(array)
         
     }
     
