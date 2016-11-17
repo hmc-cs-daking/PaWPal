@@ -30,9 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // prompt the user to allow notifications from the PaWPal app
         // TODO: what if the user says no?
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-        
-        let storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let loginVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
 
         // retrieve user cached in firebase
         if let currentUser = FIRAuth.auth()?.currentUser {
@@ -66,17 +63,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         NotificationScheduler.scheduleNotificationsOnSignIn()
                         
                         // show survey screen
-                        self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+                        LoginViewController.showTabContoller()
                     }
                     else {
                         // if user doesn't exist in firebase
-                        self.window?.rootViewController = loginVC
+                        LoginViewController.showLogin()
                     }
                 }
             )
         }
         else {
-            self.window?.rootViewController = loginVC
+            LoginViewController.showLogin()
         }
         
         return true
