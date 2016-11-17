@@ -15,17 +15,13 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var timeSegment: UISegmentedControl!
     
     let hours: [String] = ["8AM", "10AM", "12PM", "2PM", "4PM", "6PM", "8PM"]
-    let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    let happy: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
-    let confident: [Double] = [7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0]
-    let calm: [Double] = [2.0, 2.0, 3.0, 2.0, 2.0, 3.0, 3.0]
-    let friendly: [Double] = [5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0]
-    let awake: [Double] = [6.0, 6.0, 6.0, 6.0, 6.0, 6.0, 6.0]
+    var days: [String] = []
     
     var currentData: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
     var currentTimescale: [String] = ["8AM", "10AM", "12PM", "2PM", "4PM", "6PM", "8PM"]
     var currentMoodLabel: String = "Happiness"
     
+    // helper function for when user taps moodSegment
     func updateMoodData(moodData: [Double], moodLabel: String){
         currentData = moodData
         currentMoodLabel = moodLabel
@@ -33,31 +29,33 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         setChartData(currentTimescale, data: currentData, moodLabel: moodLabel)
     }
     
+    // helper function for when user taps timeSegment
     func updateTimeData(timeScale: [String], moodLabel: String){
         currentTimescale = timeScale
         moodChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         setChartData(currentTimescale, data: currentData, moodLabel: moodLabel)
     }
     
-    
+    // when user taps moodSegment
     @IBAction func updateMoodAxis(sender: UISegmentedControl){
         if (sender.selectedSegmentIndex == 0){
-            updateMoodData(happy, moodLabel: "Happiness")
+            updateMoodData(AppState.sharedInstance.moodDict["happy"]!, moodLabel: "Happiness")
         }
         else if (sender.selectedSegmentIndex == 1){
-            updateMoodData(confident, moodLabel: "Confidence")
+            updateMoodData(AppState.sharedInstance.moodDict["confident"]!, moodLabel: "Confidence")
         }
         else if (sender.selectedSegmentIndex == 2){
-            updateMoodData(calm, moodLabel: "Calmness")
+            updateMoodData(AppState.sharedInstance.moodDict["calm"]!, moodLabel: "Calmness")
         }
         else if (sender.selectedSegmentIndex == 3){
-            updateMoodData(friendly, moodLabel: "Friendliness")
+            updateMoodData(AppState.sharedInstance.moodDict["friendly"]!, moodLabel: "Friendliness")
         }
         else if (sender.selectedSegmentIndex == 4){
-            updateMoodData(awake, moodLabel: "Awakeness")
+            updateMoodData(AppState.sharedInstance.moodDict["awake"]!, moodLabel: "Awakeness")
         }
     }
     
+    // when user taps timeSegment
     @IBAction func updateTimeAxis(sender: UISegmentedControl){
         if (sender.selectedSegmentIndex == 0){
             updateTimeData(hours, moodLabel: currentMoodLabel)
@@ -67,40 +65,36 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         }
     }
     
+    // helper function for generating the time axis for a week
+    func generateWeekAxis(date: NSDate){
+        let calendar = NSCalendar.currentCalendar()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE"
+        var weekAxis: [String] = []
+        
+        for i in 6.stride(through: 0, by: -1) {
+            let dayOfWeek: NSDate = calendar.dateByAddingUnit(.Day, value: -1*i, toDate: date, options: [])!
+            weekAxis.append(formatter.stringFromDate(dayOfWeek))
+        }
+        days = weekAxis
+    }
+    
     func setChartData(timeAxis : [String], data: [Double], moodLabel: String) {
         // creating an array of data entries
-//        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-//        for i in 0..<timeAxis.count{
-//            yVals1.append(ChartDataEntry(value: data[i], xIndex: i))
-//        }
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<timeAxis.count {
             let dataEntry = BarChartDataEntry(value: data[i], xIndex: i)
             dataEntries.append(dataEntry)
         }
-//        
+ 
         // create a data set with our array
         let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)
         chartDataSet.axisDependency = .Left // Line will correlate with left axis values
-        chartDataSet.setColor(UIColor.cyanColor().colorWithAlphaComponent(0.6)) // our line's opacity is 50%
-//        set1.setCircleColor(UIColor.cyanColor().colorWithAlphaComponent(0.6))
-//        set1.lineWidth = 2.0
-//        set1.circleRadius = 6.0 // the radius of the node circle
-//        set1.fillAlpha = 65 / 255.0
-//        set1.fillColor = UIColor.cyanColor()
-        //set1.highlightColor = UIColor.whiteColor()
-        //set1.drawCircleHoleEnabled = true
+        chartDataSet.setColor(UIColor.cyanColor().colorWithAlphaComponent(0.6)) // our line's opacity is 60%
         
-        //create an array to store our BarChartDataSets
-//        var dataSets : [BarChartDataSet] = [BarChartDataSet]()
-//        dataSets.append(set1)
-        
-        //4 - pass our months in for our x-axis label value along with our dataSets
         let data: BarChartData = BarChartData(xVals: timeAxis, dataSet: chartDataSet)
         data.setValueTextColor(UIColor.blackColor())
-        
-        //5 - finally set our data
         self.moodChart.data = data
     }
     
@@ -114,7 +108,8 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         //self.moodChart.gridBackgroundColor = UIColor.whiteColor()
         self.moodChart.backgroundColor = UIColor(red: 189, green: 195, blue: 199)
         self.moodChart.noDataText = "No data provided"
-        updateMoodData(happy, moodLabel: "Happiness")
+        generateWeekAxis(NSDate())
+        updateMoodData(AppState.sharedInstance.moodDict["happy"]!, moodLabel: "Happiness")
         
         //testing dataprocessor
         DataProcessor.getWeekData(NSDate())

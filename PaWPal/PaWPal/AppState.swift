@@ -37,6 +37,14 @@ class AppState: NSObject {
         "elseMindOptional": ""
     ]
     
+    static let emptyMoodDict: [String:[Double]] = [
+        "happy": Array(count: 7, repeatedValue: 0.0),
+        "confident": Array(count: 7, repeatedValue: 0.0),
+        "calm": Array(count: 7, repeatedValue: 0.0),
+        "friendly": Array(count: 7, repeatedValue: 0.0),
+        "awake": Array(count: 7, repeatedValue: 0.0)
+    ]
+    
     static let sharedInstance = AppState()
     
     var userName: String?
@@ -52,4 +60,5 @@ class AppState: NSObject {
     var lastActionTakenAt: String?
     var databaseRef = FIRDatabase.database().reference()
     var surveyList:[String:AnyObject] = emptySurvey
+    var moodDict: [String:[Double]] = emptyMoodDict
 }
