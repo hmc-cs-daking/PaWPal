@@ -34,28 +34,26 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         DatabaseController.updateText("elseOptional", question: q3)
     }
     
-    func displayQuestions(){
-        // create the stack view
-        let stackView = UIStackView()
-        stackView.axis = .Vertical
-        stackView.distribution = .FillEqually
-        stackView.alignment = .Fill
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+    // MY PLAN
+    // separate stack view functionality from creating questions
+    // eventually put questions in array
+    // modularize + inheritance~
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // add questions to the stack view
-        q1 = TextQuestion.addToSurvey("Where were you?", key: "where", stackView: stackView, placeHolder: "Platt, Shanahan, Atwood, etc. ", required: true)
-        q2 = TextQuestion.addToSurvey("What was the main thing you were doing?", key: "activity", stackView: stackView, placeHolder: "Working, Class, Socializing, etc. ", required: true)
-        q3 = TextQuestion.addToSurvey("(Optional) What else were you doing?", key: "elseOptional", stackView: stackView, placeHolder: "", required: false)
+        // create questions
+        q1 = TextQuestion.create("Where were you?", key: "where", placeHolder: "Platt, Shanahan, Atwood, etc. ", required: true)
+        q2 = TextQuestion.create("What was the main thing you were doing?", key: "activity", placeHolder: "Working, Class, Socializing etc. ", required: true)
+        q3 = TextQuestion.create("(Optional) What else were you doing?", key: "elseOptional", placeHolder: "", required: false)
         
-        view.addSubview(stackView)
+        self.displayQuestions([q1, q2, q3], distribution: .FillEqually)
         
-        //autolayout the stack view - pin 30 up 20 left 20 right 100 down
-        let viewsDictionary = ["stackView":stackView]
-        let stackView_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[stackView]-20-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
-        view.addConstraints(stackView_H)
-        view.addConstraints(stackView_V)
+        // Autocomplete
+        for q in [q1, q2, q3] {
+            q.answerTextField.autoCompleteTextFieldDataSource = self
+            q.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
+        }
         
         //set autocomplete strings
         locations = AppState.sharedInstance.locationSuggestions
@@ -63,17 +61,6 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
         other = AppState.sharedInstance.otherSuggestions
         
         autoCompleteDictionary = [q1.answerTextField:locations, q2.answerTextField:activities, q3.answerTextField:other]
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        displayQuestions()
-        q1.answerTextField.autoCompleteTextFieldDataSource = self
-        q1.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
-        q2.answerTextField.autoCompleteTextFieldDataSource = self
-        q2.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
-        q3.answerTextField.autoCompleteTextFieldDataSource = self
-        q3.answerTextField.showAutoCompleteButton(autoCompleteButtonViewMode: .WhileEditing)
     }
     
     override func didReceiveMemoryWarning() {

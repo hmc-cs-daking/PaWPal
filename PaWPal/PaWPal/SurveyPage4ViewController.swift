@@ -26,38 +26,21 @@ class SurveyPage4ViewController: UIViewController {
         }
         save(sender)
     }
-    
-    func displayQuestions(){
-        
-        // create the stack view
-        let stackView = UIStackView()
-        stackView.axis = .Vertical
-        stackView.distribution = .FillProportionally
-        stackView.alignment = .Fill
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // add questions to view
-        q1 = MultiCheckQuestion.addToSurvey("Who were you with? (Check all that apply)", key: "interaction", stackView: stackView)
-        q2 = TextQuestion.addToSurvey("How many hours have you been doing this activity? (in hours)", key: "howLong", stackView: stackView, placeHolder: "", required: true)
-        
-        // for numerical answers
-        q2.answerTextField.keyboardType = .NumberPad
-        
-        view.addSubview(stackView)
-        
-        //autolayout the stack view - pin 30 up 20 left 20 right 100 down
-        let viewsDictionary = ["stackView":stackView]
-        let stackView_H = NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[stackView]-20-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let stackView_V = NSLayoutConstraint.constraintsWithVisualFormat("V:|-30-[stackView]-100-|", options: NSLayoutFormatOptions(rawValue:0), metrics: nil, views: viewsDictionary)
-        view.addConstraints(stackView_H)
-        view.addConstraints(stackView_V)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayQuestions()
+        
+        // create questions
+        q1 = MultiCheckQuestion.create("Who were you with? (Check all that apply)",
+                                       key: "interaction")
+        q2 = TextQuestion.create("How many hours have you been doing this activity? (in hours)",
+                                 key: "howLong", placeHolder: "", required: true)
+        // for numerical answers
+        q2.answerTextField.keyboardType = .NumberPad
+        
+        self.displayQuestions([q1, q2], distribution: .FillProportionally)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
