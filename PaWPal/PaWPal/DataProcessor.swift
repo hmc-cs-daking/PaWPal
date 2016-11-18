@@ -90,7 +90,11 @@ class DataProcessor {
                 let value = childSnapshot.value as! NSDictionary
                 
                 if let childTime = value["timestamp"] { timestamp = (childTime as? Int)! }
-                dayDiff = self.daysDifference(weekAgo!, endDate: self.timeStampToDate(timestamp))
+                
+                //there was an off by one error here, not sure if this is the correct fix,
+                //but the app doesn't crash anymore
+                dayDiff = self.daysDifference(weekAgo!, endDate: self.timeStampToDate(timestamp)) - 1
+
                 
                 // update moods in mood dictionary
                 if let happy = value["feeling"]![0]{
