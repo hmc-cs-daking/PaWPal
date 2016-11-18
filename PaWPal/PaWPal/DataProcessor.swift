@@ -69,7 +69,7 @@ class DataProcessor {
         let calendar = NSCalendar.currentCalendar()
         //var weekAgo = calendar.dateByAddingUnit(.Day, value: -7, toDate: date, options: [])
         let weekAgoComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
-        weekAgoComponents.day -= 7
+        weekAgoComponents.day -= 6
         weekAgoComponents.hour = 0
         weekAgoComponents.minute = 0
         weekAgoComponents.second = 0
