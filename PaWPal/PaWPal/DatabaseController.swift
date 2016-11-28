@@ -61,35 +61,41 @@ class DatabaseController {
             
             // Retrieves user's info from firebase
             AppState.sharedInstance.databaseRef.child("users").child(getUid()).observeSingleEventOfType(FIRDataEventType.Value, withBlock:{ (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
-                if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
-                if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
-                if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
-                if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
-                if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
-                if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
-                if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
-                if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
-                if let locationSuggestions = value?["locationSuggestions"] {
-                    AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String]
-                    for location in AppState.sharedInstance.locationSuggestions {
-                        AppState.sharedInstance.locationDict.updateValue([0.0, 0.0], forKey: location)
-                    }
-                }
-                if let activitySuggestions = value?["activitySuggestions"] {
-                    AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String]
-                    for activity in AppState.sharedInstance.activitySuggestions {
-                        AppState.sharedInstance.activityDict.updateValue([0.0, 0.0], forKey: activity)
-                    }
-                }
-                if let otherSuggestions = value?["otherSuggestions"] { AppState.sharedInstance.otherSuggestions = otherSuggestions as! [String] }
+
+                loadAppStateFromFirebase(snapshot.value as? NSDictionary)
+                
                 NotificationScheduler.scheduleNotificationsOnSignIn()
                 
                 completion()
                 }
             )
         }
+    }
+    
+    // stores user's info in AppState, excluding userEmail and uid
+    static func loadAppStateFromFirebase(value: NSDictionary?) {
+        if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
+        if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
+        if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
+        if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
+        if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
+        if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
+        if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
+        if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
+        if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
+        if let locationSuggestions = value?["locationSuggestions"] {
+            AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String]
+            for location in AppState.sharedInstance.locationSuggestions {
+                AppState.sharedInstance.locationDict.updateValue([0.0, 0.0], forKey: location)
+            }
+        }
+        if let activitySuggestions = value?["activitySuggestions"] {
+            AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String]
+            for activity in AppState.sharedInstance.activitySuggestions {
+                AppState.sharedInstance.activityDict.updateValue([0.0, 0.0], forKey: activity)
+            }
+        }
+        if let otherSuggestions = value?["otherSuggestions"] { AppState.sharedInstance.otherSuggestions = otherSuggestions as! [String] }
     }
     
     // resets a user's password using Firebase to send an email
@@ -152,33 +158,21 @@ class DatabaseController {
     
     static func updateAutocomplete(){
         //append user input to autocomplete lists
-        let activity:String = AppState.sharedInstance.surveyList["activity"] as! String
-        let location:String = AppState.sharedInstance.surveyList["where"] as! String
-        let elseOptional:String = AppState.sharedInstance.surveyList["elseOptional"] as! String
+        let activity = AppState.sharedInstance.surveyList["activity"] as! String
+        let location = AppState.sharedInstance.surveyList["where"] as! String
+        let elseOptional = AppState.sharedInstance.surveyList["elseOptional"] as! String
         
-        if(inList(AppState.sharedInstance.activitySuggestions, val: activity) == false){
+        if (!AppState.sharedInstance.activitySuggestions.contains(activity)){
             AppState.sharedInstance.activitySuggestions.append(activity)
             AppState.sharedInstance.activityDict.updateValue([0.0, 0.0], forKey: activity)
         }
-        if(inList(AppState.sharedInstance.locationSuggestions, val: location) == false){
+        if (!AppState.sharedInstance.locationSuggestions.contains(location)){
             AppState.sharedInstance.locationSuggestions.append(location)
             AppState.sharedInstance.locationDict.updateValue([0.0, 0.0], forKey: location)
         }
-        if(inList(AppState.sharedInstance.otherSuggestions, val: elseOptional) == false){
+        if (!AppState.sharedInstance.otherSuggestions.contains(elseOptional)){
             AppState.sharedInstance.otherSuggestions.append(elseOptional)
         }
-    }
-    
-    static func inList(list: [String], val: String) -> Bool{
-        if(val.isEmpty){
-            return true
-        }
-        for i in 0...(list.count-1){
-            if(list[i]==val){
-                return true
-            }
-        }
-        return false
     }
     
     // functions to access user info

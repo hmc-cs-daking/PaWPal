@@ -36,30 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                         // Retrieves user's info from firebase
                         let value = snapshot.childSnapshotForPath(currentUser.uid).value as? NSDictionary
+                        
                         if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
-                        if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
-                        if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
-                        if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
-                        if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
-                        if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
-                        if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
-                        if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
-                        if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
-                        if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
-                        if let locationSuggestions = value?["locationSuggestions"] {
-                            AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String]
-                            for location in AppState.sharedInstance.locationSuggestions {
-                                AppState.sharedInstance.locationDict.updateValue([0.0, 0.0], forKey: location)
-                            }
-                        }
-                        if let activitySuggestions = value?["activitySuggestions"] {
-                            AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String]
-                            for activity in AppState.sharedInstance.activitySuggestions {
-                                AppState.sharedInstance.activityDict.updateValue([0.0, 0.0], forKey: activity)
-                            }
-                        }
-                        if let otherSuggestions = value?["otherSuggestions"] { AppState.sharedInstance.otherSuggestions = otherSuggestions as! [String] }
-
+                        
+                        DatabaseController.loadAppStateFromFirebase(value)
                         
                         // will reset the daily survey count if the closestNotification is the morning notification and the current time is past that
                         NotificationScheduler.resetDailyCountIfNecessary()
