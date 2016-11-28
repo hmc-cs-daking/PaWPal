@@ -70,7 +70,10 @@ class AppState: NSObject {
     // survey query dictionaries
     var databaseRef = FIRDatabase.database().reference()
     var surveyList:[String:AnyObject] = emptySurvey
-    var moodDict: [String:[Double]] = emptyMoodDict
+    var moodDictWeek: [String:[Double]] = emptyMoodDict
+    var moodDictDay: [String:[Double]] = emptyMoodDict
+    var activityDict: [String:[Double]] = [:]
+    var locationDict: [String:[Double]] = [:]
     
     // autocomplete instances
     var locationSuggestions: [String] = defaultLocations

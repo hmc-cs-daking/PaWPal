@@ -22,11 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
-        // naviagation bar
-//        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
-//        UINavigationBar.appearance().barTintColor = UIColor.orangeColor()
-//        UINavigationBar.appearance().titleTextAttributes=[NSForegroundColorAttributeName:UIColor.whiteColor()]
-        
         // prompt the user to allow notifications from the PaWPal app
         // TODO: what if the user says no?
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
@@ -45,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
                         
                         DatabaseController.loadAppStateFromFirebase(value)
-                        
                         
                         // will reset the daily survey count if the closestNotification is the morning notification and the current time is past that
                         NotificationScheduler.resetDailyCountIfNecessary()

@@ -11,39 +11,43 @@ import Charts
 
 class PieChartViewController: UIViewController {
     
-//    @IBOutlet weak var lineChartView: LineChartView!
-    
     @IBOutlet weak var activityPieChartView: PieChartView!
     @IBOutlet weak var locationPieChartView: PieChartView!
     @IBOutlet weak var timeSegment: UISegmentedControl!
     
+    var activities: [String] = []
+    var location: [String] = []
+    var activityHourData: [Double] = []
+    var locationHourData: [Double] = []
     
-    let activities: [String] = ["Partyyy", "Homework", "Class", "Eating", "More Partayy", "Drugs"]
-    let location: [String] = ["Room", "Platt", "Shan", "Hoch", "Linde", "Space"]
-    let dayHours: [Double] = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-    let weekHours: [Double] = [20.0, 50.0, 90.0, 12.0, 60.0, 40.0]
-    
-    func updateHours(timeData: [Double]){
+    func updateHours(timeType: Int){
+        let actDict = AppState.sharedInstance.activityDict
+        let locDict = AppState.sharedInstance.locationDict
+        
+        // update slices and their values
+        activities = DataProcessor.generateSliceTypes(actDict, timeType: timeType)
+        location = DataProcessor.generateSliceTypes(locDict, timeType: timeType)
+        activityHourData = DataProcessor.generateSliceValues(actDict, slices: activities, timeType: timeType)
+        locationHourData = DataProcessor.generateSliceValues(locDict, slices: location, timeType: timeType)
+        
+        // animate and set up the charts
         activityPieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         locationPieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        setChart(activities, values: timeData, pieChartView: activityPieChartView)
-        setChart(location, values: timeData, pieChartView: locationPieChartView)
+        setChart(activities, values: activityHourData, pieChartView: activityPieChartView)
+        setChart(location, values: locationHourData, pieChartView: locationPieChartView)
     }
     
     @IBAction func updateTimeSegment(sender: UISegmentedControl){
-        if (sender.selectedSegmentIndex == 0){
-            updateHours(dayHours)
-        }
-        else if (sender.selectedSegmentIndex == 1){
-            updateHours(weekHours)
-        }
+        updateHours(sender.selectedSegmentIndex)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(AppState.sharedInstance.activityDict)
+        self.activityPieChartView.noDataText = "No recent data"
+        self.locationPieChartView.noDataText = "No recent data"
         // Do any additional setup after loading the view.
-        updateHours(dayHours)
+        updateHours(0)
     }
     
     func setChart(dataPoints: [String], values: [Double], pieChartView: PieChartView) {
@@ -56,9 +60,6 @@ class PieChartViewController: UIViewController {
         }
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Hours Spent")
-        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-        pieChartView.data = pieChartData
-        
         var colors: [UIColor] = []
         
         for _ in 0..<dataPoints.count {
@@ -68,7 +69,13 @@ class PieChartViewController: UIViewController {
             
             let color = UIColor(red: red, green: green, blue: blue)
             colors.append(color)
+            
+            pieChartDataSet.colors = colors
         }
-        pieChartDataSet.colors = colors
+        pieChartView.drawSliceTextEnabled = false
+        //pieChartView.holeColor = UIColor.clearColor()
+        // set data here
+        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
     }
 }
