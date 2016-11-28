@@ -97,11 +97,12 @@ class SettingsViewController: UIViewController {
     
     // Confirms that user wants to log out
     @IBAction func displayLogOutAlert(sender: UIButton) {
-        self.displayYesNoAlert("Alert", message: "Are you sure you want to log out?", yesHandler: logOut)
+        self.displayYesNoAlert("Alert", message: "Are you sure you want to log out?",
+                               yesHandler: {(action) in self.logOut()})
     }
     
     // Logs out through Firebase
-    func logOut(alert: UIAlertAction!) {
+    func logOut() {
         do {
             try FIRAuth.auth()?.signOut()
             LoginViewController.showLogin()
