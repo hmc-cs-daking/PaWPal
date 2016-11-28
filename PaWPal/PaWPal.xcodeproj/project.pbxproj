@@ -49,6 +49,7 @@
 		868E5A771D9A4CC500B90BB8 /* TextQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */; };
 		868E5A791D9A4D2F00B90BB8 /* TextQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */; };
 		868E5A7B1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */; };
+		86A2B09E1DE117AE00B0D9AB /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2B09D1DE117AE00B0D9AB /* ExtensionTests.swift */; };
 		86B6B0261D88A0BD0056AA85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */; };
 		86DC95A91D89026D007F84BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC95A81D89026D007F84BB /* RegisterViewController.swift */; };
 		86FFEA811D8DFD2400649492 /* UIViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */; };
@@ -128,6 +129,7 @@
 		868E5A761D9A4CC500B90BB8 /* TextQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextQuestion.swift; sourceTree = "<group>"; };
 		868E5A781D9A4D2F00B90BB8 /* TextQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextQuestion.xib; sourceTree = "<group>"; };
 		868E5A7A1D9A5EDC00B90BB8 /* SurveyPage1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyPage1ViewController.swift; sourceTree = "<group>"; };
+		86A2B09D1DE117AE00B0D9AB /* ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		86B6B0251D88A0BD0056AA85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86DC95A81D89026D007F84BB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		86FFEA801D8DFD2400649492 /* UIViewController+DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				412F76031D83A6860081EB6B /* PaWPalTests.swift */,
+				86A2B09D1DE117AE00B0D9AB /* ExtensionTests.swift */,
 				412F76051D83A6860081EB6B /* Info.plist */,
 			);
 			path = PaWPalTests;
@@ -609,6 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412F76041D83A6860081EB6B /* PaWPalTests.swift in Sources */,
+				86A2B09E1DE117AE00B0D9AB /* ExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
