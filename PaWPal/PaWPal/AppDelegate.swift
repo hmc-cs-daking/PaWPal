@@ -22,11 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         
-        // naviagation bar
-//        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
-//        UINavigationBar.appearance().barTintColor = UIColor.orangeColor()
-//        UINavigationBar.appearance().titleTextAttributes=[NSForegroundColorAttributeName:UIColor.whiteColor()]
-        
         // prompt the user to allow notifications from the PaWPal app
         // TODO: what if the user says no?
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
@@ -51,8 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
                         if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
                         if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
-                        if let locationSuggestions = value?["locationSuggestions"] { AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String] }
-                        if let activitySuggestions = value?["activitySuggestions"] { AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String] }
+                        if let locationSuggestions = value?["locationSuggestions"] {
+                            AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String]
+                            for location in AppState.sharedInstance.locationSuggestions {
+                                AppState.sharedInstance.locationDict.updateValue([0.0, 0.0], forKey: location)
+                            }
+                        }
+                        if let activitySuggestions = value?["activitySuggestions"] {
+                            AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String]
+                            for activity in AppState.sharedInstance.activitySuggestions {
+                                AppState.sharedInstance.activityDict.updateValue([0.0, 0.0], forKey: activity)
+                            }
+                        }
                         if let otherSuggestions = value?["otherSuggestions"] { AppState.sharedInstance.otherSuggestions = otherSuggestions as! [String] }
 
                         
