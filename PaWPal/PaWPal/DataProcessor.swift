@@ -62,7 +62,7 @@ class DataProcessor {
             print(snapshot.childrenCount)
             // clear the current dictionary
             AppState.sharedInstance.moodDictDay = AppState.emptyMoodDict
-            AppState.sharedInstance.moodDictWeek = AppState.emptyMoodDict
+            //AppState.sharedInstance.moodDictWeek = AppState.emptyMoodDict
             for location in AppState.sharedInstance.locationSuggestions {
                 AppState.sharedInstance.locationDict[location]![0] = 0.0
             }

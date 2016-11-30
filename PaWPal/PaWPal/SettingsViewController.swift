@@ -105,6 +105,35 @@ class SettingsViewController: UIViewController {
     func logOut() {
         do {
             try FIRAuth.auth()?.signOut()
+            
+            // clear AppState
+            let instance = AppState.sharedInstance
+            instance.userName = ""
+            instance.userEmail = ""
+            instance.uid = ""
+            instance.school = ""
+            instance.wakeTime = ""
+            instance.sleepTime = ""
+            
+            // notification instances
+            instance.closestScheduledNotification = ""
+            instance.furthestScheduledNotification = ""
+            instance.dailySurveyCount = 0
+            instance.totalSurveyCount = 0
+            instance.lastActionTakenAt = ""
+            
+            // survey query dictionaries
+            instance.surveyList = AppState.emptySurvey
+            instance.moodDictWeek = AppState.emptyMoodDict
+            instance.moodDictDay = AppState.emptyMoodDict
+            instance.activityDict = [:]
+            instance.locationDict = [:]
+            
+            // autocomplete instances
+            instance.locationSuggestions = AppState.defaultLocations
+            instance.activitySuggestions = AppState.defaultActivities
+            instance.otherSuggestions = AppState.defaultOther
+            
             LoginViewController.showLogin()
         } catch let error as NSError {
             self.displayAlert("Error", message: error.localizedDescription, handler: nil)
