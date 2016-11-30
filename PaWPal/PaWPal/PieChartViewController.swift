@@ -73,7 +73,8 @@ class PieChartViewController: UIViewController {
             pieChartDataSet.colors = colors
         }
         pieChartView.drawSliceTextEnabled = false
-        //pieChartView.holeColor = UIColor.clearColor()
+        pieChartView.holeTransparent = true
+        pieChartView.holeColor = nil
         // set data here
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
