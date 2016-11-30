@@ -16,6 +16,8 @@ class MultiSliderQuestion: UIView {
     @IBOutlet var lowLabels: [UILabel]!
     @IBOutlet var highLabels: [UILabel]!
     
+    internal var key: String!
+    
     @IBAction func moved(sender: UISlider) {
         sender.setValue(Float(lroundf(sender.value)), animated: true)
     }
@@ -24,6 +26,7 @@ class MultiSliderQuestion: UIView {
         let multiSliderQuestionView = NSBundle.mainBundle().loadNibNamed("MultiSliderQuestion", owner: self, options: nil).first as! MultiSliderQuestion
 
         multiSliderQuestionView.promptLabel.text = question
+        multiSliderQuestionView.key = key
             
         //display all saved answers
         let answerArray: [Float]! = AppState.sharedInstance.surveyList[key] as? [Float]

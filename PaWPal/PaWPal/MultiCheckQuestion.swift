@@ -16,10 +16,13 @@ class MultiCheckQuestion: UIView {
     @IBOutlet var switches: [UISwitch]!
     @IBOutlet var labels: [UILabel]!
     
+    internal var key: String!
+    
     static func create(question: String, key: String) -> MultiCheckQuestion{
         let checkQuestion = NSBundle.mainBundle().loadNibNamed("MultiCheckQuestion", owner: self, options: nil).first as! MultiCheckQuestion
         
         checkQuestion.promptLabel.text = question
+        checkQuestion.key = key
             
         // display the saved answers
         let answerArray: [Bool]! = AppState.sharedInstance.surveyList[key] as? [Bool]

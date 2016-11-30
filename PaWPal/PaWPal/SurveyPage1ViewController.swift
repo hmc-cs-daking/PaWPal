@@ -27,17 +27,10 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
                     self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
                     return
             }
+            
+            DatabaseController.updateText(q)
         }
-        
-        DatabaseController.updateText("where", question: q1)
-        DatabaseController.updateText("activity", question: q2)
-        DatabaseController.updateText("elseOptional", question: q3)
     }
-    
-    // MY PLAN
-    // separate stack view functionality from creating questions
-    // eventually put questions in array
-    // modularize + inheritance~
     
     override func viewDidLoad() {
         super.viewDidLoad()

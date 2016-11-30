@@ -14,6 +14,8 @@ class SliderQuestion: UIView {
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var answerSlider: UISlider!
     
+    internal var key: String!
+    
     @IBAction func sliderMoved(sender: UISlider) {
         sender.setValue(Float(lroundf(sender.value)), animated: true)
     }
@@ -23,6 +25,8 @@ class SliderQuestion: UIView {
         
         sliderQuestion.promptLabel.text = question
         sliderQuestion.answerSlider.value = (AppState.sharedInstance.surveyList[key] as? Float)!
+        sliderQuestion.key = key
+        
         return sliderQuestion
     }
 }

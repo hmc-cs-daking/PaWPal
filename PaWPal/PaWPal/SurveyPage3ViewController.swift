@@ -15,10 +15,9 @@ class SurveyPage3ViewController: UIViewController {
     var q4: SliderQuestion!
     
     @IBAction func save(sender: UIButton) {
-        DatabaseController.updateSlider("challenge", question: q1)
-        DatabaseController.updateSlider("skilled", question: q2)
-        DatabaseController.updateSlider("succeeding", question: q3)
-        DatabaseController.updateSlider("wishElse", question: q4)
+        for q in [q1, q2, q3, q4] {
+            DatabaseController.updateSlider(q)
+        }
     }
     
     override func viewDidLoad() {
