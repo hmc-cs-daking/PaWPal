@@ -87,7 +87,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         // create a data set with our array
         let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)
         chartDataSet.axisDependency = .Left // Line will correlate with left axis values
-        chartDataSet.setColor(UIColor.cyanColor().colorWithAlphaComponent(0.6))
+        chartDataSet.setColor(UIColor(red: 0, green: 129, blue: 242))
         
         let data: BarChartData = BarChartData(xVals: timeAxis, dataSet: chartDataSet)
         data.setValueTextColor(UIColor.blackColor())
