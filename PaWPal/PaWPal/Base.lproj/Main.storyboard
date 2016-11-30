@@ -1039,7 +1039,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="moodChart" destination="fOg-kv-s6A" id="tsR-y3-gQf"/>
-                        <outlet property="moodSegment" destination="Npy-wp-LnG" id="4us-nm-tSO"/>
+                        <outlet property="moodSegment" destination="LrC-Lt-lc6" id="M4L-jV-iVf"/>
                         <outlet property="timeSegment" destination="Npy-wp-LnG" id="cXu-2Y-fpI"/>
                     </connections>
                 </viewController>

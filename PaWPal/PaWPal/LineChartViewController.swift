@@ -39,7 +39,6 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     
     // when user taps moodSegment
     @IBAction func updateMoodAxis(sender: UISegmentedControl){
-        
         let tab = sender.selectedSegmentIndex
         if (timeSegment.selectedSegmentIndex == 0){
             updateMoodData(AppState.sharedInstance.moodDictDay[moodList[tab]]!, moodLabel: moodList[tab])

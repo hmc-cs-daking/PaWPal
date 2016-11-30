@@ -225,15 +225,14 @@ public class PieChartRenderer: ChartDataRendererBase
             let holeRadius = radius * holeRadiusPercent
             let center = _chart.centerCircleBox
             
-            if (holeColor !== nil && holeColor != UIColor.clearColor())
+            if holeColor !== nil && holeColor != UIColor.clearColor()
             {
                 // draw the hole-circle
                 CGContextSetFillColorWithColor(context, holeColor!.CGColor)
                 CGContextFillEllipseInRect(context, CGRect(x: center.x - holeRadius, y: center.y - holeRadius, width: holeRadius * 2.0, height: holeRadius * 2.0))
             }
             
-            // only draw the circle if it can be seen (not covered by the hole)
-            if (transparentCircleRadiusPercent > holeRadiusPercent)
+            if holeColor != nil && transparentCircleRadiusPercent > holeRadiusPercent
             {
                 let alpha = holeAlpha * _animator.phaseX * _animator.phaseY
                 let secondHoleRadius = radius * transparentCircleRadiusPercent
