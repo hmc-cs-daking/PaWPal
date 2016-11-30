@@ -19,6 +19,9 @@ class PieChartViewController: UIViewController {
     var location: [String] = []
     var activityHourData: [Double] = []
     var locationHourData: [Double] = []
+    var orange: [Int] = [120, 29, 0]
+    //var orange: [Int] = [20, 20, 0]
+    var blue: [Int] = [0, 29, 120]
     
     func updateHours(timeType: Int){
         let actDict = AppState.sharedInstance.activityDict
@@ -33,8 +36,8 @@ class PieChartViewController: UIViewController {
         // animate and set up the charts
         activityPieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         locationPieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        setChart(activities, values: activityHourData, pieChartView: activityPieChartView)
-        setChart(location, values: locationHourData, pieChartView: locationPieChartView)
+        setChart(activities, values: activityHourData, pieChartView: activityPieChartView, baseColor: blue)
+        setChart(location, values: locationHourData, pieChartView: locationPieChartView, baseColor: orange)
     }
     
     @IBAction func updateTimeSegment(sender: UISegmentedControl){
@@ -50,7 +53,7 @@ class PieChartViewController: UIViewController {
         updateHours(0)
     }
     
-    func setChart(dataPoints: [String], values: [Double], pieChartView: PieChartView) {
+    func setChart(dataPoints: [String], values: [Double], pieChartView: PieChartView, baseColor: [Int]) {
         
         var dataEntries: [ChartDataEntry] = []
         
@@ -61,16 +64,18 @@ class PieChartViewController: UIViewController {
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Hours Spent")
         var colors: [UIColor] = []
-        
+        var rgb = baseColor
         for _ in 0..<dataPoints.count {
-            let red = Int(arc4random_uniform(256))
-            let green = Int(arc4random_uniform(256))
-            let blue = Int(arc4random_uniform(256))
-            
-            let color = UIColor(red: red, green: green, blue: blue)
+            let color = UIColor(red: rgb[0], green: rgb[1], blue: rgb[2])
             colors.append(color)
-            
             pieChartDataSet.colors = colors
+            
+            // lighten color for next slide
+            for i in 0..<rgb.count {
+                if (rgb[i] + 23 <= 255 && rgb[i] != 0){
+                    rgb[i] += 23
+                }
+            }
         }
         pieChartView.drawSliceTextEnabled = false
         pieChartView.holeTransparent = true

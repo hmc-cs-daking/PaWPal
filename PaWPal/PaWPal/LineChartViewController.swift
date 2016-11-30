@@ -19,7 +19,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     var days: [String] = []
     
     var currentData: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
-    var currentTimescale: [String] = ["8AM", "10AM", "12PM", "2PM", "4PM", "6PM", "8PM"]
+    var currentTimescale: [String] = ["12AM", "4AM", "8AM", "12PM", "4PM", "8PM", "12AM"]
     var currentMoodLabel: String = "happy"
     
     // helper function for when user taps moodSegment
