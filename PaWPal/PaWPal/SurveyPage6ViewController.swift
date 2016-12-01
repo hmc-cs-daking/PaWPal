@@ -27,8 +27,6 @@ class SurveyPage6ViewController: UIViewController {
         let timestamp = DataProcessor.makeKeyTimeStamp(NSDate())
         AppState.sharedInstance.surveyList["timestamp"] = timestamp
         
-        print(AppState.sharedInstance.surveyList)
-        
         //submit survey and update autocomplete
         DatabaseController.submitSurvey()
         
