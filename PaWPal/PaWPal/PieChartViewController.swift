@@ -65,6 +65,7 @@ class PieChartViewController: UIViewController {
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Hours Spent")
         var colors: [UIColor] = []
         var rgb = baseColor
+        let increment: Int = 255/dataPoints.count
         for _ in 0..<dataPoints.count {
             let color = UIColor(red: rgb[0], green: rgb[1], blue: rgb[2])
             colors.append(color)
@@ -72,8 +73,8 @@ class PieChartViewController: UIViewController {
             
             // lighten color for next slide
             for i in 0..<rgb.count {
-                if (rgb[i] + 23 <= 255 && rgb[i] != 0){
-                    rgb[i] += 23
+                if (rgb[i] + increment <= 255 && rgb[i] != 0){
+                    rgb[i] += increment
                 }
             }
         }
