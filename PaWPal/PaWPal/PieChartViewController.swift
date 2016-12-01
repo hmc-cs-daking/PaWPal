@@ -65,7 +65,8 @@ class PieChartViewController: UIViewController {
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Hours Spent")
         var colors: [UIColor] = []
         var rgb = baseColor
-        let increment: Int = 255/dataPoints.count
+        var increment: Int = 0
+        if (dataPoints.count != 0) { increment = 255/dataPoints.count }
         for _ in 0..<dataPoints.count {
             let color = UIColor(red: rgb[0], green: rgb[1], blue: rgb[2])
             colors.append(color)
