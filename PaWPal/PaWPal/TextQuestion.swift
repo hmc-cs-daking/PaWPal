@@ -13,6 +13,7 @@ class TextQuestion: UIView {
     @IBOutlet weak var answerTextField: AutoCompleteTextField!
     @IBOutlet weak var promptLabel: UILabel!
     
+    internal var key: String!
     internal var required: Bool!
     
     // add question to survey
@@ -24,6 +25,7 @@ class TextQuestion: UIView {
         textQuestion.answerTextField.text = (AppState.sharedInstance.surveyList[key] as? String)!
         textQuestion.answerTextField.attributedPlaceholder = NSAttributedString(string: placeHolder)
         textQuestion.required = required
+        textQuestion.key = key
 
         return textQuestion
         

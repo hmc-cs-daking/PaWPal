@@ -13,8 +13,8 @@ class SurveyPage4ViewController: UIViewController {
     var q2: TextQuestion!
     
     @IBAction func save(sender: UIButton) {
-        DatabaseController.updateMultiCheck("interaction", question: q1)
-        DatabaseController.updateText("howLong", question: q2)
+        DatabaseController.updateMultiCheck(q1)
+        DatabaseController.updateText(q2)
     }
     
     @IBAction func next(sender: UIButton) {

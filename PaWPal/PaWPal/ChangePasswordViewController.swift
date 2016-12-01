@@ -25,8 +25,8 @@ class ChangePasswordViewController: UIViewController {
     @IBAction func changePassword(sender: AnyObject) {
         // ensure that the new password is not empty
         guard let userPassword = newPassword.text
-            where !userPassword.isEmpty else {
-                self.displayAlert("Error", message: "Password not entered", handler: nil)
+            where userPassword.characters.count >= 6 else {
+                self.displayAlert("Error", message: "Password must be at least 6 characters", handler: nil)
                 return
         }
         

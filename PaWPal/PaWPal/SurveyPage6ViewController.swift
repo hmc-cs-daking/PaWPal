@@ -15,8 +15,9 @@ class SurveyPage6ViewController: UIViewController {
     
     @IBAction func save(sender: UIButton) {
         // save data
-        DatabaseController.updateText("strongEmotionsOptional", question: q1)
-        DatabaseController.updateText("elseMindOptional", question: q2)
+        for q in [q1, q2] {
+            DatabaseController.updateText(q)
+        }
         
         self.displayYesNoAlert("Alert", message: "Are you sure you want to submit?", yesHandler: submit)
     }

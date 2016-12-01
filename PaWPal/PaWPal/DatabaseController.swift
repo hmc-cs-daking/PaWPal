@@ -111,31 +111,31 @@ class DatabaseController {
     }
     
     //methods to update different types of questions
-    static func updateSlider(key: String, question: SliderQuestion){
+    static func updateSlider(question: SliderQuestion){
         let answer = question.answerSlider.value
-        AppState.sharedInstance.surveyList[key] = answer
+        AppState.sharedInstance.surveyList[question.key] = answer
 
     }
     
-    static func updateText(key: String, question: TextQuestion){
+    static func updateText(question: TextQuestion){
         let answer = question.answerTextField.text
-        AppState.sharedInstance.surveyList[key] = answer
+        AppState.sharedInstance.surveyList[question.key] = answer
     }
     
-    static func updateMultiSlider(key: String, question: MultiSliderQuestion){
+    static func updateMultiSlider(question: MultiSliderQuestion){
         var answer: [Float] = Array(count: 5, repeatedValue: 0)
         for i in 0..<answer.count{
             answer[i] = question.sliders[i].value
         }
-        AppState.sharedInstance.surveyList[key] = answer
+        AppState.sharedInstance.surveyList[question.key] = answer
     }
     
-    static func updateMultiCheck(key: String, question: MultiCheckQuestion){
+    static func updateMultiCheck(question: MultiCheckQuestion){
         var answer: [Bool] = Array(count: 5, repeatedValue: false)
         for i in 0..<answer.count{
             answer[i] = question.switches[i].on
         }
-        AppState.sharedInstance.surveyList[key] = answer
+        AppState.sharedInstance.surveyList[question.key] = answer
     }
     
     // submits the completed survey to Firebase
