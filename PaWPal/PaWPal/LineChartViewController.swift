@@ -77,12 +77,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     
     func setChartData(timeAxis : [String], data: [Double], moodLabel: String) {
         // creating an array of data entries
-        var dataEntries: [BarChartDataEntry] = []
-        
-        for i in 0..<timeAxis.count {
-            let dataEntry = BarChartDataEntry(value: data[i], xIndex: i)
-            dataEntries.append(dataEntry)
-        }
+        let dataEntries: [BarChartDataEntry] = timeAxis.indices.map { BarChartDataEntry(value: data[$0], xIndex: $0) }
  
         // create a data set with our array
         let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)

@@ -12,6 +12,10 @@ import FirebaseDatabase
 
 class AppState: NSObject {
     
+    static let sharedInstance = AppState()
+    
+    // ------ DEFAULTS ------
+    
     static let emptySurvey: [String: AnyObject] =
         ["timestamp": 0, // time when survey was submitted
         "where": "",
@@ -50,9 +54,12 @@ class AppState: NSObject {
     static let defaultActivities:[String] = ["Working", "Class"]
     static let defaultOther:[String] = ["Sleeping", "Netflix"]
     
-    static let sharedInstance = AppState()
+    // ------ END DEFAULTS ------
     
-    //user attributes
+    
+    // ------ VARIABLES "CACHED" FROM FIREBASE ------
+    
+    // user attributes
     var userName: String?
     var userEmail: String?
     var uid: String?
@@ -79,4 +86,7 @@ class AppState: NSObject {
     var locationSuggestions: [String] = defaultLocations
     var activitySuggestions: [String] = defaultActivities
     var otherSuggestions: [String] = defaultOther
+    
+    // ------ END VARIABLES "CACHED" FROM FIREBASE ------
+    
 }
