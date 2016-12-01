@@ -123,18 +123,12 @@ class DatabaseController {
     }
     
     static func updateMultiSlider(question: MultiSliderQuestion){
-        var answer: [Float] = Array(count: 5, repeatedValue: 0)
-        for i in 0..<answer.count{
-            answer[i] = question.sliders[i].value
-        }
+        let answer = question.sliders.map {$0.value}
         AppState.sharedInstance.surveyList[question.key] = answer
     }
     
     static func updateMultiCheck(question: MultiCheckQuestion){
-        var answer: [Bool] = Array(count: 5, repeatedValue: false)
-        for i in 0..<answer.count{
-            answer[i] = question.switches[i].on
-        }
+        let answer = question.switches.map {$0.on}
         AppState.sharedInstance.surveyList[question.key] = answer
     }
     
@@ -177,33 +171,27 @@ class DatabaseController {
     
     // functions to access user info
     static func getEmail() -> String{
-        if let email = AppState.sharedInstance.userEmail { return email }
-        else { return "" }
+        return AppState.sharedInstance.userEmail ?? ""
     }
     
     static func getName() -> String{
-        if let userName = AppState.sharedInstance.userName { return userName }
-        else { return "" }
+        return AppState.sharedInstance.userName ?? ""
     }
     
     static func getSchool() -> String{
-        if let school = AppState.sharedInstance.school { return school }
-        else { return "" }
+        return AppState.sharedInstance.school ?? ""
     }
     
     static func getWakeTime() -> String {
-        if let time = AppState.sharedInstance.wakeTime { return time }
-        else { return "" }
+        return AppState.sharedInstance.wakeTime ?? ""
     }
     
     static func getSleepTime() -> String {
-        if let time = AppState.sharedInstance.sleepTime { return time }
-        else { return "" }
+        return AppState.sharedInstance.sleepTime ?? ""
     }
     
     static func getUid() -> String {
-        if let uid = AppState.sharedInstance.uid { return uid }
-        else { return "" }
+        return AppState.sharedInstance.uid ?? ""
     }
     
     static func getDailySurveyCount() -> Int {

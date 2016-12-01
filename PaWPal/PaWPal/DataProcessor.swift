@@ -18,8 +18,7 @@ class DataProcessor {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyyMMddHHmmss"
         
-        let keyTimeStamp: Int? = Int(formatter.stringFromDate(date))
-        return keyTimeStamp!
+        return Int(formatter.stringFromDate(date))!
     }
     
     static func timeStampToDate(timestamp: Int) -> NSDate{
@@ -27,8 +26,7 @@ class DataProcessor {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyyMMddHHmmss"
         
-        let date: NSDate = formatter.dateFromString(stringDate)!
-        return date
+        return formatter.dateFromString(stringDate)!
     }
     
     static func daysDifference(startDate: NSDate, endDate: NSDate) -> Int{
@@ -70,46 +68,31 @@ class DataProcessor {
                 AppState.sharedInstance.activityDict[activity]![0] = 0.0
             }
             
-            var timestamp = 0
-            var hourDiff = 0
-            var hourIndex = 0
-            var numHours: String = ""
             for child in snapshot.children {
-                
                 let childSnapshot = snapshot.childSnapshotForPath(child.key)
                 let value = childSnapshot.value as! NSDictionary
                 
-                if let childTime = value["timestamp"] { timestamp = (childTime as? Int)! }
-                hourDiff = self.hoursDifference(startOfDay, endDate: self.timeStampToDate(timestamp))
-                hourIndex = hoursIndex(hourDiff)
+                let timestamp = value["timestamp"] as? Int ?? 0
+                let hourDiff = self.hoursDifference(startOfDay, endDate: self.timeStampToDate(timestamp))
+                let hourIndex = hoursIndex(hourDiff)
+                
                 // update moods in mood dictionary
-                if let happy = value["feeling"]![0]{
-                    updateMoodDictDay("happy", dayDiff: hourIndex, value: (happy as? Double)!, count: counterArray[hourIndex])
-                }
-                if let confident = value["feeling"]![1]{
-                    updateMoodDictDay("confident", dayDiff: hourIndex, value: (confident as? Double)!, count: counterArray[hourIndex])
-                }
-                if let calm = value["feeling"]![2]{
-                    updateMoodDictDay("calm", dayDiff: hourIndex, value: (calm as? Double)!, count: counterArray[hourIndex])
-                }
-                if let friendly = value["feeling"]![3]{
-                    updateMoodDictDay("friendly", dayDiff: hourIndex, value: (friendly as? Double)!, count: counterArray[hourIndex])
-                }
-                if let awake = value["feeling"]![4]{
-                    updateMoodDictDay("awake", dayDiff: hourIndex, value: (awake as? Double)!, count: counterArray[hourIndex])
+                let moodValues = value["feeling"] as? [Double] ?? []
+                let moods = ["happy", "confident", "calm", "friendly", "awake"]
+                
+                for (mood, value) in zip(moods, moodValues) {
+                    updateMoodDictDay(mood, dayDiff: hourIndex, value: value, count: counterArray[hourIndex])
                 }
                 
                 counterArray[hourIndex] += 1
                 
                 // update activity and location dictionaries
-                if let howLong = value["howLong"]{
-                    numHours = (howLong as? String)!
+                let numHours = Double(value["howLong"] as? String ?? "") ?? 0.0
+                if let activity = value["activity"] as? String {
+                    AppState.sharedInstance.activityDict[activity]![0] += numHours
                 }
-                if let activity = value["activity"]{
-                    AppState.sharedInstance.activityDict[(activity as? String)!]![0] += Double(numHours)!
-                }
-                if let location = value["where"]{
-                    AppState.sharedInstance.locationDict[(location as? String)!]![0] += Double(numHours)!
+                if let location = value["where"] as? String {
+                    AppState.sharedInstance.locationDict[location]![0] += numHours
                 }
             }
             
@@ -125,11 +108,11 @@ class DataProcessor {
         weekAgoComponents.hour = 0
         weekAgoComponents.minute = 0
         weekAgoComponents.second = 0
-        let weekAgo = calendar.dateFromComponents(weekAgoComponents)
+        let weekAgo = calendar.dateFromComponents(weekAgoComponents)!
         var counterArray: [Int] = Array(count: 7, repeatedValue: 0)
         
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
-        let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(weekAgo!))
+        let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(weekAgo))
 
         // EXPENSIVE OPERATIONS
         weekQuery.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { snapshot in
@@ -143,67 +126,43 @@ class DataProcessor {
                 AppState.sharedInstance.activityDict[activity]![1] = 0.0
             }
             
-            var timestamp = 0
-            var dayDiff = 0
-            var numHours: String = ""
             for child in snapshot.children {
                 let childSnapshot = snapshot.childSnapshotForPath(child.key)
                 let value = childSnapshot.value as! NSDictionary
                 
-                if let childTime = value["timestamp"] { timestamp = (childTime as? Int)! }
-                dayDiff = self.daysDifference(weekAgo!, endDate: self.timeStampToDate(timestamp))
+                let timestamp: Int = value["timestamp"] as? Int ?? 0
+                let dayDiff = self.daysDifference(weekAgo, endDate: self.timeStampToDate(timestamp))
                 
                 // update moods in mood dictionary
-                if let happy = value["feeling"]![0]{
-                    updateMoodDictWeek("happy", dayDiff: dayDiff, value: (happy as? Double)!, count: counterArray[dayDiff])
-                }
-                if let confident = value["feeling"]![1]{
-                    updateMoodDictWeek("confident", dayDiff: dayDiff, value: (confident as? Double)!, count: counterArray[dayDiff])
-                }
-                if let calm = value["feeling"]![2]{
-                    updateMoodDictWeek("calm", dayDiff: dayDiff, value: (calm as? Double)!, count: counterArray[dayDiff])
-                }
-                if let friendly = value["feeling"]![3]{
-                    updateMoodDictWeek("friendly", dayDiff: dayDiff, value: (friendly as? Double)!, count: counterArray[dayDiff])
-                }
-                if let awake = value["feeling"]![4]{
-                    updateMoodDictWeek("awake", dayDiff: dayDiff, value: (awake as? Double)!, count: counterArray[dayDiff])
+                let moodValues = value["feeling"] as? [Double] ?? []
+                let moods = ["happy", "confident", "calm", "friendly", "awake"]
+                
+                for (mood, value) in zip(moods, moodValues) {
+                    updateMoodDictWeek(mood, dayDiff: dayDiff, value: value, count: counterArray[dayDiff])
                 }
                 
                 counterArray[dayDiff] += 1
                 
                 // update activity and location dictionaries
-                if let howLong = value["howLong"]{
-                    numHours = (howLong as? String)!
+                let numHours = Double(value["howLong"] as? String ?? "") ?? 0.0
+                if let activity = value["activity"] as? String {
+                    AppState.sharedInstance.activityDict[activity]![1] += numHours
                 }
-                if let activity = value["activity"]{
-                    AppState.sharedInstance.activityDict[(activity as? String)!]![1] += Double(numHours)!
-                }
-                if let location = value["where"]{
-                    AppState.sharedInstance.locationDict[(location as? String)!]![1] += Double(numHours)!
+                if let location = value["where"] as? String {
+                    AppState.sharedInstance.locationDict[location]![1] += numHours
                 }
             }
         })
         
     }
     
-    // generate pie slices
+    // generate pie slices (string labels)
     static func generateSliceTypes(dictionary: [String:[Double]], timeType: Int) -> [String]{
-        var slices: [String] = []
-        for (key, value) in dictionary{
-            if(value[timeType] != 0.0){
-                slices.append(key)
-            }
-        }
-        return slices
+        return dictionary.filter{ (_,value) in value[timeType] != 0.0 }.map{$0.0}
     }
     
     static func generateSliceValues(dictionary: [String:[Double]], slices: [String], timeType: Int) -> [Double]{
-        var values: [Double] = []
-        for slice in slices{
-            values.append(dictionary[slice]![timeType])
-        }
-        return values
+        return slices.map {dictionary[$0]![timeType]}
     }
     
     // helper functions to update the mood dictionaries in AppState
