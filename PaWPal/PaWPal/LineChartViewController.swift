@@ -19,7 +19,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     var days: [String] = []
     
     var currentData: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
-    var currentTimescale: [String] = ["8AM", "10AM", "12PM", "2PM", "4PM", "6PM", "8PM"]
+    var currentTimescale: [String] = ["12AM", "4AM", "8AM", "12PM", "4PM", "8PM", "12AM"]
     var currentMoodLabel: String = "happy"
     
     // helper function for when user taps moodSegment
@@ -87,7 +87,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         // create a data set with our array
         let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)
         chartDataSet.axisDependency = .Left // Line will correlate with left axis values
-        chartDataSet.setColor(UIColor.cyanColor().colorWithAlphaComponent(0.6))
+        chartDataSet.setColor(UIColor(red: 0, green: 129, blue: 242))
         
         let data: BarChartData = BarChartData(xVals: timeAxis, dataSet: chartDataSet)
         data.setValueTextColor(UIColor.blackColor())

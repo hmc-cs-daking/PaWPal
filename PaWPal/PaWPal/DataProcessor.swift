@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class DataProcessor {
     
+    // helper functions to help determine specific dates
     static func makeKeyTimeStamp(date: NSDate) -> Int{
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyyMMddHHmmss"
@@ -59,7 +60,6 @@ class DataProcessor {
         let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
         let dayQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(self.makeKeyTimeStamp(startOfDay))
         dayQuery.observeEventType(FIRDataEventType.Value, withBlock: { snapshot in
-            print(snapshot.childrenCount)
             
             // clear the current dictionary
             AppState.sharedInstance.moodDictDay = AppState.emptyMoodDict
@@ -133,7 +133,6 @@ class DataProcessor {
 
         // EXPENSIVE OPERATIONS
         weekQuery.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { snapshot in
-            print(snapshot.childrenCount)
             
             // clear the current dictionary
             AppState.sharedInstance.moodDictWeek = AppState.emptyMoodDict
