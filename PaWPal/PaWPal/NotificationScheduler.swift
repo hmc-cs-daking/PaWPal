@@ -196,6 +196,7 @@ class NotificationScheduler {
         timeComponents.hour = Int(timePieces[0])!
         let timeMinutesAndAmPm = timePieces[1].componentsSeparatedByString(" ")
         timeComponents.minute = Int(timeMinutesAndAmPm[0])!
+        timeComponents.second = 0
         if (addDayIfAM && timeMinutesAndAmPm[1] == "AM") {
             timeComponents.day += 1
         }

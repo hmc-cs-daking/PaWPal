@@ -52,6 +52,7 @@ class SettingsViewController: UIViewController {
         wakeTextField.resignFirstResponder()
         NotificationScheduler.clearScheduledNotifications()
         NotificationScheduler.scheduleNotificationsOnSignIn()
+        NotificationScheduler.scheduleNextNotificationOfTheDay()
     }
     
     func sleepDonePressed(sender: UIBarButtonItem) {
@@ -61,6 +62,9 @@ class SettingsViewController: UIViewController {
         DatabaseController.setSleepTime(time)
         sleepTextField.text = time
         sleepTextField.resignFirstResponder()
+        NotificationScheduler.clearScheduledNotifications()
+        NotificationScheduler.scheduleNotificationsOnSignIn()
+        NotificationScheduler.scheduleNextNotificationOfTheDay()
     }
     
     func createToolBar(pressedFunc: Selector) -> UIToolbar {
