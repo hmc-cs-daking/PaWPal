@@ -37,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // Retrieves user's info from firebase
                         let value = snapshot.childSnapshotForPath(currentUser.uid).value as? NSDictionary
                         
-                        if let userEmail = value?["userEmail"] { AppState.sharedInstance.userEmail = userEmail as? String }
-                        
                         DatabaseController.loadAppStateFromFirebase(value)
                         
                         // will reset the daily survey count if the closestNotification is the morning notification and the current time is past that

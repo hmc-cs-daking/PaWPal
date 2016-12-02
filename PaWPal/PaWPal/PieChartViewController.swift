@@ -54,26 +54,22 @@ class PieChartViewController: UIViewController {
     }
     
     func setChart(dataPoints: [String], values: [Double], pieChartView: PieChartView, baseColor: [Int]) {
-        
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
-            dataEntries.append(dataEntry)
-        }
+        // creating an array of data entries
+        let dataEntries = dataPoints.indices.map { ChartDataEntry(value: values[$0], xIndex: $0) }
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Hours Spent")
         var colors: [UIColor] = []
         var rgb = baseColor
-        var increment: Int = 0
-        if (dataPoints.count != 0) { increment = 255/dataPoints.count }
-        for _ in 0..<dataPoints.count {
+        
+        let increment = (dataPoints.isEmpty) ? 0 : 255/dataPoints.count
+        
+        for _ in dataPoints.indices {
             let color = UIColor(red: rgb[0], green: rgb[1], blue: rgb[2])
             colors.append(color)
             pieChartDataSet.colors = colors
             
             // lighten color for next slide
-            for i in 0..<rgb.count {
+            for i in rgb.indices {
                 if (rgb[i] + increment <= 255 && rgb[i] != 0){
                     rgb[i] += increment
                 }

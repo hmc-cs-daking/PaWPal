@@ -72,30 +72,31 @@ class DatabaseController {
         }
     }
     
-    // stores user's info in AppState, excluding userEmail and uid
+    // stores user's info in AppState, excluding uid (which is used to access the value)
     static func loadAppStateFromFirebase(value: NSDictionary?) {
-        if let userName = value?["userName"] { AppState.sharedInstance.userName = userName as? String }
-        if let school = value?["school"] { AppState.sharedInstance.school = school as? String }
-        if let wakeTime = value?["wakeTime"] { AppState.sharedInstance.wakeTime = wakeTime as? String }
-        if let sleepTime = value?["sleepTime"] { AppState.sharedInstance.sleepTime = sleepTime as? String }
-        if let closestNotification = value?["closestScheduledNotification"] { AppState.sharedInstance.closestScheduledNotification = closestNotification as? String }
-        if let furthestNotification = value?["furthestScheduledNotification"] { AppState.sharedInstance.furthestScheduledNotification = furthestNotification as? String }
-        if let dailyCount = value?["dailySurveyCount"] { AppState.sharedInstance.dailySurveyCount = (dailyCount as! NSNumber).integerValue }
-        if let totalCount = value?["totalSurveyCount"] { AppState.sharedInstance.totalSurveyCount = (totalCount as! NSNumber).integerValue }
-        if let lastActionTakenAt = value?["lastActionTakenAt"] { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt as? String }
-        if let locationSuggestions = value?["locationSuggestions"] {
-            AppState.sharedInstance.locationSuggestions = locationSuggestions as! [String]
+        if let userEmail = value?["userEmail"] as? String { AppState.sharedInstance.userEmail = userEmail }
+        if let userName = value?["userName"] as? String { AppState.sharedInstance.userName = userName }
+        if let school = value?["school"] as? String { AppState.sharedInstance.school = school }
+        if let wakeTime = value?["wakeTime"] as? String { AppState.sharedInstance.wakeTime = wakeTime }
+        if let sleepTime = value?["sleepTime"] as? String { AppState.sharedInstance.sleepTime = sleepTime }
+        if let closestNotification = value?["closestScheduledNotification"] as? String { AppState.sharedInstance.closestScheduledNotification = closestNotification }
+        if let furthestNotification = value?["furthestScheduledNotification"] as? String { AppState.sharedInstance.furthestScheduledNotification = furthestNotification }
+        if let dailyCount = value?["dailySurveyCount"] as? NSNumber { AppState.sharedInstance.dailySurveyCount = dailyCount.integerValue }
+        if let totalCount = value?["totalSurveyCount"] as? NSNumber { AppState.sharedInstance.totalSurveyCount = totalCount.integerValue }
+        if let lastActionTakenAt = value?["lastActionTakenAt"] as? String { AppState.sharedInstance.lastActionTakenAt = lastActionTakenAt }
+        if let locationSuggestions = value?["locationSuggestions"] as? [String] {
+            AppState.sharedInstance.locationSuggestions = locationSuggestions
             for location in AppState.sharedInstance.locationSuggestions {
                 AppState.sharedInstance.locationDict.updateValue([0.0, 0.0], forKey: location)
             }
         }
-        if let activitySuggestions = value?["activitySuggestions"] {
-            AppState.sharedInstance.activitySuggestions = activitySuggestions as! [String]
+        if let activitySuggestions = value?["activitySuggestions"] as? [String] {
+            AppState.sharedInstance.activitySuggestions = activitySuggestions
             for activity in AppState.sharedInstance.activitySuggestions {
                 AppState.sharedInstance.activityDict.updateValue([0.0, 0.0], forKey: activity)
             }
         }
-        if let otherSuggestions = value?["otherSuggestions"] { AppState.sharedInstance.otherSuggestions = otherSuggestions as! [String] }
+        if let otherSuggestions = value?["otherSuggestions"] as? [String] { AppState.sharedInstance.otherSuggestions = otherSuggestions }
     }
     
     // resets a user's password using Firebase to send an email
