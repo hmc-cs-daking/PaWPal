@@ -13,15 +13,16 @@ class SurveyPage4ViewController: UIViewController {
     var q2: TextQuestion!
     
     @IBAction func save(sender: UIButton) {
-        DatabaseController.updateMultiCheck(q1)
-        DatabaseController.updateText(q2)
+        for q in [q1, q2] {
+            DatabaseController.updateAnswer(q)
+        }
     }
     
     @IBAction func next(sender: UIButton) {
-        // require numerical answer
-        guard let textAnswer = q2.answerTextField.text
-            where Float(textAnswer) != nil else {
-                self.displayAlert("Hello", message: "Please enter a number :)", handler: nil)
+        // require positive numerical answer
+        guard let textAnswer = q2.answerTextField.text, let num = Float(textAnswer)
+            where num > 0 else {
+                self.displayAlert("Hello", message: "Please enter a positive number :)", handler: nil)
                 return
         }
         save(sender)

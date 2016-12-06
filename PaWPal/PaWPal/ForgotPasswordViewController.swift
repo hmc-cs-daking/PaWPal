@@ -25,7 +25,7 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBAction func resetPassword(sender: AnyObject) {
         guard let email = emailTextField.text
-            where !email.isEmpty else {
+            where email.isValidEmail() else {
                 self.displayAlert("Hello", message: "Please enter an email", handler: nil)
                 return
         }
