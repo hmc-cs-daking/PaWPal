@@ -875,7 +875,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="2100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQs-qc-pRL">
+                            <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQs-qc-pRL">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -1141,6 +1141,7 @@ Hours: T, 10am-4pm by appt.; 4-6pm walk in
                             <constraint firstItem="FKu-gG-bEj" firstAttribute="top" secondItem="voS-Cl-nz2" secondAttribute="bottom" constant="20" id="Sey-M8-8ro"/>
                             <constraint firstItem="sZO-3D-8Zb" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="aVw-3X-spy"/>
                             <constraint firstItem="sZO-3D-8Zb" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="bEV-oI-7dl"/>
+                            <constraint firstItem="SQs-qc-pRL" firstAttribute="centerX" secondItem="xAP-Pw-ypm" secondAttribute="centerX" id="bqh-1t-uHe"/>
                             <constraint firstItem="SQs-qc-pRL" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leading" id="buF-hy-3XZ"/>
                             <constraint firstItem="sZO-3D-8Zb" firstAttribute="top" secondItem="SQs-qc-pRL" secondAttribute="bottom" constant="12" id="fva-bE-uNe"/>
                             <constraint firstItem="SQs-qc-pRL" firstAttribute="top" secondItem="Zvf-9Q-c0v" secondAttribute="bottom" id="kKv-Br-v50"/>
