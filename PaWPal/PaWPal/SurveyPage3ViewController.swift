@@ -16,7 +16,7 @@ class SurveyPage3ViewController: UIViewController {
     
     @IBAction func save(sender: UIButton) {
         for q in [q1, q2, q3, q4] {
-            DatabaseController.updateSlider(q)
+            DatabaseController.updateAnswer(q)
         }
     }
     

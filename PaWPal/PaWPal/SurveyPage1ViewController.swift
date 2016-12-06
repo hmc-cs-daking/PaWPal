@@ -20,15 +20,19 @@ class SurveyPage1ViewController: UIViewController, AutoCompleteTextFieldDataSour
     var autoCompleteDictionary = [AutoCompleteTextField: [String]]()
     
     @IBAction func next(sender: UIButton) {
-        // check for filled text fields of mandatory questions
-        for q in [q1, q2, q3] where q.required == true {
-            guard let textAnswer = q.answerTextField.text
-                where !textAnswer.isEmpty else {
-                    self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
-                    return
+        for q in [q1, q2, q3] {
+            
+            // check for filled text fields of mandatory questions
+            if (q.required == true) {
+                guard let textAnswer = q.answerTextField.text
+                    where !textAnswer.isEmpty else {
+                        self.displayAlert("Hello", message: "Please fill in all required fields :)", handler: nil)
+                        return
+                }
             }
             
-            DatabaseController.updateText(q)
+            // saves answers
+            DatabaseController.updateAnswer(q)
         }
     }
     

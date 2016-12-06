@@ -30,7 +30,7 @@ class ChangePasswordViewController: UIViewController {
                 return
         }
         
-        DatabaseController.setPassword(newPassword.text!, controller: self, completion: {
+        DatabaseController.setPassword(userPassword, controller: self, completion: {
             self.displayAlert("Password changed", message: "Your info is saved", handler: {
                 (action) in self.dismissViewControllerAnimated(true, completion: nil)})
         })
