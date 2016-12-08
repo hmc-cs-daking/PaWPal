@@ -872,17 +872,9 @@
                         <viewControllerLayoutGuide type="bottom" id="FKu-gG-bEj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xAP-Pw-ypm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="2100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gev-wT-wmM">
-                                <rect key="frame" x="20" y="100" width="560" height="425"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, please email Professor Jim Boerkoel at boerkoel@g.hmc.edu. Additional Resources: https://www.hmc.edu/student-life/health-wellness/</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
                             <navigationBar userInteractionEnabled="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQs-qc-pRL">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -897,23 +889,273 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Emotional Health and Wellness Resources available to HMC Students" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5e-mi-ngU">
+                                <rect key="frame" x="20" y="157" width="560" height="21"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voS-Cl-nz2">
+                                <rect key="frame" x="20" y="180" width="560" height="1900"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YJg-Uh-8Kb">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="1841"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W07-Ug-zmj">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="118"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">The HMC Office of Health and Wellness (OHW) available for any issues relating to health and wellness (one on one support and guidance; group programs on a range of topics):
+Contact Information:
+Wellness@hmc.edu
+Dean Q deanq@hmc.edu
+Michelle Harrison mharrison@hmc.edu
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-iC-bbi">
+                                                <rect key="frame" x="0.0" y="118" width="560" height="190"/>
+                                                <color key="backgroundColor" red="0.52549019610000003" green="0.81960784310000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">CUC Monsour Counseling and Psychological Services for:
+-confidential counseling and aftercare
+Contact Information:
+Website: http://www.cuc.claremont.edu/monsour/
+Phone: (909) 621-8202
+Location: Tranquada Student Services Center, 1st Floor
+Hours: M-F, 8am-5pm*
+*For after hours emergencies, please contact Campus Safety at (909) 607-2000
+
+OFF campus providers who take Student health Insurance (and other insurance plans)
+http://www.cuc.claremont.edu/monsour/docs/Therapist-Referrals_Quick-List.pdf
+http://www.cuc.claremont.edu/monsour/docs/Local-Psychiatrists.pdf
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Yz-Vy-5NU">
+                                                <rect key="frame" x="0.0" y="308" width="560" height="116"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">HMC Office of Institutional Diversity: 
+-Social justice education
+-Identity development
+Contact Information:
+Email: oid@hmc.edu
+Phone: (909) 607-8875
+Location: Platt Center; Division of Student Affairs (North Wing)
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lei-iE-ENS">
+                                                <rect key="frame" x="0.0" y="424" width="560" height="187"/>
+                                                <color key="backgroundColor" red="0.52549019610000003" green="0.81960784310000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Office of the Chaplains:
+-Emotional health support for any matter (faith based or not)
+-Pastoral counseling, spiritual formation and crisis intervention/management
+-Worship services and religious observances
+-Opportunities for community service, reflection, and dialogue through the Multifaith Service Council and collaborative social justice programs
+Contact Information:
+Website: http://www.cuc.claremont.edu/chaplains/
+Email: Dawn_Bunch@cuc.claremont.edu
+Phone: (909) 621-8685
+Location: McAlister Center for Religious Activities, 919 North Columbia Avenue
+Hours: M-F, 8am-5pm
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a9g-j2-riK">
+                                                <rect key="frame" x="0.0" y="611" width="560" height="128"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">HMC Office of Disability Resources for accommodations:
+https://www.hmc.edu/student-life/disability-resources/
+Contact Information:
+Email: Deborah Kahn (dkahn@hmc.edu)
+Phone: (909) 621-8125
+Location: Platt Center; Division of Student Affairs (East Wing)
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L3i-em-wq6">
+                                                <rect key="frame" x="0.0" y="739" width="560" height="148"/>
+                                                <color key="backgroundColor" red="0.52549019610000003" green="0.81960784310000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Asian American Resource Center 
+-Asian American Mentor Program
+-Service and leadership opportunities
+-Leadership development
+Contact Information:
+Website: http://www.pomona.edu/administration/asian-american-resource-center/
+Email: See website
+Phone: (909) 621-8639
+Location: Smith Campus Center #240, 170 East 6th Street
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-mu-7OL">
+                                                <rect key="frame" x="0.0" y="887" width="560" height="161"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">International Place (I-Place):
+-General resources for issues faced by international students and scholars
+-Assistance with new arrival necessities
+-International student/scholar programs
+Contact Information:
+Website: http://iplace.claremont.edu
+Email: ipoffice@cmc.edu
+Phone: (909) 607-4571
+Location: 390 East 9th Street
+Hours: M-F, 9am-5pm
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fgD-uH-tQC">
+                                                <rect key="frame" x="0.0" y="1048" width="560" height="200"/>
+                                                <color key="backgroundColor" red="0.52549019610000003" green="0.81960784310000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Office of Black Student Affairs:
+-Academic support
+-Ambassador mentoring
+-Leadership development
+-Cultural programming
+-Student engagement
+-Career advising
+Contact Information:
+Website: http://www.cuc.claremont.edu/obsa/
+Email: OBSA-l@cuc.claremont.edu
+Phone: (909) 607-3669
+Location: Black Student Affairs House, 139 East 7th Street
+Hours: M-F, 9am-5pm
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fw4-gP-VmZ">
+                                                <rect key="frame" x="0.0" y="1248" width="560" height="187"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Queer Resource Center:
+-Drop in hours with QRC Staff*
+-Ally training
+-Free STD testing
+-Speakers Bureau
+Contact Information:
+Website: http://www.pomona.edu/administration/qrc/
+Email: qrcclaremont@gmail.com
+Phone: (909) 621-8000
+Location: Walton Commons, 395 East 6th Street
+Hours: M-F, 9am-5pm
+*See website for drop in hours.
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1OV-iX-JTq">
+                                                <rect key="frame" x="0.0" y="1435" width="560" height="128"/>
+                                                <color key="backgroundColor" red="0.52549019610000003" green="0.81960784310000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Title IX Coordinator:
+-report cases of sexual harassment
+Contact Information:
+Deborah Kahn
+Email: Dkahn@hmc.edu
+Phone: (909) 621-8301
+Location: Platt Center; Division of Student Affairs (East Wing)
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mPl-C5-nf1">
+                                                <rect key="frame" x="0.0" y="1563" width="560" height="128"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.57254901960000004" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Project Sister Crisis Hotline:
+-confidential information and referrals
+Contact Information:
+Phone: (909) 626-4357
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kdE-nS-UIK">
+                                                <rect key="frame" x="0.0" y="1691" width="560" height="150"/>
+                                                <color key="backgroundColor" red="0.52549019610000003" green="0.81960784310000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Project Sister Family Services (on-campus resources):
+-FREE confidential counseling and aftercare
+Contact Information:
+Dr. Nancy Arzate
+Phone: (909) 607-0690
+Location: 1030 Dartmouth Ave.
+Hours: T, 10am-4pm by appt.; 4-6pm walk in
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="YqE-iC-bbi" secondAttribute="trailing" id="7F3-8c-REj"/>
+                                            <constraint firstItem="lei-iE-ENS" firstAttribute="leading" secondItem="YJg-Uh-8Kb" secondAttribute="leading" id="8sQ-oN-IFe"/>
+                                            <constraint firstItem="a9g-j2-riK" firstAttribute="leading" secondItem="YJg-Uh-8Kb" secondAttribute="leading" id="D5V-7M-qfB"/>
+                                            <constraint firstAttribute="trailing" secondItem="lei-iE-ENS" secondAttribute="trailing" id="ICn-Rc-qcY"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Yz-Vy-5NU" secondAttribute="trailing" id="IJ2-ND-3Dk"/>
+                                            <constraint firstItem="4Yz-Vy-5NU" firstAttribute="leading" secondItem="YJg-Uh-8Kb" secondAttribute="leading" id="JWh-V8-HxC"/>
+                                            <constraint firstAttribute="trailing" secondItem="a9g-j2-riK" secondAttribute="trailing" id="KHg-S3-tJa"/>
+                                            <constraint firstItem="YqE-iC-bbi" firstAttribute="leading" secondItem="YJg-Uh-8Kb" secondAttribute="leading" id="Wlt-8Q-MYt"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YJg-Uh-8Kb" firstAttribute="leading" secondItem="voS-Cl-nz2" secondAttribute="leading" id="17n-Tp-vw3"/>
+                                    <constraint firstAttribute="trailing" secondItem="YJg-Uh-8Kb" secondAttribute="trailing" id="7JO-Bj-S83"/>
+                                    <constraint firstAttribute="bottom" secondItem="YJg-Uh-8Kb" secondAttribute="bottom" id="Adn-on-wQW"/>
+                                    <constraint firstItem="YJg-Uh-8Kb" firstAttribute="top" secondItem="voS-Cl-nz2" secondAttribute="top" id="mnR-pu-Adf"/>
+                                </constraints>
+                            </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sZO-3D-8Zb">
+                                <rect key="frame" x="20" y="76" width="560" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">PaWPal is here to help you be more productive! Simply fill out the surveys thoughout the day so that this app can learn more about you. If you have any further questions, visit https://www.cs.hmc.edu/HEAT/ or email Professor Jim Boerkoel at boerkoel@g.hmc.edu. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SQs-qc-pRL" firstAttribute="centerX" secondItem="gev-wT-wmM" secondAttribute="centerX" id="9uY-lw-Qs2"/>
-                            <constraint firstItem="gev-wT-wmM" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="J08-Lb-5vn"/>
-                            <constraint firstItem="gev-wT-wmM" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="Zqw-he-bLV"/>
+                            <constraint firstItem="voS-Cl-nz2" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="0hB-dV-Zod"/>
+                            <constraint firstItem="Q5e-mi-ngU" firstAttribute="top" secondItem="sZO-3D-8Zb" secondAttribute="bottom" constant="15" id="Jhm-p6-JZV"/>
+                            <constraint firstItem="Q5e-mi-ngU" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="KgP-10-7D9"/>
+                            <constraint firstItem="voS-Cl-nz2" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="L2v-fo-gtl"/>
+                            <constraint firstItem="Q5e-mi-ngU" firstAttribute="top" secondItem="sZO-3D-8Zb" secondAttribute="bottom" constant="15" id="MNc-Gu-h8W"/>
+                            <constraint firstItem="Q5e-mi-ngU" firstAttribute="top" secondItem="sZO-3D-8Zb" secondAttribute="bottom" constant="10" id="Phf-0O-ldv"/>
+                            <constraint firstItem="FKu-gG-bEj" firstAttribute="top" secondItem="voS-Cl-nz2" secondAttribute="bottom" constant="20" id="Sey-M8-8ro"/>
+                            <constraint firstItem="sZO-3D-8Zb" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="aVw-3X-spy"/>
+                            <constraint firstItem="sZO-3D-8Zb" firstAttribute="trailing" secondItem="xAP-Pw-ypm" secondAttribute="trailingMargin" id="bEV-oI-7dl"/>
+                            <constraint firstItem="SQs-qc-pRL" firstAttribute="centerX" secondItem="xAP-Pw-ypm" secondAttribute="centerX" id="bqh-1t-uHe"/>
                             <constraint firstItem="SQs-qc-pRL" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leading" id="buF-hy-3XZ"/>
-                            <constraint firstItem="gev-wT-wmM" firstAttribute="top" secondItem="SQs-qc-pRL" secondAttribute="bottom" constant="36" id="cPd-qq-Lkk"/>
+                            <constraint firstItem="sZO-3D-8Zb" firstAttribute="top" secondItem="SQs-qc-pRL" secondAttribute="bottom" constant="12" id="fva-bE-uNe"/>
                             <constraint firstItem="SQs-qc-pRL" firstAttribute="top" secondItem="Zvf-9Q-c0v" secondAttribute="bottom" id="kKv-Br-v50"/>
-                            <constraint firstItem="FKu-gG-bEj" firstAttribute="top" secondItem="gev-wT-wmM" secondAttribute="bottom" constant="75" id="okt-Kh-3DG"/>
+                            <constraint firstItem="Q5e-mi-ngU" firstAttribute="leading" secondItem="xAP-Pw-ypm" secondAttribute="leadingMargin" id="lIP-h1-y6r"/>
+                            <constraint firstItem="voS-Cl-nz2" firstAttribute="top" secondItem="Q5e-mi-ngU" secondAttribute="bottom" constant="2" id="r06-iJ-EFR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Help" image="Help Filled-30" id="WIO-4x-xV5"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="2100"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-9z-CHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="688"/>
+            <point key="canvasLocation" x="3464" y="713"/>
         </scene>
         <!--Data-->
         <scene sceneID="tAc-Ru-vW7">

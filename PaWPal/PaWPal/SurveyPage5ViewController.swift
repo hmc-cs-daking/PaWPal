@@ -13,7 +13,7 @@ class SurveyPage5ViewController: UIViewController {
     var q1: MultiSliderQuestion!
     
     @IBAction func save(sender: UIButton) {
-        DatabaseController.updateMultiSlider(q1)
+        DatabaseController.updateAnswer(q1)
     }
 
     override func viewDidLoad() {

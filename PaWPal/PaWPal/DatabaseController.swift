@@ -31,8 +31,8 @@ class DatabaseController {
                         "school": "",
                         "wakeTime": "9:00 AM",
                         "sleepTime": "11:59 PM",
-                        "closestScheduledNotification": "",
-                        "furthestScheduledNotification": "",
+                        "closestScheduledNotification": formatter.stringFromDate(NSDate()),
+                        "furthestScheduledNotification": formatter.stringFromDate(NSDate()),
                         "dailySurveyCount": 0,
                         "totalSurveyCount": 0,
                         "surveyList": [],
@@ -111,26 +111,29 @@ class DatabaseController {
         }
     }
     
-    //methods to update different types of questions
-    static func updateSlider(question: SliderQuestion){
-        let answer = question.answerSlider.value
-        AppState.sharedInstance.surveyList[question.key] = answer
-
-    }
-    
-    static func updateText(question: TextQuestion){
-        let answer = question.answerTextField.text
-        AppState.sharedInstance.surveyList[question.key] = answer
-    }
-    
-    static func updateMultiSlider(question: MultiSliderQuestion){
-        let answer = question.sliders.map {$0.value}
-        AppState.sharedInstance.surveyList[question.key] = answer
-    }
-    
-    static func updateMultiCheck(question: MultiCheckQuestion){
-        let answer = question.switches.map {$0.on}
-        AppState.sharedInstance.surveyList[question.key] = answer
+    // one method to update different types of questions
+    static func updateAnswer(question: UIView) {
+        if let textQ = question as? TextQuestion {
+            let answer = textQ.answerTextField.text
+            AppState.sharedInstance.surveyList[textQ.key] = answer
+        }
+        else if let sliderQ = question as? SliderQuestion {
+            let answer = sliderQ.answerSlider.value
+            AppState.sharedInstance.surveyList[sliderQ.key] = answer
+        }
+        else if let multiSliderQ = question as? MultiSliderQuestion {
+            // get the Float values for each slider
+            let answer = multiSliderQ.sliders.map {$0.value}
+            AppState.sharedInstance.surveyList[multiSliderQ.key] = answer
+        }
+        else if let multiCheckQ = question as? MultiCheckQuestion {
+            // get the Bool "on" state for each switch
+            let answer = multiCheckQ.switches.map {$0.on}
+            AppState.sharedInstance.surveyList[multiCheckQ.key] = answer
+        }
+        else {
+            print("ERROR: invalid question type")
+        }
     }
     
     // submits the completed survey to Firebase

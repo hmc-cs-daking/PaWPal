@@ -11,7 +11,14 @@ insightful graphs and charts.
 
 ##Screenshots
 
-Coming soon
+<em>Survey View Controllers</em>
+
+<img src="/Screenshots/SurveyViewControllers.png" width="600">
+<br><br>
+
+<em>Data Visualizations</em>
+
+<img src="/Screenshots/MoodChart.png" width="200">   <img src="/Screenshots/ActivitiesChart.png" width="200">
 
 ##Develop
 
