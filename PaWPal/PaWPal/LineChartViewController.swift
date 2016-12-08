@@ -128,12 +128,11 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         generateWeekAxis(NSDate())
         
         //testing dataprocessor
+        DataProcessor.getWeekAverage(weekAgo(NSDate()), completion: {self.updateLimitLine("happy", date: self.weekAgo(NSDate()))})
         DataProcessor.getDayData(NSDate(), completion: {self.updateMoodData(AppState.sharedInstance.moodDictDay["happy"]!, moodLabel: "happy")})
         DataProcessor.getWeekData(NSDate())
-        DataProcessor.getWeekAverage(weekAgo(NSDate()))
         
-        // set limit line
-        updateLimitLine("happy", date: weekAgo(NSDate()))
+        print(AppState.sharedInstance.averageList)
         
     }
     

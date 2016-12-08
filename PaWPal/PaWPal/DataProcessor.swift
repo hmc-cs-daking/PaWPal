@@ -155,7 +155,7 @@ class DataProcessor {
         
     }
 
-    static func getWeekAverage(date: NSDate){
+    static func getWeekAverage(date: NSDate, completion: () -> Void){
         let calendar = NSCalendar.currentCalendar()
         let weekAgoComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
         weekAgoComponents.day -= 6
@@ -194,7 +194,9 @@ class DataProcessor {
                 tempAvg = (numSurveys == 0) ? 0.0 : AppState.sharedInstance.averageList[mood]!/numSurveys
                 AppState.sharedInstance.averageList.updateValue(tempAvg, forKey: mood)
             }
+            completion()
         })
+        
     }
     
     // generate pie slices (string labels)
