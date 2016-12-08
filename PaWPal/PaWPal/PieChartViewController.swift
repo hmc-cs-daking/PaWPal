@@ -46,7 +46,6 @@ class PieChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(AppState.sharedInstance.activityDict)
         self.activityPieChartView.noDataText = "No recent data"
         self.locationPieChartView.noDataText = "No recent data"
         // Do any additional setup after loading the view.

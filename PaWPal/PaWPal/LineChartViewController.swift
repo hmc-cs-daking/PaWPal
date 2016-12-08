@@ -40,6 +40,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     // when user taps moodSegment
     @IBAction func updateMoodAxis(sender: UISegmentedControl){
         let tab = sender.selectedSegmentIndex
+        updateLimitLine(moodList[tab], date: weekAgo(NSDate()))
         if (timeSegment.selectedSegmentIndex == 0){
             updateMoodData(AppState.sharedInstance.moodDictDay[moodList[tab]]!, moodLabel: moodList[tab])
         }
@@ -47,6 +48,25 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
             updateMoodData(AppState.sharedInstance.moodDictWeek[moodList[tab]]!, moodLabel: moodList[tab])
         }
         
+    }
+    
+    func updateLimitLine(mood: String, date: NSDate){
+        self.moodChart.leftAxis.removeAllLimitLines()
+        if(AppState.sharedInstance.averageList[mood]! != 0){
+            let ll = ChartLimitLine(limit: AppState.sharedInstance.averageList[mood]!, label: "Last Week's Average")
+            ll.lineColor = UIColor.tangerineColor()
+            self.moodChart.leftAxis.addLimitLine(ll)
+        }
+    }
+    
+    func weekAgo(date: NSDate) -> NSDate{
+        let calendar = NSCalendar.currentCalendar()
+        let weekAgoComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+        weekAgoComponents.day -= 6
+        weekAgoComponents.hour = 0
+        weekAgoComponents.minute = 0
+        weekAgoComponents.second = 0
+        return calendar.dateFromComponents(weekAgoComponents)!
     }
     
     // when user taps timeSegment
@@ -83,7 +103,6 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)
         chartDataSet.axisDependency = .Left // Line will correlate with left axis values
         chartDataSet.setColor(UIColor(red: 0, green: 129, blue: 242))
-        
         let data: BarChartData = BarChartData(xVals: timeAxis, dataSet: chartDataSet)
         data.setValueTextColor(UIColor.blackColor())
         self.moodChart.data = data
@@ -101,14 +120,20 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         self.moodChart.leftAxis.customAxisMin = 0.0
         self.moodChart.leftAxis.customAxisMax = 8.0
         self.moodChart.rightAxis.enabled = false
+        self.moodChart.leftAxis.enabled = false
         self.moodChart.leftAxis.drawGridLinesEnabled = false
         self.moodChart.xAxis.drawGridLinesEnabled = false
+        self.moodChart.drawValueAboveBarEnabled = false
         
         generateWeekAxis(NSDate())
         
         //testing dataprocessor
+        DataProcessor.getWeekAverage(weekAgo(NSDate()), completion: {self.updateLimitLine("happy", date: self.weekAgo(NSDate()))})
         DataProcessor.getDayData(NSDate(), completion: {self.updateMoodData(AppState.sharedInstance.moodDictDay["happy"]!, moodLabel: "happy")})
         DataProcessor.getWeekData(NSDate())
+        
+        print(AppState.sharedInstance.averageList)
+        
     }
     
     override func didReceiveMemoryWarning() {

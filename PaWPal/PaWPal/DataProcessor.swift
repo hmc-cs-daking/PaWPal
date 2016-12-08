@@ -46,7 +46,6 @@ class DataProcessor {
     static func hoursIndex(hoursDiff: Int) -> Int{
         let firstHour = 0
         return (hoursDiff - firstHour)/4
-        
     }
     
     static func getDayData(date: NSDate, completion: () -> Void){
@@ -152,6 +151,50 @@ class DataProcessor {
                     AppState.sharedInstance.locationDict[location]![1] += numHours
                 }
             }
+        })
+        
+    }
+
+    static func getWeekAverage(date: NSDate, completion: () -> Void){
+        let calendar = NSCalendar.currentCalendar()
+        let weekAgoComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+        weekAgoComponents.day -= 6
+        weekAgoComponents.hour = 0
+        weekAgoComponents.minute = 0
+        weekAgoComponents.second = 0
+        let weekAgo = calendar.dateFromComponents(weekAgoComponents)!
+        
+        let surveyList = AppState.sharedInstance.databaseRef.child("users").child(DatabaseController.getUid()).child("surveyList")
+        let weekQuery = surveyList.queryOrderedByChild("timestamp").queryStartingAtValue(makeKeyTimeStamp(weekAgo)).queryEndingAtValue(makeKeyTimeStamp(date))
+
+        // EXPENSIVE OPERATIONS
+        weekQuery.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { snapshot in
+            // clear the current dictionary
+            AppState.sharedInstance.averageList = AppState.emptyAvgList
+            let moods = ["happy", "confident", "calm", "friendly", "awake"]
+            var numSurveys = 0.0
+            
+            for child in snapshot.children {
+                let childSnapshot = snapshot.childSnapshotForPath(child.key)
+                let value = childSnapshot.value as! NSDictionary
+                
+                // store as sums in averageList
+                let moodValues = value["feeling"] as? [Double] ?? []
+                var tempSum = 0.0
+                for (mood, val) in zip(moods, moodValues) {
+                    tempSum = val + AppState.sharedInstance.averageList[mood]!
+                    AppState.sharedInstance.averageList.updateValue(tempSum,forKey:mood)
+                }
+                numSurveys += 1.0
+            }
+            
+            // make sums averages
+            var tempAvg = 0.0
+            for mood in moods{
+                tempAvg = (numSurveys == 0) ? 0.0 : AppState.sharedInstance.averageList[mood]!/numSurveys
+                AppState.sharedInstance.averageList.updateValue(tempAvg, forKey: mood)
+            }
+            completion()
         })
         
     }
