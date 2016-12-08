@@ -132,6 +132,7 @@ class SettingsViewController: UIViewController {
             instance.moodDictDay = AppState.emptyMoodDict
             instance.activityDict = [:]
             instance.locationDict = [:]
+            instance.averageList = AppState.emptyAvgList
             
             // autocomplete instances
             instance.locationSuggestions = AppState.defaultLocations

@@ -48,6 +48,14 @@ class AppState: NSObject {
         "friendly": Array(count: 7, repeatedValue: 0.0),
         "awake": Array(count: 7, repeatedValue: 0.0)
     ]
+    
+    static let emptyAvgList: [String:Double] = [
+        "happy": 0.0,
+        "confident": 0.0,
+        "calm": 0.0,
+        "friendly": 0.0,
+        "awake": 0.0
+    ]
 
     // autocomplete variables
     static let defaultLocations:[String] = ["Platt", "Place", "Shanahan", "Atwood"]
@@ -81,6 +89,7 @@ class AppState: NSObject {
     var moodDictDay: [String:[Double]] = emptyMoodDict
     var activityDict: [String:[Double]] = [:]
     var locationDict: [String:[Double]] = [:]
+    var averageList: [String:Double] = emptyAvgList
     
     // autocomplete instances
     var locationSuggestions: [String] = defaultLocations
