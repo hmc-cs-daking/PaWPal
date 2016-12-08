@@ -40,6 +40,7 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
     // when user taps moodSegment
     @IBAction func updateMoodAxis(sender: UISegmentedControl){
         let tab = sender.selectedSegmentIndex
+        updateLimitLine(moodList[tab], date: weekAgo(NSDate()))
         if (timeSegment.selectedSegmentIndex == 0){
             updateMoodData(AppState.sharedInstance.moodDictDay[moodList[tab]]!, moodLabel: moodList[tab])
         }
@@ -47,6 +48,25 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
             updateMoodData(AppState.sharedInstance.moodDictWeek[moodList[tab]]!, moodLabel: moodList[tab])
         }
         
+    }
+    
+    func updateLimitLine(mood: String, date: NSDate){
+        self.moodChart.leftAxis.removeAllLimitLines()
+        if(AppState.sharedInstance.averageList[mood]! != 0){
+            let ll = ChartLimitLine(limit: AppState.sharedInstance.averageList[mood]!, label: "Last Week's Average")
+            ll.lineColor = UIColor.tangerineColor()
+            self.moodChart.leftAxis.addLimitLine(ll)
+        }
+    }
+    
+    func weekAgo(date: NSDate) -> NSDate{
+        let calendar = NSCalendar.currentCalendar()
+        let weekAgoComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+        weekAgoComponents.day -= 6
+        weekAgoComponents.hour = 0
+        weekAgoComponents.minute = 0
+        weekAgoComponents.second = 0
+        return calendar.dateFromComponents(weekAgoComponents)!
     }
     
     // when user taps timeSegment
@@ -105,16 +125,16 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         self.moodChart.xAxis.drawGridLinesEnabled = false
         self.moodChart.drawValueAboveBarEnabled = false
         
-        // set limit line
-        let ll = ChartLimitLine(limit: 4.0, label: "Last Week's Average")
-        ll.lineColor = UIColor.tangerineColor()
-        self.moodChart.leftAxis.addLimitLine(ll)
-        
         generateWeekAxis(NSDate())
         
         //testing dataprocessor
         DataProcessor.getDayData(NSDate(), completion: {self.updateMoodData(AppState.sharedInstance.moodDictDay["happy"]!, moodLabel: "happy")})
         DataProcessor.getWeekData(NSDate())
+        DataProcessor.getWeekAverage(weekAgo(NSDate()))
+        
+        // set limit line
+        updateLimitLine("happy", date: weekAgo(NSDate()))
+        
     }
     
     override func didReceiveMemoryWarning() {
