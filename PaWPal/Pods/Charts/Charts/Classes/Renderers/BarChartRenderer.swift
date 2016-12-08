@@ -317,13 +317,15 @@ public class BarChartRenderer: ChartDataRendererBase
                         
                         let val = entries[j].value
                     
-                        drawValue(context: context,
-                            value: formatter!.stringFromNumber(val)!,
-                            xPos: valuePoints[j].x,
-                            yPos: valuePoints[j].y + (val >= 0.0 ? posOffset : negOffset),
-                            font: valueFont,
-                            align: .Center,
-                            color: valueTextColor)
+                        if(drawValueAboveBar){
+                            drawValue(context: context,
+                                      value: formatter!.stringFromNumber(val)!,
+                                      xPos: valuePoints[j].x,
+                                      yPos: valuePoints[j].y + (val >= 0.0 ? posOffset : negOffset),
+                                      font: valueFont,
+                                      align: .Center,
+                                      color: valueTextColor)
+                        }
                     }
                 }
                 else

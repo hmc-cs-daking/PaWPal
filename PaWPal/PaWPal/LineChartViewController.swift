@@ -83,7 +83,6 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         let chartDataSet: BarChartDataSet = BarChartDataSet(yVals: dataEntries, label: moodLabel)
         chartDataSet.axisDependency = .Left // Line will correlate with left axis values
         chartDataSet.setColor(UIColor(red: 0, green: 129, blue: 242))
-        
         let data: BarChartData = BarChartData(xVals: timeAxis, dataSet: chartDataSet)
         data.setValueTextColor(UIColor.blackColor())
         self.moodChart.data = data
@@ -101,8 +100,15 @@ class LineChartViewController: UIViewController, ChartViewDelegate {
         self.moodChart.leftAxis.customAxisMin = 0.0
         self.moodChart.leftAxis.customAxisMax = 8.0
         self.moodChart.rightAxis.enabled = false
+        self.moodChart.leftAxis.enabled = false
         self.moodChart.leftAxis.drawGridLinesEnabled = false
         self.moodChart.xAxis.drawGridLinesEnabled = false
+        self.moodChart.drawValueAboveBarEnabled = false
+        
+        // set limit line
+        let ll = ChartLimitLine(limit: 4.0, label: "Last Week's Average")
+        ll.lineColor = UIColor.tangerineColor()
+        self.moodChart.leftAxis.addLimitLine(ll)
         
         generateWeekAxis(NSDate())
         
