@@ -1,4 +1,4 @@
-# PaWPal
+# PaWPal - an amazing app
 
 ##Overview
 
